@@ -64,7 +64,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainWindow.xaml">
+    <Compile Include="service\ComNodeService.cs" />
+    <Compile Include="ui\ComNodeWraper.cs" />
+    <Page Include="ui\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -72,7 +74,27 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="com\ComAnalogConfNodeComponent.cs" />
+    <Compile Include="com\ComAnalogNodeComponent.cs" />
+    <Compile Include="com\ComDioConfNodeComponent.cs" />
+    <Compile Include="com\ComDioNodeComponent.cs" />
+    <Compile Include="com\ComFurnaceConfNodeComponent.cs" />
+    <Compile Include="com\ComFurnaceNodeComponent.cs" />
+    <Compile Include="com\ComGasConfNodeComponent.cs" />
+    <Compile Include="com\ComGasNodeComponent.cs" />
+    <Compile Include="com\ComMfcConfNodeComponent.cs" />
+    <Compile Include="com\ComMfcNodeComponent.cs" />
+    <Compile Include="com\ComPaddleConfNodeComponent.cs" />
+    <Compile Include="com\ComPaddleNodeComponent.cs" />
+    <Compile Include="com\ComProcessNodeComponent.cs" />
+    <Compile Include="com\ComSecurityConfNodeComponent.cs" />
+    <Compile Include="com\ComTemperConfNodeComponent.cs" />
+    <Compile Include="com\ComTemperNodeComponent.cs" />
+    <Compile Include="com\ComTubeGroupConfNodeComponent.cs" />
+    <Compile Include="com\ComTubeNodeComponent.cs" />
+    <Compile Include="com\ComVacuumConfNodeComponent.cs" />
+    <Compile Include="com\ComVacuumNodeComponent.cs" />
+    <Compile Include="ui\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
