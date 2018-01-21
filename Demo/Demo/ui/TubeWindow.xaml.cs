@@ -23,13 +23,16 @@ namespace Demo.ui
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class TubeWindow : Window
     {
-        private byte selectedTube = 1;
+        private byte mSelectedTube = 1;
 
-        public MainWindow()
+        public TubeWindow(byte selectedTube)
         {
             InitializeComponent();
+
+            mSelectedTube = selectedTube;
+            labelTitle.Content = "Tube " + selectedTube;
             LoadOPC();
         }
 
@@ -41,9 +44,9 @@ namespace Demo.ui
             opcReadNodes.Add(ComProcessNodeComponent.Instance.TubeNodeComponents[0].VacuumNodeComponent.AnalogNodeComponents[3].CurMeas);
             ComNodeService.Instance.ReadComNodes(1, opcReadNodes);
 
-            textBox.Text = ComProcessNodeComponent.Instance.TubeNodeComponents[0].VacuumNodeComponent.AnalogNodeComponents[0].CurMeas.Value.ToString();
-            textBox1.Text = ComProcessNodeComponent.Instance.TubeNodeComponents[0].MfcNodeComponent.GasNodeComponents[0].CurMeas.Value.ToString();
-            textBox2.Text = ComProcessNodeComponent.Instance.TubeNodeComponents[0].VacuumNodeComponent.AnalogNodeComponents[3].CurMeas.Value.ToString();
+            //textBox.Text = ComProcessNodeComponent.Instance.TubeNodeComponents[0].VacuumNodeComponent.AnalogNodeComponents[0].CurMeas.Value.ToString();
+            //textBox1.Text = ComProcessNodeComponent.Instance.TubeNodeComponents[0].MfcNodeComponent.GasNodeComponents[0].CurMeas.Value.ToString();
+            //textBox2.Text = ComProcessNodeComponent.Instance.TubeNodeComponents[0].VacuumNodeComponent.AnalogNodeComponents[3].CurMeas.Value.ToString();
 
             List<OpcNode> opcSubscriptNodes = new List<OpcNode>();
             for (int j = 0; j < 3; ++j)
@@ -76,11 +79,10 @@ namespace Demo.ui
         {
             this.Dispatcher.BeginInvoke(DispatcherPriority.Normal, (ThreadStart)delegate ()
             {
-                if (opcNode.NodeID == ComProcessNodeComponent.Instance.Test.NodeID)
-                //if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[selectedTube-1].FurnaceNodeComponent.TemperNodeComponents[0].IntValue.NodeID)
+                /*
+                if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[selectedTube-1].FurnaceNodeComponent.TemperNodeComponents[0].IntValue.NodeID)
                 {
-                    //testBinding.Value = ComProcessNodeComponent.Instance.Test.Value.ToString();
-                    //textBox3.Text = newValue.ToString();
+                    textBox3.Text = newValue.ToString();
                 }
                 else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[selectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[1].IntValue.NodeID)
                 {
@@ -174,25 +176,13 @@ namespace Demo.ui
                 {
                     textBoxGas6Value.Text = newValue.ToString();
                 }
+                */
             });
         }
 
         private void btnTube1_Click(object sender, RoutedEventArgs e)
         {
-            selectedTube = 1;
-            labelTitle.Content = "Tube 1";
-        }
-
-        private void btnTube2_Click(object sender, RoutedEventArgs e)
-        {
-            selectedTube = 2;
-            labelTitle.Content = "Tube 2";
-        }
-
-        private void btnTube3_Click(object sender, RoutedEventArgs e)
-        {
-            selectedTube = 3;
-            labelTitle.Content = "Tube 3";
+            textBox4.Text = "" + ComNodeService.Instance.TubeStatus(mSelectedTube);
         }
     }
 }

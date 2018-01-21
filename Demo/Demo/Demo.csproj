@@ -66,7 +66,11 @@
     </ApplicationDefinition>
     <Compile Include="service\ComNodeService.cs" />
     <Compile Include="ui\ComNodeWraper.cs" />
-    <Page Include="ui\MainWindow.xaml">
+    <Page Include="ui\Home.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ui\TubeWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -94,8 +98,11 @@
     <Compile Include="com\ComTubeNodeComponent.cs" />
     <Compile Include="com\ComVacuumConfNodeComponent.cs" />
     <Compile Include="com\ComVacuumNodeComponent.cs" />
-    <Compile Include="ui\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="ui\Home.xaml.cs">
+      <DependentUpon>Home.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ui\TubeWindow.xaml.cs">
+      <DependentUpon>TubeWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

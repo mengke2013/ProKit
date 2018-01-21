@@ -70,12 +70,26 @@ namespace Demo.service
             try
             {
                 mClient1 = new OpcClient("192.168.1.64");
-               // mClient2 = new OpcClient("192.168.1.64");
+                // mClient2 = new OpcClient("192.168.1.64");
+                mClient1.Connect();
             }
             catch (Exception e)
             {
                 
             }
+        }
+
+        public int TubeStatus(byte tubeIndex)
+        {
+            if (tubeIndex < 4 && mClient1 != null)
+            {
+                return mClient1.Status;
+            }
+            else if (tubeIndex > 3 && mClient2 != null)
+            {
+                return mClient2.Status;
+            }
+            return 0;
         }
 
      
