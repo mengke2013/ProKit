@@ -42,7 +42,7 @@ namespace Demo.ui
             opcReadNodes.Add(ComProcessNodeComponent.Instance.TubeNodeComponents[0].VacuumNodeComponent.AnalogNodeComponents[0].CurMeas);
             opcReadNodes.Add(ComProcessNodeComponent.Instance.TubeNodeComponents[0].MfcNodeComponent.GasNodeComponents[0].CurMeas);
             opcReadNodes.Add(ComProcessNodeComponent.Instance.TubeNodeComponents[0].VacuumNodeComponent.AnalogNodeComponents[3].CurMeas);
-            ComNodeService.Instance.ReadComNodes(1, opcReadNodes);
+            //ComNodeService.Instance.ReadComNodes(1, opcReadNodes);
 
             //textBox.Text = ComProcessNodeComponent.Instance.TubeNodeComponents[0].VacuumNodeComponent.AnalogNodeComponents[0].CurMeas.Value.ToString();
             //textBox1.Text = ComProcessNodeComponent.Instance.TubeNodeComponents[0].MfcNodeComponent.GasNodeComponents[0].CurMeas.Value.ToString();

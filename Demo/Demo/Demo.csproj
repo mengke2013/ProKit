@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>libs\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Opc.Ua.Client">
       <HintPath>libs\Opc.Ua.Client.dll</HintPath>
     </Reference>

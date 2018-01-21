@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using log4net;
 using Rocky.Core.Opc.Ua;
 using Demo.service;
 using Demo.com;
@@ -16,9 +17,23 @@ namespace Demo
     /// </summary>
     public partial class App : Application
     {
+        public static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         public App()
         {
             SubscriptComNodes();
+        }
+
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            log4net.Config.XmlConfigurator.Configure();
+            base.OnStartup(e);
+            log.Info("==Startup=====================>>>");
+        }
+        protected override void OnExit(ExitEventArgs e)
+        {
+            log.Info("<<<========================End==");
+            base.OnExit(e);
         }
 
         private void SubscriptComNodes()

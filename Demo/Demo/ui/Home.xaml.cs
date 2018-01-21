@@ -11,6 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Rocky.Core.Opc.Ua;
+using Demo.service;
+using Demo.com;
 
 namespace Demo.ui
 {
@@ -40,6 +43,17 @@ namespace Demo.ui
         {
             TubeWindow tubeWindow = new TubeWindow(3);
             tubeWindow.Show();
+        }
+
+        private void btnConnect_Click(object sender, RoutedEventArgs e)
+        {
+            ComNodeService.Instance.Connect();
+            //SubscriptComNodes();
+        }
+
+        private void btnReconnect_Click(object sender, RoutedEventArgs e)
+        {
+            ComNodeService.Instance.Reconnect();
         }
     }
 }

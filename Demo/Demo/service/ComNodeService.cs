@@ -28,6 +28,18 @@ namespace Demo.service
             }
         }
 
+        public void Connect()
+        {
+            mClient1.Connect();
+            //mClient2.Connect();
+        }
+
+        public void Reconnect()
+        {
+            mClient1.Reconnect();
+            //mClient2.Reconnect();
+        }
+
         public void ReadComNodes(byte tubeIndex, List<OpcNode> opcNodes)
         {
             if (tubeIndex < 4 && mClient1 != null)
@@ -71,7 +83,7 @@ namespace Demo.service
             {
                 mClient1 = new OpcClient("192.168.1.64");
                 // mClient2 = new OpcClient("192.168.1.64");
-                mClient1.Connect();
+                //mClient1.Connect();
             }
             catch (Exception e)
             {
