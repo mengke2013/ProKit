@@ -39,7 +39,7 @@ namespace Demo.ui
             tubeMonitorPage.DataContext = mTubeMonitorPageModel;
 
             this.bdMainPanel.Height = this.Height-130;
-            this.bdMainPanel.Width = this.Width - 90;
+            this.bdMainPanel.Width = this.Width - 70;
             RegestDataContext();
         }
 
@@ -311,42 +311,87 @@ namespace Demo.ui
 
         private void btnMonitorClick(object sender, RoutedEventArgs e)
         {
-            bd0.Margin = new Thickness(330, 42, 0, 0);
+            bd0.Margin = new Thickness(375, 42, 0, 0);
             DisableAllTubePages();
             tubeMonitorPage.Visibility = Visibility.Visible;
             tubePageTitle.Text = "Monitor";
+            TubeTabHeaderMonitor.Effect = new DropShadowEffect
+            {
+                Color = new Color { A = 255, R = 0, G = 0, B = 0 },
+                Direction = 315,
+                ShadowDepth = 5,
+                BlurRadius = 5,
+                RenderingBias = RenderingBias.Performance,
+                Opacity = 100
+            };
         }
 
         private void btnTrendClick(object sender, RoutedEventArgs e)
         {
-            bd0.Margin = new Thickness(410, 42, 0, 0);
+            bd0.Margin = new Thickness(460, 42, 0, 0);
             DisableAllTubePages();
             tubeTrendPage.Visibility = Visibility.Visible;
             tubePageTitle.Text = "Trend";
+            TubeTabHeaderTrend.Effect = new DropShadowEffect
+            {
+                Color = new Color { A = 255, R = 0, G = 0, B = 0 },
+                Direction = 315,
+                ShadowDepth = 5,
+                BlurRadius = 5,
+                RenderingBias = RenderingBias.Performance,
+                Opacity = 100
+            };
         }
 
         private void btnRecipeClick(object sender, RoutedEventArgs e)
         {
-            bd0.Margin = new Thickness(490, 42, 0, 0);
+            bd0.Margin = new Thickness(545, 42, 0, 0);
             DisableAllTubePages();
             tubeRecipePage.Visibility = Visibility.Visible;
             tubePageTitle.Text = "Recipe";
+            TubeTabHeaderRecipe.Effect = new DropShadowEffect
+            {
+                Color = new Color { A = 255, R = 0, G = 0, B = 0 },
+                Direction = 315,
+                ShadowDepth = 5,
+                BlurRadius = 5,
+                RenderingBias = RenderingBias.Performance,
+                Opacity = 100
+            };
         }
 
         private void btnSettingsClick(object sender, RoutedEventArgs e)
         {
-            bd0.Margin = new Thickness(570, 42, 0, 0);
+            bd0.Margin = new Thickness(630, 42, 0, 0);
             DisableAllTubePages();
             tubeSettingsPage.Visibility = Visibility.Visible;
             tubePageTitle.Text = "Settings";
+            TubeTabHeaderSettings.Effect = new DropShadowEffect
+            {
+                Color = new Color { A = 255, R = 0, G = 0, B = 0 },
+                Direction = 315,
+                ShadowDepth = 5,
+                BlurRadius = 5,
+                RenderingBias = RenderingBias.Performance,
+                Opacity = 100
+            };
         }
 
         private void btnEventsClick(object sender, RoutedEventArgs e)
         {
-            bd0.Margin = new Thickness(650, 42, 0, 0);
+            bd0.Margin = new Thickness(715, 42, 0, 0);
             DisableAllTubePages();
             tubeEventsPage.Visibility = Visibility.Visible;
             tubePageTitle.Text = "Events";
+            TubeTabHeaderEvents.Effect = new DropShadowEffect
+            {
+                Color = new Color { A = 255, R = 0, G = 0, B = 0 },
+                Direction = 315,
+                ShadowDepth = 5,
+                BlurRadius = 5,
+                RenderingBias = RenderingBias.Performance,
+                Opacity = 100
+            };
         }
 
         private void DisableAllTubePages()
@@ -356,6 +401,11 @@ namespace Demo.ui
             tubeRecipePage.Visibility = Visibility.Hidden;
             tubeSettingsPage.Visibility = Visibility.Hidden;
             tubeEventsPage.Visibility = Visibility.Hidden;
+            TubeTabHeaderMonitor.ClearValue(EffectProperty);
+            TubeTabHeaderTrend.ClearValue(EffectProperty);
+            TubeTabHeaderRecipe.ClearValue(EffectProperty);
+            TubeTabHeaderSettings.ClearValue(EffectProperty);
+            TubeTabHeaderEvents.ClearValue(EffectProperty);
         }
 
         private void DisableAllTabs()
