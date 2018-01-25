@@ -49,6 +49,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -67,13 +69,38 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="service\ComNodeService.cs" />
+    <Compile Include="com\ComNodeHelper.cs" />
+    <Compile Include="com\ComNodeService.cs" />
     <Compile Include="ui\ComNodeWraper.cs" />
+    <Compile Include="ui\TubeEventsPage.xaml.cs">
+      <DependentUpon>TubeEventsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ui\TubeRecipePage.xaml.cs">
+      <DependentUpon>TubeRecipePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ui\TubeTrendPage.xaml.cs">
+      <DependentUpon>TubeTrendPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ui\TubeSettingsPage.xaml.cs">
+      <DependentUpon>TubeSettingsPage.xaml</DependentUpon>
+    </Compile>
     <Page Include="ui\Home.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ui\TestControls.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ui\TubeEventsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ui\TubeMonitorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ui\TubeRecipePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -85,36 +112,48 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="com\ComAnalogConfNodeComponent.cs" />
-    <Compile Include="com\ComAnalogNodeComponent.cs" />
-    <Compile Include="com\ComDioConfNodeComponent.cs" />
-    <Compile Include="com\ComDioNodeComponent.cs" />
-    <Compile Include="com\ComFurnaceConfNodeComponent.cs" />
-    <Compile Include="com\ComFurnaceNodeComponent.cs" />
-    <Compile Include="com\ComGasConfNodeComponent.cs" />
-    <Compile Include="com\ComGasNodeComponent.cs" />
-    <Compile Include="com\ComMfcConfNodeComponent.cs" />
-    <Compile Include="com\ComMfcNodeComponent.cs" />
-    <Compile Include="com\ComPaddleConfNodeComponent.cs" />
-    <Compile Include="com\ComPaddleNodeComponent.cs" />
-    <Compile Include="com\ComProcessNodeComponent.cs" />
-    <Compile Include="com\ComSecurityConfNodeComponent.cs" />
-    <Compile Include="com\ComTemperConfNodeComponent.cs" />
-    <Compile Include="com\ComTemperNodeComponent.cs" />
-    <Compile Include="com\ComTubeGroupConfNodeComponent.cs" />
-    <Compile Include="com\ComTubeNodeComponent.cs" />
-    <Compile Include="com\ComVacuumConfNodeComponent.cs" />
-    <Compile Include="com\ComVacuumNodeComponent.cs" />
+    <Compile Include="com\entity\ComAnalogConfNodeComponent.cs" />
+    <Compile Include="com\entity\ComAnalogNodeComponent.cs" />
+    <Compile Include="com\entity\ComDioConfNodeComponent.cs" />
+    <Compile Include="com\entity\ComDioNodeComponent.cs" />
+    <Compile Include="com\entity\ComFurnaceConfNodeComponent.cs" />
+    <Compile Include="com\entity\ComFurnaceNodeComponent.cs" />
+    <Compile Include="com\entity\ComGasConfNodeComponent.cs" />
+    <Compile Include="com\entity\ComGasNodeComponent.cs" />
+    <Compile Include="com\entity\ComMfcConfNodeComponent.cs" />
+    <Compile Include="com\entity\ComMfcNodeComponent.cs" />
+    <Compile Include="com\entity\ComPaddleConfNodeComponent.cs" />
+    <Compile Include="com\entity\ComPaddleNodeComponent.cs" />
+    <Compile Include="com\entity\ComProcessNodeComponent.cs" />
+    <Compile Include="com\entity\ComSecurityConfNodeComponent.cs" />
+    <Compile Include="com\entity\ComTemperConfNodeComponent.cs" />
+    <Compile Include="com\entity\ComTemperNodeComponent.cs" />
+    <Compile Include="com\entity\ComTubeGroupConfNodeComponent.cs" />
+    <Compile Include="com\entity\ComTubeNodeComponent.cs" />
+    <Compile Include="com\entity\ComVacuumConfNodeComponent.cs" />
+    <Compile Include="com\entity\ComVacuumNodeComponent.cs" />
     <Compile Include="ui\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ui\model\TubeMonitorPageModel.cs" />
     <Compile Include="ui\TestControls.xaml.cs">
       <DependentUpon>TestControls.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ui\TubeMonitorPage.xaml.cs">
+      <DependentUpon>TubeMonitorPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ui\TubeWindow.xaml.cs">
       <DependentUpon>TubeWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ui\TubeTrendPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ui\TubeSettingsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -144,7 +183,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="com\entity\" />
+    <Folder Include="service\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\furnace.PNG" />

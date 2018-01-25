@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using System.Windows;
 using log4net;
 using Rocky.Core.Opc.Ua;
-using Demo.service;
 using Demo.com;
 
 namespace Demo
@@ -49,6 +48,7 @@ namespace Demo
                 for (int j = 0; j < temperNodeComponents.Length; ++j)
                 {
                     ComTemperNodeComponent temperNodeComponent = temperNodeComponents[j];
+                    //opcSubscriptNodes.Add(temperNodeComponent.CurSp);
                     opcSubscriptNodes.Add(temperNodeComponent.IntValue);
                     opcSubscriptNodes.Add(temperNodeComponent.ExtValue);
                     opcSubscriptNodes.Add(temperNodeComponent.HeatPower);

@@ -23,6 +23,13 @@
                 <Image Source="/Demo;component/images/LOGO.jpg" Margin="10,3" Height="60"  />
                 <TextBlock Margin="20,20" FontSize="24" Foreground="Red" FontWeight="Bold">RPB-66</TextBlock>
             </WrapPanel>
+            <WrapPanel Name="TubeTabHeader" Visibility="Hidden" Margin="20, 0" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+                <Button Width="80" Height="30" Click="btnMonitorClick">Monitor</Button>
+                <Button Width="80" Height="30" Click="btnTrendClick">Trend</Button>
+                <Button Width="80" Height="30" Click="btnRecipeClick">Recipe</Button>
+                <Button Width="80" Height="30" Click="btnSettingsClick">Settings</Button>
+                <Button Width="80" Height="30" Click="btnEventsClick">Events</Button>
+            </WrapPanel>
             <WrapPanel Margin="5,2,50,2" DockPanel.Dock="Right" HorizontalAlignment="Right" VerticalAlignment="Bottom">
                 <Button Margin="5,5,5,1" Width="60">
                     <WrapPanel>
@@ -51,11 +58,9 @@
             </WrapPanel>
         </DockPanel>
 
+
         <StackPanel  Margin="5,0" Grid.Row="1" Grid.Column="1">
             <Border Name="borderTube1" BorderBrush="Black" BorderThickness="1" Padding="10,10,10,10" Margin="0,0,0,0" VerticalAlignment="Top" Background="White">
-                <Border.Effect>
-                    <DropShadowEffect/>
-                </Border.Effect>
                 <DockPanel>
                     <StackPanel DockPanel.Dock="Left">
                         <Button x:Name="btnTube1"  Content="Tube 1" HorizontalAlignment="Left" Margin="5,5,5,5" VerticalAlignment="Top" Width="100" Click="btnTube1_Click" Height="35"/>
@@ -656,7 +661,7 @@
                 </DockPanel>
             </Border>
         </StackPanel>
-        <Border Visibility="Visible" Name="bdMainPanel" BorderBrush="Black" BorderThickness="1,1,1,1"  HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="132,0,5,5" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2" Background="White" CornerRadius="5" >
+        <Border Visibility="Hidden" Name="bdMainPanel" BorderBrush="Black" BorderThickness="1,1,1,1"  HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="132,0,5,5" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2" Background="White" CornerRadius="5" >
             <Border.Effect>
                 <DropShadowEffect ShadowDepth="5" BlurRadius="5"/>
             </Border.Effect>
@@ -666,15 +671,23 @@
                         <Image Source="/Demo;component/images/close.PNG"  Width="10" Height="10"></Image>
                     </Button>
                 </WrapPanel>
+                <local:TubeMonitorPage x:Name="tubeMonitorPage"/>
+                <local:TubeTrendPage x:Name="tubeTrendPage"/>
+                <local:TubeTrendPage x:Name="tubeRecipePage"/>
+                <local:TubeSettingsPage x:Name="tubeSettingsPage"/>
+                <local:TubeEventsPage x:Name="tubeEventsPage"/>
             </DockPanel>
         </Border>
-        <Border Name="bd1" BorderThickness="0" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="130,1,0,0" Grid.Row="1" Grid.Column="1" Width="5" Height="115" Background="White" >
-
+        <Border Name="bd0" Visibility="Hidden" BorderThickness="0" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="330,67,0,0" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Width="78" Height="30" Background="White" >
+            <TextBlock Name="tubePageTitle" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
         </Border>
+        <Border Name="bd1" BorderThickness="0" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="130,1,0,0" Grid.Row="1" Grid.Column="1"  Width="5" Height="115" Background="White" />
 
-        <WrapPanel Margin="0,0,0,0" Grid.Row="2" Grid.Column="1">
-            <Button x:Name="btnConnect" Content="Connect" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="75" Click="btnConnect_Click"/>
-            <Button x:Name="btnReconnect" Content="Reconnect" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="75" Click="btnReconnect_Click"/>
+
+
+        <WrapPanel Margin="2,5,2,2" HorizontalAlignment="right" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="1" >
+            <Button x:Name="btnConnect" Content="Connect" HorizontalAlignment="Left" Margin="0,0,5,0" VerticalAlignment="Top" Width="75" Click="btnConnect_Click"/>
+            <Button x:Name="btnReconnect" Content="Reconnect" HorizontalAlignment="Left" Margin="0,0,5,0" VerticalAlignment="Top" Width="75" Click="btnReconnect_Click"/>
         </WrapPanel>
 
     </Grid>

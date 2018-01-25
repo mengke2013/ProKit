@@ -16,7 +16,6 @@ using System.Windows.Threading;
 using log4net;
 using System.Threading;
 using Rocky.Core.Opc.Ua;
-using Demo.service;
 using Demo.com;
 
 namespace Demo.ui

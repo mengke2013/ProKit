@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Rocky.Core.Opc.Ua;
 using Demo.com;
 
-namespace Demo.service
+namespace Demo.com
 {
     
     class ComNodeService

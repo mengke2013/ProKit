@@ -13,10 +13,10 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using log4net;
 using Rocky.Core.Opc.Ua;
-using Demo.service;
 using Demo.com;
 using System.Threading;
 using System.Windows.Media.Effects;
+using Demo.ui.model;
 
 namespace Demo.ui
 {
@@ -27,10 +27,16 @@ namespace Demo.ui
     {
         public static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
+
+        private TubeMonitorPageModel mTubeMonitorPageModel;
         public Home()
         {
             InitializeComponent();
             WindowState = WindowState.Maximized;
+
+            mTubeMonitorPageModel = new TubeMonitorPageModel();
+            mTubeMonitorPageModel.SelectedTube = 3;
+            tubeMonitorPage.DataContext = mTubeMonitorPageModel;
 
             this.bdMainPanel.Height = this.Height-130;
             this.bdMainPanel.Width = this.Width - 90;
@@ -152,6 +158,8 @@ namespace Demo.ui
             borderTube4.ClearValue(EffectProperty);
             borderTube5.ClearValue(EffectProperty);
             borderTube6.ClearValue(EffectProperty);
+            TubeTabHeader.Visibility = Visibility.Hidden;
+            bd0.Visibility = Visibility.Hidden;
         }
 
         private void btnTube1_Click(object sender, RoutedEventArgs e)
@@ -174,6 +182,12 @@ namespace Demo.ui
                 Opacity = 100
             };
             bdMainPanel.Visibility = Visibility.Visible;
+
+            mTubeMonitorPageModel.SelectedTube = 1;
+            mTubeMonitorPageModel.UpdateDataSource();
+            ComNodeHelper.Instance.ReadOpcNodes(1);
+            TubeTabHeader.Visibility = Visibility.Visible;
+            bd0.Visibility = Visibility.Visible;
         }
 
         private void btnTube2_Click(object sender, RoutedEventArgs e)
@@ -193,6 +207,12 @@ namespace Demo.ui
                 Opacity = 100
             };
             bdMainPanel.Visibility = Visibility.Visible;
+
+            mTubeMonitorPageModel.SelectedTube = 2;
+            mTubeMonitorPageModel.UpdateDataSource();
+            ComNodeHelper.Instance.ReadOpcNodes(2);
+            TubeTabHeader.Visibility = Visibility.Visible;
+            bd0.Visibility = Visibility.Visible;
         }
 
         private void btnTube3_Click(object sender, RoutedEventArgs e)
@@ -212,6 +232,12 @@ namespace Demo.ui
                 Opacity = 100
             };
             bdMainPanel.Visibility = Visibility.Visible;
+
+            mTubeMonitorPageModel.SelectedTube = 3;
+            mTubeMonitorPageModel.UpdateDataSource();
+            ComNodeHelper.Instance.ReadOpcNodes(3);
+            TubeTabHeader.Visibility = Visibility.Visible;
+            bd0.Visibility = Visibility.Visible;
         }
 
         private void btnTube4_Click(object sender, RoutedEventArgs e)
@@ -229,6 +255,12 @@ namespace Demo.ui
                 Opacity = 100
             };
             bdMainPanel.Visibility = Visibility.Visible;
+
+            mTubeMonitorPageModel.SelectedTube = 4;
+            mTubeMonitorPageModel.UpdateDataSource();
+            ComNodeHelper.Instance.ReadOpcNodes(4);
+            TubeTabHeader.Visibility = Visibility.Visible;
+            bd0.Visibility = Visibility.Visible;
         }
 
         private void btnTube5_Click(object sender, RoutedEventArgs e)
@@ -246,6 +278,12 @@ namespace Demo.ui
                 Opacity = 100
             };
             bdMainPanel.Visibility = Visibility.Visible;
+
+            mTubeMonitorPageModel.SelectedTube = 5;
+            mTubeMonitorPageModel.UpdateDataSource();
+            ComNodeHelper.Instance.ReadOpcNodes(5);
+            TubeTabHeader.Visibility = Visibility.Visible;
+            bd0.Visibility = Visibility.Visible;
         }
 
         private void btnTube6_Click(object sender, RoutedEventArgs e)
@@ -263,6 +301,61 @@ namespace Demo.ui
                 Opacity = 100
             };
             bdMainPanel.Visibility = Visibility.Visible;
+
+            mTubeMonitorPageModel.SelectedTube = 6;
+            mTubeMonitorPageModel.UpdateDataSource();
+            ComNodeHelper.Instance.ReadOpcNodes(6);
+            TubeTabHeader.Visibility = Visibility.Visible;
+            bd0.Visibility = Visibility.Visible;
+        }
+
+        private void btnMonitorClick(object sender, RoutedEventArgs e)
+        {
+            bd0.Margin = new Thickness(330, 42, 0, 0);
+            DisableAllTubePages();
+            tubeMonitorPage.Visibility = Visibility.Visible;
+            tubePageTitle.Text = "Monitor";
+        }
+
+        private void btnTrendClick(object sender, RoutedEventArgs e)
+        {
+            bd0.Margin = new Thickness(410, 42, 0, 0);
+            DisableAllTubePages();
+            tubeTrendPage.Visibility = Visibility.Visible;
+            tubePageTitle.Text = "Trend";
+        }
+
+        private void btnRecipeClick(object sender, RoutedEventArgs e)
+        {
+            bd0.Margin = new Thickness(490, 42, 0, 0);
+            DisableAllTubePages();
+            tubeRecipePage.Visibility = Visibility.Visible;
+            tubePageTitle.Text = "Recipe";
+        }
+
+        private void btnSettingsClick(object sender, RoutedEventArgs e)
+        {
+            bd0.Margin = new Thickness(570, 42, 0, 0);
+            DisableAllTubePages();
+            tubeSettingsPage.Visibility = Visibility.Visible;
+            tubePageTitle.Text = "Settings";
+        }
+
+        private void btnEventsClick(object sender, RoutedEventArgs e)
+        {
+            bd0.Margin = new Thickness(650, 42, 0, 0);
+            DisableAllTubePages();
+            tubeEventsPage.Visibility = Visibility.Visible;
+            tubePageTitle.Text = "Events";
+        }
+
+        private void DisableAllTubePages()
+        {
+            tubeMonitorPage.Visibility = Visibility.Hidden;
+            tubeTrendPage.Visibility = Visibility.Hidden;
+            tubeRecipePage.Visibility = Visibility.Hidden;
+            tubeSettingsPage.Visibility = Visibility.Hidden;
+            tubeEventsPage.Visibility = Visibility.Hidden;
         }
 
         private void DisableAllTabs()
