@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using log4net;
 using System.Threading;
 using Rocky.Core.Opc.Ua;
 using Demo.service;
@@ -25,6 +26,8 @@ namespace Demo.ui
     /// </summary>
     public partial class TubeWindow : Window
     {
+        public static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         private byte mSelectedTube = 1;
 
         public TubeWindow(byte selectedTube)
@@ -32,21 +35,11 @@ namespace Demo.ui
             InitializeComponent();
 
             mSelectedTube = selectedTube;
-            labelTitle.Content = "Tube " + selectedTube;
             LoadOPC();
         }
 
         private void LoadOPC()
         {
-            List<OpcNode> opcReadNodes = new List<OpcNode>();
-            opcReadNodes.Add(ComProcessNodeComponent.Instance.TubeNodeComponents[0].VacuumNodeComponent.AnalogNodeComponents[0].CurMeas);
-            opcReadNodes.Add(ComProcessNodeComponent.Instance.TubeNodeComponents[0].MfcNodeComponent.GasNodeComponents[0].CurMeas);
-            opcReadNodes.Add(ComProcessNodeComponent.Instance.TubeNodeComponents[0].VacuumNodeComponent.AnalogNodeComponents[3].CurMeas);
-            //ComNodeService.Instance.ReadComNodes(1, opcReadNodes);
-
-            //textBox.Text = ComProcessNodeComponent.Instance.TubeNodeComponents[0].VacuumNodeComponent.AnalogNodeComponents[0].CurMeas.Value.ToString();
-            //textBox1.Text = ComProcessNodeComponent.Instance.TubeNodeComponents[0].MfcNodeComponent.GasNodeComponents[0].CurMeas.Value.ToString();
-            //textBox2.Text = ComProcessNodeComponent.Instance.TubeNodeComponents[0].VacuumNodeComponent.AnalogNodeComponents[3].CurMeas.Value.ToString();
 
             List<OpcNode> opcSubscriptNodes = new List<OpcNode>();
             for (int j = 0; j < 3; ++j)
@@ -68,12 +61,63 @@ namespace Demo.ui
                 }
 
             }
-            ComProcessNodeComponent.Instance.Test.Notification += new NodeValueUpdateEventHandler(NodeValueUpdate);
-            ComNodeWraper testBinding = new ComNodeWraper(ComProcessNodeComponent.Instance.Test);
-            textBox3.DataContext = testBinding;
+
+            textBoxTemper1Sp.DataContext = new ComNodeWraper(ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[0].CurSp);
+            textBoxTemper2Sp.DataContext = new ComNodeWraper(ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[1].CurSp);
+            textBoxTemper3Sp.DataContext = new ComNodeWraper(ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[2].CurSp);
+            textBoxTemper4Sp.DataContext = new ComNodeWraper(ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[3].CurSp);
+            textBoxTemper5Sp.DataContext = new ComNodeWraper(ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[4].CurSp);
+            textBoxTemper6Sp.DataContext = new ComNodeWraper(ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[5].CurSp);
+            textBoxTemper1IntValue.DataContext = new ComNodeWraper(ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[0].IntValue);
+            textBoxTemper2IntValue.DataContext = new ComNodeWraper(ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[1].IntValue);
+            textBoxTemper3IntValue.DataContext = new ComNodeWraper(ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[2].IntValue);
+            textBoxTemper4IntValue.DataContext = new ComNodeWraper(ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[3].IntValue);
+            textBoxTemper5IntValue.DataContext = new ComNodeWraper(ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[4].IntValue);
+            textBoxTemper6IntValue.DataContext = new ComNodeWraper(ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[5].IntValue);
+            textBoxTemper1ExtValue.DataContext = new ComNodeWraper(ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[0].ExtValue);
+            textBoxTemper2ExtValue.DataContext = new ComNodeWraper(ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[1].ExtValue);
+            textBoxTemper3ExtValue.DataContext = new ComNodeWraper(ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[2].ExtValue);
+            textBoxTemper4ExtValue.DataContext = new ComNodeWraper(ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[3].ExtValue);
+            textBoxTemper5ExtValue.DataContext = new ComNodeWraper(ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[4].ExtValue);
+            textBoxTemper6ExtValue.DataContext = new ComNodeWraper(ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[5].ExtValue);
+            textBoxTemper1HeatPower.DataContext = new ComNodeWraper(ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[0].HeatPower);
+            textBoxTemper2HeatPower.DataContext = new ComNodeWraper(ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[1].HeatPower);
+            textBoxTemper3HeatPower.DataContext = new ComNodeWraper(ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[2].HeatPower);
+            textBoxTemper4HeatPower.DataContext = new ComNodeWraper(ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[3].HeatPower);
+            textBoxTemper5HeatPower.DataContext = new ComNodeWraper(ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[4].HeatPower);
+            textBoxTemper6HeatPower.DataContext = new ComNodeWraper(ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[5].HeatPower);
+            textBoxGasN2Sp.DataContext = new ComNodeWraper(ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].MfcNodeComponent.GasNodeComponents[0].CurSp);
+            textBoxGasH2Sp.DataContext = new ComNodeWraper(ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].MfcNodeComponent.GasNodeComponents[1].CurSp);
+            textBoxGasO2Sp.DataContext = new ComNodeWraper(ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].MfcNodeComponent.GasNodeComponents[4].CurSp);
+            textBoxGasBCl3Sp.DataContext = new ComNodeWraper(ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].MfcNodeComponent.GasNodeComponents[5].CurSp);
+            textBoxGasPC8Sp.DataContext = new ComNodeWraper(ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].MfcNodeComponent.GasNodeComponents[7].CurSp);
+            textBoxGasN2.DataContext = new ComNodeWraper(ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].MfcNodeComponent.GasNodeComponents[0].CurMeas);
+            textBoxGasH2.DataContext = new ComNodeWraper(ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].MfcNodeComponent.GasNodeComponents[1].CurMeas);
+            textBoxGasO2.DataContext = new ComNodeWraper(ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].MfcNodeComponent.GasNodeComponents[4].CurMeas);
+            textBoxGasBCl3.DataContext = new ComNodeWraper(ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].MfcNodeComponent.GasNodeComponents[5].CurMeas);
+            textBoxGasPC8.DataContext = new ComNodeWraper(ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].MfcNodeComponent.GasNodeComponents[7].CurMeas);
+            textBoxAnalog1Sp.DataContext = new ComNodeWraper(ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].VacuumNodeComponent.AnalogNodeComponents[0].CurSp);
+            textBoxAnalog3Sp.DataContext = new ComNodeWraper(ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].VacuumNodeComponent.AnalogNodeComponents[2].CurSp);
+            textBoxAnalog4Sp.DataContext = new ComNodeWraper(ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].VacuumNodeComponent.AnalogNodeComponents[3].CurSp);
+            textBoxAnalog1.DataContext = new ComNodeWraper(ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].VacuumNodeComponent.AnalogNodeComponents[0].CurMeas);
+            textBoxAnalog3.DataContext = new ComNodeWraper(ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].VacuumNodeComponent.AnalogNodeComponents[2].CurMeas);
+            textBoxAnalog4.DataContext = new ComNodeWraper(ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].VacuumNodeComponent.AnalogNodeComponents[3].CurMeas);
+
+            ComNodeWraper paddleNodeWraper = new ComNodeWraper(ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].PaddleNodeComponent.PosAct);
+            textBoxPaddlePos.DataContext = paddleNodeWraper;
+            ComNodeWraper evNodeWraper = new ComNodeWraper(ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].DioNodeComponent.Ev);
+            textBoxEV.DataContext = evNodeWraper;
+            ComNodeWraper diNodeWraper = new ComNodeWraper(ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].DioNodeComponent.DigInput);
+            textBoxDI.DataContext = diNodeWraper;
+            ComNodeWraper doNodeWraper = new ComNodeWraper(ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].DioNodeComponent.DigOutput);
+            textBoxDO.DataContext = doNodeWraper;
+
+
 
             //ComNodeService.Instance.SubscriptComNodes(opcSubscriptNodes);
         }
+
+        
 
         private void NodeValueUpdate(OpcNode opcNode, Object newValue)
         {
@@ -178,11 +222,6 @@ namespace Demo.ui
                 }
                 */
             });
-        }
-
-        private void btnTube1_Click(object sender, RoutedEventArgs e)
-        {
-            textBox4.Text = "" + ComNodeService.Instance.TubeStatus(mSelectedTube);
         }
     }
 }

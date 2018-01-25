@@ -5,113 +5,79 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Demo.ui"
         mc:Ignorable="d"
-        Title="Demo" Height="802.632" Width="1015.79">
+        Title="Demo" Height="700" Width="1300">
     <Grid>
-        <Label x:Name="label" Content="Vaccum" HorizontalAlignment="Left" Margin="40,139,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
-            <Label.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="0.275"/>
-                    <TranslateTransform X="0.229" Y="-0.287"/>
-                </TransformGroup>
-            </Label.RenderTransform>
-        </Label>
-        <Label x:Name="label1" Content="N2" HorizontalAlignment="Left" Margin="40,183,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
-            <Label.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="0.275"/>
-                    <TranslateTransform X="0.018" Y="-0.35"/>
-                </TransformGroup>
-            </Label.RenderTransform>
-        </Label>
-        <Label x:Name="label2" Content="Gate" HorizontalAlignment="Left" Margin="40,234,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
-            <Label.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="0.275"/>
-                    <TranslateTransform X="-0.227" Y="-0.327"/>
-                </TransformGroup>
-            </Label.RenderTransform>
-        </Label>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="91,143,0,0" TextWrapping="Wrap" Text="Tag1" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.5,0.5">
-            <TextBox.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="0.275"/>
-                    <TranslateTransform X="0.216" Y="0.123"/>
-                </TransformGroup>
-            </TextBox.RenderTransform>
-        </TextBox>
-        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="23" Margin="91,187,0,0" TextWrapping="Wrap" Text="Tag2" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.5,0.5">
-            <TextBox.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="0.275"/>
-                    <TranslateTransform X="0.005" Y="0.122"/>
-                </TransformGroup>
-            </TextBox.RenderTransform>
-        </TextBox>
-        <TextBox x:Name="textBox2" HorizontalAlignment="Left" Height="23" Margin="91,237,0,0" TextWrapping="Wrap" Text="Tag3" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.5,0.5">
-            <TextBox.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="0.275"/>
-                    <TranslateTransform X="-0.235" Y="0.122"/>
-                </TransformGroup>
-            </TextBox.RenderTransform>
-        </TextBox>
-        <Label x:Name="label3" Content="Zone1" HorizontalAlignment="Left" Margin="287,40,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBox3" HorizontalAlignment="Left" Height="23" Margin="338,44,0,0" TextWrapping="Wrap" Text="{Binding  Path=Value}" VerticalAlignment="Top" Width="120">
-        </TextBox>
-        <Label x:Name="label4" Content="Zone2" HorizontalAlignment="Left" Margin="287,84,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBox4" HorizontalAlignment="Left" Height="23" Margin="338,84,0,0" TextWrapping="Wrap" Text="Tag5" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="label5" Content="Zone3" HorizontalAlignment="Left" Margin="287,121,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBox5" HorizontalAlignment="Left" Height="23" Margin="338,124,0,0" TextWrapping="Wrap" Text="Tag6" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="label6" Content="Zone4" HorizontalAlignment="Left" Margin="287,161,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBox6" HorizontalAlignment="Left" Height="23" Margin="338,166,0,0" TextWrapping="Wrap" Text="Tag7" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="Label7" Content="Zone5" HorizontalAlignment="Left" Margin="287,205,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBox7" HorizontalAlignment="Left" Height="23" Margin="338,209,0,0" TextWrapping="Wrap" Text="Tag8" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="label7" Content="Zone6" HorizontalAlignment="Left" Margin="287,248,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBox8" HorizontalAlignment="Left" Height="23" Margin="338,251,0,0" TextWrapping="Wrap" Text="Tag9" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="labelTitle" Content="" HorizontalAlignment="Left" Margin="287,9,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBoxTemper1ExtValue" HorizontalAlignment="Left" Height="23" Margin="496,44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBoxTemper2ExtValue" HorizontalAlignment="Left" Height="23" Margin="496,84,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBoxTemper3ExtValue" HorizontalAlignment="Left" Height="23" Margin="496,124,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBoxTemper4ExtValue" HorizontalAlignment="Left" Height="23" Margin="496,166,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBoxTemper5ExtValue" HorizontalAlignment="Left" Height="23" Margin="496,209,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBoxTemper6ExtValue" HorizontalAlignment="Left" Height="23" Margin="496,248,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBoxTemper1HeatPower" HorizontalAlignment="Left" Height="23" Margin="655,44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBoxTemper2HeatPower" HorizontalAlignment="Left" Height="23" Margin="655,84,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBoxTemper3HeatPower" HorizontalAlignment="Left" Height="23" Margin="655,124,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBoxTemper4HeatPower" HorizontalAlignment="Left" Height="23" Margin="655,166,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBoxTemper5HeatPower" HorizontalAlignment="Left" Height="23" Margin="655,209,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBoxTemper6HeatPower" HorizontalAlignment="Left" Height="23" Margin="655,248,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="btnTube1" Content="Tube 1" HorizontalAlignment="Left" Margin="43,12,0,0" VerticalAlignment="Top" Width="75" Click="btnTube1_Click"/>
-        <Button x:Name="btnTube2" Content="Tube 2" HorizontalAlignment="Left" Margin="43,40,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="btnTube3" Content="Tube 3" HorizontalAlignment="Left" Margin="43,69,0,0" VerticalAlignment="Top" Width="75"/>
+        <Label x:Name="labelTemperSp" Content="Setpoint" HorizontalAlignment="Left" Margin="682,58,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="labelTemperInt" Content="Int Temperature" HorizontalAlignment="Left" Margin="682,89,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="labelTemperExt" Content="Ext Temperature" HorizontalAlignment="Left" Margin="682,123,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="labelHeatPower" Content="Heat Power" HorizontalAlignment="Left" Margin="682,160,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label3" Content="Zone1" HorizontalAlignment="Left" Margin="807,30,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label4" Content="Zone2" HorizontalAlignment="Left" Margin="885,31,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label5" Content="Zone3" HorizontalAlignment="Left" Margin="971,31,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label6" Content="Zone4" HorizontalAlignment="Left" Margin="1049,30,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Label7" Content="Zone5" HorizontalAlignment="Left" Margin="1127,30,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label7" Content="Zone6" HorizontalAlignment="Left" Margin="1207,30,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBoxTemper1Sp" HorizontalAlignment="Left" Height="23" Margin="792,58,0,0" TextWrapping="Wrap" Text="{Binding  Path=Value}" VerticalAlignment="Top" Width="80"/>
+        <TextBox x:Name="textBoxTemper2Sp" HorizontalAlignment="Left" Height="23" Margin="872,58,0,0" TextWrapping="Wrap" Text="{Binding  Path=Value}" VerticalAlignment="Top" Width="80"/>
+        <TextBox x:Name="textBoxTemper3Sp" HorizontalAlignment="Left" Height="23" Margin="952,58,0,0" TextWrapping="Wrap" Text="{Binding  Path=Value}" VerticalAlignment="Top" Width="80"/>
+        <TextBox x:Name="textBoxTemper4Sp" HorizontalAlignment="Left" Height="23" Margin="1032,58,0,0" TextWrapping="Wrap" Text="{Binding  Path=Value}" VerticalAlignment="Top" Width="80"/>
+        <TextBox x:Name="textBoxTemper5Sp" HorizontalAlignment="Left" Height="23" Margin="1112,58,0,0" TextWrapping="Wrap" Text="{Binding  Path=Value}" VerticalAlignment="Top" Width="80"/>
+        <TextBox x:Name="textBoxTemper6Sp" HorizontalAlignment="Left" Height="23" Margin="1192,58,0,0" TextWrapping="Wrap" Text="{Binding  Path=Value}" VerticalAlignment="Top" Width="80"/>
+        <TextBox x:Name="textBoxTemper1IntValue" HorizontalAlignment="Left" Height="23" Margin="792,89,0,0" TextWrapping="Wrap" Text="{Binding  Path=Value}" VerticalAlignment="Top" Width="80"/>
+        <TextBox x:Name="textBoxTemper2IntValue" HorizontalAlignment="Left" Height="23" Margin="872,89,0,0" TextWrapping="Wrap" Text="{Binding  Path=Value}" VerticalAlignment="Top" Width="80"/>
+        <TextBox x:Name="textBoxTemper3IntValue" HorizontalAlignment="Left" Height="23" Margin="952,89,0,0" TextWrapping="Wrap" Text="{Binding  Path=Value}" VerticalAlignment="Top" Width="80"/>
+        <TextBox x:Name="textBoxTemper4IntValue" HorizontalAlignment="Left" Height="23" Margin="1032,89,0,0" TextWrapping="Wrap" Text="{Binding  Path=Value}" VerticalAlignment="Top" Width="80"/>
+        <TextBox x:Name="textBoxTemper5IntValue" HorizontalAlignment="Left" Height="23" Margin="1112,89,0,0" TextWrapping="Wrap" Text="{Binding  Path=Value}" VerticalAlignment="Top" Width="80"/>
+        <TextBox x:Name="textBoxTemper6IntValue" HorizontalAlignment="Left" Height="23" Margin="1192,89,0,0" TextWrapping="Wrap" Text="{Binding  Path=Value}" VerticalAlignment="Top" Width="80"/>
+        <TextBox x:Name="textBoxTemper1ExtValue" HorizontalAlignment="Left" Height="23" Margin="792,123,0,0" TextWrapping="Wrap" Text="{Binding  Path=Value}" VerticalAlignment="Top" Width="80"/>
+        <TextBox x:Name="textBoxTemper2ExtValue" HorizontalAlignment="Left" Height="23" Margin="872,123,0,0" TextWrapping="Wrap" Text="{Binding  Path=Value}" VerticalAlignment="Top" Width="80"/>
+        <TextBox x:Name="textBoxTemper3ExtValue" HorizontalAlignment="Left" Height="23" Margin="952,123,0,0" TextWrapping="Wrap" Text="{Binding  Path=Value}" VerticalAlignment="Top" Width="80"/>
+        <TextBox x:Name="textBoxTemper4ExtValue" HorizontalAlignment="Left" Height="23" Margin="1032,123,0,0" TextWrapping="Wrap" Text="{Binding  Path=Value}" VerticalAlignment="Top" Width="80"/>
+        <TextBox x:Name="textBoxTemper5ExtValue" HorizontalAlignment="Left" Height="23" Margin="1112,123,0,0" TextWrapping="Wrap" Text="{Binding  Path=Value}" VerticalAlignment="Top" Width="80"/>
+        <TextBox x:Name="textBoxTemper6ExtValue" HorizontalAlignment="Left" Height="23" Margin="1192,123,0,0" TextWrapping="Wrap" Text="{Binding  Path=Value}" VerticalAlignment="Top" Width="80"/>
+        <TextBox x:Name="textBoxTemper1HeatPower" HorizontalAlignment="Left" Height="23" Margin="792,160,0,0" TextWrapping="Wrap" Text="{Binding  Path=Value}" VerticalAlignment="Top" Width="80"/>
+        <TextBox x:Name="textBoxTemper2HeatPower" HorizontalAlignment="Left" Height="23" Margin="872,160,0,0" TextWrapping="Wrap" Text="{Binding  Path=Value}" VerticalAlignment="Top" Width="80"/>
+        <TextBox x:Name="textBoxTemper3HeatPower" HorizontalAlignment="Left" Height="23" Margin="952,160,0,0" TextWrapping="Wrap" Text="{Binding  Path=Value}" VerticalAlignment="Top" Width="80"/>
+        <TextBox x:Name="textBoxTemper4HeatPower" HorizontalAlignment="Left" Height="23" Margin="1032,160,0,0" TextWrapping="Wrap" Text="{Binding  Path=Value}" VerticalAlignment="Top" Width="80"/>
+        <TextBox x:Name="textBoxTemper5HeatPower" HorizontalAlignment="Left" Height="23" Margin="1112,160,0,0" TextWrapping="Wrap" Text="{Binding  Path=Value}" VerticalAlignment="Top" Width="80"/>
+        <TextBox x:Name="textBoxTemper6HeatPower" HorizontalAlignment="Left" Height="23" Margin="1192,160,0,0" TextWrapping="Wrap" Text="{Binding  Path=Value}" VerticalAlignment="Top" Width="80"/>
 
-        <Label x:Name="lblBoxGas1" Content="Gas 1" HorizontalAlignment="Left" Margin="287,304,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblBoxGas2" Content="Gas 2" HorizontalAlignment="Left" Margin="287,334,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblBoxGas3" Content="Gas 3" HorizontalAlignment="Left" Margin="287,364,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblBoxGas4" Content="Gas 4" HorizontalAlignment="Left" Margin="287,394,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblBoxGas5" Content="Gas 5" HorizontalAlignment="Left" Margin="287,424,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblBoxGas6" Content="Gas 6" HorizontalAlignment="Left" Margin="287,454,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblBoxGas7" Content="Gas 7" HorizontalAlignment="Left" Margin="287,484,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblBoxGas8" Content="Gas 8" HorizontalAlignment="Left" Margin="287,514,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBoxGas1Value" HorizontalAlignment="Left" Height="23" Margin="338,308,0,0" TextWrapping="Wrap" Text="Tag4" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBoxGas2Value" HorizontalAlignment="Left" Height="23" Margin="338,338,0,0" TextWrapping="Wrap" Text="Tag4" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBoxGas3Value" HorizontalAlignment="Left" Height="23" Margin="338,368,0,0" TextWrapping="Wrap" Text="Tag4" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBoxGas4Value" HorizontalAlignment="Left" Height="23" Margin="338,398,0,0" TextWrapping="Wrap" Text="Tag4" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBoxGas5Value" HorizontalAlignment="Left" Height="23" Margin="338,428,0,0" TextWrapping="Wrap" Text="Tag4" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBoxGas6Value" HorizontalAlignment="Left" Height="23" Margin="338,458,0,0" TextWrapping="Wrap" Text="Tag4" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBoxGas7Value" HorizontalAlignment="Left" Height="23" Margin="338,488,0,0" TextWrapping="Wrap" Text="Tag4" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBoxGas8Value" HorizontalAlignment="Left" Height="23" Margin="338,518,0,0" TextWrapping="Wrap" Text="Tag4" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="lblBoxGas1" Content="N2" HorizontalAlignment="Left" Margin="75,38,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblBoxGas2" Content="H2" HorizontalAlignment="Left" Margin="189,38,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblBoxGas5" Content="O2" HorizontalAlignment="Left" Margin="311,38,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblBoxGas6" Content="BCl3" HorizontalAlignment="Left" Margin="422,38,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblBoxGas8" Content="PC8" HorizontalAlignment="Left" Margin="557,38,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBoxGasN2Sp" HorizontalAlignment="Left" Height="23" Margin="46,64,0,0" TextWrapping="Wrap" Text="{Binding  Path=Value}" VerticalAlignment="Top" Width="80"/>
+        <TextBox x:Name="textBoxGasH2Sp" HorizontalAlignment="Left" Height="23" Margin="165,64,0,0" TextWrapping="Wrap" Text="{Binding  Path=Value}" VerticalAlignment="Top" Width="80"/>
+        <TextBox x:Name="textBoxGasO2Sp" HorizontalAlignment="Left" Height="23" Margin="287,64,0,0" TextWrapping="Wrap" Text="{Binding  Path=Value}" VerticalAlignment="Top" Width="80"/>
+        <TextBox x:Name="textBoxGasBCl3Sp" HorizontalAlignment="Left" Height="23" Margin="403,64,0,0" TextWrapping="Wrap" Text="{Binding  Path=Value}" VerticalAlignment="Top" Width="80"/>
+        <TextBox x:Name="textBoxGasPC8Sp" HorizontalAlignment="Left" Height="23" Margin="537,64,0,0" TextWrapping="Wrap" Text="{Binding  Path=Value}" VerticalAlignment="Top" Width="80"/>
+        <TextBox x:Name="textBoxGasN2" HorizontalAlignment="Left" Height="23" Margin="46,89,0,0" TextWrapping="Wrap" Text="{Binding  Path=Value}" VerticalAlignment="Top" Width="80"/>
+        <TextBox x:Name="textBoxGasH2" HorizontalAlignment="Left" Height="23" Margin="165,89,0,0" TextWrapping="Wrap" Text="{Binding  Path=Value}" VerticalAlignment="Top" Width="80"/>
+        <TextBox x:Name="textBoxGasO2" HorizontalAlignment="Left" Height="23" Margin="287,89,0,0" TextWrapping="Wrap" Text="{Binding  Path=Value}" VerticalAlignment="Top" Width="80"/>
+        <TextBox x:Name="textBoxGasBCl3" HorizontalAlignment="Left" Height="23" Margin="403,89,0,0" TextWrapping="Wrap" Text="{Binding  Path=Value}" VerticalAlignment="Top" Width="80"/>
+        <TextBox x:Name="textBoxGasPC8" HorizontalAlignment="Left" Height="23" Margin="537,89,0,0" TextWrapping="Wrap" Text="{Binding  Path=Value}" VerticalAlignment="Top" Width="80"/>
+        <Label x:Name="labelEV" Content="EV" HorizontalAlignment="Left" Margin="483,526,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="labelDI" Content="DI" HorizontalAlignment="Left" Margin="483,554,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="labelDO" Content="DO" HorizontalAlignment="Left" Margin="483,582,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBoxEV" HorizontalAlignment="Left" Height="23" Margin="537,529,0,0" TextWrapping="Wrap" Text="{Binding  Path=Value}" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="textBoxDI" HorizontalAlignment="Left" Height="23" Margin="537,557,0,0" TextWrapping="Wrap" Text="{Binding Value}" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="textBoxDO" HorizontalAlignment="Left" Height="23" Margin="537,585,0,0" TextWrapping="Wrap" Text="{Binding Value}" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="labelAxis" Content="Axis" HorizontalAlignment="Left" Margin="1093,279,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBoxPaddlePos" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Value}" VerticalAlignment="Top" Width="120" Margin="1152,279,0,0"/>
+        <Label x:Name="labelAnalog1" Content="Analog1" HorizontalAlignment="Left" Margin="46,526,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="labelAnalog3" Content="Analog3" HorizontalAlignment="Left" Margin="160,526,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="labelAnalog4" Content="Analog4" HorizontalAlignment="Left" Margin="283,526,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBoxAnalog1Sp" HorizontalAlignment="Left" Height="23" Margin="39,557,0,0" TextWrapping="Wrap" Text="{Binding Value}" VerticalAlignment="Top" Width="80"/>
+        <TextBox x:Name="textBoxAnalog3Sp" HorizontalAlignment="Left" Height="23" Margin="146,557,0,0" TextWrapping="Wrap" Text="{Binding Value}" VerticalAlignment="Top" Width="80"/>
+        <TextBox x:Name="textBoxAnalog4Sp" HorizontalAlignment="Left" Height="23" Margin="269,557,0,0" TextWrapping="Wrap" Text="{Binding Value}" VerticalAlignment="Top" Width="80"/>
+        <TextBox x:Name="textBoxAnalog1" HorizontalAlignment="Left" Height="23" Margin="39,585,0,0" TextWrapping="Wrap" Text="{Binding Value}" VerticalAlignment="Top" Width="80"/>
+        <TextBox x:Name="textBoxAnalog3" HorizontalAlignment="Left" Height="23" Margin="146,585,0,0" TextWrapping="Wrap" Text="{Binding Value}" VerticalAlignment="Top" Width="80"/>
+        <TextBox x:Name="textBoxAnalog4" HorizontalAlignment="Left" Height="23" Margin="269,585,0,0" TextWrapping="Wrap" Text="{Binding Value}" VerticalAlignment="Top" Width="80"/>
+        
+
+
+
+
     </Grid>
 </Window>

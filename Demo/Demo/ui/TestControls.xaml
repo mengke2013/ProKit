@@ -1,0 +1,32 @@
+﻿<Window x:Class="Demo.ui.TestControls"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Demo.ui"
+        mc:Ignorable="d"
+        Title="TestControls" Height="300" Width="300">
+    <Grid>
+        <TabControl>
+            <TabItem Header="_Button">
+                <Button>Click!</Button>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock FontSize="18" FontFamily="Palatino Linotype">        <AccessText>_Text</AccessText></TextBlock>
+                </TabItem.Header>
+                <TextBlock>Hello, world</TextBlock>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <Ellipse Fill="Blue" Width="30" Height="20" />
+                </TabItem.Header>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>Ellipse:</TextBlock>
+                    <Ellipse Fill="Blue" Width="100" />
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>

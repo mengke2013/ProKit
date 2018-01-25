@@ -48,9 +48,10 @@ namespace Demo.com
         private ComProcessNodeComponent()
         {
             mTubeNodeComponents = new ComTubeNodeComponent[6];
-            for (byte tubeIndex = 1; tubeIndex <= 6; ++tubeIndex)
+            for (byte tubeIndex = 1; tubeIndex <= 3; ++tubeIndex)
             {
                 mTubeNodeComponents[tubeIndex - 1] = new ComTubeNodeComponent(tubeIndex);
+                mTubeNodeComponents[tubeIndex + 2] = new ComTubeNodeComponent(tubeIndex);
             }
             mTubeGroupConfNodeComponents = new ComTubeGroupConfNodeComponent[2];
             for (byte tubeGroupIndex = 1; tubeGroupIndex <= 2; ++tubeGroupIndex)

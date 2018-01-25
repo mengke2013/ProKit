@@ -73,6 +73,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ui\TestControls.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ui\TubeWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -103,6 +107,9 @@
     <Compile Include="com\ComVacuumNodeComponent.cs" />
     <Compile Include="ui\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ui\TestControls.xaml.cs">
+      <DependentUpon>TestControls.xaml</DependentUpon>
     </Compile>
     <Compile Include="ui\TubeWindow.xaml.cs">
       <DependentUpon>TubeWindow.xaml</DependentUpon>
@@ -135,6 +142,32 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="com\entity\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\furnace.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\alarm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\maintenance.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\recipe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\LOGO.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\analysis.png" />
+    <Resource Include="images\configuration.png" />
+    <Resource Include="images\login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\close.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
