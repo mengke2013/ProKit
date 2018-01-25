@@ -162,7 +162,7 @@ namespace Demo.ui
             bd0.Visibility = Visibility.Hidden;
         }
 
-        private void btnTube1_Click(object sender, RoutedEventArgs e)
+        private void btnTube1_Click(object sender, MouseButtonEventArgs e)
         {
             //TubeWindow tubeWindow = new TubeWindow(1);
            // tubeWindow.Show();
@@ -190,7 +190,7 @@ namespace Demo.ui
             bd0.Visibility = Visibility.Visible;
         }
 
-        private void btnTube2_Click(object sender, RoutedEventArgs e)
+        private void btnTube2_Click(object sender, MouseButtonEventArgs e)
         {
             //TubeWindow tubeWindow = new TubeWindow(2);
             //tubeWindow.Show();
@@ -215,7 +215,7 @@ namespace Demo.ui
             bd0.Visibility = Visibility.Visible;
         }
 
-        private void btnTube3_Click(object sender, RoutedEventArgs e)
+        private void btnTube3_Click(object sender, MouseButtonEventArgs e)
         {
             //TubeWindow tubeWindow = new TubeWindow(3);
             //tubeWindow.Show();
@@ -240,7 +240,7 @@ namespace Demo.ui
             bd0.Visibility = Visibility.Visible;
         }
 
-        private void btnTube4_Click(object sender, RoutedEventArgs e)
+        private void btnTube4_Click(object sender, MouseButtonEventArgs e)
         {
             this.bd1.Margin = new Thickness(130, 367, 0, 0);
             DisableAllTabs();
@@ -263,7 +263,7 @@ namespace Demo.ui
             bd0.Visibility = Visibility.Visible;
         }
 
-        private void btnTube5_Click(object sender, RoutedEventArgs e)
+        private void btnTube5_Click(object sender, MouseButtonEventArgs e)
         {
             this.bd1.Margin = new Thickness(130, 489, 0, 0);
             DisableAllTabs();
@@ -286,7 +286,7 @@ namespace Demo.ui
             bd0.Visibility = Visibility.Visible;
         }
 
-        private void btnTube6_Click(object sender, RoutedEventArgs e)
+        private void btnTube6_Click(object sender, MouseButtonEventArgs e)
         {
             this.bd1.Margin = new Thickness(130, 611, 0, 0);
             DisableAllTabs();
@@ -520,6 +520,5 @@ namespace Demo.ui
             }
 
         }
-
     }
 }
