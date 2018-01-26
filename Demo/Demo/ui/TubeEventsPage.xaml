@@ -4,9 +4,17 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Demo.ui"
+             xmlns:uiModelUrl="clr-namespace:Demo.ui.model"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-            
+        <DataGrid x:Name="dataGrid" ItemsSource="{Binding}" Margin="0,0,0,0" AutoGenerateColumns="False" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Width="80" Binding="{Binding ID}"/>
+                <DataGridTextColumn Header="Type" Width="100" Binding="{Binding EVENT_TYPE}"/>
+                <DataGridTextColumn Header="Description" Binding="{Binding EVENT_DESC}"/>
+                
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </UserControl>

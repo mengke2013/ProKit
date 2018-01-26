@@ -27,8 +27,14 @@ namespace Demo.ui
     {
         public static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-
+        private byte mSelectedTube = 0;
         private TubeMonitorPageModel mTubeMonitorPageModel;
+        private byte[] tubePageIndexes = {1,1,1,1,1,1};
+        private string[] tubePageTitleLabels = { "Monitor", "Trend", "Recipe", "Settings", "Events" };
+        private ITubePage[] tubePages = new ITubePage[5];
+        private Button[] TubeTabHeaders = new Button[5];
+
+
         public Home()
         {
             InitializeComponent();
@@ -38,9 +44,18 @@ namespace Demo.ui
             mTubeMonitorPageModel.SelectedTube = 3;
             tubeMonitorPage.DataContext = mTubeMonitorPageModel;
 
-            this.bdMainPanel.Height = this.Height-130;
-            this.bdMainPanel.Width = this.Width - 70;
             RegestDataContext();
+
+            tubePages[0] = new TubeMonitorPageAdaper(tubeMonitorPage);
+            tubePages[1] = new TubeTrendPageAdaper(tubeTrendPage);
+            tubePages[2] = new TubeRecipePageAdaper(tubeRecipePage);
+            tubePages[3] = new TubeSettingsPageAdaper(tubeSettingsPage);
+            tubePages[4] = new TubeEventsPageAdaper(tubeEventsPage);
+            TubeTabHeaders[0] = TubeTabHeaderMonitor;
+            TubeTabHeaders[1] = TubeTabHeaderTrend;
+            TubeTabHeaders[2] = TubeTabHeaderRecipe;
+            TubeTabHeaders[3] = TubeTabHeaderSettings;
+            TubeTabHeaders[4] = TubeTabHeaderEvents;
         }
 
         private void RegestDataContext()
@@ -165,9 +180,14 @@ namespace Demo.ui
         private void btnTube1_Click(object sender, MouseButtonEventArgs e)
         {
             //TubeWindow tubeWindow = new TubeWindow(1);
-           // tubeWindow.Show();
+            // tubeWindow.Show();
             //TestControls testControls = new TestControls();
             //testControls.Show();
+
+            this.bdMainPanel.Height = this.ActualHeight - 130;
+            this.bdMainPanel.Width = this.ActualWidth - 190;
+            mSelectedTube = 1;
+
             this.bd1.Margin = new Thickness(130, 1, 0, 0);
 
             DisableAllTabs();
@@ -188,13 +208,18 @@ namespace Demo.ui
             ComNodeHelper.Instance.ReadOpcNodes(1);
             TubeTabHeader.Visibility = Visibility.Visible;
             bd0.Visibility = Visibility.Visible;
+
+            ShowActivedTubePage();
         }
 
         private void btnTube2_Click(object sender, MouseButtonEventArgs e)
         {
             //TubeWindow tubeWindow = new TubeWindow(2);
             //tubeWindow.Show();
-            this.bd1.Margin = new Thickness(130,123,0,0);
+            this.bdMainPanel.Height = this.ActualHeight - 130;
+            this.bdMainPanel.Width = this.ActualWidth - 190;
+            mSelectedTube = 2;
+            this.bd1.Margin = new Thickness(130,126,0,0);
             DisableAllTabs();
             borderTube2.Background = new SolidColorBrush(Colors.White);
             borderTube2.Effect = new DropShadowEffect
@@ -213,13 +238,18 @@ namespace Demo.ui
             ComNodeHelper.Instance.ReadOpcNodes(2);
             TubeTabHeader.Visibility = Visibility.Visible;
             bd0.Visibility = Visibility.Visible;
+
+            ShowActivedTubePage();
         }
 
         private void btnTube3_Click(object sender, MouseButtonEventArgs e)
         {
             //TubeWindow tubeWindow = new TubeWindow(3);
             //tubeWindow.Show();
-            this.bd1.Margin = new Thickness(130, 245, 0, 0);
+            this.bdMainPanel.Height = this.ActualHeight - 130;
+            this.bdMainPanel.Width = this.ActualWidth - 190;
+            mSelectedTube = 3;
+            this.bd1.Margin = new Thickness(130, 251, 0, 0);
             DisableAllTabs();
             borderTube3.Background = new SolidColorBrush(Colors.White);
             borderTube3.Effect = new DropShadowEffect
@@ -238,11 +268,16 @@ namespace Demo.ui
             ComNodeHelper.Instance.ReadOpcNodes(3);
             TubeTabHeader.Visibility = Visibility.Visible;
             bd0.Visibility = Visibility.Visible;
+
+            ShowActivedTubePage();
         }
 
         private void btnTube4_Click(object sender, MouseButtonEventArgs e)
         {
-            this.bd1.Margin = new Thickness(130, 367, 0, 0);
+            this.bdMainPanel.Height = this.ActualHeight - 130;
+            this.bdMainPanel.Width = this.ActualWidth - 190;
+            mSelectedTube = 4;
+            this.bd1.Margin = new Thickness(130, 376, 0, 0);
             DisableAllTabs();
             borderTube4.Background = new SolidColorBrush(Colors.White);
             borderTube4.Effect = new DropShadowEffect
@@ -261,11 +296,16 @@ namespace Demo.ui
             ComNodeHelper.Instance.ReadOpcNodes(4);
             TubeTabHeader.Visibility = Visibility.Visible;
             bd0.Visibility = Visibility.Visible;
+
+            ShowActivedTubePage();
         }
 
         private void btnTube5_Click(object sender, MouseButtonEventArgs e)
         {
-            this.bd1.Margin = new Thickness(130, 489, 0, 0);
+            this.bdMainPanel.Height = this.ActualHeight - 130;
+            this.bdMainPanel.Width = this.ActualWidth - 190;
+            mSelectedTube = 5;
+            this.bd1.Margin = new Thickness(130, 501, 0, 0);
             DisableAllTabs();
             borderTube5.Background = new SolidColorBrush(Colors.White);
             borderTube5.Effect = new DropShadowEffect
@@ -284,11 +324,16 @@ namespace Demo.ui
             ComNodeHelper.Instance.ReadOpcNodes(5);
             TubeTabHeader.Visibility = Visibility.Visible;
             bd0.Visibility = Visibility.Visible;
+
+            ShowActivedTubePage();
         }
 
         private void btnTube6_Click(object sender, MouseButtonEventArgs e)
         {
-            this.bd1.Margin = new Thickness(130, 611, 0, 0);
+            this.bdMainPanel.Height = this.ActualHeight - 130;
+            this.bdMainPanel.Width = this.ActualWidth - 190;
+            mSelectedTube = 6;
+            this.bd1.Margin = new Thickness(130, 626, 0, 0);
             DisableAllTabs();
             borderTube6.Background = new SolidColorBrush(Colors.White);
             borderTube6.Effect = new DropShadowEffect
@@ -307,83 +352,47 @@ namespace Demo.ui
             ComNodeHelper.Instance.ReadOpcNodes(6);
             TubeTabHeader.Visibility = Visibility.Visible;
             bd0.Visibility = Visibility.Visible;
+
+            ShowActivedTubePage();
         }
 
         private void btnMonitorClick(object sender, RoutedEventArgs e)
         {
-            bd0.Margin = new Thickness(375, 42, 0, 0);
-            DisableAllTubePages();
-            tubeMonitorPage.Visibility = Visibility.Visible;
-            tubePageTitle.Text = "Monitor";
-            TubeTabHeaderMonitor.Effect = new DropShadowEffect
-            {
-                Color = new Color { A = 255, R = 0, G = 0, B = 0 },
-                Direction = 315,
-                ShadowDepth = 5,
-                BlurRadius = 5,
-                RenderingBias = RenderingBias.Performance,
-                Opacity = 100
-            };
+            tubePageIndexes[mSelectedTube - 1] = 1;
+            ShowActivedTubePage();
         }
 
         private void btnTrendClick(object sender, RoutedEventArgs e)
         {
-            bd0.Margin = new Thickness(460, 42, 0, 0);
-            DisableAllTubePages();
-            tubeTrendPage.Visibility = Visibility.Visible;
-            tubePageTitle.Text = "Trend";
-            TubeTabHeaderTrend.Effect = new DropShadowEffect
-            {
-                Color = new Color { A = 255, R = 0, G = 0, B = 0 },
-                Direction = 315,
-                ShadowDepth = 5,
-                BlurRadius = 5,
-                RenderingBias = RenderingBias.Performance,
-                Opacity = 100
-            };
+            tubePageIndexes[mSelectedTube - 1] = 2;
+            ShowActivedTubePage();
         }
 
         private void btnRecipeClick(object sender, RoutedEventArgs e)
         {
-            bd0.Margin = new Thickness(545, 42, 0, 0);
-            DisableAllTubePages();
-            tubeRecipePage.Visibility = Visibility.Visible;
-            tubePageTitle.Text = "Recipe";
-            TubeTabHeaderRecipe.Effect = new DropShadowEffect
-            {
-                Color = new Color { A = 255, R = 0, G = 0, B = 0 },
-                Direction = 315,
-                ShadowDepth = 5,
-                BlurRadius = 5,
-                RenderingBias = RenderingBias.Performance,
-                Opacity = 100
-            };
+            tubePageIndexes[mSelectedTube - 1] = 3;
+            ShowActivedTubePage();
         }
 
         private void btnSettingsClick(object sender, RoutedEventArgs e)
         {
-            bd0.Margin = new Thickness(630, 42, 0, 0);
-            DisableAllTubePages();
-            tubeSettingsPage.Visibility = Visibility.Visible;
-            tubePageTitle.Text = "Settings";
-            TubeTabHeaderSettings.Effect = new DropShadowEffect
-            {
-                Color = new Color { A = 255, R = 0, G = 0, B = 0 },
-                Direction = 315,
-                ShadowDepth = 5,
-                BlurRadius = 5,
-                RenderingBias = RenderingBias.Performance,
-                Opacity = 100
-            };
+            tubePageIndexes[mSelectedTube - 1] = 4;
+            ShowActivedTubePage();
         }
 
         private void btnEventsClick(object sender, RoutedEventArgs e)
         {
-            bd0.Margin = new Thickness(715, 42, 0, 0);
+            tubePageIndexes[mSelectedTube - 1] = 5;
+            ShowActivedTubePage();
+        }
+
+        private void ShowActivedTubePage()
+        {
+            bd0.Margin = new Thickness(375+(tubePageIndexes[mSelectedTube - 1]-1) * 85, 42, 0, 0);
             DisableAllTubePages();
-            tubeEventsPage.Visibility = Visibility.Visible;
-            tubePageTitle.Text = "Events";
-            TubeTabHeaderEvents.Effect = new DropShadowEffect
+            tubePages[tubePageIndexes[mSelectedTube - 1] - 1].UI().Visibility = Visibility.Visible;
+            tubePageTitle.Text = tubePageTitleLabels[tubePageIndexes[mSelectedTube - 1] - 1];
+            TubeTabHeaders[tubePageIndexes[mSelectedTube - 1] - 1].Effect = new DropShadowEffect
             {
                 Color = new Color { A = 255, R = 0, G = 0, B = 0 },
                 Direction = 315,
@@ -392,6 +401,7 @@ namespace Demo.ui
                 RenderingBias = RenderingBias.Performance,
                 Opacity = 100
             };
+            tubePages[tubePageIndexes[mSelectedTube - 1] - 1].LoadPage(mSelectedTube);
         }
 
         private void DisableAllTubePages()

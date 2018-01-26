@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Demo.ui.model;
 
 namespace Demo.ui
 {
@@ -20,9 +21,21 @@ namespace Demo.ui
     /// </summary>
     public partial class TubeEventsPage : UserControl
     {
+
+        TubeEventsPageModel mTubeEventspageModel;
+
         public TubeEventsPage()
         {
             InitializeComponent();
+
+            mTubeEventspageModel = new TubeEventsPageModel();
+            
+        }
+
+        public void LoadTubePage(byte selectedTube)
+        {
+            mTubeEventspageModel.LoadData(selectedTube);
+            this.DataContext = mTubeEventspageModel.Model;
         }
     }
 }

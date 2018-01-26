@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using log4net;
+
 
 namespace Demo.ui
 {
@@ -20,9 +22,15 @@ namespace Demo.ui
     /// </summary>
     public partial class TubeSettingsPage : UserControl
     {
+        public static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public TubeSettingsPage()
         {
             InitializeComponent();
+        }
+
+         public void LoadPage(byte selectedTube)
+        {
+            log.Info("TubeSettingsPage");
         }
     }
 }

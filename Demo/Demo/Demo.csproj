@@ -38,11 +38,25 @@
     <Reference Include="log4net">
       <HintPath>libs\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\MySql.Data.Entity.EF6.dll</HintPath>
+    </Reference>
     <Reference Include="Opc.Ua.Client">
       <HintPath>libs\Opc.Ua.Client.dll</HintPath>
     </Reference>
     <Reference Include="Opc.Ua.Core">
       <HintPath>libs\Opc.Ua.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="OxyPlot">
+      <HintPath>libs\OxyPlot.dll</HintPath>
+    </Reference>
+    <Reference Include="OxyPlot.Wpf">
+      <HintPath>libs\OxyPlot.Wpf.dll</HintPath>
     </Reference>
     <Reference Include="RockyCore">
       <HintPath>libs\RockyCore.dll</HintPath>
@@ -72,9 +86,17 @@
     <Compile Include="com\ComNodeHelper.cs" />
     <Compile Include="com\ComNodeService.cs" />
     <Compile Include="ui\ComNodeWraper.cs" />
+    <Compile Include="ui\ITubePage.cs" />
+    <Compile Include="ui\model\TubeEventsPageModel.cs" />
+    <Compile Include="ui\model\TubeTrendPageModel.cs" />
     <Compile Include="ui\TubeEventsPage.xaml.cs">
       <DependentUpon>TubeEventsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ui\TubeRecipePageAdaper.cs" />
+    <Compile Include="ui\TubeEventsPageAdaper .cs" />
+    <Compile Include="ui\TubeSettingsPageAdaper .cs" />
+    <Compile Include="ui\TubeTrendPageAdaper .cs" />
+    <Compile Include="ui\TubeMonitorPageAdaper.cs" />
     <Compile Include="ui\TubeRecipePage.xaml.cs">
       <DependentUpon>TubeRecipePage.xaml</DependentUpon>
     </Compile>

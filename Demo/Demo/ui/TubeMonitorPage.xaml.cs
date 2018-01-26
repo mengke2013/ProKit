@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using Demo.ui.model;
 using Rocky.Core.Opc.Ua;
 using Demo.com;
+using log4net;
 
 namespace Demo.ui
 {
@@ -23,9 +24,16 @@ namespace Demo.ui
     /// </summary>
     public partial class TubeMonitorPage : UserControl
     {
+        public static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         public TubeMonitorPage()
         {
             InitializeComponent();
+        }
+
+        public void LoadPage(byte selectedTube)
+        {
+            log.Info("TubeMonitorPage");
         }
     }
 }
