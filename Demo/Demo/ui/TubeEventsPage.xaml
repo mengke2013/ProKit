@@ -3,10 +3,46 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:xcdg="http://schemas.xceed.com/wpf/xaml/datagrid"
              xmlns:local="clr-namespace:Demo.ui"
              xmlns:uiModelUrl="clr-namespace:Demo.ui.model"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <xcdg:ImageConverter x:Key="imageConverter" />
+        <!-- Converter used to return a BitmapImage from a Country name -->
+        <!--<conv:FlagPathConverter x:Key="flagPathConverter" />-->
+
+        <!-- DataTemplate to display an Employee object -->
+        <DataTemplate x:Key="employeeDataTemplate">
+            <Grid MaxHeight="30"
+               VerticalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Image Margin="0, 0, 5, 0"
+                   Source="{Binding Photo, Converter={StaticResource imageConverter}, NotifyOnValidationError=False, ValidatesOnDataErrors=False}" />
+
+                <StackPanel Grid.Column="1"
+                        Orientation="Horizontal"
+                        VerticalAlignment="Center">
+                    <TextBlock Text="{Binding FirstName, NotifyOnValidationError=False, ValidatesOnDataErrors=False}" />
+                    <TextBlock Text=" " />
+                    <TextBlock Text="{Binding LastName, NotifyOnValidationError=False, ValidatesOnDataErrors=False}" />
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+
+        <!-- DataTemplate to display the $ in Freight column -->
+        <DataTemplate x:Key="freightDataTemplate">
+            <TextBlock Text="{Binding StringFormat=\{0:C\}}"
+                    VerticalAlignment="Center" />
+        </DataTemplate>
+
+
+    </UserControl.Resources>
     <Grid>
         <DataGrid x:Name="dataGrid" ItemsSource="{Binding}" Margin="0,0,0,0" AutoGenerateColumns="False" >
             <DataGrid.Columns>
@@ -16,5 +52,50 @@
                 
             </DataGrid.Columns>
         </DataGrid>
+
+        <xcdg:DataGridControl x:Name="_dataGrid"
+                            ItemsSource="{Binding}" 
+                              AllowDrag="True">
+            <xcdg:DataGridControl.View>
+                <xcdg:TableflowView FixedColumnCount="2" />
+            </xcdg:DataGridControl.View>
+
+            <xcdg:DataGridControl.Columns>
+                <xcdg:Column FieldName="ID"
+                             Title="ID"
+                             Width="100"
+                             IsMainColumn="True" CellVerticalContentAlignment="Center">
+                </xcdg:Column>
+
+                <xcdg:Column FieldName="Employee"
+                             Title="Employee"
+                             Width="150"
+                             CellContentTemplate="{StaticResource employeeDataTemplate}" 
+                             GroupValueTemplate="{StaticResource employeeDataTemplate}"/>
+
+                <xcdg:Column FieldName="Shipper.CompanyName"
+                             Width="200" Title="Ship Via" />
+
+                <xcdg:Column FieldName="Freight"
+                             Width="100"
+                             CellContentTemplate="{StaticResource freightDataTemplate}"
+                             GroupValueTemplate="{StaticResource freightDataTemplate}"/>
+
+                <xcdg:Column FieldName="EVENT_TYPE"
+                             Title="Type"
+                             Width="100" CellVerticalContentAlignment="Center" />
+
+
+
+                <xcdg:Column x:Name="DescriptionColumn" FieldName="EVENT_DESC"
+                             Title="Description"
+                             CellVerticalContentAlignment="Center" CellHorizontalContentAlignment="Left" />
+
+                <xcdg:Column FieldName="EVENT_TIME"
+                             Title="Time"
+                             Width="200" CellVerticalContentAlignment="Center" />
+
+            </xcdg:DataGridControl.Columns>
+        </xcdg:DataGridControl>
     </Grid>
 </UserControl>
