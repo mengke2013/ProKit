@@ -7,13 +7,13 @@ using System.Windows.Controls;
 
 namespace Demo.ui
 {
-    class TubeSettingsPageAdaper : ITubePage
+    class TubeTrendPageAdapter : ITubePage
     {
-        TubeSettingsPage mTubeSettingsPage;
+        TubeTrendPage mTubeTrendPage;
 
-        public TubeSettingsPageAdaper(TubeSettingsPage tubeSettingsPage)
+        public TubeTrendPageAdapter(TubeTrendPage tubeTrendPage)
         {
-            mTubeSettingsPage = tubeSettingsPage;
+            mTubeTrendPage = tubeTrendPage;
         }
 
         public void LoadPage(byte selectedTube)
@@ -23,7 +23,7 @@ namespace Demo.ui
 
         public UserControl UI()
         {
-            return mTubeSettingsPage;
+            return mTubeTrendPage;
         }
     }
 }

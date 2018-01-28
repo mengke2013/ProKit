@@ -7,23 +7,23 @@ using System.Windows.Controls;
 
 namespace Demo.ui
 {
-    class TubeMonitorPageAdaper : ITubePage
+    class TubeRecipePageAdapter : ITubePage
     {
-        TubeMonitorPage mTubeMonitorPage;
+        TubeRecipePage mTubeRecipePage;
 
-        public TubeMonitorPageAdaper(TubeMonitorPage tubeMonitorPage)
+        public TubeRecipePageAdapter(TubeRecipePage tubeRecipePage)
         {
-            mTubeMonitorPage = tubeMonitorPage;
+            mTubeRecipePage = tubeRecipePage;
         }
 
         public void LoadPage(byte selectedTube)
         {
-            
+            mTubeRecipePage.LoadTubePage(selectedTube);
         }
 
         public UserControl UI()
         {
-            return mTubeMonitorPage;
+            return mTubeRecipePage;
         }
     }
 }

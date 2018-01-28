@@ -21,7 +21,7 @@
         <DockPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
             <WrapPanel Margin="5,2" DockPanel.Dock="Left">
                 <Image Source="/Demo;component/images/LOGO.gif" Margin="40,3,5,3" Width="160" Height="50"  />
-                <TextBlock Margin="20,20" FontSize="24" Foreground="Red" FontWeight="Bold">RPB-66</TextBlock>
+                <TextBlock Margin="20,20" Width="90" FontSize="24" Foreground="Red" FontWeight="Bold">RPB-66</TextBlock>
             </WrapPanel>
             <WrapPanel Name="TubeTabHeader" Visibility="Hidden" Margin="50, 0" VerticalAlignment="Bottom" HorizontalAlignment="Right">
                 <Button Name="TubeTabHeaderMonitor" Width="80" Height="30" Margin="5,0,0,0" BorderThickness="1,1,1,0" Click="btnMonitorClick">
@@ -102,7 +102,7 @@
                                 <RowDefinition />
                                 <RowDefinition />
                             </Grid.RowDefinitions>
-                            <Image Source="/Demo;component/images/furnace.png" Grid.Column="6" Grid.Row="2" Grid.ColumnSpan="6" Grid.RowSpan="3" />
+                            <Image Source="/Demo;component/images/furnace.jpg" Grid.Column="6" Grid.Row="2" Grid.ColumnSpan="6" Grid.RowSpan="3" />
                             <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1">N2:</TextBlock>
                             <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1">H2:</TextBlock>
                             <TextBlock Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1">BCl3:</TextBlock>
@@ -202,7 +202,7 @@
                                 <RowDefinition />
                                 <RowDefinition />
                             </Grid.RowDefinitions>
-                            <Image Source="/Demo;component/images/furnace.png" Grid.Column="6" Grid.Row="2" Grid.ColumnSpan="6" Grid.RowSpan="3" />
+                            <Image Source="/Demo;component/images/furnace.jpg" Grid.Column="6" Grid.Row="2" Grid.ColumnSpan="6" Grid.RowSpan="3" />
                             <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1">N2:</TextBlock>
                             <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1">H2:</TextBlock>
                             <TextBlock Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1">BCl3:</TextBlock>
@@ -302,7 +302,7 @@
                                 <RowDefinition />
                                 <RowDefinition />
                             </Grid.RowDefinitions>
-                            <Image Source="/Demo;component/images/furnace.png" Grid.Column="6" Grid.Row="2" Grid.ColumnSpan="6" Grid.RowSpan="3" />
+                            <Image Source="/Demo;component/images/furnace.jpg" Grid.Column="6" Grid.Row="2" Grid.ColumnSpan="6" Grid.RowSpan="3" />
                             <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1">N2:</TextBlock>
                             <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1">H2:</TextBlock>
                             <TextBlock Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1">BCl3:</TextBlock>
@@ -402,7 +402,7 @@
                                 <RowDefinition />
                                 <RowDefinition />
                             </Grid.RowDefinitions>
-                            <Image Source="/Demo;component/images/furnace.png" Grid.Column="6" Grid.Row="2" Grid.ColumnSpan="6" Grid.RowSpan="3" />
+                            <Image Source="/Demo;component/images/furnace.jpg" Grid.Column="6" Grid.Row="2" Grid.ColumnSpan="6" Grid.RowSpan="3" />
                             <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1">N2:</TextBlock>
                             <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1">H2:</TextBlock>
                             <TextBlock Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1">BCl3:</TextBlock>
@@ -502,7 +502,7 @@
                                 <RowDefinition />
                                 <RowDefinition />
                             </Grid.RowDefinitions>
-                            <Image Source="/Demo;component/images/furnace.png" Grid.Column="6" Grid.Row="2" Grid.ColumnSpan="6" Grid.RowSpan="3" />
+                            <Image Source="/Demo;component/images/furnace.jpg" Grid.Column="6" Grid.Row="2" Grid.ColumnSpan="6" Grid.RowSpan="3" />
                             <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1">N2:</TextBlock>
                             <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1">H2:</TextBlock>
                             <TextBlock Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1">BCl3:</TextBlock>
@@ -602,7 +602,7 @@
                                 <RowDefinition />
                                 <RowDefinition />
                             </Grid.RowDefinitions>
-                            <Image Source="/Demo;component/images/furnace.png" Grid.Column="6" Grid.Row="2" Grid.ColumnSpan="6" Grid.RowSpan="3" />
+                            <Image Source="/Demo;component/images/furnace.jpg" Grid.Column="6" Grid.Row="2" Grid.ColumnSpan="6" Grid.RowSpan="3" />
                             <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1">N2:</TextBlock>
                             <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1">H2:</TextBlock>
                             <TextBlock Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1">BCl3:</TextBlock>
@@ -693,12 +693,10 @@
                 </Grid>
             </DockPanel>
         </Border>
-        <Border Name="bd0" Visibility="Hidden" BorderThickness="0" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="375,42,0,0" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Width="78" Height="30" Background="White" >
+        <Border Name="bd0" Visibility="Hidden" BorderThickness="0" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="381,42,0,0" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Width="78" Height="30" Background="White" >
             <TextBlock Name="tubePageTitle" HorizontalAlignment="Center" VerticalAlignment="Center">Monitor</TextBlock>
         </Border>
-        <Border Name="bd1" BorderThickness="0" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="130,1,0,0" Grid.Row="1" Grid.Column="1"  Width="5" Height="118" Background="White" />
-
-
+        <Border Name="bd1" Visibility="Hidden" BorderThickness="0" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="130,1,0,0" Grid.Row="1" Grid.Column="1"  Width="5" Height="118" Background="White" />
 
         <WrapPanel Margin="2,5,2,2" HorizontalAlignment="right" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="1" >
             <Button x:Name="btnConnect" Content="Connect" HorizontalAlignment="Left" Margin="0,0,5,0" VerticalAlignment="Top" Width="75" Click="btnConnect_Click"/>

@@ -25,7 +25,7 @@ namespace Demo.ui.model
             try
             {
                 MySqlCommand cmd = connection.CreateCommand();
-                cmd.CommandText = string.Format("select ID, EVENT_TYPE, EVENT_DESC, EVENT_TIME from event where TUBE_NUM = {0}", selectedTube);
+                cmd.CommandText = string.Format("select ID, EVENT_TYPE, EVENT_DESC, EVENT_TIME from event where TUBE_NUM = {0} order by EVENT_TIME desc limit 100", selectedTube);
                 MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
 
                 DataSet ds = new DataSet();

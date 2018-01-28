@@ -12,25 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using log4net;
 
-namespace Demo.ui
+namespace Demo.ui.view
 {
     /// <summary>
-    /// Interaction logic for TubeRecipePage.xaml
+    /// Interaction logic for RecipeStepDetailItem.xaml
     /// </summary>
-    public partial class TubeRecipePage : UserControl
+    public partial class RecipeStepDetailItem : UserControl
     {
-        public static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-
-        public TubeRecipePage()
+        public RecipeStepDetailItem()
         {
             InitializeComponent();
-        }
-
-        virtual public void LoadPage(byte selectedTube)
-        {
-            log.Info("TubeMonitorPage");
         }
     }
 }

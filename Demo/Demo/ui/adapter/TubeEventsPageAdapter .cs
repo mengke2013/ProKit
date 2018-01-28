@@ -7,11 +7,11 @@ using System.Windows.Controls;
 
 namespace Demo.ui
 {
-    class TubeEventsPageAdaper : ITubePage
+    class TubeEventsPageAdapter : ITubePage
     {
         TubeEventsPage mTubeEventsPage;
 
-        public TubeEventsPageAdaper(TubeEventsPage tubeEventsPage)
+        public TubeEventsPageAdapter(TubeEventsPage tubeEventsPage)
         {
             mTubeEventsPage = tubeEventsPage;
         }

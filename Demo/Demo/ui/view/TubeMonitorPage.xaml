@@ -64,7 +64,7 @@
         <TextBox x:Name="textBoxDI" HorizontalAlignment="Left" Height="23" Margin="525,418,0,0" TextWrapping="Wrap" Text="{Binding Value}" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="textBoxDO" HorizontalAlignment="Left" Height="23" Margin="525,446,0,0" TextWrapping="Wrap" Text="{Binding Value}" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="labelAxis" Content="Axis" HorizontalAlignment="Left" Margin="651,250,0,0" VerticalAlignment="Top"/>
-        <Image Source="/Demo;component/images/furnace.png" Margin="368,190,-171,265"/>
+        <Image Source="/Demo;component/images/furnace.jpg" Margin="368,190,-171,265"/>
         <TextBox x:Name="textBoxPaddlePos" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Value}" VerticalAlignment="Top" Width="120" Margin="1004,387,0,0"/>
         <Label x:Name="labelAnalog1" Content="Analog1" HorizontalAlignment="Left" Margin="34,387,0,0" VerticalAlignment="Top"/>
         <Label x:Name="labelAnalog3" Content="Analog3" HorizontalAlignment="Left" Margin="148,387,0,0" VerticalAlignment="Top"/>

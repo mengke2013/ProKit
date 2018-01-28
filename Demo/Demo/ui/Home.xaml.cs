@@ -46,11 +46,11 @@ namespace Demo.ui
 
             RegestDataContext();
 
-            tubePages[0] = new TubeMonitorPageAdaper(tubeMonitorPage);
-            tubePages[1] = new TubeTrendPageAdaper(tubeTrendPage);
-            tubePages[2] = new TubeRecipePageAdaper(tubeRecipePage);
-            tubePages[3] = new TubeSettingsPageAdaper(tubeSettingsPage);
-            tubePages[4] = new TubeEventsPageAdaper(tubeEventsPage);
+            tubePages[0] = new TubeMonitorPageAdapter(tubeMonitorPage);
+            tubePages[1] = new TubeTrendPageAdapter(tubeTrendPage);
+            tubePages[2] = new TubeRecipePageAdapter(tubeRecipePage);
+            tubePages[3] = new TubeSettingsPageAdapter(tubeSettingsPage);
+            tubePages[4] = new TubeEventsPageAdapter(tubeEventsPage);
             TubeTabHeaders[0] = TubeTabHeaderMonitor;
             TubeTabHeaders[1] = TubeTabHeaderTrend;
             TubeTabHeaders[2] = TubeTabHeaderRecipe;
@@ -175,6 +175,7 @@ namespace Demo.ui
             borderTube6.ClearValue(EffectProperty);
             TubeTabHeader.Visibility = Visibility.Hidden;
             bd0.Visibility = Visibility.Hidden;
+            bd1.Visibility = Visibility.Hidden;
         }
 
         private void btnTube1_Click(object sender, MouseButtonEventArgs e)
@@ -184,11 +185,12 @@ namespace Demo.ui
             //TestControls testControls = new TestControls();
             //testControls.Show();
 
-            this.bdMainPanel.Height = this.ActualHeight - 130;
-            this.bdMainPanel.Width = this.ActualWidth - 190;
+            bdMainPanel.Height = this.ActualHeight - 130;
+            bdMainPanel.Width = this.ActualWidth - 190;
             mSelectedTube = 1;
 
-            this.bd1.Margin = new Thickness(130, 1, 0, 0);
+            bd1.Visibility = Visibility.Visible;
+            bd1.Margin = new Thickness(130, 1, 0, 0);
 
             DisableAllTabs();
             borderTube1.Background = new SolidColorBrush(Colors.White);
@@ -216,10 +218,11 @@ namespace Demo.ui
         {
             //TubeWindow tubeWindow = new TubeWindow(2);
             //tubeWindow.Show();
-            this.bdMainPanel.Height = this.ActualHeight - 130;
-            this.bdMainPanel.Width = this.ActualWidth - 190;
+            bdMainPanel.Height = this.ActualHeight - 130;
+            bdMainPanel.Width = this.ActualWidth - 190;
             mSelectedTube = 2;
-            this.bd1.Margin = new Thickness(130,126,0,0);
+            bd1.Margin = new Thickness(130,126,0,0);
+            bd1.Visibility = Visibility.Visible;
             DisableAllTabs();
             borderTube2.Background = new SolidColorBrush(Colors.White);
             borderTube2.Effect = new DropShadowEffect
@@ -246,10 +249,11 @@ namespace Demo.ui
         {
             //TubeWindow tubeWindow = new TubeWindow(3);
             //tubeWindow.Show();
-            this.bdMainPanel.Height = this.ActualHeight - 130;
-            this.bdMainPanel.Width = this.ActualWidth - 190;
+            bdMainPanel.Height = this.ActualHeight - 130;
+            bdMainPanel.Width = this.ActualWidth - 190;
             mSelectedTube = 3;
-            this.bd1.Margin = new Thickness(130, 251, 0, 0);
+            bd1.Margin = new Thickness(130, 251, 0, 0);
+            bd1.Visibility = Visibility.Visible;
             DisableAllTabs();
             borderTube3.Background = new SolidColorBrush(Colors.White);
             borderTube3.Effect = new DropShadowEffect
@@ -274,10 +278,11 @@ namespace Demo.ui
 
         private void btnTube4_Click(object sender, MouseButtonEventArgs e)
         {
-            this.bdMainPanel.Height = this.ActualHeight - 130;
-            this.bdMainPanel.Width = this.ActualWidth - 190;
+            bdMainPanel.Height = this.ActualHeight - 130;
+            bdMainPanel.Width = this.ActualWidth - 190;
             mSelectedTube = 4;
-            this.bd1.Margin = new Thickness(130, 376, 0, 0);
+            bd1.Margin = new Thickness(130, 376, 0, 0);
+            bd1.Visibility = Visibility.Visible;
             DisableAllTabs();
             borderTube4.Background = new SolidColorBrush(Colors.White);
             borderTube4.Effect = new DropShadowEffect
@@ -302,10 +307,11 @@ namespace Demo.ui
 
         private void btnTube5_Click(object sender, MouseButtonEventArgs e)
         {
-            this.bdMainPanel.Height = this.ActualHeight - 130;
-            this.bdMainPanel.Width = this.ActualWidth - 190;
+            bdMainPanel.Height = this.ActualHeight - 130;
+            bdMainPanel.Width = this.ActualWidth - 190;
             mSelectedTube = 5;
-            this.bd1.Margin = new Thickness(130, 501, 0, 0);
+            bd1.Margin = new Thickness(130, 501, 0, 0);
+            bd1.Visibility = Visibility.Visible;
             DisableAllTabs();
             borderTube5.Background = new SolidColorBrush(Colors.White);
             borderTube5.Effect = new DropShadowEffect
@@ -330,10 +336,11 @@ namespace Demo.ui
 
         private void btnTube6_Click(object sender, MouseButtonEventArgs e)
         {
-            this.bdMainPanel.Height = this.ActualHeight - 130;
-            this.bdMainPanel.Width = this.ActualWidth - 190;
+            bdMainPanel.Height = this.ActualHeight - 130;
+            bdMainPanel.Width = this.ActualWidth - 190;
             mSelectedTube = 6;
-            this.bd1.Margin = new Thickness(130, 626, 0, 0);
+            bd1.Margin = new Thickness(130, 626, 0, 0);
+            bd1.Visibility = Visibility.Visible;
             DisableAllTabs();
             borderTube6.Background = new SolidColorBrush(Colors.White);
             borderTube6.Effect = new DropShadowEffect
@@ -388,7 +395,7 @@ namespace Demo.ui
 
         private void ShowActivedTubePage()
         {
-            bd0.Margin = new Thickness(375+(tubePageIndexes[mSelectedTube - 1]-1) * 85, 42, 0, 0);
+            bd0.Margin = new Thickness(381+(tubePageIndexes[mSelectedTube - 1]-1) * 85, 42, 0, 0);
             DisableAllTubePages();
             tubePages[tubePageIndexes[mSelectedTube - 1] - 1].UI().Visibility = Visibility.Visible;
             tubePageTitle.Text = tubePageTitleLabels[tubePageIndexes[mSelectedTube - 1] - 1];
