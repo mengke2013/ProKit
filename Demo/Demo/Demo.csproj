@@ -97,8 +97,26 @@
     <Compile Include="ui\model\TubeRecipePageModel.cs" />
     <Compile Include="ui\model\TubeEventsPageModel.cs" />
     <Compile Include="ui\model\TubeTrendPageModel.cs" />
+    <Compile Include="ui\view\RecipeStepDetailItem5.xaml.cs">
+      <DependentUpon>RecipeStepDetailItem5.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ui\view\RecipeStepDetailItem4.xaml.cs">
+      <DependentUpon>RecipeStepDetailItem4.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ui\view\RecipeStepDetailItem.xaml.cs">
       <DependentUpon>RecipeStepDetailItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ui\view\RecipeStepDetailItem2.xaml.cs">
+      <DependentUpon>RecipeStepDetailItem2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ui\view\RecipeStepDetailItem1.xaml.cs">
+      <DependentUpon>RecipeStepDetailItem1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ui\view\RecipeStepDetailItem3.xaml.cs">
+      <DependentUpon>RecipeStepDetailItem3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ui\view\StepItemAnalogCond.xaml.cs">
+      <DependentUpon>StepItemAnalogCond.xaml</DependentUpon>
     </Compile>
     <Compile Include="ui\view\TubeEventsPage.xaml.cs">
       <DependentUpon>TubeEventsPage.xaml</DependentUpon>
@@ -125,7 +143,31 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ui\view\RecipeStepDetailItem5.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ui\view\RecipeStepDetailItem4.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="ui\view\RecipeStepDetailItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ui\view\RecipeStepDetailItem2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ui\view\RecipeStepDetailItem1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ui\view\RecipeStepDetailItem3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ui\view\StepItemAnalogCond.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

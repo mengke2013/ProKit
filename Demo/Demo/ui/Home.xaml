@@ -669,14 +669,26 @@
                 <DropShadowEffect ShadowDepth="5" BlurRadius="5"/>
             </Border.Effect>
             <DockPanel>
-                <WrapPanel DockPanel.Dock="Top" HorizontalAlignment="Right">
-                    <Button Margin="5" Click="bdMainClose_Click" >
+                <DockPanel DockPanel.Dock="Top">
+                    <Border DockPanel.Dock="Left" Height="30">
+                        <TextBlock Margin="30,0,15,0" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="16" Foreground="#FF236EC9" FontWeight="Bold">Recipe Demo</TextBlock>
+                    </Border>
+                    <Button DockPanel.Dock="Right" Margin="5" Click="bdMainClose_Click" >
                         <Image Source="/Demo;component/images/close.PNG"  Width="20" Height="20"></Image>
                     </Button>
-                </WrapPanel>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Rectangle></Rectangle>
+                    </Grid>
+                </DockPanel>
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition MaxHeight="10" />
+                        <RowDefinition MaxHeight="5" />
                         <RowDefinition />
                         <RowDefinition MaxHeight="10" />
                     </Grid.RowDefinitions>
@@ -685,6 +697,7 @@
                         <ColumnDefinition/>
                         <ColumnDefinition MaxWidth="10"/>
                     </Grid.ColumnDefinitions>
+                    <Rectangle Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Margin="30,0,30,2" Height="1" Fill="#FFAAA5A5" />
                     <local:TubeMonitorPage x:Name="tubeMonitorPage" Grid.Row="1" Grid.Column="1"/>
                     <local:TubeTrendPage x:Name="tubeTrendPage" Visibility="Hidden" Grid.Row="1" Grid.Column="1"/>
                     <local:TubeRecipePage x:Name="tubeRecipePage" Visibility="Hidden" Grid.Row="1" Grid.Column="1"/>

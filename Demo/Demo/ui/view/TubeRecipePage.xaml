@@ -5,10 +5,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Demo.ui"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="500" d:DesignWidth="900">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition MaxHeight="10" />
+            <RowDefinition MaxHeight="25" />
             <RowDefinition />
             <RowDefinition MaxHeight="10" />
         </Grid.RowDefinitions>
@@ -17,9 +17,27 @@
             <ColumnDefinition/>
             <ColumnDefinition MaxWidth="20"/>
         </Grid.ColumnDefinitions>
+        <DockPanel Grid.Row="0" Grid.Column="1">
+            <WrapPanel DockPanel.Dock="Left" Margin="5,2" HorizontalAlignment="Left">
+                <Button Content="Download" Padding="5,0" Margin="5,0" Width="70"/>
+                <Button Content="Save As" Padding="5,0" Margin="5,0" Width="70"/>
+                <Button Content="Load From" Padding="5,0" Margin="5,0" Width="70"/>
+                <Button Content="Compare To" Padding="5,0" Margin="5,0" Width="70"/>
+            </WrapPanel>
+            <WrapPanel DockPanel.Dock="Right" Margin="5,2" HorizontalAlignment="Right">
+                <Button Content="Copy" Padding="5,0" Margin="5,0" Width="60"/>
+                <Button Content="Paste" Padding="5,0" Margin="5,0" Width="60"/>
+                <Button Content="Up" Padding="5,0" Margin="5,0" Width="60"/>
+                <Button Content="Down" Padding="5,0" Margin="5,0" Width="60"/>
+                <Button Content="Clear" Padding="5,0" Margin="5,0" Width="60"/>
+                <Button Content="Insert" Padding="5,0" Margin="5,0" Width="60"/>
+                <Button Content="Delete" Padding="5,0" Margin="5,0" Width="60"/>
+                <Button Content="Create" Padding="5,0" Margin="5,0" Width="60"/>
+            </WrapPanel>
+        </DockPanel>
         <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="1" Grid.Column="1" >
             <StackPanel  Margin="5,0" >
-                <Border Name="borderStep1" BorderBrush="Black" BorderThickness="1"  Height="130" Padding="5,2" Margin="0,0,0,0" VerticalAlignment="Top" Background="White">
+                <!--<Border Name="borderStep1" BorderBrush="Black" BorderThickness="1"  Height="130" Padding="5,2" Margin="0,0,0,0" VerticalAlignment="Top" Background="White">
                     <DockPanel>
                         <DockPanel DockPanel.Dock="Top">
                             <TextBlock  DockPanel.Dock="Left"  Text="Step 1" Margin="5,2" Width="60" Height="20" FontSize="12" FontWeight="Bold" Foreground="#FF402FEA" VerticalAlignment="Top" />
@@ -340,16 +358,40 @@
                             </WrapPanel>
                         </DockPanel>
                     </DockPanel>
-                </Border>
+                </Border>-->
                 <ItemsControl  x:Name="StepListView" Padding="0" ItemsSource="{Binding Path=StepDetailItems}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <ContentControl>
-                                <view:RecipeStepDetailItem DataContext="{Binding}"/>
+                                <view:RecipeStepDetailItem5 DataContext="{Binding}"/>
                             </ContentControl>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
+                <Border Name="borderStep3" BorderBrush="Black" BorderThickness="1"  Height="30" Padding="5,2" Margin="0,0,0,0" VerticalAlignment="Top" Background="White">
+                    <DockPanel>
+                        <DockPanel DockPanel.Dock="Top">
+                            <TextBlock  DockPanel.Dock="Left"  Text="Step 64" Margin="5,2" Width="60" Height="20" FontSize="12" FontWeight="Bold" Foreground="#FF402FEA" VerticalAlignment="Top" />
+                            <Grid Margin="5,2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="3*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="3*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0" Grid.Column="0">Type:</TextBlock>
+                                <TextBox Grid.Row="0" Grid.Column="1" Margin="1, 0, 0, 0" Width="80">Final</TextBox>
+                            </Grid>
+                        </DockPanel>
+                    </DockPanel>
+                </Border>
             </StackPanel>
         </ScrollViewer>
 

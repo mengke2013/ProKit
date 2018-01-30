@@ -16,21 +16,15 @@ namespace Demo.ui.model
         public TubeRecipePageModel()
         {
             mStepDetailItemModels = new List<RecipeStepDetailItemModel>();
-
+            for (int i = 0; i < 40; ++i)
+            {
+                mStepDetailItemModels.Add(new RecipeStepDetailItemModel(i + 1));
+            }
         }
 
         public void LoadData(byte selectedTube)
         {
-            mStepDetailItemModels.Add(new RecipeStepDetailItemModel(1));
-            mStepDetailItemModels.Add(new RecipeStepDetailItemModel(2));
-            mStepDetailItemModels.Add(new RecipeStepDetailItemModel(3));
-            mStepDetailItemModels.Add(new RecipeStepDetailItemModel(4));
-            mStepDetailItemModels.Add(new RecipeStepDetailItemModel(5));
-            mStepDetailItemModels.Add(new RecipeStepDetailItemModel(6));
-            mStepDetailItemModels.Add(new RecipeStepDetailItemModel(7));
-            mStepDetailItemModels.Add(new RecipeStepDetailItemModel(8));
-            mStepDetailItemModels.Add(new RecipeStepDetailItemModel(9));
-            mStepDetailItemModels.Add(new RecipeStepDetailItemModel(10));
+
         }
 
         public List<RecipeStepDetailItemModel> StepDetailItems

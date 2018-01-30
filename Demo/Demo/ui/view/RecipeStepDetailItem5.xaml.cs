@@ -18,11 +18,11 @@ namespace Demo.ui.view
     /// <summary>
     /// Interaction logic for RecipeStepDetailItem.xaml
     /// </summary>
-    public partial class RecipeStepDetailItem : UserControl
+    public partial class RecipeStepDetailItem5 : UserControl
     {
         private bool detailLayout = false;
 
-        public RecipeStepDetailItem()
+        public RecipeStepDetailItem5()
         {
             InitializeComponent();
             DisplayLayout();
