@@ -5,75 +5,487 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Demo.ui"
              mc:Ignorable="d" 
-             d:DesignHeight="600" d:DesignWidth="1150">
-    <Grid>
-        <Label x:Name="labelTemperSp" Content="Setpoint" HorizontalAlignment="Left" Margin="517,57,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="labelTemperInt" Content="Int Temperature" HorizontalAlignment="Left" Margin="517,88,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="labelTemperExt" Content="Ext Temperature" HorizontalAlignment="Left" Margin="517,122,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="labelHeatPower" Content="Heat Power" HorizontalAlignment="Left" Margin="517,159,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label3" Content="Zone1" HorizontalAlignment="Left" Margin="639,32,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label4" Content="Zone2" HorizontalAlignment="Left" Margin="717,33,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label5" Content="Zone3" HorizontalAlignment="Left" Margin="803,33,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label6" Content="Zone4" HorizontalAlignment="Left" Margin="881,32,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="Label7" Content="Zone5" HorizontalAlignment="Left" Margin="959,32,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label7" Content="Zone6" HorizontalAlignment="Left" Margin="1039,32,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBoxTemper1Sp" HorizontalAlignment="Left" Height="23" Margin="624,60,0,0" TextWrapping="Wrap" Text="{Binding  Path=Temper1Sp}" VerticalAlignment="Top" Width="80"/>
-        <TextBox x:Name="textBoxTemper2Sp" HorizontalAlignment="Left" Height="23" Margin="704,60,0,0" TextWrapping="Wrap" Text="{Binding  Path=Temper2Sp}" VerticalAlignment="Top" Width="80"/>
-        <TextBox x:Name="textBoxTemper3Sp" HorizontalAlignment="Left" Height="23" Margin="784,60,0,0" TextWrapping="Wrap" Text="{Binding  Path=Temper3Sp}" VerticalAlignment="Top" Width="80"/>
-        <TextBox x:Name="textBoxTemper4Sp" HorizontalAlignment="Left" Height="23" Margin="864,60,0,0" TextWrapping="Wrap" Text="{Binding  Path=Temper4Sp}" VerticalAlignment="Top" Width="80"/>
-        <TextBox x:Name="textBoxTemper5Sp" HorizontalAlignment="Left" Height="23" Margin="944,60,0,0" TextWrapping="Wrap" Text="{Binding  Path=Temper5Sp}" VerticalAlignment="Top" Width="80"/>
-        <TextBox x:Name="textBoxTemper6Sp" HorizontalAlignment="Left" Height="23" Margin="1024,60,0,0" TextWrapping="Wrap" Text="{Binding  Path=Temper6Sp}" VerticalAlignment="Top" Width="80"/>
-        <TextBox x:Name="textBoxTemper1IntValue" HorizontalAlignment="Left" Height="23" Margin="624,91,0,0" TextWrapping="Wrap" Text="{Binding  Path=Temper1IntValue}" VerticalAlignment="Top" Width="80"/>
-        <TextBox x:Name="textBoxTemper2IntValue" HorizontalAlignment="Left" Height="23" Margin="704,91,0,0" TextWrapping="Wrap" Text="{Binding  Path=Temper2IntValue}" VerticalAlignment="Top" Width="80"/>
-        <TextBox x:Name="textBoxTemper3IntValue" HorizontalAlignment="Left" Height="23" Margin="784,91,0,0" TextWrapping="Wrap" Text="{Binding  Path=Temper3IntValue}" VerticalAlignment="Top" Width="80"/>
-        <TextBox x:Name="textBoxTemper4IntValue" HorizontalAlignment="Left" Height="23" Margin="864,91,0,0" TextWrapping="Wrap" Text="{Binding  Path=Temper4IntValue}" VerticalAlignment="Top" Width="80"/>
-        <TextBox x:Name="textBoxTemper5IntValue" HorizontalAlignment="Left" Height="23" Margin="944,91,0,0" TextWrapping="Wrap" Text="{Binding  Path=Temper5IntValue}" VerticalAlignment="Top" Width="80"/>
-        <TextBox x:Name="textBoxTemper6IntValue" HorizontalAlignment="Left" Height="23" Margin="1024,91,0,0" TextWrapping="Wrap" Text="{Binding  Path=Temper6IntValue}" VerticalAlignment="Top" Width="80"/>
-        <TextBox x:Name="textBoxTemper1ExtValue" HorizontalAlignment="Left" Height="23" Margin="624,125,0,0" TextWrapping="Wrap" Text="{Binding  Path=Temper1ExtValue}" VerticalAlignment="Top" Width="80"/>
-        <TextBox x:Name="textBoxTemper2ExtValue" HorizontalAlignment="Left" Height="23" Margin="704,125,0,0" TextWrapping="Wrap" Text="{Binding  Path=Temper2ExtValue}" VerticalAlignment="Top" Width="80"/>
-        <TextBox x:Name="textBoxTemper3ExtValue" HorizontalAlignment="Left" Height="23" Margin="784,125,0,0" TextWrapping="Wrap" Text="{Binding  Path=Temper3ExtValue}" VerticalAlignment="Top" Width="80"/>
-        <TextBox x:Name="textBoxTemper4ExtValue" HorizontalAlignment="Left" Height="23" Margin="864,125,0,0" TextWrapping="Wrap" Text="{Binding  Path=Temper4ExtValue}" VerticalAlignment="Top" Width="80"/>
-        <TextBox x:Name="textBoxTemper5ExtValue" HorizontalAlignment="Left" Height="23" Margin="944,125,0,0" TextWrapping="Wrap" Text="{Binding  Path=Temper5ExtValue}" VerticalAlignment="Top" Width="80"/>
-        <TextBox x:Name="textBoxTemper6ExtValue" HorizontalAlignment="Left" Height="23" Margin="1024,125,0,0" TextWrapping="Wrap" Text="{Binding  Path=Temper6ExtValue}" VerticalAlignment="Top" Width="80"/>
-        <TextBox x:Name="textBoxTemper1HeatPower" HorizontalAlignment="Left" Height="23" Margin="624,162,0,0" TextWrapping="Wrap" Text="{Binding  Path=Temper1HeatPower}" VerticalAlignment="Top" Width="80"/>
-        <TextBox x:Name="textBoxTemper2HeatPower" HorizontalAlignment="Left" Height="23" Margin="704,162,0,0" TextWrapping="Wrap" Text="{Binding  Path=Temper2HeatPower}" VerticalAlignment="Top" Width="80"/>
-        <TextBox x:Name="textBoxTemper3HeatPower" HorizontalAlignment="Left" Height="23" Margin="784,162,0,0" TextWrapping="Wrap" Text="{Binding  Path=Temper3HeatPower}" VerticalAlignment="Top" Width="80"/>
-        <TextBox x:Name="textBoxTemper4HeatPower" HorizontalAlignment="Left" Height="23" Margin="864,162,0,0" TextWrapping="Wrap" Text="{Binding  Path=Temper4HeatPower}" VerticalAlignment="Top" Width="80"/>
-        <TextBox x:Name="textBoxTemper5HeatPower" HorizontalAlignment="Left" Height="23" Margin="944,162,0,0" TextWrapping="Wrap" Text="{Binding  Path=Temper5HeatPower}" VerticalAlignment="Top" Width="80"/>
-        <TextBox x:Name="textBoxTemper6HeatPower" HorizontalAlignment="Left" Height="23" Margin="1024,162,0,0" TextWrapping="Wrap" Text="{Binding  Path=Temper6HeatPower}" VerticalAlignment="Top" Width="80"/>
+             d:DesignHeight="600" d:DesignWidth="750">
+    <Grid Margin="5,0" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition MaxWidth="20"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Grid.Column="0" Grid.RowSpan="4" Grid.ColumnSpan="1" Margin="5,5,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="0.3*"/>
+                <ColumnDefinition Width="0.3*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.2*"/>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition />
+                <RowDefinition Height="1.5*"/>
+            </Grid.RowDefinitions>
 
-        <Label x:Name="lblBoxGas1" Content="N2" HorizontalAlignment="Left" Margin="75,38,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblBoxGas2" Content="H2" HorizontalAlignment="Left" Margin="164,38,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblBoxGas5" Content="O2" HorizontalAlignment="Left" Margin="257,38,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblBoxGas6" Content="BCl3" HorizontalAlignment="Left" Margin="347,38,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblBoxGas8" Content="PC8" HorizontalAlignment="Left" Margin="445,38,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBoxGasN2Sp" HorizontalAlignment="Left" Height="23" Margin="46,64,0,0" TextWrapping="Wrap" Text="{Binding  Path=Gas1Sp}" VerticalAlignment="Top" Width="80"/>
-        <TextBox x:Name="textBoxGasH2Sp" HorizontalAlignment="Left" Height="23" Margin="140,64,0,0" TextWrapping="Wrap" Text="{Binding  Path=Gas2Sp}" VerticalAlignment="Top" Width="80"/>
-        <TextBox x:Name="textBoxGasO2Sp" HorizontalAlignment="Left" Height="23" Margin="233,64,0,0" TextWrapping="Wrap" Text="{Binding  Path=Gas5Sp}" VerticalAlignment="Top" Width="80"/>
-        <TextBox x:Name="textBoxGasBCl3Sp" HorizontalAlignment="Left" Height="23" Margin="328,64,0,0" TextWrapping="Wrap" Text="{Binding  Path=Gas6Sp}" VerticalAlignment="Top" Width="80"/>
-        <TextBox x:Name="textBoxGasPC8Sp" HorizontalAlignment="Left" Height="23" Margin="425,64,0,0" TextWrapping="Wrap" Text="{Binding  Path=Gas8Sp}" VerticalAlignment="Top" Width="80"/>
-        <TextBox x:Name="textBoxGasN2" HorizontalAlignment="Left" Height="23" Margin="46,89,0,0" TextWrapping="Wrap" Text="{Binding  Path=Gas1CurMeas}" VerticalAlignment="Top" Width="80"/>
-        <TextBox x:Name="textBoxGasH2" HorizontalAlignment="Left" Height="23" Margin="140,89,0,0" TextWrapping="Wrap" Text="{Binding  Path=Gas2CurMeas}" VerticalAlignment="Top" Width="80"/>
-        <TextBox x:Name="textBoxGasO2" HorizontalAlignment="Left" Height="23" Margin="233,89,0,0" TextWrapping="Wrap" Text="{Binding  Path=Gas5CurMeas}" VerticalAlignment="Top" Width="80"/>
-        <TextBox x:Name="textBoxGasBCl3" HorizontalAlignment="Left" Height="23" Margin="328,89,0,0" TextWrapping="Wrap" Text="{Binding  Path=Gas6CurMeas}" VerticalAlignment="Top" Width="80"/>
-        <TextBox x:Name="textBoxGasPC8" HorizontalAlignment="Left" Height="23" Margin="425,89,0,0" TextWrapping="Wrap" Text="{Binding  Path=Gas8CurMeas}" VerticalAlignment="Top" Width="80"/>
-        <Label x:Name="labelEV" Content="EV" HorizontalAlignment="Left" Margin="471,387,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="labelDI" Content="DI" HorizontalAlignment="Left" Margin="471,415,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="labelDO" Content="DO" HorizontalAlignment="Left" Margin="471,443,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBoxEV" HorizontalAlignment="Left" Height="23" Margin="525,390,0,0" TextWrapping="Wrap" Text="{Binding  Path=Value}" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBoxDI" HorizontalAlignment="Left" Height="23" Margin="525,418,0,0" TextWrapping="Wrap" Text="{Binding Value}" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBoxDO" HorizontalAlignment="Left" Height="23" Margin="525,446,0,0" TextWrapping="Wrap" Text="{Binding Value}" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="labelAxis" Content="Axis" HorizontalAlignment="Left" Margin="651,250,0,0" VerticalAlignment="Top"/>
-        <Image Source="/Demo;component/images/furnace.jpg" Margin="368,190,-171,265"/>
-        <TextBox x:Name="textBoxPaddlePos" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Value}" VerticalAlignment="Top" Width="120" Margin="1004,387,0,0"/>
-        <Label x:Name="labelAnalog1" Content="Analog1" HorizontalAlignment="Left" Margin="34,387,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="labelAnalog3" Content="Analog3" HorizontalAlignment="Left" Margin="148,387,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="labelAnalog4" Content="Analog4" HorizontalAlignment="Left" Margin="271,387,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBoxAnalog1Sp" HorizontalAlignment="Left" Height="23" Margin="27,418,0,0" TextWrapping="Wrap" Text="{Binding Value}" VerticalAlignment="Top" Width="80"/>
-        <TextBox x:Name="textBoxAnalog3Sp" HorizontalAlignment="Left" Height="23" Margin="134,418,0,0" TextWrapping="Wrap" Text="{Binding Value}" VerticalAlignment="Top" Width="80"/>
-        <TextBox x:Name="textBoxAnalog4Sp" HorizontalAlignment="Left" Height="23" Margin="257,418,0,0" TextWrapping="Wrap" Text="{Binding Value}" VerticalAlignment="Top" Width="80"/>
-        <TextBox x:Name="textBoxAnalog1" HorizontalAlignment="Left" Height="23" Margin="27,446,0,0" TextWrapping="Wrap" Text="{Binding Value}" VerticalAlignment="Top" Width="80"/>
-        <TextBox x:Name="textBoxAnalog3" HorizontalAlignment="Left" Height="23" Margin="134,446,0,0" TextWrapping="Wrap" Text="{Binding Value}" VerticalAlignment="Top" Width="80"/>
-        <TextBox x:Name="textBoxAnalog4" HorizontalAlignment="Left" Height="23" Margin="257,446,0,0" TextWrapping="Wrap" Text="{Binding Value}" VerticalAlignment="Top" Width="80"/>
+            <Grid Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="9" Grid.RowSpan="7">
+                <Rectangle Margin="-15,0,0,0" Height="10" Width="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                <Rectangle Margin="-5,0,0,12"  Width="10" HorizontalAlignment="Left"  Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                <Rectangle Margin="-5,0,0,12"  Height="10"   VerticalAlignment="Bottom" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+            </Grid>
+            <Rectangle Margin="-10,-15,0,0" Grid.Row="6" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="1" Width="20" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+
+            <Grid Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="8" Grid.RowSpan="7">
+                <Rectangle Margin="-15,0,0,0" Height="10" Width="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                <Rectangle Margin="-5,0,0,24"  Width="10" HorizontalAlignment="Left"  Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                <Rectangle Margin="-5,0,0,24"  Height="10"   VerticalAlignment="Bottom" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+            </Grid>
+            <Rectangle Margin="-10,-15,0,0" Grid.Row="6" Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="1" Width="20" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+            <Rectangle Margin="-15,-15,0,0" Grid.Row="4" Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="1" Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+            <Rectangle Margin="0,0,-10, 29" Grid.Row="1" Grid.Column="9" Grid.RowSpan="7" Grid.ColumnSpan="2"  Height="2" VerticalAlignment="Bottom"  Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+
+            <Grid Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="7" Grid.RowSpan="7">
+                <Rectangle Margin="-15,0,0,0" Height="10" Width="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                <Rectangle Margin="-5,0,0,36"  Width="10" HorizontalAlignment="Left"  Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                <Rectangle Margin="-5,0,0,36"  Height="10"   VerticalAlignment="Bottom" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+            </Grid>
+            <Rectangle Margin="-10,-15,0,0" Grid.Row="6" Grid.Column="3" Grid.RowSpan="2" Grid.ColumnSpan="1" Width="20" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+            <Rectangle Margin="-15,-15,0,0" Grid.Row="4" Grid.Column="3" Grid.RowSpan="2" Grid.ColumnSpan="1" Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+            <Rectangle Margin="0,0,-10,41" Grid.Row="1" Grid.Column="9" Grid.RowSpan="7" Grid.ColumnSpan="2"  Height="2" VerticalAlignment="Bottom"  Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+            
+            <Grid Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="6" Grid.RowSpan="5">
+                <!--<Rectangle Margin="-15,0,0,0" Height="10" Width="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>-->
+                <Rectangle Margin="-5,0,0,0"  Width="10" HorizontalAlignment="Left"  Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                <Rectangle Margin="-5,0,0,0"  Height="10"   VerticalAlignment="Bottom" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+            </Grid>
+            <Rectangle Margin="-10,-15,0,0" Grid.Row="6" Grid.Column="4" Grid.RowSpan="2" Grid.ColumnSpan="1" Width="20" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+            <Rectangle Margin="0,0,0,0" Height="10" Grid.Row="3" Grid.Column="3" Grid.RowSpan="2" Grid.ColumnSpan="3" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+            <Rectangle Margin="-15,-15,0,0" Grid.Row="4" Grid.Column="4" Grid.RowSpan="2" Grid.ColumnSpan="1" Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+            <Rectangle Margin="-15,-5,0,0" Grid.Row="3" Grid.Column="5" Grid.RowSpan="2" Grid.ColumnSpan="1" Width="30" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+            <Rectangle Margin="0,0,0,5" Grid.Row="1" Grid.Column="9" Grid.RowSpan="7" Grid.ColumnSpan="2"  Height="2" VerticalAlignment="Bottom" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+            <Rectangle Margin="0,5,0,0" Grid.Row="7" Grid.Column="10" Grid.RowSpan="2" Grid.ColumnSpan="1" Height="5" Width="2" VerticalAlignment="Bottom"  HorizontalAlignment="Right" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+           
+            <Grid Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="4" Grid.RowSpan="7">
+                <Rectangle Margin="-15,0,0,0" Height="10" Width="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                <Rectangle Margin="-5,0,0,48"  Width="10" HorizontalAlignment="Left"  Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                <Rectangle Margin="-5,0,0,48"  Height="10"   VerticalAlignment="Bottom" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+            </Grid>
+            <Rectangle Margin="-10,-15,0,0" Grid.Row="6" Grid.Column="6" Grid.RowSpan="2" Grid.ColumnSpan="1" Width="20" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+            <Rectangle Margin="-15,-15,0,0" Grid.Row="4" Grid.Column="6" Grid.RowSpan="2" Grid.ColumnSpan="1" Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+            <Rectangle Margin="-10,-15,0,0" Grid.Row="2" Grid.Column="6" Grid.RowSpan="2" Grid.ColumnSpan="1" Width="20" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+            <Rectangle Margin="0,0,-10,53" Grid.Row="1" Grid.Column="9" Grid.RowSpan="7" Grid.ColumnSpan="2"  Height="2" VerticalAlignment="Bottom"  Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+            
+            <Grid Grid.Row="1" Grid.Column="7" Grid.ColumnSpan="3" Grid.RowSpan="7">
+                <Rectangle Margin="-15,0,0,0" Height="10" Width="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                <Rectangle Margin="-5,0,0,60"  Width="10" HorizontalAlignment="Left"  Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                <Rectangle Margin="-5,0,0,60"  Height="10"   VerticalAlignment="Bottom" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+            </Grid>
+            <Rectangle Margin="-10,-15,0,0" Grid.Row="6" Grid.Column="7" Grid.RowSpan="2" Grid.ColumnSpan="1" Width="20" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+            <Rectangle Margin="-15,-15,0,0" Grid.Row="4" Grid.Column="7" Grid.RowSpan="2" Grid.ColumnSpan="1" Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+            <Rectangle Margin="0,0,-10,65" Grid.Row="1" Grid.Column="9" Grid.RowSpan="7" Grid.ColumnSpan="2"  Height="2" VerticalAlignment="Bottom"  Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+            
+            <Grid Grid.Row="5" Grid.Column="8" Grid.ColumnSpan="2" Grid.RowSpan="3">
+                <!--<Rectangle Margin="-15,0,0,0" Height="10" Width="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>-->
+                <Rectangle Margin="-5,0,0,72"  Width="10" HorizontalAlignment="Left"  Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                <Rectangle Margin="-5,0,0,72"  Height="10"   VerticalAlignment="Bottom" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+            </Grid>
+            <Rectangle Margin="-10,-15,0,0" Grid.Row="6" Grid.Column="8" Grid.RowSpan="2" Grid.ColumnSpan="1" Width="20" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+            <Rectangle Margin="0,0,0,0" Height="10" Grid.Row="5" Grid.Column="7" Grid.ColumnSpan="1" Grid.RowSpan="2"  VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+        </Grid>
+        <Grid Grid.Row="0" Grid.Column="1" Grid.RowSpan="4" Grid.ColumnSpan="2" Margin="0,5,5,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            
+            <Grid Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="1" Margin="0,0,0,5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <DockPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                    <Button Content="Ext/Int"></Button>
+                </DockPanel>
+                <DockPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                    <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">Setpoint:</TextBlock>
+                </DockPanel>
+                <DockPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                    <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">Ext Temperature:</TextBlock>
+                </DockPanel>
+                <DockPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                    <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">Int Temperature:</TextBlock>
+                </DockPanel>
+                <DockPanel Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                    <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">Heat Power:</TextBlock>
+                </DockPanel>
+                <DockPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                    <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">Zone1</TextBlock>
+                </DockPanel>
+                <DockPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                    <TextBox/>
+                </DockPanel>
+                <DockPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                    <TextBox/>
+                </DockPanel>
+                <DockPanel Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                    <TextBox/>
+                </DockPanel>
+                <DockPanel Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                    <TextBox/>
+                </DockPanel>
+                <DockPanel Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                    <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">Zone2</TextBlock>
+                </DockPanel>
+                <DockPanel Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                    <TextBox/>
+                </DockPanel>
+                <DockPanel Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                    <TextBox/>
+                </DockPanel>
+                <DockPanel Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                    <TextBox/>
+                </DockPanel>
+                <DockPanel Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                    <TextBox/>
+                </DockPanel>
+                <DockPanel Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                    <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">Zone3</TextBlock>
+                </DockPanel>
+                <DockPanel Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                    <TextBox/>
+                </DockPanel>
+                <DockPanel Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                    <TextBox/>
+                </DockPanel>
+                <DockPanel Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                    <TextBox/>
+                </DockPanel>
+                <DockPanel Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                    <TextBox/>
+                </DockPanel>
+                <DockPanel Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                    <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">Zone4</TextBlock>
+                </DockPanel>
+                <DockPanel Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                    <TextBox/>
+                </DockPanel>
+                <DockPanel Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                    <TextBox/>
+                </DockPanel>
+                <DockPanel Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                    <TextBox/>
+                </DockPanel>
+                <DockPanel Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                    <TextBox/>
+                </DockPanel>
+                <DockPanel Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                    <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">Zone5</TextBlock>
+                </DockPanel>
+                <DockPanel Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                    <TextBox/>
+                </DockPanel>
+                <DockPanel Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                    <TextBox/>
+                </DockPanel>
+                <DockPanel Grid.Row="3" Grid.Column="5" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                    <TextBox/>
+                </DockPanel>
+                <DockPanel Grid.Row="4" Grid.Column="5" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                    <TextBox/>
+                </DockPanel>
+                <DockPanel Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                    <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">Zone6</TextBlock>
+                </DockPanel>
+                <DockPanel Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                    <TextBox/>
+                </DockPanel>
+                <DockPanel Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                    <TextBox/>
+                </DockPanel>
+                <DockPanel Grid.Row="3" Grid.Column="6" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                    <TextBox/>
+                </DockPanel>
+                <DockPanel Grid.Row="4" Grid.Column="6" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                    <TextBox/>
+                </DockPanel>
+            </Grid>
+            <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="2" Margin="0,5,5,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition Width="6*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Rectangle Margin="10,10,0,29" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="2" Width="2" HorizontalAlignment="Left" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                <Rectangle Margin="10,10,0,0" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="1" Height="2" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="1" Grid.RowSpan="1">
+                    <Rectangle Margin="0,0,0,0" Height="20"  VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                    <Rectangle Margin="10,0,10,0"    Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                </Grid>
+                <Image Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="1" Grid.RowSpan="1"  Source="/Demo;component/images/furnace.jpg" VerticalAlignment="Top"/>
+            </Grid>
+            
+        </Grid>
+        <Grid Grid.Row="6" Grid.Column="0" Grid.RowSpan="1" Grid.ColumnSpan="1" Margin="0,0,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <DockPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DI1:</TextBlock>
+                <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
+            </DockPanel>
+            <DockPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DI2:</TextBlock>
+                <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
+            </DockPanel>
+            <DockPanel Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DI3:</TextBlock>
+                <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
+            </DockPanel>
+            <DockPanel Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DI4:</TextBlock>
+                <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
+            </DockPanel>
+            <DockPanel Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DI4:</TextBlock>
+                <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
+            </DockPanel>
+            <DockPanel Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DI4:</TextBlock>
+                <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
+            </DockPanel>
+            <DockPanel Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DI4:</TextBlock>
+                <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
+            </DockPanel>
+            <DockPanel Grid.Row="0" Grid.Column="7" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DI4:</TextBlock>
+                <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
+            </DockPanel>
+            <DockPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DI5:</TextBlock>
+                <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
+            </DockPanel>
+            <DockPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DI6:</TextBlock>
+                <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
+            </DockPanel>
+            <DockPanel Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DI7:</TextBlock>
+                <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
+            </DockPanel>
+            <DockPanel Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DI7:</TextBlock>
+                <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
+            </DockPanel>
+            <DockPanel Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DI7:</TextBlock>
+                <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
+            </DockPanel>
+            <DockPanel Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DI7:</TextBlock>
+                <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
+            </DockPanel>
+            <DockPanel Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DI7:</TextBlock>
+                <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
+            </DockPanel>
+            <DockPanel Grid.Row="1" Grid.Column="7" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DI7:</TextBlock>
+                <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
+            </DockPanel>
+        </Grid>
+        <Grid Grid.Row="6" Grid.Column="2" Grid.RowSpan="1" Grid.ColumnSpan="1" Margin="0,0,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <DockPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DO1:</TextBlock>
+                <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
+            </DockPanel>
+            <DockPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DO2:</TextBlock>
+                <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
+            </DockPanel>
+            <DockPanel Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DO3:</TextBlock>
+                <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
+            </DockPanel>
+            <DockPanel Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DO4:</TextBlock>
+                <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
+            </DockPanel>
+            <DockPanel Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DO4:</TextBlock>
+                <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
+            </DockPanel>
+            <DockPanel Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DO4:</TextBlock>
+                <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
+            </DockPanel>
+            <DockPanel Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DO4:</TextBlock>
+                <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
+            </DockPanel>
+            <DockPanel Grid.Row="0" Grid.Column="7" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DO4:</TextBlock>
+                <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
+            </DockPanel>
+            <DockPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DO5:</TextBlock>
+                <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
+            </DockPanel>
+            <DockPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DO6:</TextBlock>
+                <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
+            </DockPanel>
+            <DockPanel Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DO7:</TextBlock>
+                <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
+            </DockPanel>
+            <DockPanel Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DO7:</TextBlock>
+                <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
+            </DockPanel>
+            <DockPanel Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DO7:</TextBlock>
+                <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
+            </DockPanel>
+            <DockPanel Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DO7:</TextBlock>
+                <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
+            </DockPanel>
+            <DockPanel Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DO7:</TextBlock>
+                <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
+            </DockPanel>
+            <DockPanel Grid.Row="1" Grid.Column="7" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DO7:</TextBlock>
+                <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
+            </DockPanel>
+        </Grid>
+        <Grid Grid.Row="4" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="1" Margin="0,0,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.2*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="0.2*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Rectangle Margin="0,0,-10,-10" Grid.Row="0" Grid.Column="13" Grid.ColumnSpan="13" Grid.RowSpan="1" Width="2" HorizontalAlignment="Right" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+            <Rectangle Margin="10,0,-10,-10" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="13" Grid.RowSpan="1" Height="2" VerticalAlignment="Bottom" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+            <Rectangle Margin="10,10,0,-5" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="1" Width="2" HorizontalAlignment="Left" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+            <Rectangle Margin="10,5,0,0" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="1" Height="2" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+            <Rectangle Margin="0,0,0,0" Grid.Row="0" Grid.Column="13" Grid.ColumnSpan="13" Grid.RowSpan="1" Width="2" HorizontalAlignment="Right" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+            <Rectangle Margin="0,0,0,0" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="13" Grid.RowSpan="1" Height="2" VerticalAlignment="Bottom" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+            <Rectangle Margin="0,0,0,-15" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="1" Width="2" HorizontalAlignment="Left" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+            <Rectangle Margin="0,10,0,0" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="12" Grid.RowSpan="1" Height="2" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+            <Rectangle Margin="0,15,0,0" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="1" Height="2" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+            <Grid Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="1" Grid.RowSpan="2">
+                <Rectangle Margin="0,0,0,0" Height="20"  VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                <Rectangle Margin="10,0,10,0"    Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+            </Grid>
+            <Grid Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="1" Grid.RowSpan="2">
+                <Rectangle Margin="0,0,0,0" Height="20"  VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                <Rectangle Margin="10,0,10,0"    Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+            </Grid>
+            <Grid Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="1" Grid.RowSpan="1">
+                <Rectangle Margin="0,10,0,0" Width="2"  Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                <Rectangle Margin="10,20,10,0" Width="10" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+            </Grid>
+            <Grid Grid.Row="2" Grid.Column="7" Grid.ColumnSpan="1" Grid.RowSpan="1">
+                <Rectangle Margin="0,0,0,0" Width="20" Height="20"  VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+            </Grid>
+            <Grid Grid.Row="2" Grid.Column="9" Grid.ColumnSpan="1" Grid.RowSpan="1">
+                <Rectangle Margin="0,10,0,0" Width="2"  Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                <Rectangle Margin="10,20,10,0" Width="10" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+            </Grid>
+            <Grid Grid.Row="2" Grid.Column="11" Grid.ColumnSpan="1" Grid.RowSpan="2">
+                <Rectangle Margin="0,0,0,0" Height="20"  VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                <Rectangle Margin="10,0,10,0"    Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+            </Grid>
+        </Grid>
+        <DockPanel Grid.Row="5" Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="1" Margin="0,5,5,0">
+            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" FontSize="14" FontWeight="Bold" Foreground="#FF646366" >Gas and Vacuum</TextBlock>
+            <Button  Margin="5,0" DockPanel.Dock="Right"  Width="20"/>
+            <TextBox Margin="5,0"/>
+        </DockPanel>
     </Grid>
 </UserControl>

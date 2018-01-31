@@ -363,7 +363,7 @@
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <ContentControl>
-                                <view:RecipeStepDetailItem5 DataContext="{Binding}"/>
+                                <view:RecipeStepDetailItem DataContext="{Binding}"/>
                             </ContentControl>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>

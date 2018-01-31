@@ -8,41 +8,41 @@
              d:DesignHeight="300" d:DesignWidth="800">
     <Border Name="borderStep" BorderBrush="Black" BorderThickness="1"   Padding="5,2" Margin="0,0,0,0" VerticalAlignment="Top" Background="White">
         <DockPanel>
-            <DockPanel DockPanel.Dock="Top">
-                <DockPanel Height="30" DockPanel.Dock="Left">
-                    <WrapPanel Height="20"  VerticalAlignment="Center">
-                        <TextBlock Text="Step"  Margin="5,0,0,0" Width="30"  FontSize="12" Height="20" FontWeight="Bold" Foreground="#FF402FEA"   />
-                        <TextBlock Text="{Binding Path=StepIndex}" Width="20" FontSize="12" FontWeight="Bold" Foreground="#FF402FEA" />
+            <DockPanel DockPanel.Dock="Top" Margin="5">
+                <DockPanel  DockPanel.Dock="Left" VerticalAlignment="Center">
+                    <WrapPanel>
+                        <TextBlock Text="Step"  Margin="5,0,0,0" Width="30"  FontSize="14"  FontWeight="Bold" Foreground="#FF402FEA"   />
+                        <TextBlock Text="{Binding Path=StepIndex}" Width="20" FontSize="14" FontWeight="Bold" Foreground="#FF402FEA" />
                     </WrapPanel>
                 </DockPanel>
-
-                <Grid Margin="5,0" Height="20" VerticalAlignment="Center">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="2*"/>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="2*"/>
-                        <ColumnDefinition Width="3*"/>
-                        <ColumnDefinition Width="2*"/>
-                        <ColumnDefinition Width="3*"/>
-                        <ColumnDefinition Width="2*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition />
-                    </Grid.RowDefinitions>
-                    <TextBlock Grid.Row="0" Grid.Column="0">Type:</TextBlock>
-                    <TextBox Grid.Row="0" Grid.Column="1" Margin="5, 0, 0, 0" Width="80"></TextBox>
-                    <TextBlock Grid.Row="0" Grid.Column="2" Margin="5, 0, 0, 0">Time:</TextBlock>
-                    <TextBox Grid.Row="0" Grid.Column="3" Margin="5, 0, 0, 0" Width="80"></TextBox>
-                    <TextBlock Grid.Row="0" Grid.Column="4" Margin="5, 0, 0, 0">Axis Position:</TextBlock>
-                    <TextBox Grid.Row="0" Grid.Column="5" Margin="5, 0, 0, 0" Width="80"></TextBox>
-                    <TextBlock Grid.Row="0" Grid.Column="6" Margin="5, 0, 0, 0">Axis Speed:</TextBlock>
-                    <TextBox Grid.Row="0" Grid.Column="7" Margin="5, 0, 0, 0" Width="80"></TextBox>
-                </Grid>
                 <WrapPanel DockPanel.Dock="Right" Margin="5,0" Height="20" HorizontalAlignment="Right" VerticalAlignment="Center">
                     <Button Content="Download" Padding="5,0" Margin="5,0" Width="80" />
                     <Button Content="Switch" Padding="5,0" Margin="5,0" Width="80" Click="OnChangeContentLayout"/>
                 </WrapPanel>
+                <Grid Margin="5,0"  VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <DockPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" Margin="0,0,5,0">
+                        <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">Step Name:</TextBlock>
+                        <TextBox Margin="5,0"/>
+                    </DockPanel>
+                    <DockPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="1" Margin="0,0,5,0">
+                        <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">Step Type:</TextBlock>
+                        <TextBox Margin="5,0"/>
+                    </DockPanel>
+                    <DockPanel Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="1" Margin="0,0,5,0">
+                        <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">Step Time:</TextBlock>
+                        <TextBox Margin="5,0"/>
+                    </DockPanel>
+                </Grid>
             </DockPanel>
             <Grid>
                 <StackPanel Name="DetailPanel" Margin="5,0" Visibility="Visible">
@@ -53,8 +53,6 @@
                             <ColumnDefinition />
                             <ColumnDefinition />
                             <ColumnDefinition />
-                            <ColumnDefinition Width="0.5*"/>
-                            <ColumnDefinition Width="0.5*"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition />
@@ -63,25 +61,22 @@
                             <RowDefinition />
                             <RowDefinition />
                             <RowDefinition />
+                            <RowDefinition />
                         </Grid.RowDefinitions>
-                        <DockPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                        <DockPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,5,5,0">
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" FontSize="14" FontWeight="Bold" Foreground="#FF646366" >Gas and Vacuum</TextBlock>
+                            <Rectangle></Rectangle>
+                        </DockPanel>
+                        <DockPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" Margin="0,5,5,0">
                             <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">N2:</TextBlock>
                             <Button  Margin="5,0" DockPanel.Dock="Right"  Width="20"/>
                             <TextBox Margin="5,0"/>
-                        </DockPanel>
-                        <DockPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                            <local:StepItemAnalogCond Margin="2,0,5,0"></local:StepItemAnalogCond>
-                        </DockPanel>
-                        <DockPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">H2:</TextBlock>
-                            <Button  Margin="5,0" DockPanel.Dock="Right"  Width="20"/>
-                            <TextBox Margin="5,0" />
                         </DockPanel>
                         <DockPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="1" Margin="0,5,5,0">
                             <local:StepItemAnalogCond Margin="2,0,5,0"></local:StepItemAnalogCond>
                         </DockPanel>
                         <DockPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">BCl3:</TextBlock>
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">H2:</TextBlock>
                             <Button  Margin="5,0" DockPanel.Dock="Right"  Width="20"/>
                             <TextBox Margin="5,0" />
                         </DockPanel>
@@ -89,7 +84,7 @@
                             <local:StepItemAnalogCond Margin="2,0,5,0"></local:StepItemAnalogCond>
                         </DockPanel>
                         <DockPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">O2:</TextBlock>
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">BCl3:</TextBlock>
                             <Button  Margin="5,0" DockPanel.Dock="Right"  Width="20"/>
                             <TextBox Margin="5,0" />
                         </DockPanel>
@@ -97,7 +92,7 @@
                             <local:StepItemAnalogCond Margin="2,0,5,0"></local:StepItemAnalogCond>
                         </DockPanel>
                         <DockPanel Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">PC8:</TextBlock>
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">O2:</TextBlock>
                             <Button  Margin="5,0" DockPanel.Dock="Right"  Width="20"/>
                             <TextBox Margin="5,0" />
                         </DockPanel>
@@ -105,23 +100,28 @@
                             <local:StepItemAnalogCond Margin="2,0,5,0"></local:StepItemAnalogCond>
                         </DockPanel>
                         <DockPanel Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">Vacuum:</TextBlock>
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">PC8:</TextBlock>
                             <Button  Margin="5,0" DockPanel.Dock="Right"  Width="20"/>
                             <TextBox Margin="5,0" />
                         </DockPanel>
                         <DockPanel Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="1" Margin="0,5,5,0">
                             <local:StepItemAnalogCond Margin="2,0,5,0"></local:StepItemAnalogCond>
                         </DockPanel>
-                        <DockPanel Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="1" Margin="15,5,5,0">
-                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">Zone1:</TextBlock>
+                        <DockPanel Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">Vacuum:</TextBlock>
                             <Button  Margin="5,0" DockPanel.Dock="Right"  Width="20"/>
                             <TextBox Margin="5,0" />
                         </DockPanel>
-                        <DockPanel Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                        <DockPanel Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="1" Margin="0,5,5,0">
                             <local:StepItemAnalogCond Margin="2,0,5,0"></local:StepItemAnalogCond>
                         </DockPanel>
+                        <DockPanel Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,5,5,0">
+                            <TextBlock Margin="15,0,5,0" DockPanel.Dock="Left" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Temperature</TextBlock>
+                            <TextBox Margin="5,0" DockPanel.Dock="Right"  Width="60"/>
+                            <Rectangle></Rectangle>
+                        </DockPanel>
                         <DockPanel Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="1" Margin="15,5,5,0">
-                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">Zone2:</TextBlock>
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">Zone1:</TextBlock>
                             <Button  Margin="5,0" DockPanel.Dock="Right"  Width="20"/>
                             <TextBox Margin="5,0" />
                         </DockPanel>
@@ -129,7 +129,7 @@
                             <local:StepItemAnalogCond Margin="2,0,5,0"></local:StepItemAnalogCond>
                         </DockPanel>
                         <DockPanel Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="1" Margin="15,5,5,0">
-                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">Zone3:</TextBlock>
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">Zone2:</TextBlock>
                             <Button  Margin="5,0" DockPanel.Dock="Right"  Width="20"/>
                             <TextBox Margin="5,0" />
                         </DockPanel>
@@ -137,7 +137,7 @@
                             <local:StepItemAnalogCond Margin="2,0,5,0"></local:StepItemAnalogCond>
                         </DockPanel>
                         <DockPanel Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="1" Margin="15,5,5,0">
-                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">Zone4:</TextBlock>
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">Zone3:</TextBlock>
                             <Button  Margin="5,0" DockPanel.Dock="Right"  Width="20"/>
                             <TextBox Margin="5,0" />
                         </DockPanel>
@@ -145,7 +145,7 @@
                             <local:StepItemAnalogCond Margin="2,0,5,0"></local:StepItemAnalogCond>
                         </DockPanel>
                         <DockPanel Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="1" Margin="15,5,5,0">
-                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">Zone5:</TextBlock>
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">Zone4:</TextBlock>
                             <Button  Margin="5,0" DockPanel.Dock="Right"  Width="20"/>
                             <TextBox Margin="5,0" />
                         </DockPanel>
@@ -153,127 +153,223 @@
                             <local:StepItemAnalogCond Margin="2,0,5,0"></local:StepItemAnalogCond>
                         </DockPanel>
                         <DockPanel Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="1" Margin="15,5,5,0">
-                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">Zone6:</TextBlock>
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">Zone5:</TextBlock>
                             <Button  Margin="5,0" DockPanel.Dock="Right"  Width="20"/>
                             <TextBox Margin="5,0" />
                         </DockPanel>
                         <DockPanel Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="1" Margin="0,5,5,0">
                             <local:StepItemAnalogCond Margin="2,0,5,0"></local:StepItemAnalogCond>
                         </DockPanel>
-                        <DockPanel Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="2" Margin="15,5,5,0">
-                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="80">Temper Int/Ext:</TextBlock>
+                        <DockPanel Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="1" Margin="15,5,5,0">
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">Zone6:</TextBlock>
+                            <Button  Margin="5,0" DockPanel.Dock="Right"  Width="20"/>
                             <TextBox Margin="5,0" />
                         </DockPanel>
-                        <DockPanel Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="1" Margin="15,5,5,0">
-                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">Analog:</TextBlock>
-                            <TextBox Margin="5,0" />
+                        <DockPanel Grid.Row="6" Grid.Column="3" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                            <local:StepItemAnalogCond Margin="2,0,5,0"></local:StepItemAnalogCond>
                         </DockPanel>
-                        <DockPanel Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="1" Margin="15,5,5,0">
-                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">Digital:</TextBlock>
-                            <TextBox Margin="5,0" />
+                    </Grid>
+                    <Rectangle Height="1" Fill="#FFAAA5A5" />
+                    <Grid Margin="0,0,0,5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <DockPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">Axis Position:</TextBlock>
+                            <TextBox Margin="5,0"/>
                         </DockPanel>
-                        <DockPanel Grid.Row="5" Grid.Column="4" Grid.ColumnSpan="2" Margin="15,5,5,0">
-                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="80">Temperature:</TextBlock>
-                            <TextBox Margin="5,0" />
-                        </DockPanel>
-                        <DockPanel Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="1" Margin="15,5,5,0">
-                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">Manual:</TextBlock>
-                            <TextBox Margin="5,0" />
-                        </DockPanel>
-                        <DockPanel Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="1" Margin="15,5,5,0">
-                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">Power:</TextBlock>
-                            <TextBox Margin="5,0" />
-                        </DockPanel>
-                        <DockPanel Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="1" Margin="15,5,5,0">
-                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">MFC:</TextBlock>
-                            <TextBox Margin="5,0" />
-                        </DockPanel>
-                        <DockPanel Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="1" Margin="15,5,5,0">
-                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">Analog:</TextBlock>
+
+                        <DockPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">Axis Speed:</TextBlock>
                             <TextBox Margin="5,0" />
                         </DockPanel>
                     </Grid>
                     <Rectangle Height="1" Fill="#FFAAA5A5" />
-                    <WrapPanel Margin="0,0,0,5">
+                    <Grid Margin="0,0,0,5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
                         <DockPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">EV1:</TextBlock>
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">EV1:</TextBlock>
                             <Button Margin="5,0" Width="20" Background="#FF05460E"/>
                         </DockPanel>
                         <DockPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">EV2:</TextBlock>
-                            <Button Margin="5,0" Width="20"/>
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">EV2:</TextBlock>
+                            <Button Margin="5,0" Width="20" Background="#FF05460E"/>
                         </DockPanel>
                         <DockPanel Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">EV3:</TextBlock>
-                            <Button Margin="5,0" Width="20"/>
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">EV3:</TextBlock>
+                            <Button Margin="5,0" Width="20" Background="#FF05460E"/>
                         </DockPanel>
                         <DockPanel Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">EV4:</TextBlock>
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">EV4:</TextBlock>
                             <Button Margin="5,0" Width="20" Background="#FF05460E"/>
                         </DockPanel>
                         <DockPanel Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">EV5:</TextBlock>
-                            <Button Margin="5,0" Width="20"/>
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">EV5:</TextBlock>
+                            <Button Margin="5,0" Width="20" Background="#FF05460E"/>
                         </DockPanel>
-                        <DockPanel Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="1" Margin="0,5,0,0">
-                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">EV6:</TextBlock>
-                            <Button Margin="5,0" Width="20"/>
+                        <DockPanel Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">EV6:</TextBlock>
+                            <Button Margin="5,0" Width="20" Background="#FF05460E"/>
                         </DockPanel>
-                    </WrapPanel>
+                        <DockPanel Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">EV7:</TextBlock>
+                            <Button Margin="5,0" Width="20" Background="#FF05460E"/>
+                        </DockPanel>
+                    </Grid>
                     <Rectangle Height="1" Fill="#FFAAA5A5" />
-                    <WrapPanel Margin="0,0,0,5">
+                    <Grid Margin="0,0,0,5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
                         <DockPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">Digital Input1:</TextBlock>
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DI1:</TextBlock>
                             <Button Margin="5,0" Width="20" Background="#FF05460E"/>
                         </DockPanel>
                         <DockPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">Digital Input2:</TextBlock>
-                            <Button Margin="5,0" Width="20"/>
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DI2:</TextBlock>
+                            <Button Margin="5,0" Width="20" Background="#FF05460E"/>
                         </DockPanel>
                         <DockPanel Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">Digital Input3:</TextBlock>
-                            <Button Margin="5,0" Width="20"/>
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DI3:</TextBlock>
+                            <Button Margin="5,0" Width="20" Background="#FF05460E"/>
                         </DockPanel>
                         <DockPanel Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">Digital Input4:</TextBlock>
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DI4:</TextBlock>
                             <Button Margin="5,0" Width="20" Background="#FF05460E"/>
                         </DockPanel>
                         <DockPanel Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">Digital Input5:</TextBlock>
-                            <Button Margin="5,0" Width="20"/>
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DI5:</TextBlock>
+                            <Button Margin="5,0" Width="20" Background="#FF05460E"/>
                         </DockPanel>
-                        <DockPanel Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="1" Margin="0,5,0,0">
-                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">Digital Input6:</TextBlock>
-                            <Button Margin="5,0" Width="20"/>
+                        <DockPanel Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DI6:</TextBlock>
+                            <Button Margin="5,0" Width="20" Background="#FF05460E"/>
                         </DockPanel>
-                    </WrapPanel>
+                        <DockPanel Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DI8:</TextBlock>
+                            <Button Margin="5,0" Width="20" Background="#FF05460E"/>
+                        </DockPanel>
+                    </Grid>
                     <Rectangle Height="1" Fill="#FFAAA5A5" />
-                    <WrapPanel Margin="0,0,0,10">
+                    <Grid Margin="0,0,0,5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
                         <DockPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">Digital Output1:</TextBlock>
-                            <Button Margin="5,0" Width="20"/>
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DO1:</TextBlock>
+                            <Button Margin="5,0" Width="20" Background="#FF05460E"/>
                         </DockPanel>
                         <DockPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">Digital Output2:</TextBlock>
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DO2:</TextBlock>
                             <Button Margin="5,0" Width="20" Background="#FF05460E"/>
                         </DockPanel>
                         <DockPanel Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">Digital Output3:</TextBlock>
-                            <Button Margin="5,0" Width="20"/>
-                        </DockPanel>
-                        <DockPanel Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">Digital Output4:</TextBlock>
-                            <Button Margin="5,0" Width="20"/>
-                        </DockPanel>
-                        <DockPanel Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">Digital Output5:</TextBlock>
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DO3:</TextBlock>
                             <Button Margin="5,0" Width="20" Background="#FF05460E"/>
                         </DockPanel>
-                        <DockPanel Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="1" Margin="0,5,0,0">
-                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">Digital Output6:</TextBlock>
-                            <Button Margin="5,0" Width="20"/>
+                        <DockPanel Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DO4:</TextBlock>
+                            <Button Margin="5,0" Width="20" Background="#FF05460E"/>
                         </DockPanel>
-                    </WrapPanel>
+                        <DockPanel Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DO5:</TextBlock>
+                            <Button Margin="5,0" Width="20" Background="#FF05460E"/>
+                        </DockPanel>
+                        <DockPanel Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DO6:</TextBlock>
+                            <Button Margin="5,0" Width="20" Background="#FF05460E"/>
+                        </DockPanel>
+                        <DockPanel Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DO7:</TextBlock>
+                            <Button Margin="5,0" Width="20" Background="#FF05460E"/>
+                        </DockPanel>
+                    </Grid>
+                    <Rectangle Height="1" Fill="#FFAAA5A5" />
+                    <Grid Margin="0,0,0,5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <DockPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">Analog:</TextBlock>
+                            <TextBox Margin="5,0"/>
+                        </DockPanel>
+                        <DockPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">Digital:</TextBlock>
+                            <TextBox Margin="5,0" />
+                        </DockPanel>
+                        <DockPanel Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">Temperature:</TextBlock>
+                            <TextBox Margin="5,0" />
+                        </DockPanel>
+                        <DockPanel Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">Manual:</TextBlock>
+                            <TextBox Margin="5,0" />
+                        </DockPanel>
+                        <DockPanel Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">Power:</TextBlock>
+                            <TextBox Margin="5,0" />
+                        </DockPanel>
+                        <DockPanel Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">MFC Delay:</TextBlock>
+                            <TextBox Margin="5,0" />
+                        </DockPanel>
+                        <DockPanel Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">Analog Delay:</TextBlock>
+                            <TextBox Margin="5,0" />
+                        </DockPanel>
+                    </Grid>
                 </StackPanel>
                 <StackPanel Name="SummaryPanel" Margin="5,0"  Visibility="Hidden">
                     <Rectangle Height="1" Fill="#FFAAA5A5" />
@@ -336,6 +432,108 @@
                         </DockPanel>
                         <DockPanel Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="1" Margin="0,5,0,0">
                             <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">Zone6:</TextBlock>
+                            <TextBox Margin="5,0" />
+                        </DockPanel>
+                    </Grid>
+                    <Rectangle Height="1" Fill="#FFAAA5A5" />
+                    <Grid Margin="0,0,0,10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <DockPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">EV1:</TextBlock>
+                            <Button Margin="5,0" Width="20" Background="#FF05460E"/>
+                        </DockPanel>
+                        <DockPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">EV2:</TextBlock>
+                            <Button Margin="5,0" Width="20" Background="#FF05460E"/>
+                        </DockPanel>
+                        <DockPanel Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">EV3:</TextBlock>
+                            <Button Margin="5,0" Width="20" Background="#FF05460E"/>
+                        </DockPanel>
+                        <DockPanel Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">EV4:</TextBlock>
+                            <Button Margin="5,0" Width="20" Background="#FF05460E"/>
+                        </DockPanel>
+                        <DockPanel Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">EV5:</TextBlock>
+                            <Button Margin="5,0" Width="20" Background="#FF05460E"/>
+                        </DockPanel>
+                        <DockPanel Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="1" Margin="0,5,0,0">
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">EV6:</TextBlock>
+                            <Button Margin="5,0" Width="20" Background="#FF05460E"/>
+                        </DockPanel>
+                        <DockPanel Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">EV7:</TextBlock>
+                            <Button Margin="5,0" Width="20" Background="#FF05460E"/>
+                        </DockPanel>
+                        <DockPanel Grid.Row="1" Grid.Column="7" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">EV8:</TextBlock>
+                            <Button Margin="5,0" Width="20" Background="#FF05460E"/>
+                        </DockPanel>
+                    </Grid>
+                    <Rectangle Height="1" Fill="#FFAAA5A5" />
+                    <Grid Margin="0,0,0,5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <DockPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">Axis Position:</TextBlock>
+                            <TextBox Margin="5,0"/>
+                        </DockPanel>
+                        <DockPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">Axis Speed:</TextBlock>
+                            <TextBox Margin="5,0" />
+                        </DockPanel>
+                        <DockPanel Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">Analog:</TextBlock>
+                            <TextBox Margin="5,0"/>
+                        </DockPanel>
+                        <DockPanel Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">Digital:</TextBlock>
+                            <TextBox Margin="5,0" />
+                        </DockPanel>
+                        <DockPanel Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">Temperature:</TextBlock>
+                            <TextBox Margin="5,0" />
+                        </DockPanel>
+                        <DockPanel Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">Manual:</TextBlock>
+                            <TextBox Margin="5,0" />
+                        </DockPanel>
+                        <DockPanel Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">Power:</TextBlock>
+                            <TextBox Margin="5,0" />
+                        </DockPanel>
+                        <DockPanel Grid.Row="0" Grid.Column="7" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">MFC Delay:</TextBlock>
+                            <TextBox Margin="5,0" />
+                        </DockPanel>
+                        <DockPanel Grid.Row="0" Grid.Column="8" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">Analog Delay:</TextBlock>
                             <TextBox Margin="5,0" />
                         </DockPanel>
                     </Grid>

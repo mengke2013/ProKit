@@ -97,22 +97,22 @@
     <Compile Include="ui\model\TubeRecipePageModel.cs" />
     <Compile Include="ui\model\TubeEventsPageModel.cs" />
     <Compile Include="ui\model\TubeTrendPageModel.cs" />
-    <Compile Include="ui\view\RecipeStepDetailItem5.xaml.cs">
-      <DependentUpon>RecipeStepDetailItem5.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ui\view\RecipeStepDetailItem4.xaml.cs">
-      <DependentUpon>RecipeStepDetailItem4.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ui\view\RecipeStepDetailItem.xaml.cs">
       <DependentUpon>RecipeStepDetailItem.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ui\view\RecipeStepDetailItem2.xaml.cs">
+    <Compile Include="ui\test\RecipeStepDetailItem4.xaml.cs">
+      <DependentUpon>RecipeStepDetailItem4.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ui\test\RecipeStepDetailItem6.xaml.cs">
+      <DependentUpon>RecipeStepDetailItem6.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ui\test\RecipeStepDetailItem2.xaml.cs">
       <DependentUpon>RecipeStepDetailItem2.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ui\view\RecipeStepDetailItem1.xaml.cs">
+    <Compile Include="ui\test\RecipeStepDetailItem1.xaml.cs">
       <DependentUpon>RecipeStepDetailItem1.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ui\view\RecipeStepDetailItem3.xaml.cs">
+    <Compile Include="ui\test\RecipeStepDetailItem3.xaml.cs">
       <DependentUpon>RecipeStepDetailItem3.xaml</DependentUpon>
     </Compile>
     <Compile Include="ui\view\StepItemAnalogCond.xaml.cs">
@@ -126,6 +126,9 @@
     <Compile Include="ui\adapter\TubeSettingsPageAdapter .cs" />
     <Compile Include="ui\adapter\TubeTrendPageAdapter .cs" />
     <Compile Include="ui\adapter\TubeMonitorPageAdapter.cs" />
+    <Compile Include="ui\view\TubeMonitorPage1.xaml.cs">
+      <DependentUpon>TubeMonitorPage1.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ui\view\TubeRecipePage.xaml.cs">
       <DependentUpon>TubeRecipePage.xaml</DependentUpon>
     </Compile>
@@ -143,27 +146,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ui\view\RecipeStepDetailItem5.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="ui\view\RecipeStepDetailItem4.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="ui\view\RecipeStepDetailItem.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="ui\view\RecipeStepDetailItem2.xaml">
+    <Page Include="ui\test\RecipeStepDetailItem4.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="ui\view\RecipeStepDetailItem1.xaml">
+    <Page Include="ui\test\RecipeStepDetailItem6.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="ui\view\RecipeStepDetailItem3.xaml">
+    <Page Include="ui\test\RecipeStepDetailItem2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ui\test\RecipeStepDetailItem1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ui\test\RecipeStepDetailItem3.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -174,6 +177,10 @@
     <Page Include="ui\view\TubeEventsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ui\view\TubeMonitorPage1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="ui\view\TubeMonitorPage.xaml">
       <SubType>Designer</SubType>
