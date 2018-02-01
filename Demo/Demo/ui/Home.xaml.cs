@@ -28,7 +28,7 @@ namespace Demo.ui
         public static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         private byte mSelectedTube = 0;
-        private TubeMonitorPageModel mTubeMonitorPageModel;
+        
         private byte[] tubePageIndexes = {1,1,1,1,1,1};
         private string[] tubePageTitleLabels = { "Monitor", "Trend", "Recipe", "Settings", "Events" };
         private ITubePage[] tubePages = new ITubePage[5];
@@ -39,10 +39,6 @@ namespace Demo.ui
         {
             InitializeComponent();
             WindowState = WindowState.Maximized;
-
-            mTubeMonitorPageModel = new TubeMonitorPageModel();
-            mTubeMonitorPageModel.SelectedTube = 3;
-            tubeMonitorPage.DataContext = mTubeMonitorPageModel;
 
             RegestDataContext();
 
@@ -205,8 +201,6 @@ namespace Demo.ui
             };
             bdMainPanel.Visibility = Visibility.Visible;
 
-            mTubeMonitorPageModel.SelectedTube = 1;
-            mTubeMonitorPageModel.UpdateDataSource();
             ComNodeHelper.Instance.ReadOpcNodes(1);
             TubeTabHeader.Visibility = Visibility.Visible;
             bd0.Visibility = Visibility.Visible;
@@ -236,8 +230,6 @@ namespace Demo.ui
             };
             bdMainPanel.Visibility = Visibility.Visible;
 
-            mTubeMonitorPageModel.SelectedTube = 2;
-            mTubeMonitorPageModel.UpdateDataSource();
             ComNodeHelper.Instance.ReadOpcNodes(2);
             TubeTabHeader.Visibility = Visibility.Visible;
             bd0.Visibility = Visibility.Visible;
@@ -267,8 +259,6 @@ namespace Demo.ui
             };
             bdMainPanel.Visibility = Visibility.Visible;
 
-            mTubeMonitorPageModel.SelectedTube = 3;
-            mTubeMonitorPageModel.UpdateDataSource();
             ComNodeHelper.Instance.ReadOpcNodes(3);
             TubeTabHeader.Visibility = Visibility.Visible;
             bd0.Visibility = Visibility.Visible;
@@ -296,8 +286,6 @@ namespace Demo.ui
             };
             bdMainPanel.Visibility = Visibility.Visible;
 
-            mTubeMonitorPageModel.SelectedTube = 4;
-            mTubeMonitorPageModel.UpdateDataSource();
             ComNodeHelper.Instance.ReadOpcNodes(4);
             TubeTabHeader.Visibility = Visibility.Visible;
             bd0.Visibility = Visibility.Visible;
@@ -325,8 +313,6 @@ namespace Demo.ui
             };
             bdMainPanel.Visibility = Visibility.Visible;
 
-            mTubeMonitorPageModel.SelectedTube = 5;
-            mTubeMonitorPageModel.UpdateDataSource();
             ComNodeHelper.Instance.ReadOpcNodes(5);
             TubeTabHeader.Visibility = Visibility.Visible;
             bd0.Visibility = Visibility.Visible;
@@ -354,8 +340,6 @@ namespace Demo.ui
             };
             bdMainPanel.Visibility = Visibility.Visible;
 
-            mTubeMonitorPageModel.SelectedTube = 6;
-            mTubeMonitorPageModel.UpdateDataSource();
             ComNodeHelper.Instance.ReadOpcNodes(6);
             TubeTabHeader.Visibility = Visibility.Visible;
             bd0.Visibility = Visibility.Visible;
@@ -534,6 +518,7 @@ namespace Demo.ui
                 opcReadNodes.Add(ComProcessNodeComponent.Instance.TubeNodeComponents[tubeIndex].DioNodeComponent.DigInput);
                 opcReadNodes.Add(ComProcessNodeComponent.Instance.TubeNodeComponents[tubeIndex].DioNodeComponent.DigOutput);
                 ComNodeService.Instance.ReadComNodes((byte)(tubeIndex+1), opcReadNodes);
+                opcReadNodes.Clear();
             }
 
         }

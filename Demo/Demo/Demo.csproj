@@ -126,7 +126,7 @@
     <Compile Include="ui\adapter\TubeSettingsPageAdapter .cs" />
     <Compile Include="ui\adapter\TubeTrendPageAdapter .cs" />
     <Compile Include="ui\adapter\TubeMonitorPageAdapter.cs" />
-    <Compile Include="ui\view\TubeMonitorPage1.xaml.cs">
+    <Compile Include="ui\test\TubeMonitorPage1.xaml.cs">
       <DependentUpon>TubeMonitorPage1.xaml</DependentUpon>
     </Compile>
     <Compile Include="ui\view\TubeRecipePage.xaml.cs">
@@ -178,7 +178,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ui\view\TubeMonitorPage1.xaml">
+    <Page Include="ui\test\TubeMonitorPage1.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

@@ -26,14 +26,21 @@ namespace Demo.ui
     {
         public static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
+        private TubeMonitorPageModel mTubeMonitorPageModel;
+
         public TubeMonitorPage()
         {
             InitializeComponent();
+
+            mTubeMonitorPageModel = new TubeMonitorPageModel();
         }
 
         public void LoadPage(byte selectedTube)
         {
             log.Info("TubeMonitorPage");
+            mTubeMonitorPageModel.SelectedTube = selectedTube;
+            DataContext = mTubeMonitorPageModel;
+            mTubeMonitorPageModel.UpdateDataSource();
         }
     }
 }

@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Demo.ui"
              mc:Ignorable="d" 
-             d:DesignHeight="600" d:DesignWidth="750">
+             d:DesignHeight="600" d:DesignWidth="950">
     <Grid Margin="5,0" >
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -40,8 +40,8 @@
                 <RowDefinition Height="0.2*"/>
                 <RowDefinition />
                 <RowDefinition />
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1.5*"/>
+                <RowDefinition Height="1.5*"/>
                 <RowDefinition Height="1*"/>
                 <RowDefinition />
                 <RowDefinition Height="1.5*"/>
@@ -49,69 +49,101 @@
 
             <Grid Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="9" Grid.RowSpan="7">
                 <Rectangle Margin="-15,0,0,0" Height="10" Width="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
-                <Rectangle Margin="-5,0,0,12"  Width="10" HorizontalAlignment="Left"  Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
-                <Rectangle Margin="-5,0,0,12"  Height="10"   VerticalAlignment="Bottom" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                <Border Margin="-5,8,0,12"  Width="10" HorizontalAlignment="Left" BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="2,0,2,2"></Border>
+                <Border Margin="3,0,0,12"  Height="10"   VerticalAlignment="Bottom" BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="0,2,2,2"></Border>
             </Grid>
             <Rectangle Margin="-10,-15,0,0" Grid.Row="6" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="1" Width="20" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
             <Rectangle Margin="0,0,-10,17" Grid.Row="1" Grid.Column="9" Grid.RowSpan="7" Grid.ColumnSpan="2"  Height="2" VerticalAlignment="Bottom"  Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
-            
+
             <Grid Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="8" Grid.RowSpan="7">
                 <Rectangle Margin="-15,0,0,0" Height="10" Width="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
-                <Rectangle Margin="-5,0,0,24"  Width="10" HorizontalAlignment="Left"  Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
-                <Rectangle Margin="-5,0,0,24"  Height="10"   VerticalAlignment="Bottom" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                <Border Margin="-5,8,0,24"  Width="10" HorizontalAlignment="Left"  BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="2,0,2,2"></Border>
+                <Border Margin="3,0,0,24"  Height="10"   VerticalAlignment="Bottom" BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="0,2,2,2"></Border>
             </Grid>
             <Rectangle Margin="-10,-15,0,0" Grid.Row="6" Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="1" Width="20" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
-            <Rectangle Margin="-15,-15,0,0" Grid.Row="4" Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="1" Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+            <StackPanel Grid.Row="3" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="2" VerticalAlignment="Center">
+                <Border Margin="0,0,0,0"  Width="40" Height="30"  BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="2">
+                    <TextBlock Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">H2</TextBlock>
+                </Border>
+                <TextBox Margin="0,5,0,0" Width="50" Text="{Binding  Path=Gas2Sp}"></TextBox>
+                <TextBox Margin="0,5,0,0" Width="50" Text="{Binding  Path=Gas2CurMeas}"></TextBox>
+            </StackPanel>
+
             <Rectangle Margin="0,0,0, 29" Grid.Row="1" Grid.Column="9" Grid.RowSpan="7" Grid.ColumnSpan="2"  Height="2" VerticalAlignment="Bottom"  Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
 
             <Grid Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="7" Grid.RowSpan="7">
                 <Rectangle Margin="-15,0,0,0" Height="10" Width="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
-                <Rectangle Margin="-5,0,0,36"  Width="10" HorizontalAlignment="Left"  Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
-                <Rectangle Margin="-5,0,0,36"  Height="10"   VerticalAlignment="Bottom" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                <Border Margin="-5,8,0,36"  Width="10" HorizontalAlignment="Left"  BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="2,0,2,2"></Border>
+                <Border Margin="3,0,0,36"  Height="10"   VerticalAlignment="Bottom" BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="0,2,2,2"></Border>
             </Grid>
             <Rectangle Margin="-10,-15,0,0" Grid.Row="6" Grid.Column="3" Grid.RowSpan="2" Grid.ColumnSpan="1" Width="20" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
-            <Rectangle Margin="-15,-15,0,0" Grid.Row="4" Grid.Column="3" Grid.RowSpan="2" Grid.ColumnSpan="1" Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+            <StackPanel Grid.Row="3" Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="2" VerticalAlignment="Center">
+                <Border Margin="0,0,0,0"  Width="40" Height="30"  BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="2">
+                    <TextBlock Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">N2</TextBlock>
+                </Border>
+                <TextBox Margin="0,5,0,0" Width="50" Text="{Binding  Path=Gas1Sp}"></TextBox>
+                <TextBox Margin="0,5,0,0" Width="50" Text="{Binding  Path=Gas1CurMeas}"></TextBox>
+            </StackPanel>
             <Rectangle Margin="0,0,0,41" Grid.Row="1" Grid.Column="9" Grid.RowSpan="7" Grid.ColumnSpan="2"  Height="2" VerticalAlignment="Bottom"  Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
-            
+
+            <Grid Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="4" Grid.RowSpan="7">
+                <Rectangle Margin="-15,0,0,0" Height="10" Width="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                <Border Margin="-5,8,0,48" Width="10" HorizontalAlignment="Left"  BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="2,0,2,2"></Border>
+                <Border Margin="3,0,0,48"  Height="10"   VerticalAlignment="Bottom" BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="0,2,2,2"></Border>
+            </Grid>
+            <Rectangle Margin="-10,-15,0,0" Grid.Row="6" Grid.Column="6" Grid.RowSpan="2" Grid.ColumnSpan="1" Width="20" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+            <StackPanel Grid.Row="3" Grid.Column="5" Grid.RowSpan="2" Grid.ColumnSpan="2" VerticalAlignment="Center">
+                <Border Margin="0,0,0,0"  Width="40" Height="30"  BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="2">
+                    <TextBlock Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">PCl3</TextBlock>
+                </Border>
+                <TextBox Margin="0,5,0,0" Width="50" Text="{Binding  Path=Gas6Sp}"></TextBox>
+                <TextBox Margin="0,5,0,0" Width="50" Text="{Binding  Path=Gas6CurMeas}"></TextBox>
+            </StackPanel>
+            <Rectangle Margin="-10,-15,0,0" Grid.Row="2" Grid.Column="6" Grid.RowSpan="2" Grid.ColumnSpan="1" Width="20" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+            <Rectangle Margin="0,0,0,53" Grid.Row="1" Grid.Column="9" Grid.RowSpan="7" Grid.ColumnSpan="2"  Height="2" VerticalAlignment="Bottom"  Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+
+            <Border Margin="3,0,3,0" Height="10" Grid.Row="3" Grid.Column="3" Grid.RowSpan="2" Grid.ColumnSpan="3" VerticalAlignment="Top" BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="0,2,0,2"></Border>
             <Grid Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="6" Grid.RowSpan="5">
                 <!--<Rectangle Margin="-15,0,0,0" Height="10" Width="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>-->
-                <Rectangle Margin="-5,0,0,0"  Width="10" HorizontalAlignment="Left"  Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
-                <Rectangle Margin="-5,0,0,0"  Height="10"   VerticalAlignment="Bottom" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                <Border Margin="-5,8,0,0"  Width="10" HorizontalAlignment="Left"  BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="2,0,2,2"></Border>
+                <Border Margin="3,0,0,0"  Height="10"   VerticalAlignment="Bottom" BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="0,2,2,2"></Border>
             </Grid>
             <Rectangle Margin="-10,-15,0,0" Grid.Row="6" Grid.Column="4" Grid.RowSpan="2" Grid.ColumnSpan="1" Width="20" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
-            <Rectangle Margin="0,0,0,0" Height="10" Grid.Row="3" Grid.Column="3" Grid.RowSpan="2" Grid.ColumnSpan="3" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
-            <Rectangle Margin="-15,-15,0,0" Grid.Row="4" Grid.Column="4" Grid.RowSpan="2" Grid.ColumnSpan="1" Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+            <StackPanel Grid.Row="3" Grid.Column="3" Grid.RowSpan="2" Grid.ColumnSpan="2" VerticalAlignment="Center">
+                <Border Margin="0,0,0,0"  Width="40" Height="30"  BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="2">
+                    <TextBlock Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">PC8</TextBlock>
+                </Border>
+                <TextBox Margin="0,5,0,0" Width="50" Text="{Binding  Path=Gas8Sp}"></TextBox>
+                <TextBox Margin="0,5,0,0" Width="50" Text="{Binding  Path=Gas8CurMeas}"></TextBox>
+            </StackPanel>
             <Rectangle Margin="-15,-5,0,0" Grid.Row="3" Grid.Column="5" Grid.RowSpan="2" Grid.ColumnSpan="1" Width="30" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
             <Rectangle Margin="0,0,0,5" Grid.Row="1" Grid.Column="9" Grid.RowSpan="7" Grid.ColumnSpan="2"  Height="2" VerticalAlignment="Bottom" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
             <Rectangle Margin="0,5,0,0" Grid.Row="7" Grid.Column="10" Grid.RowSpan="2" Grid.ColumnSpan="1" Height="5" Width="2" VerticalAlignment="Bottom"  HorizontalAlignment="Right" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
-           
-            <Grid Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="4" Grid.RowSpan="7">
-                <Rectangle Margin="-15,0,0,0" Height="10" Width="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
-                <Rectangle Margin="-5,0,0,48"  Width="10" HorizontalAlignment="Left"  Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
-                <Rectangle Margin="-5,0,0,48"  Height="10"   VerticalAlignment="Bottom" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
-            </Grid>
-            <Rectangle Margin="-10,-15,0,0" Grid.Row="6" Grid.Column="6" Grid.RowSpan="2" Grid.ColumnSpan="1" Width="20" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
-            <Rectangle Margin="-15,-15,0,0" Grid.Row="4" Grid.Column="6" Grid.RowSpan="2" Grid.ColumnSpan="1" Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
-            <Rectangle Margin="-10,-15,0,0" Grid.Row="2" Grid.Column="6" Grid.RowSpan="2" Grid.ColumnSpan="1" Width="20" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
-            <Rectangle Margin="0,0,0,53" Grid.Row="1" Grid.Column="9" Grid.RowSpan="7" Grid.ColumnSpan="2"  Height="2" VerticalAlignment="Bottom"  Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
-            
+
+
             <Grid Grid.Row="1" Grid.Column="7" Grid.ColumnSpan="3" Grid.RowSpan="7">
                 <Rectangle Margin="-15,0,0,0" Height="10" Width="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
-                <Rectangle Margin="-5,0,0,60"  Width="10" HorizontalAlignment="Left"  Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
-                <Rectangle Margin="-5,0,0,60"  Height="10"   VerticalAlignment="Bottom" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                <Border Margin="-5,8,0,60"  Width="10" HorizontalAlignment="Left"  BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="2,0,2,2"></Border>
+                <Border Margin="3,0,0,60"  Height="10"   VerticalAlignment="Bottom" BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="0,2,2,2"></Border>
             </Grid>
             <Rectangle Margin="-10,-15,0,0" Grid.Row="6" Grid.Column="7" Grid.RowSpan="2" Grid.ColumnSpan="1" Width="20" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
-            <Rectangle Margin="-15,-15,0,0" Grid.Row="4" Grid.Column="7" Grid.RowSpan="2" Grid.ColumnSpan="1" Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+            <StackPanel Grid.Row="3" Grid.Column="6" Grid.RowSpan="2" Grid.ColumnSpan="2" VerticalAlignment="Center">
+                <Border Margin="0,0,0,0"  Width="40" Height="30"  BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="2">
+                    <TextBlock Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">O2</TextBlock>
+                </Border>
+                <TextBox Margin="0,5,0,0" Width="50" Text="{Binding  Path=Gas5Sp}"></TextBox>
+                <TextBox Margin="0,5,0,0" Width="50" Text="{Binding  Path=Gas5CurMeas}"></TextBox>
+            </StackPanel>
             <Rectangle Margin="0,0,0,65" Grid.Row="1" Grid.Column="9" Grid.RowSpan="7" Grid.ColumnSpan="2"  Height="2" VerticalAlignment="Bottom"  Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
-            
+
             <Grid Grid.Row="5" Grid.Column="8" Grid.ColumnSpan="2" Grid.RowSpan="3">
                 <!--<Rectangle Margin="-15,0,0,0" Height="10" Width="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>-->
                 <Rectangle Margin="-5,0,0,72"  Width="10" HorizontalAlignment="Left"  Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
                 <Rectangle Margin="-5,0,0,72"  Height="10"   VerticalAlignment="Bottom" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
             </Grid>
             <Rectangle Margin="-10,-15,0,0" Grid.Row="6" Grid.Column="8" Grid.RowSpan="2" Grid.ColumnSpan="1" Width="20" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
-            <Rectangle Margin="0,0,0,0" Height="10" Grid.Row="5" Grid.Column="7" Grid.ColumnSpan="1" Grid.RowSpan="2"  VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
-            <Rectangle Margin="0,0,-10,77" Grid.Row="1" Grid.Column="9" Grid.RowSpan="7" Grid.ColumnSpan="2"  Height="2" VerticalAlignment="Bottom"  Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+            <Border Margin="3,0,3,0" Height="10" Grid.Row="5" Grid.Column="7" Grid.ColumnSpan="1" Grid.RowSpan="2"  VerticalAlignment="Top" BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="0,2,0,2"></Border>
+            <Border Margin="0,0,-10,77" Grid.Row="1" Grid.Column="9" Grid.RowSpan="7" Grid.ColumnSpan="2"  Height="2" VerticalAlignment="Bottom"  BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="0,2,2,2"></Border>
         </Grid>
         <Grid Grid.Row="0" Grid.Column="1" Grid.RowSpan="4" Grid.ColumnSpan="2" Margin="0,0,0,0">
             <Grid.ColumnDefinitions>
@@ -123,16 +155,13 @@
                 <RowDefinition />
                 <RowDefinition />
             </Grid.RowDefinitions>
-            
-            <Grid Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="1" Margin="0,0,0,5">
+
+            <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="4" Margin="0,0,0,0">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="3*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition />
@@ -140,137 +169,184 @@
                     <RowDefinition />
                     <RowDefinition />
                     <RowDefinition />
-                </Grid.RowDefinitions>
-                <DockPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                    <Button Content="Ext/Int"></Button>
-                </DockPanel>
-                <DockPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                    <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">Setpoint:</TextBlock>
-                </DockPanel>
-                <DockPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                    <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">Ext Temperature:</TextBlock>
-                </DockPanel>
-                <DockPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                    <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">Int Temperature:</TextBlock>
-                </DockPanel>
-                <DockPanel Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                    <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">Heat Power:</TextBlock>
-                </DockPanel>
-                <DockPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                    <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">Zone1</TextBlock>
-                </DockPanel>
-                <DockPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                    <TextBox/>
-                </DockPanel>
-                <DockPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                    <TextBox/>
-                </DockPanel>
-                <DockPanel Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                    <TextBox/>
-                </DockPanel>
-                <DockPanel Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                    <TextBox/>
-                </DockPanel>
-                <DockPanel Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                    <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">Zone2</TextBlock>
-                </DockPanel>
-                <DockPanel Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                    <TextBox/>
-                </DockPanel>
-                <DockPanel Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                    <TextBox/>
-                </DockPanel>
-                <DockPanel Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                    <TextBox/>
-                </DockPanel>
-                <DockPanel Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                    <TextBox/>
-                </DockPanel>
-                <DockPanel Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                    <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">Zone3</TextBlock>
-                </DockPanel>
-                <DockPanel Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                    <TextBox/>
-                </DockPanel>
-                <DockPanel Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                    <TextBox/>
-                </DockPanel>
-                <DockPanel Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                    <TextBox/>
-                </DockPanel>
-                <DockPanel Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                    <TextBox/>
-                </DockPanel>
-                <DockPanel Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                    <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">Zone4</TextBlock>
-                </DockPanel>
-                <DockPanel Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                    <TextBox/>
-                </DockPanel>
-                <DockPanel Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                    <TextBox/>
-                </DockPanel>
-                <DockPanel Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                    <TextBox/>
-                </DockPanel>
-                <DockPanel Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                    <TextBox/>
-                </DockPanel>
-                <DockPanel Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                    <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">Zone5</TextBlock>
-                </DockPanel>
-                <DockPanel Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                    <TextBox/>
-                </DockPanel>
-                <DockPanel Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                    <TextBox/>
-                </DockPanel>
-                <DockPanel Grid.Row="3" Grid.Column="5" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                    <TextBox/>
-                </DockPanel>
-                <DockPanel Grid.Row="4" Grid.Column="5" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                    <TextBox/>
-                </DockPanel>
-                <DockPanel Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                    <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">Zone6</TextBlock>
-                </DockPanel>
-                <DockPanel Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                    <TextBox/>
-                </DockPanel>
-                <DockPanel Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                    <TextBox/>
-                </DockPanel>
-                <DockPanel Grid.Row="3" Grid.Column="6" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                    <TextBox/>
-                </DockPanel>
-                <DockPanel Grid.Row="4" Grid.Column="6" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                    <TextBox/>
-                </DockPanel>
-            </Grid>
-            <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="2" Margin="0,5,5,0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="0.5*"/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition Width="0.5*"/>
-                    <ColumnDefinition Width="6*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
+                    <RowDefinition />
                     <RowDefinition />
                     <RowDefinition />
                 </Grid.RowDefinitions>
-                <Rectangle Margin="0,10,0,29" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="2" Width="2" HorizontalAlignment="Left" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
-                <Rectangle Margin="0,10,0,0" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="1" Height="2" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
-                <Rectangle Margin="10,0,0,0" Grid.Row="1" Grid.Column="0" Grid.RowSpan="7" Grid.ColumnSpan="3"  Height="2" VerticalAlignment="Bottom"  Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
-                <Rectangle Margin="10,10,0,0" Grid.Row="0" Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="1"  Width="2" HorizontalAlignment="Right" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
-                <Rectangle Margin="10,0,0,17" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2"  Width="2" Height="60" HorizontalAlignment="Left" VerticalAlignment="Bottom" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
-                <Rectangle Margin="10,0,-10,0" Grid.Row="0" Grid.Column="0" Grid.RowSpan="1" Grid.ColumnSpan="3"  Height="2" VerticalAlignment="Bottom"  Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
-                <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="1" Grid.RowSpan="1">
-                    <Rectangle Margin="0,0,0,0" Height="20"  VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
-                    <Rectangle Margin="10,0,10,20"    Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                <Rectangle Margin="0,0,0,29" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="5" Width="2" HorizontalAlignment="Left" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                <Rectangle Margin="-5,0,0,0" Grid.Row="2" Grid.Column="0" Grid.RowSpan="4" Width="10" Height="60" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                <Border Margin="-43,10,0,0" Grid.Row="2" Grid.Column="0" Grid.RowSpan="4" Width="40" Height="40" HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="2,2,0,2">
+                    <TextBlock Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Condenser</TextBlock>
+                </Border>
+                <Rectangle Margin="5,10,0,0" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="1" Width="5" Height="2" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                <Rectangle Margin="10,10,0,10" Grid.Row="2" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="1"  Width="2" HorizontalAlignment="Left" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                <Rectangle Margin="10,0,0,10" Grid.Row="3" Grid.Column="0" Grid.RowSpan="1" Height="2" VerticalAlignment="Bottom" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"/>
+                <Rectangle Margin="20,10,0,0" Grid.Row="4" Grid.Column="0" Grid.RowSpan="4" Grid.ColumnSpan="1"  Width="2" HorizontalAlignment="Left" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                <Rectangle Margin="20,20,0,0" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="2" Height="2"  VerticalAlignment="Center" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                <Rectangle Margin="10,0,0,17" Grid.Row="4" Grid.Column="0" Grid.RowSpan="4"  Width="2"  HorizontalAlignment="Left"  Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2" />
+                <Rectangle Margin="10,0,0,0" Grid.Row="3" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="1"  Height="2" VerticalAlignment="Center"  Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                <Image Margin="0,0,0,0" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4" Grid.RowSpan="2"  Source="/Demo;component/images/furnace.jpg" VerticalAlignment="Bottom"/>
+                <Grid Margin="0,0,0,0" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="1" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Heat</TextBlock>
+                    <Grid Grid.Row="0" Grid.Column="1">
+                        <Rectangle Margin="0,0,0,0" Width="2" Height="35" VerticalAlignment="Top"  Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                        <Rectangle Margin="0,5,0,5" Width="10" VerticalAlignment="Top" Height="10" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                    </Grid>
+                    <Grid Grid.Row="0" Grid.Column="2">
+                        <Rectangle Margin="0,0,0,0" Width="2" Height="35" VerticalAlignment="Top"  Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                        <Rectangle Margin="0,5,0,5" Width="10" VerticalAlignment="Top" Height="10" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                    </Grid>
+                    <Grid Grid.Row="0" Grid.Column="3">
+                        <Rectangle Margin="0,0,0,0" Width="2" Height="35" VerticalAlignment="Top"  Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                        <Rectangle Margin="0,5,0,5" Width="10" VerticalAlignment="Top" Height="10" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                    </Grid>
+                    <Grid Grid.Row="0" Grid.Column="4">
+                        <Rectangle Margin="0,0,0,0" Width="2" Height="35" VerticalAlignment="Top"  Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                        <Rectangle Margin="0,5,0,5" Width="10" VerticalAlignment="Top" Height="10" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                    </Grid>
+                    <Grid Grid.Row="0" Grid.Column="5">
+                        <Rectangle Margin="0,0,0,0" Width="2" Height="35" VerticalAlignment="Top"  Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                        <Rectangle Margin="0,5,0,5" Width="10" VerticalAlignment="Top" Height="10" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                    </Grid>
+                    <Grid Grid.Row="0" Grid.Column="6">
+                        <Rectangle Margin="0,0,0,0" Width="2" Height="35" VerticalAlignment="Top"  Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                        <Rectangle Margin="0,5,0,5" Width="10" VerticalAlignment="Top" Height="10" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                    </Grid>
+                    <TextBox Grid.Row="1" Grid.Column="1" Height="20" Text="{Binding  Path=Temper1HeatPower}"></TextBox>
+                    <TextBox Grid.Row="1" Grid.Column="2" Height="20" Text="{Binding  Path=Temper2HeatPower}"></TextBox>
+                    <TextBox Grid.Row="1" Grid.Column="3" Height="20" Text="{Binding  Path=Temper3HeatPower}"></TextBox>
+                    <TextBox Grid.Row="1" Grid.Column="4" Height="20" Text="{Binding  Path=Temper4HeatPower}"></TextBox>
+                    <TextBox Grid.Row="1" Grid.Column="5" Height="20" Text="{Binding  Path=Temper5HeatPower}"></TextBox>
+                    <TextBox Grid.Row="1" Grid.Column="6" Height="20" Text="{Binding  Path=Temper6HeatPower}"></TextBox>
+                    <DockPanel Margin="0,0,0,0" Grid.Row="0" Grid.Column="7" Grid.ColumnSpan="2">
+                        <TextBlock Margin="10,0,0,0" DockPanel.Dock="Left" Width="50">Axis Positon:</TextBlock>
+                        <TextBox Margin="5,0" />
+                    </DockPanel>
+                    <DockPanel Margin="10,0,0,0" Grid.Row="1" Grid.Column="7" Grid.ColumnSpan="2">
+                        <TextBlock Margin="0,0,0,0" DockPanel.Dock="Left" Width="50">Axis Speed:</TextBlock>
+                        <TextBox Margin="5,0" />
+                    </DockPanel>
                 </Grid>
-                <Image Margin="10,0,0,0" Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="1" Grid.RowSpan="1"  Source="/Demo;component/images/furnace.jpg" VerticalAlignment="Bottom"/>
+                <Grid Visibility="Visible" Grid.Row="0" Grid.Column="1" Grid.RowSpan="3" Grid.ColumnSpan="3" Margin="0,0,0,0" VerticalAlignment="Bottom">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <DockPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                        <Button Content="Ext/Int"></Button>
+                    </DockPanel>
+                    <DockPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                        <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">Setpoint:</TextBlock>
+                    </DockPanel>
+                    <DockPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                        <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">Ext Temperature:</TextBlock>
+                    </DockPanel>
+                    <DockPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                        <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left">Int Temperature:</TextBlock>
+                    </DockPanel>
+                    <DockPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                        <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" HorizontalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Zone1</TextBlock>
+                    </DockPanel>
+                    <DockPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                        <TextBox Text="{Binding  Path=Temper1Sp}"/>
+                    </DockPanel>
+                    <DockPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                        <TextBox Text="{Binding  Path=Temper1IntValue}"/>
+                    </DockPanel>
+                    <DockPanel Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                        <TextBox Text="{Binding  Path=Temper1ExtValue}"/>
+                    </DockPanel>
+                    <DockPanel Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                        <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" HorizontalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Zone2</TextBlock>
+                    </DockPanel>
+                    <DockPanel Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                        <TextBox Text="{Binding  Path=Temper2Sp}"/>
+                    </DockPanel>
+                    <DockPanel Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                        <TextBox Text="{Binding  Path=Temper2IntValue}"/>
+                    </DockPanel>
+                    <DockPanel Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                        <TextBox Text="{Binding  Path=Temper2ExtValue}"/>
+                    </DockPanel>
+                    <DockPanel Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                        <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" HorizontalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Zone3</TextBlock>
+                    </DockPanel>
+                    <DockPanel Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                        <TextBox Text="{Binding  Path=Temper3Sp}"/>
+                    </DockPanel>
+                    <DockPanel Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                        <TextBox Text="{Binding  Path=Temper3IntValue}"/>
+                    </DockPanel>
+                    <DockPanel Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                        <TextBox Text="{Binding  Path=Temper3ExtValue}"/>
+                    </DockPanel>
+                    <DockPanel Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                        <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" HorizontalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Zone4</TextBlock>
+                    </DockPanel>
+                    <DockPanel Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                        <TextBox Text="{Binding  Path=Temper4Sp}"/>
+                    </DockPanel>
+                    <DockPanel Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                        <TextBox Text="{Binding  Path=Temper4IntValue}"/>
+                    </DockPanel>
+                    <DockPanel Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                        <TextBox Text="{Binding  Path=Temper4ExtValue}"/>
+                    </DockPanel>
+                    <DockPanel Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                        <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" HorizontalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Zone5</TextBlock>
+                    </DockPanel>
+                    <DockPanel Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                        <TextBox Text="{Binding  Path=Temper5Sp}"/>
+                    </DockPanel>
+                    <DockPanel Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                        <TextBox Text="{Binding  Path=Temper5IntValue}"/>
+                    </DockPanel>
+                    <DockPanel Grid.Row="3" Grid.Column="5" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                        <TextBox Text="{Binding  Path=Temper5ExtValue}"/>
+                    </DockPanel>
+                    <DockPanel Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                        <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" HorizontalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Zone6</TextBlock>
+                    </DockPanel>
+                    <DockPanel Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                        <TextBox Text="{Binding  Path=Temper6Sp}"/>
+                    </DockPanel>
+                    <DockPanel Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                        <TextBox Text="{Binding  Path=Temper6IntValue}"/>
+                    </DockPanel>
+                    <DockPanel Grid.Row="3" Grid.Column="6" Grid.ColumnSpan="1" Margin="0,5,5,0">
+                        <TextBox Text="{Binding  Path=Temper6ExtValue}"/>
+                    </DockPanel>
+                </Grid>
+
             </Grid>
-            
+
         </Grid>
         <Grid Grid.Row="6" Grid.Column="0" Grid.RowSpan="1" Grid.ColumnSpan="1" Margin="0,0,0,0">
             <Grid.ColumnDefinitions>
@@ -288,67 +364,67 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
             <DockPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DI1:</TextBlock>
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" VerticalAlignment="Center" Width="50">DI1:</TextBlock>
                 <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
             </DockPanel>
             <DockPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DI2:</TextBlock>
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" VerticalAlignment="Center" Width="50">DI2:</TextBlock>
                 <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
             </DockPanel>
             <DockPanel Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DI3:</TextBlock>
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" VerticalAlignment="Center" Width="50">DI3:</TextBlock>
                 <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
             </DockPanel>
             <DockPanel Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DI4:</TextBlock>
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" VerticalAlignment="Center" Width="50">DI4:</TextBlock>
                 <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
             </DockPanel>
             <DockPanel Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DI4:</TextBlock>
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" VerticalAlignment="Center" Width="50">DI4:</TextBlock>
                 <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
             </DockPanel>
             <DockPanel Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DI4:</TextBlock>
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" VerticalAlignment="Center" Width="50">DI4:</TextBlock>
                 <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
             </DockPanel>
             <DockPanel Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DI4:</TextBlock>
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" VerticalAlignment="Center" Width="50">DI4:</TextBlock>
                 <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
             </DockPanel>
             <DockPanel Grid.Row="0" Grid.Column="7" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DI4:</TextBlock>
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" VerticalAlignment="Center" Width="50">DI4:</TextBlock>
                 <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
             </DockPanel>
             <DockPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DI5:</TextBlock>
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" VerticalAlignment="Center" Width="50">DI5:</TextBlock>
                 <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
             </DockPanel>
             <DockPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DI6:</TextBlock>
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" VerticalAlignment="Center" Width="50">DI6:</TextBlock>
                 <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
             </DockPanel>
             <DockPanel Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DI7:</TextBlock>
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" VerticalAlignment="Center" Width="50">DI7:</TextBlock>
                 <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
             </DockPanel>
             <DockPanel Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DI7:</TextBlock>
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" VerticalAlignment="Center" Width="50">DI7:</TextBlock>
                 <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
             </DockPanel>
             <DockPanel Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DI7:</TextBlock>
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" VerticalAlignment="Center" Width="50">DI7:</TextBlock>
                 <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
             </DockPanel>
             <DockPanel Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DI7:</TextBlock>
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" VerticalAlignment="Center" Width="50">DI7:</TextBlock>
                 <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
             </DockPanel>
             <DockPanel Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DI7:</TextBlock>
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" VerticalAlignment="Center" Width="50">DI7:</TextBlock>
                 <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
             </DockPanel>
             <DockPanel Grid.Row="1" Grid.Column="7" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DI7:</TextBlock>
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" VerticalAlignment="Center" Width="50">DI7:</TextBlock>
                 <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
             </DockPanel>
         </Grid>
@@ -368,31 +444,31 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
             <DockPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DO1:</TextBlock>
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" VerticalAlignment="Center" Width="50">DO1:</TextBlock>
                 <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
             </DockPanel>
             <DockPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DO2:</TextBlock>
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" VerticalAlignment="Center" Width="50">DO2:</TextBlock>
                 <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
             </DockPanel>
             <DockPanel Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DO3:</TextBlock>
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" VerticalAlignment="Center" Width="50">DO3:</TextBlock>
                 <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
             </DockPanel>
             <DockPanel Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DO4:</TextBlock>
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" VerticalAlignment="Center" Width="50">DO4:</TextBlock>
                 <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
             </DockPanel>
             <DockPanel Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DO4:</TextBlock>
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" VerticalAlignment="Center" Width="50">DO4:</TextBlock>
                 <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
             </DockPanel>
             <DockPanel Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DO4:</TextBlock>
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" VerticalAlignment="Center" Width="50">DO4:</TextBlock>
                 <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
             </DockPanel>
             <DockPanel Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DO4:</TextBlock>
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" VerticalAlignment="Center" Width="50">DO4:</TextBlock>
                 <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
             </DockPanel>
             <DockPanel Grid.Row="0" Grid.Column="7" Grid.ColumnSpan="1" Margin="0,5,5,0">
@@ -400,15 +476,15 @@
                 <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
             </DockPanel>
             <DockPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DO5:</TextBlock>
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" VerticalAlignment="Center" Width="50">DO5:</TextBlock>
                 <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
             </DockPanel>
             <DockPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DO6:</TextBlock>
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" VerticalAlignment="Center" Width="50">DO6:</TextBlock>
                 <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
             </DockPanel>
             <DockPanel Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DO7:</TextBlock>
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" VerticalAlignment="Center" Width="50">DO7:</TextBlock>
                 <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
             </DockPanel>
             <DockPanel Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="1" Margin="0,5,5,0">
@@ -416,19 +492,19 @@
                 <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
             </DockPanel>
             <DockPanel Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DO7:</TextBlock>
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" VerticalAlignment="Center" Width="50">DO7:</TextBlock>
                 <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
             </DockPanel>
             <DockPanel Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DO7:</TextBlock>
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" VerticalAlignment="Center" Width="50">DO7:</TextBlock>
                 <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
             </DockPanel>
             <DockPanel Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DO7:</TextBlock>
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" VerticalAlignment="Center" Width="50">DO7:</TextBlock>
                 <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
             </DockPanel>
             <DockPanel Grid.Row="1" Grid.Column="7" Grid.ColumnSpan="1" Margin="0,5,5,0">
-                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" Width="50">DO7:</TextBlock>
+                <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" VerticalAlignment="Center" Width="50">DO7:</TextBlock>
                 <Button Margin="5,0" Width="20" Height="20" Background="#FF05460E"/>
             </DockPanel>
         </Grid>
@@ -455,8 +531,8 @@
                 <RowDefinition />
                 <RowDefinition />
             </Grid.RowDefinitions>
-            <Rectangle Margin="0,0,-10,-10" Grid.Row="0" Grid.Column="13" Grid.ColumnSpan="13" Grid.RowSpan="1" Width="2" HorizontalAlignment="Right" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
-            <Rectangle Margin="10,0,-10,-10" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="13" Grid.RowSpan="1" Height="2" VerticalAlignment="Bottom" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+            <Rectangle Margin="0,0,-22,-10" Grid.Row="0" Grid.Column="13" Grid.ColumnSpan="13" Grid.RowSpan="1" Width="2" HorizontalAlignment="Right" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+            <Rectangle Margin="10,0,-20,-10" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="13" Grid.RowSpan="1" Height="2" VerticalAlignment="Bottom" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
             <Rectangle Margin="10,10,0,-5" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="1" Width="2" HorizontalAlignment="Left" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
             <Rectangle Margin="10,5,0,0" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="1" Height="2" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
             <Rectangle Margin="0,0,0,0" Grid.Row="0" Grid.Column="13" Grid.ColumnSpan="13" Grid.RowSpan="1" Width="2" HorizontalAlignment="Right" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
@@ -466,32 +542,46 @@
             <Rectangle Margin="0,15,0,0" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="1" Height="2" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
             <Grid Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="1" Grid.RowSpan="2">
                 <Rectangle Margin="0,0,0,0" Height="20"  VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
-                <Rectangle Margin="10,0,10,0"    Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                <Border Margin="10,0,10,0"    BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="2">
+                    <TextBlock Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Condenser</TextBlock>
+                </Border>
             </Grid>
             <Grid Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="1" Grid.RowSpan="2">
                 <Rectangle Margin="0,0,0,0" Height="20"  VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
-                <Rectangle Margin="10,0,10,0"    Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                <Border Margin="10,0,10,0"    BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="2">
+                    <TextBlock Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Condenser</TextBlock>
+                </Border>
             </Grid>
-            <Grid Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="1" Grid.RowSpan="1">
-                <Rectangle Margin="0,10,0,0" Width="2"  Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
-                <Rectangle Margin="10,20,10,0" Width="10" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+            <Grid Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="3" Grid.RowSpan="3">
+                <Rectangle Margin="0,0,0,0" Width="2" Height="35" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                <StackPanel>
+                    <Rectangle Margin="0,0,0,5" Width="10" VerticalAlignment="Top" Height="30" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                    <TextBlock Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Tube Presure</TextBlock>
+                    <TextBox Width="60" Height="20" Text="{Binding  Path=Ana1CurMeas}"></TextBox>
+                </StackPanel>
             </Grid>
-            <Grid Grid.Row="2" Grid.Column="7" Grid.ColumnSpan="1" Grid.RowSpan="1">
-                <Rectangle Margin="0,0,0,0" Width="20" Height="20"  VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+            <Grid Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="3" Grid.RowSpan="3">
+                <StackPanel>
+                    <Rectangle Margin="0,0,0,0" Width="20" Height="20"  VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                    <TextBlock Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Gate</TextBlock>
+                    <TextBox Width="60" Height="20" Text="{Binding  Path=Ana4CurMeas}"></TextBox>
+                </StackPanel>
             </Grid>
-            <Grid Grid.Row="2" Grid.Column="9" Grid.ColumnSpan="1" Grid.RowSpan="1">
-                <Rectangle Margin="0,10,0,0" Width="2"  Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
-                <Rectangle Margin="10,20,10,0" Width="10" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+            <Grid Grid.Row="2" Grid.Column="8" Grid.ColumnSpan="3" Grid.RowSpan="3">
+                <Rectangle Margin="0,0,0,0" Width="2" Height="35" VerticalAlignment="Top"  Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                <StackPanel>
+                    <Rectangle Margin="0,0,0,5" Width="10" VerticalAlignment="Top" Height="30" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                    <TextBlock Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Ballast Presure</TextBlock>
+                    <TextBox Width="60" Height="20" Text="{Binding  Path=Ana3CurMeas}"></TextBox>
+                </StackPanel>
             </Grid>
             <Grid Grid.Row="2" Grid.Column="11" Grid.ColumnSpan="1" Grid.RowSpan="2">
                 <Rectangle Margin="0,0,0,0" Height="20"  VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
-                <Rectangle Margin="10,0,10,0"    Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                <Border Margin="10,0,10,0" BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="2">
+                    <TextBlock Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Condenser</TextBlock>
+                </Border>
             </Grid>
+            <Rectangle Margin="0,6,0,0" Grid.Row="2" Grid.Column="12" Width="10" Height="10" HorizontalAlignment="Right" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
         </Grid>
-        <DockPanel Grid.Row="5" Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="1" Margin="0,5,5,0">
-            <TextBlock Margin="0,0,5,0" DockPanel.Dock="Left" FontSize="14" FontWeight="Bold" Foreground="#FF646366" >Gas and Vacuum</TextBlock>
-            <Button  Margin="5,0" DockPanel.Dock="Right"  Width="20"/>
-            <TextBox Margin="5,0"/>
-        </DockPanel>
     </Grid>
 </UserControl>

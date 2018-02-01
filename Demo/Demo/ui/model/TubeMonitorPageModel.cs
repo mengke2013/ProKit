@@ -24,6 +24,12 @@ namespace Demo.ui.model
         private string mGas5CurMeas;
         private string mGas6CurMeas;
         private string mGas8CurMeas;
+        private string mAna1Sp;
+        private string mAna3Sp;
+        private string mAna4Sp;
+        private string mAna1CurMeas;
+        private string mAna3CurMeas;
+        private string mAna4CurMeas;
         private string mTemper1Sp;
         private string mTemper2Sp;
         private string mTemper3Sp;
@@ -50,8 +56,6 @@ namespace Demo.ui.model
         private string mTemper6HeatPower;
 
         public event PropertyChangedEventHandler PropertyChanged;
-        
-        
 
         public TubeMonitorPageModel()
         {
@@ -70,7 +74,12 @@ namespace Demo.ui.model
             ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].MfcNodeComponent.GasNodeComponents[4].CurMeas.Notification -= mPreUpdateHandler;
             ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].MfcNodeComponent.GasNodeComponents[5].CurMeas.Notification -= mPreUpdateHandler;
             ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].MfcNodeComponent.GasNodeComponents[7].CurMeas.Notification -= mPreUpdateHandler;
-
+            ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].VacuumNodeComponent.AnalogNodeComponents[0].CurSp.Notification -= mPreUpdateHandler;
+            ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].VacuumNodeComponent.AnalogNodeComponents[2].CurSp.Notification -= mPreUpdateHandler;
+            ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].VacuumNodeComponent.AnalogNodeComponents[3].CurSp.Notification -= mPreUpdateHandler;
+            ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].VacuumNodeComponent.AnalogNodeComponents[0].CurMeas.Notification -= mPreUpdateHandler;
+            ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].VacuumNodeComponent.AnalogNodeComponents[2].CurMeas.Notification -= mPreUpdateHandler;
+            ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].VacuumNodeComponent.AnalogNodeComponents[3].CurMeas.Notification -= mPreUpdateHandler;
             ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[0].CurSp.Notification -= mPreUpdateHandler;
             ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[1].CurSp.Notification -= mPreUpdateHandler;
             ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[2].CurSp.Notification -= mPreUpdateHandler;
@@ -106,6 +115,13 @@ namespace Demo.ui.model
             ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].MfcNodeComponent.GasNodeComponents[4].CurMeas.Notification += newUpdateHandler;
             ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].MfcNodeComponent.GasNodeComponents[5].CurMeas.Notification += newUpdateHandler;
             ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].MfcNodeComponent.GasNodeComponents[7].CurMeas.Notification += newUpdateHandler;
+
+            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].VacuumNodeComponent.AnalogNodeComponents[0].CurSp.Notification += newUpdateHandler;
+            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].VacuumNodeComponent.AnalogNodeComponents[2].CurSp.Notification += newUpdateHandler;
+            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].VacuumNodeComponent.AnalogNodeComponents[3].CurSp.Notification += newUpdateHandler;
+            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].VacuumNodeComponent.AnalogNodeComponents[0].CurMeas.Notification += newUpdateHandler;
+            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].VacuumNodeComponent.AnalogNodeComponents[2].CurMeas.Notification += newUpdateHandler;
+            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].VacuumNodeComponent.AnalogNodeComponents[3].CurMeas.Notification += newUpdateHandler;
 
             ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[0].CurSp.Notification += newUpdateHandler;
             ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[1].CurSp.Notification += newUpdateHandler;
@@ -242,6 +258,66 @@ namespace Demo.ui.model
             {
                 mGas8CurMeas = value;
                 Notify("Gas8CurMeas");
+            }
+        }
+
+        public string Ana1Sp
+        {
+            get { return mAna1Sp; }
+            set
+            {
+                mAna1Sp = value;
+                Notify("Ana1Sp");
+            }
+        }
+
+        public string Ana3Sp
+        {
+            get { return mAna3Sp; }
+            set
+            {
+                mAna3Sp = value;
+                Notify("Ana3Sp");
+            }
+        }
+
+        public string Ana4Sp
+        {
+            get { return mAna4Sp; }
+            set
+            {
+                mAna4Sp = value;
+                Notify("Ana4Sp");
+            }
+        }
+
+        public string Ana1CurMeas
+        {
+            get { return mAna1CurMeas; }
+            set
+            {
+                mAna1CurMeas = value;
+                Notify("Ana1CurMeas");
+            }
+        }
+
+        public string Ana3CurMeas
+        {
+            get { return mAna3CurMeas; }
+            set
+            {
+                mAna3CurMeas = value;
+                Notify("Ana3CurMeas");
+            }
+        }
+
+        public string Ana4CurMeas
+        {
+            get { return mAna4CurMeas; }
+            set
+            {
+                mAna4CurMeas = value;
+                Notify("Ana4CurMeas");
             }
         }
 
@@ -631,6 +707,30 @@ namespace Demo.ui.model
             else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].MfcNodeComponent.GasNodeComponents[7].CurMeas.NodeID)
             {
                 Gas8CurMeas = newValue.ToString();
+            }
+            else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].VacuumNodeComponent.AnalogNodeComponents[0].CurSp.NodeID)
+            {
+                Ana1Sp = newValue.ToString();
+            }
+            else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].VacuumNodeComponent.AnalogNodeComponents[2].CurSp.NodeID)
+            {
+                Ana3Sp = newValue.ToString();
+            }
+            else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].VacuumNodeComponent.AnalogNodeComponents[3].CurSp.NodeID)
+            {
+                Ana4Sp = newValue.ToString();
+            }
+            else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].VacuumNodeComponent.AnalogNodeComponents[0].CurMeas.NodeID)
+            {
+                Ana1CurMeas = newValue.ToString();
+            }
+            else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].VacuumNodeComponent.AnalogNodeComponents[2].CurMeas.NodeID)
+            {
+                Ana3CurMeas = newValue.ToString();
+            }
+            else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].VacuumNodeComponent.AnalogNodeComponents[3].CurMeas.NodeID)
+            {
+                Ana4CurMeas = newValue.ToString();
             }
         }
     }

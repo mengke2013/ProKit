@@ -16,7 +16,7 @@ namespace Demo.ui.model
         public TubeRecipePageModel()
         {
             mStepDetailItemModels = new List<RecipeStepDetailItemModel>();
-            for (int i = 0; i < 40; ++i)
+            for (int i = 0; i < 5; ++i)
             {
                 mStepDetailItemModels.Add(new RecipeStepDetailItemModel(i + 1));
             }
