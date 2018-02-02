@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -54,12 +55,20 @@ namespace Demo.ui.model
         private string mTemper4HeatPower;
         private string mTemper5HeatPower;
         private string mTemper6HeatPower;
+        private string mPaddlePosAct;
+        private string mPaddlePosSp;
+        private string mPaddleSpeedSp;
+        private string[] mEvColors;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         public TubeMonitorPageModel()
         {
-            
+            mEvColors = new string[32];
+            for (int i = 0; i < 32; ++i)
+            {
+                mEvColors[i] = "#FFD3C7C7";
+            }
         }
 
         public void UpdateDataSource()
@@ -104,6 +113,10 @@ namespace Demo.ui.model
             ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[3].HeatPower.Notification -= mPreUpdateHandler;
             ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[4].HeatPower.Notification -= mPreUpdateHandler;
             ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[5].HeatPower.Notification -= mPreUpdateHandler;
+            ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].PaddleNodeComponent.PosAct.Notification -= mPreUpdateHandler;
+            ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].PaddleNodeComponent.CurPosSp.Notification -= mPreUpdateHandler;
+            ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].PaddleNodeComponent.CurSpeedSp.Notification -= mPreUpdateHandler;
+            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].DioNodeComponent.Ev.Notification -= mPreUpdateHandler;
             NodeValueUpdateEventHandler newUpdateHandler = new NodeValueUpdateEventHandler(NodeValueUpdate);
             ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].MfcNodeComponent.GasNodeComponents[0].CurSp.Notification += newUpdateHandler;
             ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].MfcNodeComponent.GasNodeComponents[1].CurSp.Notification += newUpdateHandler;
@@ -147,7 +160,36 @@ namespace Demo.ui.model
             ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[3].HeatPower.Notification += newUpdateHandler;
             ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[4].HeatPower.Notification += newUpdateHandler;
             ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[5].HeatPower.Notification += newUpdateHandler;
+            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].PaddleNodeComponent.PosAct.Notification += newUpdateHandler;
+            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].PaddleNodeComponent.CurPosSp.Notification += newUpdateHandler;
+            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].PaddleNodeComponent.CurSpeedSp.Notification += newUpdateHandler;
+            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].DioNodeComponent.Ev.Notification += newUpdateHandler;
             mPreUpdateHandler = newUpdateHandler;
+        }
+
+        private void UpdateEv()
+        {
+            try {
+               System.Int32 val = (System.Int32)ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].DioNodeComponent.Ev.Value;
+                var arr = new BitArray(BitConverter.GetBytes(val));
+                var myVal = arr[21];
+                for (int i = 0; i < 32; ++i)
+                {
+                    if (arr[i])
+                    {
+                        mEvColors[i] = "Green";
+                    }
+                    else
+                    {
+                        mEvColors[i] = "Red";
+                    }
+                    Notify("Ev"+(i+1)+"Color");
+                }
+            }
+            catch (Exception ee)
+            {
+                
+            }
         }
 
         public byte SelectedTube
@@ -159,6 +201,65 @@ namespace Demo.ui.model
                 mSelectedTube = value;
                 Notify("SelectedTube");
             }
+        }
+
+        public string Ev1Color
+        {
+            get { return mEvColors[0]; }
+        }
+        public string Ev2Color
+        {
+            get { return mEvColors[1]; }
+        }
+        public string Ev3Color
+        {
+            get { return mEvColors[2]; }
+        }
+        public string Ev4Color
+        {
+            get { return mEvColors[3]; }
+        }
+        public string Ev5Color
+        {
+            get { return mEvColors[4]; }
+        }
+        public string Ev6Color
+        {
+            get { return mEvColors[5]; }
+        }
+
+        public string Ev7Color
+        {
+            get { return mEvColors[6]; }
+        }
+
+        public string Ev8Color
+        {
+            get { return mEvColors[7]; }
+        }
+        public string Ev9Color
+        {
+            get { return mEvColors[8]; }
+        }
+        public string Ev10Color
+        {
+            get { return mEvColors[9]; }
+        }
+        public string Ev11Color
+        {
+            get { return mEvColors[10]; }
+        }
+        public string Ev12Color
+        {
+            get { return mEvColors[11]; }
+        }
+        public string Ev13Color
+        {
+            get { return mEvColors[12]; }
+        }
+        public string Ev14Color
+        {
+            get { return mEvColors[13]; }
         }
 
         public string Gas1Sp
@@ -561,6 +662,36 @@ namespace Demo.ui.model
             }
         }
 
+        public String PaddlePosAct
+        {
+            get { return mPaddlePosAct; }
+            set
+            {
+                mPaddlePosAct = value;
+                Notify("PaddlePosAct");
+            }
+        }
+
+        public String PaddlePosSp
+        {
+            get { return mPaddlePosSp; }
+            set
+            {
+                mPaddlePosSp = value;
+                Notify("PaddlePosSp");
+            }
+        }
+
+        public String PaddleSpeedSp
+        {
+            get { return mPaddleSpeedSp; }
+            set
+            {
+                mPaddleSpeedSp = value;
+                Notify("PaddleSpeedSp");
+            }
+        }
+
         void Notify(string propName)
         {
 
@@ -731,6 +862,22 @@ namespace Demo.ui.model
             else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].VacuumNodeComponent.AnalogNodeComponents[3].CurMeas.NodeID)
             {
                 Ana4CurMeas = newValue.ToString();
+            }
+            else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].PaddleNodeComponent.PosAct.NodeID)
+            {
+                PaddlePosAct = newValue.ToString();
+            }
+            else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].PaddleNodeComponent.CurPosSp.NodeID)
+            {
+                PaddlePosSp = newValue.ToString();
+            }
+            else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].PaddleNodeComponent.CurSpeedSp.NodeID)
+            {
+                PaddleSpeedSp = newValue.ToString();
+            }
+            else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].DioNodeComponent.Ev.NodeID)
+            {
+                UpdateEv();
             }
         }
     }

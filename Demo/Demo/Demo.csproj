@@ -118,6 +118,9 @@
     <Compile Include="ui\view\StepItemAnalogCond.xaml.cs">
       <DependentUpon>StepItemAnalogCond.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ui\view\TubeControlBar.xaml.cs">
+      <DependentUpon>TubeControlBar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ui\view\TubeEventsPage.xaml.cs">
       <DependentUpon>TubeEventsPage.xaml</DependentUpon>
     </Compile>
@@ -171,6 +174,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ui\view\StepItemAnalogCond.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ui\view\TubeControlBar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -296,6 +303,16 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\furnace.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\abort.png" />
+    <Resource Include="images\idle.png" />
+    <Resource Include="images\next.png" />
+    <Resource Include="images\pause.png" />
+    <Resource Include="images\play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\power.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

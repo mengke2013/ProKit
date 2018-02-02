@@ -1,4 +1,4 @@
-﻿<Window
+﻿<Window xmlns:view="clr-namespace:Demo.ui.view" 
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -669,7 +669,8 @@
                 <DropShadowEffect ShadowDepth="5" BlurRadius="5"/>
             </Border.Effect>
             <DockPanel>
-                <DockPanel DockPanel.Dock="Top">
+                <view:TubeControlBar x:Name="tubeControlBar" DockPanel.Dock="Top"/>
+                <!--<DockPanel DockPanel.Dock="Top">
                     <Border DockPanel.Dock="Left" Height="30">
                         <TextBlock Margin="30,0,15,0" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="16" Foreground="#FF236EC9" FontWeight="Bold">Recipe Demo</TextBlock>
                     </Border>
@@ -685,7 +686,7 @@
                         </Grid.RowDefinitions>
                         <Rectangle></Rectangle>
                     </Grid>
-                </DockPanel>
+                </DockPanel>-->
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition MaxHeight="5" />

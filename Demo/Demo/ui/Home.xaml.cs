@@ -17,6 +17,7 @@ using Demo.com;
 using System.Threading;
 using System.Windows.Media.Effects;
 using Demo.ui.model;
+using Demo.ui.view;
 
 namespace Demo.ui
 {
@@ -33,7 +34,6 @@ namespace Demo.ui
         private string[] tubePageTitleLabels = { "Monitor", "Trend", "Recipe", "Settings", "Events" };
         private ITubePage[] tubePages = new ITubePage[5];
         private Button[] TubeTabHeaders = new Button[5];
-
 
         public Home()
         {
@@ -52,6 +52,8 @@ namespace Demo.ui
             TubeTabHeaders[2] = TubeTabHeaderRecipe;
             TubeTabHeaders[3] = TubeTabHeaderSettings;
             TubeTabHeaders[4] = TubeTabHeaderEvents;
+
+            tubeControlBar.Click += new TubeControlBar.ClickHandler(bdMainClose_Click);
         }
 
         private void RegestDataContext()
@@ -514,6 +516,8 @@ namespace Demo.ui
                 opcReadNodes.Add(ComProcessNodeComponent.Instance.TubeNodeComponents[tubeIndex].VacuumNodeComponent.AnalogNodeComponents[2].CurMeas);
                 opcReadNodes.Add(ComProcessNodeComponent.Instance.TubeNodeComponents[tubeIndex].VacuumNodeComponent.AnalogNodeComponents[3].CurMeas);
                 opcReadNodes.Add(ComProcessNodeComponent.Instance.TubeNodeComponents[tubeIndex].PaddleNodeComponent.PosAct);
+                opcReadNodes.Add(ComProcessNodeComponent.Instance.TubeNodeComponents[tubeIndex].PaddleNodeComponent.CurPosSp);
+                opcReadNodes.Add(ComProcessNodeComponent.Instance.TubeNodeComponents[tubeIndex].PaddleNodeComponent.CurSpeedSp);
                 opcReadNodes.Add(ComProcessNodeComponent.Instance.TubeNodeComponents[tubeIndex].DioNodeComponent.Ev);
                 opcReadNodes.Add(ComProcessNodeComponent.Instance.TubeNodeComponents[tubeIndex].DioNodeComponent.DigInput);
                 opcReadNodes.Add(ComProcessNodeComponent.Instance.TubeNodeComponents[tubeIndex].DioNodeComponent.DigOutput);
