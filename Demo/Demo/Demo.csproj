@@ -97,6 +97,8 @@
     <Compile Include="ui\model\TubeRecipePageModel.cs" />
     <Compile Include="ui\model\TubeEventsPageModel.cs" />
     <Compile Include="ui\model\TubeTrendPageModel.cs" />
+    <Compile Include="ui\TubePageStyle.cs" />
+    <Compile Include="ui\UIConstants.cs" />
     <Compile Include="ui\view\RecipeStepDetailItem.xaml.cs">
       <DependentUpon>RecipeStepDetailItem.xaml</DependentUpon>
     </Compile>

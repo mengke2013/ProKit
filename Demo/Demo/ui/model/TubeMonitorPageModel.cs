@@ -60,6 +60,8 @@ namespace Demo.ui.model
         private string mPaddleSpeedSp;
         private string[] mEvColors;
 
+        private TubePageStyle mTubePageStyle;
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         public TubeMonitorPageModel()
@@ -201,6 +203,12 @@ namespace Demo.ui.model
                 mSelectedTube = value;
                 Notify("SelectedTube");
             }
+        }
+
+        public TubePageStyle TubePageStyle
+        {
+            get { return mTubePageStyle; }
+            set { mTubePageStyle = value; }
         }
 
         public string Ev1Color

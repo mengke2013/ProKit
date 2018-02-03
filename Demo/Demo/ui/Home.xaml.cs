@@ -54,6 +54,16 @@ namespace Demo.ui
             TubeTabHeaders[4] = TubeTabHeaderEvents;
 
             tubeControlBar.Click += new TubeControlBar.ClickHandler(bdMainClose_Click);
+
+            this.DataContext = this;
+           
+
+
+        }
+
+        public object TextBoxWidth
+        {
+            get { return 20; }
         }
 
         private void RegestDataContext()
@@ -208,6 +218,7 @@ namespace Demo.ui
             bd0.Visibility = Visibility.Visible;
 
             ShowActivedTubePage();
+
         }
 
         private void btnTube2_Click(object sender, MouseButtonEventArgs e)
