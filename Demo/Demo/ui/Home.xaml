@@ -30,7 +30,7 @@
                     </Button.Effect> Monitor</Button>
                 <Button Name="TubeTabHeaderTrend" Width="80" Height="30" Margin="5,0,0,0" BorderThickness="1,1,1,0" Click="btnTrendClick">Trend</Button>
                 <Button Name="TubeTabHeaderRecipe" Width="80" Height="30" Margin="5,0,0,0" BorderThickness="1,1,1,0" Click="btnRecipeClick">Recipe</Button>
-                <Button Name="TubeTabHeaderSettings" Width="80" Height="30" Margin="5,0,0,0" BorderThickness="1,1,1,0" Click="btnSettingsClick">Settings</Button>
+                <Button Name="TubeTabHeaderSettings" Width="80" Height="30" Margin="5,0,0,0" BorderThickness="1,1,1,0" Click="btnSettingsClick">Report</Button>
                 <Button Name="TubeTabHeaderEvents" Width="80" Height="30" Margin="5,0,0,0" BorderThickness="1,1,1,0" Click="btnEventsClick">Events</Button>
             </WrapPanel>
             <WrapPanel Margin="5,2,50,2" DockPanel.Dock="Right" HorizontalAlignment="Right" VerticalAlignment="Bottom">
@@ -49,7 +49,7 @@
                 <Button Margin="5,5,5,1" Width="60">
                     <WrapPanel>
                         <Image Source="/Demo;component/images/configuration.PNG" Margin="2,2" Width="30" Height="30" />
-                        <TextBlock>Settings</TextBlock>
+                        <TextBlock>Options</TextBlock>
                     </WrapPanel>
                 </Button>
                 <Button Margin="5,5,5,1" Width="60">
@@ -669,46 +669,18 @@
                 <DropShadowEffect ShadowDepth="5" BlurRadius="5"/>
             </Border.Effect>
             <DockPanel>
-                <view:TubeControlBar x:Name="tubeControlBar" DockPanel.Dock="Top"/>
-                <!--<DockPanel DockPanel.Dock="Top">
-                    <Border DockPanel.Dock="Left" Height="30">
-                        <TextBlock Margin="30,0,15,0" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="16" Foreground="#FF236EC9" FontWeight="Bold">Recipe Demo</TextBlock>
-                    </Border>
-                    <Button DockPanel.Dock="Right" Margin="5" Click="bdMainClose_Click" >
-                        <Image Source="/Demo;component/images/close.PNG"  Width="20" Height="20"></Image>
-                    </Button>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition />
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition />
-                        </Grid.RowDefinitions>
-                        <Rectangle></Rectangle>
-                    </Grid>
-                </DockPanel>-->
+                <!--<view:TubeControlBar x:Name="tubeControlBar" DockPanel.Dock="Top"/>-->
                 <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition MaxHeight="5" />
-                        <RowDefinition />
-                        <RowDefinition MaxHeight="10" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition MaxWidth="10"/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition MaxWidth="10"/>
-                    </Grid.ColumnDefinitions>
-                    <Rectangle Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Margin="30,0,30,2" Height="1" Fill="#FFAAA5A5" />
-                    <local:TubeMonitorPage x:Name="tubeMonitorPage" Grid.Row="1" Grid.Column="1"/>
-                    <local:TubeTrendPage x:Name="tubeTrendPage" Visibility="Hidden" Grid.Row="1" Grid.Column="1"/>
-                    <local:TubeRecipePage x:Name="tubeRecipePage" Visibility="Hidden" Grid.Row="1" Grid.Column="1"/>
-                    <local:TubeSettingsPage x:Name="tubeSettingsPage" Visibility="Hidden" Grid.Row="1" Grid.Column="1"/>
-                    <local:TubeEventsPage x:Name="tubeEventsPage" Visibility="Hidden" Grid.Row="1" Grid.Column="1"/>
+                    <local:TubeMonitorPage x:Name="tubeMonitorPage" />
+                    <local:TubeTrendPage x:Name="tubeTrendPage" Visibility="Hidden" />
+                    <local:TubeRecipePage x:Name="tubeRecipePage" Visibility="Hidden" />
+                    <local:TubeSettingsPage x:Name="tubeSettingsPage" Visibility="Hidden" />
+                    <local:TubeEventsPage x:Name="tubeEventsPage" Visibility="Hidden" />
                 </Grid>
             </DockPanel>
         </Border>
         <Border Name="bd0" Visibility="Hidden" BorderThickness="0" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="381,42,0,0" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Width="78" Height="30" Background="White" >
-            <TextBlock Name="tubePageTitle" HorizontalAlignment="Center" VerticalAlignment="Center">Monitor</TextBlock>
+            <TextBlock Name="tubePageTitle" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Monitor</TextBlock>
         </Border>
         <Border Name="bd1" Visibility="Hidden" BorderThickness="0" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="130,1,0,0" Grid.Row="1" Grid.Column="1"  Width="5" Height="118" Background="White" />
 

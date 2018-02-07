@@ -31,7 +31,7 @@ namespace Demo.ui
         private byte mSelectedTube = 0;
         
         private byte[] tubePageIndexes = {1,1,1,1,1,1};
-        private string[] tubePageTitleLabels = { "Monitor", "Trend", "Recipe", "Settings", "Events" };
+        private string[] tubePageTitleLabels = { "Monitor", "Trend", "Recipe", "Report", "Events" };
         private ITubePage[] tubePages = new ITubePage[5];
         private Button[] TubeTabHeaders = new Button[5];
 
@@ -53,8 +53,11 @@ namespace Demo.ui
             TubeTabHeaders[3] = TubeTabHeaderSettings;
             TubeTabHeaders[4] = TubeTabHeaderEvents;
 
-            tubeControlBar.Click += new TubeControlBar.ClickHandler(bdMainClose_Click);
-
+            //tubeControlBar.CloseClick += new TubeControlBar.ClickHandler(bdMainClose_Click);
+            //tubeControlBar.SettingsClick += new TubeControlBar.ClickHandler(bdMainSettings_Click);
+            tubeMonitorPage.CloseClick += new TubeControlBar.ClickHandler(bdMainClose_Click);
+            tubeMonitorPage.SettingsClick += new TubeControlBar.ClickHandler(bdMainSettings_Click);
+            tubeRecipePage.CloseClick += new TubeControlBar.ClickHandler(bdMainClose_Click);
             this.DataContext = this;
            
 
@@ -184,6 +187,17 @@ namespace Demo.ui
             TubeTabHeader.Visibility = Visibility.Hidden;
             bd0.Visibility = Visibility.Hidden;
             bd1.Visibility = Visibility.Hidden;
+        }
+        
+        private void bdMainSettings_Click(object sender, RoutedEventArgs e)
+        {
+            TubeSettingsDialog settingsDlg = new TubeSettingsDialog(mSelectedTube);
+            settingsDlg.Height = this.ActualHeight/3*2;
+            settingsDlg.Width = this.ActualWidth/3*2;
+            settingsDlg.Owner = this;
+            settingsDlg.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            settingsDlg.VerticalAlignment = VerticalAlignment.Center;
+            settingsDlg.ShowDialog();
         }
 
         private void btnTube1_Click(object sender, MouseButtonEventArgs e)

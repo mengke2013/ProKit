@@ -1,0 +1,538 @@
+﻿<UserControl x:Class="Demo.ui.view.TubeRecipeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Demo.ui.view"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="600">
+
+    <Grid Margin="5,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition MaxHeight="10" />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition MaxHeight="10"/>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition MaxHeight="10"/>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition MaxHeight="10"/>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition MaxHeight="10"/>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition MaxHeight="10"/>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="30">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <WrapPanel Grid.Row="0" Grid.Column="0">
+                <TextBlock Text="Step"  Margin="5,0,0,0" Width="30"  FontSize="14"  FontWeight="Bold" Foreground="#FF402FEA"   />
+                <TextBlock Text="{Binding Path=StepIndex}" Width="20" FontSize="14" FontWeight="Bold" Foreground="#FF402FEA" />
+            </WrapPanel>
+            <TextBlock Margin="0,0,0,0" Grid.Row="0" Grid.Column="1"  >Step Name:</TextBlock>
+            <TextBox Margin="5,0" Grid.Row="0" Grid.Column="2"  />
+            <TextBlock Margin="0,0,0,0" Grid.Row="0" Grid.Column="3" >Step Type:</TextBlock>
+            <TextBox Margin="5,0" Grid.Row="0" Grid.Column="4" />
+            <TextBlock Margin="0,0,0,0" Grid.Row="0" Grid.Column="5" >Step Time:</TextBlock>
+            <TextBox Margin="5,0" Grid.Row="0" Grid.Column="6" />
+
+            <Button Margin="5,0" Grid.Row="0" Grid.Column="9" Content="Up" />
+            <Button Margin="5,0" Grid.Row="0" Grid.Column="10" Content="Down" />
+            <Button Margin="5,0" Grid.Row="0" Grid.Column="11" Content="Clear" />
+            <Button Margin="5,0" Grid.Row="0" Grid.Column="12" Content="Insert" />
+            <Button Margin="5,0" Grid.Row="0" Grid.Column="13" Content="Delete" />
+            <Button Margin="5,0" Grid.Row="0" Grid.Column="14" Content="Download" />
+        </Grid>
+        <Rectangle Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="30" Height="1" Fill="#FFAAA5A5" />
+        <Grid Grid.Row="2" Grid.Column="1" Grid.RowSpan="7" Grid.ColumnSpan="14">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <TextBlock Margin="0,0,5,0" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="15" FontSize="14" FontWeight="Bold" Foreground="#FF646366" >Gas and Vacuum</TextBlock>
+            <TextBlock Margin="0,0,5,0" Grid.Row="1" Grid.Column="0" >N2:</TextBlock>
+            <TextBox Margin="5,2" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" />
+            <Button  Margin="5,2" Grid.Row="1" Grid.Column="3" />
+            <TextBlock Margin="2,2" Grid.Row="1" Grid.Column="4">Abort:</TextBlock>
+            <TextBox Margin="2,2" Grid.Row="1" Grid.Column="5"/>
+            <TextBlock Margin="2,2" Grid.Row="1" Grid.Column="6">Hold:</TextBlock>
+            <TextBox Margin="2,2" Grid.Row="1" Grid.Column="7"/>
+            <TextBlock Margin="2,2" Grid.Row="1" Grid.Column="8">Alarm:</TextBlock>
+            <TextBox Margin="2,2" Grid.Row="1" Grid.Column="9"/>
+            <TextBlock Margin="2,2" Grid.Row="1" Grid.Column="10">Next:</TextBlock>
+            <TextBox Margin="2,2" Grid.Row="1" Grid.Column="11"/>
+
+            <TextBlock Margin="0,0,5,0" Grid.Row="2" Grid.Column="0" >H2:</TextBlock>
+            <TextBox Margin="5,2" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" />
+            <Button  Margin="5,2" Grid.Row="2" Grid.Column="3" />
+            <TextBlock Margin="2,2" Grid.Row="2" Grid.Column="4">Abort:</TextBlock>
+            <TextBox Margin="2,2" Grid.Row="2" Grid.Column="5"/>
+            <TextBlock Margin="2,2" Grid.Row="2" Grid.Column="6">Hold:</TextBlock>
+            <TextBox Margin="2,2" Grid.Row="2" Grid.Column="7"/>
+            <TextBlock Margin="2,2" Grid.Row="2" Grid.Column="8">Alarm:</TextBlock>
+            <TextBox Margin="2,2" Grid.Row="2" Grid.Column="9"/>
+            <TextBlock Margin="2,2" Grid.Row="2" Grid.Column="10">Next:</TextBlock>
+            <TextBox Margin="2,2" Grid.Row="2" Grid.Column="11"/>
+
+            <TextBlock Margin="0,0,5,0" Grid.Row="3" Grid.Column="0" >BCl3:</TextBlock>
+            <TextBox Margin="5,2" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" />
+            <Button  Margin="5,2" Grid.Row="3" Grid.Column="3" />
+            <TextBlock Margin="2,2" Grid.Row="3" Grid.Column="4">Abort:</TextBlock>
+            <TextBox Margin="2,2" Grid.Row="3" Grid.Column="5"/>
+            <TextBlock Margin="2,2" Grid.Row="3" Grid.Column="6">Hold:</TextBlock>
+            <TextBox Margin="2,2" Grid.Row="3" Grid.Column="7"/>
+            <TextBlock Margin="2,2" Grid.Row="3" Grid.Column="8">Alarm:</TextBlock>
+            <TextBox Margin="2,2" Grid.Row="3" Grid.Column="9"/>
+            <TextBlock Margin="2,2" Grid.Row="3" Grid.Column="10">Next:</TextBlock>
+            <TextBox Margin="2,2" Grid.Row="3" Grid.Column="11"/>
+
+            <TextBlock Margin="0,0,5,0" Grid.Row="4" Grid.Column="0" >O2:</TextBlock>
+            <TextBox Margin="5,2" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" />
+            <Button  Margin="5,2" Grid.Row="4" Grid.Column="3" />
+            <TextBlock Margin="2,2" Grid.Row="4" Grid.Column="4">Abort:</TextBlock>
+            <TextBox Margin="2,2" Grid.Row="4" Grid.Column="5"/>
+            <TextBlock Margin="2,2" Grid.Row="4" Grid.Column="6">Hold:</TextBlock>
+            <TextBox Margin="2,2" Grid.Row="4" Grid.Column="7"/>
+            <TextBlock Margin="2,2" Grid.Row="4" Grid.Column="8">Alarm:</TextBlock>
+            <TextBox Margin="2,2" Grid.Row="4" Grid.Column="9"/>
+            <TextBlock Margin="2,2" Grid.Row="4" Grid.Column="10">Next:</TextBlock>
+            <TextBox Margin="2,2" Grid.Row="4" Grid.Column="11"/>
+
+            <TextBlock Margin="0,0,5,0" Grid.Row="5" Grid.Column="0" >PC8:</TextBlock>
+            <TextBox Margin="5,2" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" />
+            <Button  Margin="5,2" Grid.Row="5" Grid.Column="3" />
+            <TextBlock Margin="2,2" Grid.Row="5" Grid.Column="4">Abort:</TextBlock>
+            <TextBox Margin="2,2" Grid.Row="5" Grid.Column="5"/>
+            <TextBlock Margin="2,2" Grid.Row="5" Grid.Column="6">Hold:</TextBlock>
+            <TextBox Margin="2,2" Grid.Row="5" Grid.Column="7"/>
+            <TextBlock Margin="2,2" Grid.Row="5" Grid.Column="8">Alarm:</TextBlock>
+            <TextBox Margin="2,2" Grid.Row="5" Grid.Column="9"/>
+            <TextBlock Margin="2,2" Grid.Row="5" Grid.Column="10">Next:</TextBlock>
+            <TextBox Margin="2,2" Grid.Row="5" Grid.Column="11"/>
+
+            <TextBlock Margin="0,0,5,0" Grid.Row="6" Grid.Column="0" >Vacuum:</TextBlock>
+            <TextBox Margin="5,2" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" />
+            <Button  Margin="5,2" Grid.Row="6" Grid.Column="3" />
+            <TextBlock Margin="2,2" Grid.Row="6" Grid.Column="4">Abort:</TextBlock>
+            <TextBox Margin="2,2" Grid.Row="6" Grid.Column="5"/>
+            <TextBlock Margin="2,2" Grid.Row="6" Grid.Column="6">Hold:</TextBlock>
+            <TextBox Margin="2,2" Grid.Row="6" Grid.Column="7"/>
+            <TextBlock Margin="2,2" Grid.Row="6" Grid.Column="8">Alarm:</TextBlock>
+            <TextBox Margin="2,2" Grid.Row="6" Grid.Column="9"/>
+            <TextBlock Margin="2,2" Grid.Row="6" Grid.Column="10">Next:</TextBlock>
+            <TextBox Margin="2,2" Grid.Row="6" Grid.Column="11"/>
+        </Grid>
+        <Grid Grid.Row="2" Grid.Column="16" Grid.RowSpan="7" Grid.ColumnSpan="14">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <TextBlock Margin="0,0,5,0" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="15" FontSize="14" FontWeight="Bold" Foreground="#FF646366" >Temperature</TextBlock>
+            <TextBlock Margin="0,0,5,0" Grid.Row="1" Grid.Column="0" >Zone1:</TextBlock>
+            <TextBox Margin="5,2" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" />
+            <Button  Margin="5,2" Grid.Row="1" Grid.Column="3" />
+            <TextBlock Margin="2,2" Grid.Row="1" Grid.Column="4">Abort:</TextBlock>
+            <TextBox Margin="2,2" Grid.Row="1" Grid.Column="5"/>
+            <TextBlock Margin="2,2" Grid.Row="1" Grid.Column="6">Hold:</TextBlock>
+            <TextBox Margin="2,2" Grid.Row="1" Grid.Column="7"/>
+            <TextBlock Margin="2,2" Grid.Row="1" Grid.Column="8">Alarm:</TextBlock>
+            <TextBox Margin="2,2" Grid.Row="1" Grid.Column="9"/>
+            <TextBlock Margin="2,2" Grid.Row="1" Grid.Column="10">Next:</TextBlock>
+            <TextBox Margin="2,2" Grid.Row="1" Grid.Column="11"/>
+
+            <TextBlock Margin="0,0,5,0" Grid.Row="2" Grid.Column="0" >Zone2:</TextBlock>
+            <TextBox Margin="5,2" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" />
+            <Button  Margin="5,2" Grid.Row="2" Grid.Column="3" />
+            <TextBlock Margin="2,2" Grid.Row="2" Grid.Column="4">Abort:</TextBlock>
+            <TextBox Margin="2,2" Grid.Row="2" Grid.Column="5"/>
+            <TextBlock Margin="2,2" Grid.Row="2" Grid.Column="6">Hold:</TextBlock>
+            <TextBox Margin="2,2" Grid.Row="2" Grid.Column="7"/>
+            <TextBlock Margin="2,2" Grid.Row="2" Grid.Column="8">Alarm:</TextBlock>
+            <TextBox Margin="2,2" Grid.Row="2" Grid.Column="9"/>
+            <TextBlock Margin="2,2" Grid.Row="2" Grid.Column="10">Next:</TextBlock>
+            <TextBox Margin="2,2" Grid.Row="2" Grid.Column="11"/>
+
+            <TextBlock Margin="0,0,5,0" Grid.Row="3" Grid.Column="0" >Zone3:</TextBlock>
+            <TextBox Margin="5,2" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" />
+            <Button  Margin="5,2" Grid.Row="3" Grid.Column="3" />
+            <TextBlock Margin="2,2" Grid.Row="3" Grid.Column="4">Abort:</TextBlock>
+            <TextBox Margin="2,2" Grid.Row="3" Grid.Column="5"/>
+            <TextBlock Margin="2,2" Grid.Row="3" Grid.Column="6">Hold:</TextBlock>
+            <TextBox Margin="2,2" Grid.Row="3" Grid.Column="7"/>
+            <TextBlock Margin="2,2" Grid.Row="3" Grid.Column="8">Alarm:</TextBlock>
+            <TextBox Margin="2,2" Grid.Row="3" Grid.Column="9"/>
+            <TextBlock Margin="2,2" Grid.Row="3" Grid.Column="10">Next:</TextBlock>
+            <TextBox Margin="2,2" Grid.Row="3" Grid.Column="11"/>
+
+            <TextBlock Margin="0,0,5,0" Grid.Row="4" Grid.Column="0" >Zone4:</TextBlock>
+            <TextBox Margin="5,2" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" />
+            <Button  Margin="5,2" Grid.Row="4" Grid.Column="3" />
+            <TextBlock Margin="2,2" Grid.Row="4" Grid.Column="4">Abort:</TextBlock>
+            <TextBox Margin="2,2" Grid.Row="4" Grid.Column="5"/>
+            <TextBlock Margin="2,2" Grid.Row="4" Grid.Column="6">Hold:</TextBlock>
+            <TextBox Margin="2,2" Grid.Row="4" Grid.Column="7"/>
+            <TextBlock Margin="2,2" Grid.Row="4" Grid.Column="8">Alarm:</TextBlock>
+            <TextBox Margin="2,2" Grid.Row="4" Grid.Column="9"/>
+            <TextBlock Margin="2,2" Grid.Row="4" Grid.Column="10">Next:</TextBlock>
+            <TextBox Margin="2,2" Grid.Row="4" Grid.Column="11"/>
+
+            <TextBlock Margin="0,0,5,0" Grid.Row="5" Grid.Column="0" >Zone5:</TextBlock>
+            <TextBox Margin="5,2" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" />
+            <Button  Margin="5,2" Grid.Row="5" Grid.Column="3" />
+            <TextBlock Margin="2,2" Grid.Row="5" Grid.Column="4">Abort:</TextBlock>
+            <TextBox Margin="2,2" Grid.Row="5" Grid.Column="5"/>
+            <TextBlock Margin="2,2" Grid.Row="5" Grid.Column="6">Hold:</TextBlock>
+            <TextBox Margin="2,2" Grid.Row="5" Grid.Column="7"/>
+            <TextBlock Margin="2,2" Grid.Row="5" Grid.Column="8">Alarm:</TextBlock>
+            <TextBox Margin="2,2" Grid.Row="5" Grid.Column="9"/>
+            <TextBlock Margin="2,2" Grid.Row="5" Grid.Column="10">Next:</TextBlock>
+            <TextBox Margin="2,2" Grid.Row="5" Grid.Column="11"/>
+
+            <TextBlock Margin="0,0,5,0" Grid.Row="6" Grid.Column="0" >Zone6:</TextBlock>
+            <TextBox Margin="5,2" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" />
+            <Button  Margin="5,2" Grid.Row="6" Grid.Column="3" />
+            <TextBlock Margin="2,2" Grid.Row="6" Grid.Column="4">Abort:</TextBlock>
+            <TextBox Margin="2,2" Grid.Row="6" Grid.Column="5"/>
+            <TextBlock Margin="2,2" Grid.Row="6" Grid.Column="6">Hold:</TextBlock>
+            <TextBox Margin="2,2" Grid.Row="6" Grid.Column="7"/>
+            <TextBlock Margin="2,2" Grid.Row="6" Grid.Column="8">Alarm:</TextBlock>
+            <TextBox Margin="2,2" Grid.Row="6" Grid.Column="9"/>
+            <TextBlock Margin="2,2" Grid.Row="6" Grid.Column="10">Next:</TextBlock>
+            <TextBox Margin="2,2" Grid.Row="6" Grid.Column="11"/>
+        </Grid>
+        <Rectangle Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="30" Height="1" Fill="#FFAAA5A5" />
+        <Grid Grid.Row="10" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="14">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <TextBlock Margin="0,0,0,0" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="15" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Boat Loader</TextBlock>
+            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">Axis Position:</TextBlock>
+            <TextBox Margin="2,2" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" />
+            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2">Axis Speed:</TextBlock>
+            <TextBox Margin="2,2" Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="2" />
+        </Grid>
+        <Rectangle Grid.Row="12" Grid.Column="0" Grid.ColumnSpan="30" Height="1" Fill="#FFAAA5A5" />
+        <Grid Grid.Row="13" Grid.Column="1" Grid.RowSpan="3" Grid.ColumnSpan="28">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <TextBlock Margin="0,0,0,0" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="15" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Electric Valve</TextBlock>
+            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="0">EV1:</TextBlock>
+            <Button  Margin="5,2" Grid.Row="1" Grid.Column="1" />
+            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="2">EV2:</TextBlock>
+            <Button  Margin="5,2" Grid.Row="1" Grid.Column="3"/>
+            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="4">EV3:</TextBlock>
+            <Button  Margin="5,2" Grid.Row="1" Grid.Column="5"/>
+            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="6">EV4:</TextBlock>
+            <Button  Margin="5,2" Grid.Row="1" Grid.Column="7"/>
+            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="8">EV5:</TextBlock>
+            <Button  Margin="5,2" Grid.Row="1" Grid.Column="9"/>
+            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="10">EV6:</TextBlock>
+            <Button  Margin="5,2" Grid.Row="1" Grid.Column="11"/>
+            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="12">EV7:</TextBlock>
+            <Button  Margin="5,2" Grid.Row="1" Grid.Column="13"/>
+            <TextBlock Margin="0,0,0,0" Grid.Row="2" Grid.Column="0">EV8:</TextBlock>
+            <Button  Margin="5,2" Grid.Row="2" Grid.Column="1"/>
+            <TextBlock Margin="0,0,0,0" Grid.Row="2" Grid.Column="2">EV9:</TextBlock>
+            <Button  Margin="5,2" Grid.Row="2" Grid.Column="3"/>
+            <TextBlock Margin="0,0,0,0" Grid.Row="2" Grid.Column="4">EV10:</TextBlock>
+            <Button  Margin="5,2" Grid.Row="2" Grid.Column="5"/>
+            <TextBlock Margin="0,0,0,0" Grid.Row="2" Grid.Column="6">EV11:</TextBlock>
+            <Button  Margin="5,2" Grid.Row="2" Grid.Column="7"/>
+            <TextBlock Margin="0,0,0,0" Grid.Row="2" Grid.Column="8">EV12:</TextBlock>
+            <Button  Margin="5,2" Grid.Row="2" Grid.Column="9"/>
+            <TextBlock Margin="0,0,0,0" Grid.Row="2" Grid.Column="10">EV13:</TextBlock>
+            <Button  Margin="5,2" Grid.Row="2" Grid.Column="11" />
+            <TextBlock Margin="0,0,0,0" Grid.Row="2" Grid.Column="12">EV14:</TextBlock>
+            <Button  Margin="5,2" Grid.Row="2" Grid.Column="13" />
+        </Grid>
+        <Rectangle Grid.Row="16" Grid.Column="0" Grid.ColumnSpan="30" Height="1" Fill="#FFAAA5A5" />
+        <Grid Grid.Row="17" Grid.Column="1" Grid.RowSpan="3" Grid.ColumnSpan="28">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <TextBlock Margin="0,0,0,0" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="15" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Digital Input</TextBlock>
+            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="0">DI1:</TextBlock>
+            <Button  Margin="5,2" Grid.Row="1" Grid.Column="1" />
+            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="2">DI2:</TextBlock>
+            <Button  Margin="5,2" Grid.Row="1" Grid.Column="3"/>
+            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="4">DI3:</TextBlock>
+            <Button  Margin="5,2" Grid.Row="1" Grid.Column="5"/>
+            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="6">DI4:</TextBlock>
+            <Button  Margin="5,2" Grid.Row="1" Grid.Column="7"/>
+            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="8">DI5:</TextBlock>
+            <Button  Margin="5,2" Grid.Row="1" Grid.Column="9"/>
+            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="10">DI6:</TextBlock>
+            <Button  Margin="5,2" Grid.Row="1" Grid.Column="11"/>
+            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="12">DI7:</TextBlock>
+            <Button  Margin="5,2" Grid.Row="1" Grid.Column="13"/>
+            <TextBlock Margin="0,0,0,0" Grid.Row="2" Grid.Column="0">DI8:</TextBlock>
+            <Button  Margin="5,2" Grid.Row="2" Grid.Column="1"/>
+            <TextBlock Margin="0,0,0,0" Grid.Row="2" Grid.Column="2">DI9:</TextBlock>
+            <Button  Margin="5,2" Grid.Row="2" Grid.Column="3"/>
+            <TextBlock Margin="0,0,0,0" Grid.Row="2" Grid.Column="4">DI10:</TextBlock>
+            <Button  Margin="5,2" Grid.Row="2" Grid.Column="5"/>
+            <TextBlock Margin="0,0,0,0" Grid.Row="2" Grid.Column="6">DI11:</TextBlock>
+            <Button  Margin="5,2" Grid.Row="2" Grid.Column="7"/>
+            <TextBlock Margin="0,0,0,0" Grid.Row="2" Grid.Column="8">DI12:</TextBlock>
+            <Button  Margin="5,2" Grid.Row="2" Grid.Column="9"/>
+            <TextBlock Margin="0,0,0,0" Grid.Row="2" Grid.Column="10">DI13:</TextBlock>
+            <Button  Margin="5,2" Grid.Row="2" Grid.Column="11" />
+            <TextBlock Margin="0,0,0,0" Grid.Row="2" Grid.Column="12">DI14:</TextBlock>
+            <Button  Margin="5,2" Grid.Row="2" Grid.Column="13" />
+        </Grid>
+        <Rectangle Grid.Row="20" Grid.Column="0" Grid.ColumnSpan="30" Height="1" Fill="#FFAAA5A5" />
+        <Grid Grid.Row="21" Grid.Column="1" Grid.RowSpan="3" Grid.ColumnSpan="28">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <TextBlock Margin="0,0,0,0" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="15" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Digital Output</TextBlock>
+            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="0">DO1:</TextBlock>
+            <Button  Margin="5,2" Grid.Row="1" Grid.Column="1" />
+            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="2">DO2:</TextBlock>
+            <Button  Margin="5,2" Grid.Row="1" Grid.Column="3"/>
+            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="4">DO3:</TextBlock>
+            <Button  Margin="5,2" Grid.Row="1" Grid.Column="5"/>
+            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="6">DO4:</TextBlock>
+            <Button  Margin="5,2" Grid.Row="1" Grid.Column="7"/>
+            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="8">DO5:</TextBlock>
+            <Button  Margin="5,2" Grid.Row="1" Grid.Column="9"/>
+            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="10">DO6:</TextBlock>
+            <Button  Margin="5,2" Grid.Row="1" Grid.Column="11"/>
+            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="12">DO7:</TextBlock>
+            <Button  Margin="5,2" Grid.Row="1" Grid.Column="13"/>
+            <TextBlock Margin="0,0,0,0" Grid.Row="2" Grid.Column="0">DO8:</TextBlock>
+            <Button  Margin="5,2" Grid.Row="2" Grid.Column="1"/>
+            <TextBlock Margin="0,0,0,0" Grid.Row="2" Grid.Column="2">DO9:</TextBlock>
+            <Button  Margin="5,2" Grid.Row="2" Grid.Column="3"/>
+            <TextBlock Margin="0,0,0,0" Grid.Row="2" Grid.Column="4">DO10:</TextBlock>
+            <Button  Margin="5,2" Grid.Row="2" Grid.Column="5"/>
+            <TextBlock Margin="0,0,0,0" Grid.Row="2" Grid.Column="6">DO11:</TextBlock>
+            <Button  Margin="5,2" Grid.Row="2" Grid.Column="7"/>
+            <TextBlock Margin="0,0,0,0" Grid.Row="2" Grid.Column="8">DO12:</TextBlock>
+            <Button  Margin="5,2" Grid.Row="2" Grid.Column="9"/>
+            <TextBlock Margin="0,0,0,0" Grid.Row="2" Grid.Column="10">DO13:</TextBlock>
+            <Button  Margin="5,2" Grid.Row="2" Grid.Column="11" />
+            <TextBlock Margin="0,0,0,0" Grid.Row="2" Grid.Column="12">DO14:</TextBlock>
+            <Button  Margin="5,2" Grid.Row="2" Grid.Column="13" />
+        </Grid>
+        <Rectangle Grid.Row="24" Grid.Column="0" Grid.ColumnSpan="30" Height="1" Fill="#FFAAA5A5" />
+        <Grid Grid.Row="25" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="28">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <TextBlock Margin="0,0,0,0" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="15" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Abort And Delay</TextBlock>
+            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="0">Analog:</TextBlock>
+            <TextBox  Margin="5,2" Grid.Row="1" Grid.Column="1"/>
+            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="2">Digital:</TextBlock>
+            <TextBox  Margin="5,2" Grid.Row="1" Grid.Column="3"/>
+            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="4">Temperature:</TextBlock>
+            <TextBox  Margin="5,2" Grid.Row="1" Grid.Column="5"/>
+            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="6">Manual:</TextBlock>
+            <TextBox  Margin="5,2" Grid.Row="1" Grid.Column="7"/>
+            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="8">Power:</TextBlock>
+            <TextBox  Margin="5,2" Grid.Row="1" Grid.Column="9"/>
+            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="10">MFC Delay:</TextBlock>
+            <TextBox  Margin="5,2" Grid.Row="1" Grid.Column="11" />
+            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="12">Analog Delay:</TextBlock>
+            <TextBox  Margin="5,2" Grid.Row="1" Grid.Column="13" />
+        </Grid>
+    </Grid>
+
+</UserControl>

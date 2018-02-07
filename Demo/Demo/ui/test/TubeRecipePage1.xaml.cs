@@ -14,32 +14,23 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using log4net;
 using Demo.ui.model;
-using Demo.ui.view;
 
 namespace Demo.ui
 {
     /// <summary>
     /// Interaction logic for TubeRecipePage.xaml
     /// </summary>
-    public partial class TubeRecipePage : UserControl
+    public partial class TubeRecipePage1 : UserControl
     {
         public static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         TubeRecipePageModel mTubeRecipePageModel;
 
-        public event TubeControlBar.ClickHandler CloseClick;
-
-        public TubeRecipePage()
+        public TubeRecipePage1()
         {
             InitializeComponent();
 
             mTubeRecipePageModel = new TubeRecipePageModel();
-        }
-
-        public void CloseButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.CloseClick(sender, e);
-            e.Handled = false;
         }
 
         public void LoadTubePage(byte selectedTube)

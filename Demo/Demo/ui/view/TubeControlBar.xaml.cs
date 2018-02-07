@@ -21,7 +21,8 @@ namespace Demo.ui.view
     public partial class TubeControlBar : UserControl
     {
         public delegate void ClickHandler(object sender, RoutedEventArgs e);
-        public event ClickHandler Click;
+        public event ClickHandler CloseClick;
+        public event ClickHandler SettingsClick;
 
         public TubeControlBar()
         {
@@ -31,7 +32,13 @@ namespace Demo.ui.view
 
         public void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Click(sender, e);
+            this.CloseClick(sender, e);
+            e.Handled = false;
+        }
+
+        public void SettingsButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.SettingsClick(sender, e);
             e.Handled = false;
         }
     }

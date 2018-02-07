@@ -59,6 +59,7 @@ namespace Demo.ui.model
         private string mPaddlePosSp;
         private string mPaddleSpeedSp;
         private string[] mEvColors;
+        private string[] mPipeColors;
 
         private TubePageStyle mTubePageStyle;
 
@@ -70,6 +71,12 @@ namespace Demo.ui.model
             for (int i = 0; i < 32; ++i)
             {
                 mEvColors[i] = "#FFD3C7C7";
+            }
+
+            mPipeColors = new string[14];
+            for(int i = 0; i < 14; ++i)
+            {
+                mPipeColors[i] = "#FFD3C7C7";
             }
         }
 
@@ -180,12 +187,15 @@ namespace Demo.ui.model
                     if (arr[i])
                     {
                         mEvColors[i] = "Green";
+                        mPipeColors[i] = "#FF9FCDD4";
                     }
                     else
                     {
                         mEvColors[i] = "Red";
+                        mPipeColors[i] = "#FFD3C7C7";
                     }
                     Notify("Ev"+(i+1)+"Color");
+                    Notify("Pipe" + (i + 1) + "Color");
                 }
             }
             catch (Exception ee)
@@ -268,6 +278,65 @@ namespace Demo.ui.model
         public string Ev14Color
         {
             get { return mEvColors[13]; }
+        }
+
+        public string Pipe1Color
+        {
+            get { return mPipeColors[0]; }
+        }
+        public string Pipe2Color
+        {
+            get { return mPipeColors[1]; }
+        }
+        public string Pipe3Color
+        {
+            get { return mPipeColors[2]; }
+        }
+        public string Pipe4Color
+        {
+            get { return mPipeColors[3]; }
+        }
+        public string Pipe5Color
+        {
+            get { return mPipeColors[4]; }
+        }
+        public string Pipe6Color
+        {
+            get { return mPipeColors[5]; }
+        }
+
+        public string Pipe7Color
+        {
+            get { return mPipeColors[6]; }
+        }
+
+        public string Pipe8Color
+        {
+            get { return mPipeColors[7]; }
+        }
+        public string Pipe9Color
+        {
+            get { return mPipeColors[8]; }
+        }
+        public string Pipe10Color
+        {
+            get { return mPipeColors[9]; }
+        }
+        public string Pipe11Color
+        {
+            get { return mPipeColors[10]; }
+        }
+        public string Pipe12Color
+        {
+            get { return mPipeColors[11]; }
+        }
+        public string Pipe13Color
+        {
+            get { return mPipeColors[12]; }
+        }
+        public string Pipe14Color
+        {
+            get { return mPipeColors[13]; }
         }
 
         public string Gas1Sp
@@ -873,15 +942,24 @@ namespace Demo.ui.model
             }
             else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].PaddleNodeComponent.PosAct.NodeID)
             {
-                PaddlePosAct = newValue.ToString();
+                if (newValue != null)
+                {
+                    PaddlePosAct = newValue.ToString();
+                }
             }
             else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].PaddleNodeComponent.CurPosSp.NodeID)
             {
-                PaddlePosSp = newValue.ToString();
+                if (newValue != null)
+                {
+                    PaddlePosSp = newValue.ToString();
+                }
             }
             else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].PaddleNodeComponent.CurSpeedSp.NodeID)
             {
-                PaddleSpeedSp = newValue.ToString();
+                if (newValue != null)
+                {
+                    PaddleSpeedSp = newValue.ToString();
+                }
             }
             else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].DioNodeComponent.Ev.NodeID)
             {

@@ -16,6 +16,7 @@ using Demo.ui.model;
 using Rocky.Core.Opc.Ua;
 using Demo.com;
 using log4net;
+using Demo.ui.view;
 
 namespace Demo.ui
 {
@@ -26,6 +27,10 @@ namespace Demo.ui
     {
         public static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
+        //public delegate void ClickHandler(object sender, RoutedEventArgs e);
+        public event TubeControlBar.ClickHandler CloseClick;
+        public event TubeControlBar.ClickHandler SettingsClick;
+
         private TubeMonitorPageModel mTubeMonitorPageModel;
         private TubePageStyle mTubePageStyle;
 
@@ -35,6 +40,18 @@ namespace Demo.ui
 
             mTubeMonitorPageModel = new TubeMonitorPageModel();
             mTubePageStyle = new TubePageStyle(); ;
+        }
+
+        public void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.CloseClick(sender, e);
+            e.Handled = false;
+        }
+
+        public void SettingsButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.SettingsClick(sender, e);
+            e.Handled = false;
         }
 
         public void LoadPage(byte selectedTube)
