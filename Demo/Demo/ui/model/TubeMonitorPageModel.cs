@@ -181,6 +181,7 @@ namespace Demo.ui.model
             try {
                System.Int32 val = (System.Int32)ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].DioNodeComponent.Ev.Value;
                 var arr = new BitArray(BitConverter.GetBytes(val));
+           
                 var myVal = arr[21];
                 for (int i = 0; i < 32; ++i)
                 {

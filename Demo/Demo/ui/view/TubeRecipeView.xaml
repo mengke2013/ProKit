@@ -50,6 +50,7 @@
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
+            <RowDefinition />
             <RowDefinition MaxHeight="10"/>
             <RowDefinition />
             <RowDefinition />
@@ -91,26 +92,19 @@
             <Grid.RowDefinitions>
                 <RowDefinition />
             </Grid.RowDefinitions>
-            <WrapPanel Grid.Row="0" Grid.Column="0">
-                <TextBlock Text="Step"  Margin="5,0,0,0" Width="30"  FontSize="14"  FontWeight="Bold" Foreground="#FF402FEA"   />
-                <TextBlock Text="{Binding Path=StepIndex}" Width="20" FontSize="14" FontWeight="Bold" Foreground="#FF402FEA" />
-            </WrapPanel>
-            <TextBlock Margin="0,0,0,0" Grid.Row="0" Grid.Column="1"  >Step Name:</TextBlock>
-            <TextBox Margin="5,0" Grid.Row="0" Grid.Column="2"  />
-            <TextBlock Margin="0,0,0,0" Grid.Row="0" Grid.Column="3" >Step Type:</TextBlock>
-            <TextBox Margin="5,0" Grid.Row="0" Grid.Column="4" />
-            <TextBlock Margin="0,0,0,0" Grid.Row="0" Grid.Column="5" >Step Time:</TextBlock>
-            <TextBox Margin="5,0" Grid.Row="0" Grid.Column="6" />
+            <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Path=TubeRecipeViewModel.StepIndex}" FontSize="14" FontWeight="Bold" Foreground="#FF402FEA" />
+            <TextBlock Margin="0,0,5,0" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Step Name:</TextBlock>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2" Grid.Row="0" Grid.Column="2" Text="{Binding Path=TubeRecipeViewModel.StepName}"/>
+            <TextBlock Margin="0,0,5,0" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Step Type:</TextBlock>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2" Grid.Row="0" Grid.Column="4" Text="{Binding Path=TubeRecipeViewModel.StepType}"/>
+            <TextBlock Margin="0,0,5,0" Grid.Row="0" Grid.Column="5" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Step Time:</TextBlock>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2" Grid.Row="0" Grid.Column="6" Text="{Binding Path=TubeRecipeViewModel.StepTime}"/>
 
-            <Button Margin="5,0" Grid.Row="0" Grid.Column="9" Content="Up" />
-            <Button Margin="5,0" Grid.Row="0" Grid.Column="10" Content="Down" />
-            <Button Margin="5,0" Grid.Row="0" Grid.Column="11" Content="Clear" />
-            <Button Margin="5,0" Grid.Row="0" Grid.Column="12" Content="Insert" />
-            <Button Margin="5,0" Grid.Row="0" Grid.Column="13" Content="Delete" />
-            <Button Margin="5,0" Grid.Row="0" Grid.Column="14" Content="Download" />
+            <Button Margin="0,0,5,0" Grid.Row="0" Grid.Column="10" Grid.ColumnSpan="2" Content="Edit" FontSize="14" FontWeight="Bold" Foreground="#FF646366"></Button>
+            <Button Margin="0,0,0,0" Grid.Row="0" Grid.Column="12" Grid.ColumnSpan="2" Content="Commit" FontSize="14" FontWeight="Bold" Foreground="#FF646366"></Button>
         </Grid>
-        <Rectangle Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="30" Height="1" Fill="#FFAAA5A5" />
-        <Grid Grid.Row="2" Grid.Column="1" Grid.RowSpan="7" Grid.ColumnSpan="14">
+        <Rectangle Margin="-15,0" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="28" Height="1" Fill="#FFAAA5A5" />
+        <Grid Grid.Row="2" Grid.Column="1" Grid.RowSpan="8" Grid.ColumnSpan="14">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />
@@ -128,6 +122,7 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
+                <RowDefinition />
                 <RowDefinition />
                 <RowDefinition />
                 <RowDefinition />
@@ -137,79 +132,62 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
             <TextBlock Margin="0,0,5,0" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="15" FontSize="14" FontWeight="Bold" Foreground="#FF646366" >Gas and Vacuum</TextBlock>
-            <TextBlock Margin="0,0,5,0" Grid.Row="1" Grid.Column="0" >N2:</TextBlock>
-            <TextBox Margin="5,2" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" />
-            <Button  Margin="5,2" Grid.Row="1" Grid.Column="3" />
-            <TextBlock Margin="2,2" Grid.Row="1" Grid.Column="4">Abort:</TextBlock>
-            <TextBox Margin="2,2" Grid.Row="1" Grid.Column="5"/>
-            <TextBlock Margin="2,2" Grid.Row="1" Grid.Column="6">Hold:</TextBlock>
-            <TextBox Margin="2,2" Grid.Row="1" Grid.Column="7"/>
-            <TextBlock Margin="2,2" Grid.Row="1" Grid.Column="8">Alarm:</TextBlock>
-            <TextBox Margin="2,2" Grid.Row="1" Grid.Column="9"/>
-            <TextBlock Margin="2,2" Grid.Row="1" Grid.Column="10">Next:</TextBlock>
-            <TextBox Margin="2,2" Grid.Row="1" Grid.Column="11"/>
+            <TextBlock Margin="0,0,5,0" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" >Setpoint</TextBlock>
+            <TextBlock Margin="0,0,5,0" Grid.Row="1" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" >Ramp</TextBlock>
+            <TextBlock Margin="0,0,5,0" Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" >Abort</TextBlock>
+            <TextBlock Margin="0,0,5,0" Grid.Row="1" Grid.Column="7" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" >Hold</TextBlock>
+            <TextBlock Margin="0,0,5,0" Grid.Row="1" Grid.Column="9" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" >Alarm</TextBlock>
+            <TextBlock Margin="0,0,5,0" Grid.Row="1" Grid.Column="11" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" >Next</TextBlock>
 
-            <TextBlock Margin="0,0,5,0" Grid.Row="2" Grid.Column="0" >H2:</TextBlock>
-            <TextBox Margin="5,2" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" />
-            <Button  Margin="5,2" Grid.Row="2" Grid.Column="3" />
-            <TextBlock Margin="2,2" Grid.Row="2" Grid.Column="4">Abort:</TextBlock>
-            <TextBox Margin="2,2" Grid.Row="2" Grid.Column="5"/>
-            <TextBlock Margin="2,2" Grid.Row="2" Grid.Column="6">Hold:</TextBlock>
-            <TextBox Margin="2,2" Grid.Row="2" Grid.Column="7"/>
-            <TextBlock Margin="2,2" Grid.Row="2" Grid.Column="8">Alarm:</TextBlock>
-            <TextBox Margin="2,2" Grid.Row="2" Grid.Column="9"/>
-            <TextBlock Margin="2,2" Grid.Row="2" Grid.Column="10">Next:</TextBlock>
-            <TextBox Margin="2,2" Grid.Row="2" Grid.Column="11"/>
+            <TextBlock Margin="0,0,5,0" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">N2:</TextBlock>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Gas1Sp}" />
+            <Button  Margin="5,2" Grid.Row="2" Grid.Column="4" />
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Gas1Abort}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Gas1Hold}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Gas1Alarm}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Gas1Next}"/>
 
-            <TextBlock Margin="0,0,5,0" Grid.Row="3" Grid.Column="0" >BCl3:</TextBlock>
-            <TextBox Margin="5,2" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" />
-            <Button  Margin="5,2" Grid.Row="3" Grid.Column="3" />
-            <TextBlock Margin="2,2" Grid.Row="3" Grid.Column="4">Abort:</TextBlock>
-            <TextBox Margin="2,2" Grid.Row="3" Grid.Column="5"/>
-            <TextBlock Margin="2,2" Grid.Row="3" Grid.Column="6">Hold:</TextBlock>
-            <TextBox Margin="2,2" Grid.Row="3" Grid.Column="7"/>
-            <TextBlock Margin="2,2" Grid.Row="3" Grid.Column="8">Alarm:</TextBlock>
-            <TextBox Margin="2,2" Grid.Row="3" Grid.Column="9"/>
-            <TextBlock Margin="2,2" Grid.Row="3" Grid.Column="10">Next:</TextBlock>
-            <TextBox Margin="2,2" Grid.Row="3" Grid.Column="11"/>
+            <TextBlock Margin="0,0,5,0" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">H2:</TextBlock>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Gas2Sp}" />
+            <Button  Margin="5,2" Grid.Row="3" Grid.Column="4" />
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Gas2Abort}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Gas2Hold}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Gas2Alarm}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Gas2Next}"/>
 
-            <TextBlock Margin="0,0,5,0" Grid.Row="4" Grid.Column="0" >O2:</TextBlock>
-            <TextBox Margin="5,2" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" />
-            <Button  Margin="5,2" Grid.Row="4" Grid.Column="3" />
-            <TextBlock Margin="2,2" Grid.Row="4" Grid.Column="4">Abort:</TextBlock>
-            <TextBox Margin="2,2" Grid.Row="4" Grid.Column="5"/>
-            <TextBlock Margin="2,2" Grid.Row="4" Grid.Column="6">Hold:</TextBlock>
-            <TextBox Margin="2,2" Grid.Row="4" Grid.Column="7"/>
-            <TextBlock Margin="2,2" Grid.Row="4" Grid.Column="8">Alarm:</TextBlock>
-            <TextBox Margin="2,2" Grid.Row="4" Grid.Column="9"/>
-            <TextBlock Margin="2,2" Grid.Row="4" Grid.Column="10">Next:</TextBlock>
-            <TextBox Margin="2,2" Grid.Row="4" Grid.Column="11"/>
+            <TextBlock Margin="0,0,5,0" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">BCl3:</TextBlock>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Gas5Sp}" />
+            <Button  Margin="5,2" Grid.Row="4" Grid.Column="4" />
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Gas5Abort}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Gas5Hold}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Gas5Alarm}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Gas5Next}"/>
 
-            <TextBlock Margin="0,0,5,0" Grid.Row="5" Grid.Column="0" >PC8:</TextBlock>
-            <TextBox Margin="5,2" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" />
-            <Button  Margin="5,2" Grid.Row="5" Grid.Column="3" />
-            <TextBlock Margin="2,2" Grid.Row="5" Grid.Column="4">Abort:</TextBlock>
-            <TextBox Margin="2,2" Grid.Row="5" Grid.Column="5"/>
-            <TextBlock Margin="2,2" Grid.Row="5" Grid.Column="6">Hold:</TextBlock>
-            <TextBox Margin="2,2" Grid.Row="5" Grid.Column="7"/>
-            <TextBlock Margin="2,2" Grid.Row="5" Grid.Column="8">Alarm:</TextBlock>
-            <TextBox Margin="2,2" Grid.Row="5" Grid.Column="9"/>
-            <TextBlock Margin="2,2" Grid.Row="5" Grid.Column="10">Next:</TextBlock>
-            <TextBox Margin="2,2" Grid.Row="5" Grid.Column="11"/>
+            <TextBlock Margin="0,0,5,0" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">O2:</TextBlock>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Gas6Sp}" />
+            <Button  Margin="5,2" Grid.Row="5" Grid.Column="4" />
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Gas6Abort}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Gas6Hold}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Gas6Alarm}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Gas6Next}"/>
 
-            <TextBlock Margin="0,0,5,0" Grid.Row="6" Grid.Column="0" >Vacuum:</TextBlock>
-            <TextBox Margin="5,2" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" />
-            <Button  Margin="5,2" Grid.Row="6" Grid.Column="3" />
-            <TextBlock Margin="2,2" Grid.Row="6" Grid.Column="4">Abort:</TextBlock>
-            <TextBox Margin="2,2" Grid.Row="6" Grid.Column="5"/>
-            <TextBlock Margin="2,2" Grid.Row="6" Grid.Column="6">Hold:</TextBlock>
-            <TextBox Margin="2,2" Grid.Row="6" Grid.Column="7"/>
-            <TextBlock Margin="2,2" Grid.Row="6" Grid.Column="8">Alarm:</TextBlock>
-            <TextBox Margin="2,2" Grid.Row="6" Grid.Column="9"/>
-            <TextBlock Margin="2,2" Grid.Row="6" Grid.Column="10">Next:</TextBlock>
-            <TextBox Margin="2,2" Grid.Row="6" Grid.Column="11"/>
+            <TextBlock Margin="0,0,5,0" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">PC8:</TextBlock>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Gas8Sp}" />
+            <Button  Margin="5,2" Grid.Row="6" Grid.Column="4" />
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Gas8Abort}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Gas8Hold}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Gas8Alarm}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Gas8Next}"/>
+
+            <TextBlock Margin="0,0,5,0" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">Vacuum:</TextBlock>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Ana1Sp}" />
+            <Button  Margin="5,2" Grid.Row="7" Grid.Column="4" />
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="7" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Ana1Abort}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="7" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Ana1Hold}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="7" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Ana1Alarm}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="7" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Ana1Next}"/>
         </Grid>
-        <Grid Grid.Row="2" Grid.Column="16" Grid.RowSpan="7" Grid.ColumnSpan="14">
+        <Grid Grid.Row="2" Grid.Column="16" Grid.RowSpan="8" Grid.ColumnSpan="14">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />
@@ -234,82 +212,67 @@
                 <RowDefinition />
                 <RowDefinition />
                 <RowDefinition />
+                <RowDefinition />
             </Grid.RowDefinitions>
             <TextBlock Margin="0,0,5,0" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="15" FontSize="14" FontWeight="Bold" Foreground="#FF646366" >Temperature</TextBlock>
-            <TextBlock Margin="0,0,5,0" Grid.Row="1" Grid.Column="0" >Zone1:</TextBlock>
-            <TextBox Margin="5,2" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" />
-            <Button  Margin="5,2" Grid.Row="1" Grid.Column="3" />
-            <TextBlock Margin="2,2" Grid.Row="1" Grid.Column="4">Abort:</TextBlock>
-            <TextBox Margin="2,2" Grid.Row="1" Grid.Column="5"/>
-            <TextBlock Margin="2,2" Grid.Row="1" Grid.Column="6">Hold:</TextBlock>
-            <TextBox Margin="2,2" Grid.Row="1" Grid.Column="7"/>
-            <TextBlock Margin="2,2" Grid.Row="1" Grid.Column="8">Alarm:</TextBlock>
-            <TextBox Margin="2,2" Grid.Row="1" Grid.Column="9"/>
-            <TextBlock Margin="2,2" Grid.Row="1" Grid.Column="10">Next:</TextBlock>
-            <TextBox Margin="2,2" Grid.Row="1" Grid.Column="11"/>
+            <TextBlock Margin="0,0,5,0" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" >Setpoint</TextBlock>
+            <TextBlock Margin="0,0,5,0" Grid.Row="1" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" >Ramp</TextBlock>
+            <TextBlock Margin="0,0,5,0" Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" >Abort</TextBlock>
+            <TextBlock Margin="0,0,5,0" Grid.Row="1" Grid.Column="7" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" >Hold</TextBlock>
+            <TextBlock Margin="0,0,5,0" Grid.Row="1" Grid.Column="9" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" >Alarm</TextBlock>
+            <TextBlock Margin="0,0,5,0" Grid.Row="1" Grid.Column="11" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" >Next</TextBlock>
 
-            <TextBlock Margin="0,0,5,0" Grid.Row="2" Grid.Column="0" >Zone2:</TextBlock>
-            <TextBox Margin="5,2" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" />
-            <Button  Margin="5,2" Grid.Row="2" Grid.Column="3" />
-            <TextBlock Margin="2,2" Grid.Row="2" Grid.Column="4">Abort:</TextBlock>
-            <TextBox Margin="2,2" Grid.Row="2" Grid.Column="5"/>
-            <TextBlock Margin="2,2" Grid.Row="2" Grid.Column="6">Hold:</TextBlock>
-            <TextBox Margin="2,2" Grid.Row="2" Grid.Column="7"/>
-            <TextBlock Margin="2,2" Grid.Row="2" Grid.Column="8">Alarm:</TextBlock>
-            <TextBox Margin="2,2" Grid.Row="2" Grid.Column="9"/>
-            <TextBlock Margin="2,2" Grid.Row="2" Grid.Column="10">Next:</TextBlock>
-            <TextBox Margin="2,2" Grid.Row="2" Grid.Column="11"/>
+            <TextBlock Margin="0,0,5,0" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">Zone1:</TextBlock>
+            <Button  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Content="Int/Ext" />
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper1Sp}" />
+            <Button  Margin="5,2" Grid.Row="2" Grid.Column="4" />
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper1Abort}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper1Hold}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper1Alarm}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper1Next}"/>
 
-            <TextBlock Margin="0,0,5,0" Grid.Row="3" Grid.Column="0" >Zone3:</TextBlock>
-            <TextBox Margin="5,2" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" />
-            <Button  Margin="5,2" Grid.Row="3" Grid.Column="3" />
-            <TextBlock Margin="2,2" Grid.Row="3" Grid.Column="4">Abort:</TextBlock>
-            <TextBox Margin="2,2" Grid.Row="3" Grid.Column="5"/>
-            <TextBlock Margin="2,2" Grid.Row="3" Grid.Column="6">Hold:</TextBlock>
-            <TextBox Margin="2,2" Grid.Row="3" Grid.Column="7"/>
-            <TextBlock Margin="2,2" Grid.Row="3" Grid.Column="8">Alarm:</TextBlock>
-            <TextBox Margin="2,2" Grid.Row="3" Grid.Column="9"/>
-            <TextBlock Margin="2,2" Grid.Row="3" Grid.Column="10">Next:</TextBlock>
-            <TextBox Margin="2,2" Grid.Row="3" Grid.Column="11"/>
+            <TextBlock Margin="0,0,5,0" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">Zone2:</TextBlock>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper2Sp}" />
+            <Button  Margin="5,2" Grid.Row="3" Grid.Column="4" />
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper2Abort}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper2Hold}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper2Alarm}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper2Next}"/>
 
-            <TextBlock Margin="0,0,5,0" Grid.Row="4" Grid.Column="0" >Zone4:</TextBlock>
-            <TextBox Margin="5,2" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" />
-            <Button  Margin="5,2" Grid.Row="4" Grid.Column="3" />
-            <TextBlock Margin="2,2" Grid.Row="4" Grid.Column="4">Abort:</TextBlock>
-            <TextBox Margin="2,2" Grid.Row="4" Grid.Column="5"/>
-            <TextBlock Margin="2,2" Grid.Row="4" Grid.Column="6">Hold:</TextBlock>
-            <TextBox Margin="2,2" Grid.Row="4" Grid.Column="7"/>
-            <TextBlock Margin="2,2" Grid.Row="4" Grid.Column="8">Alarm:</TextBlock>
-            <TextBox Margin="2,2" Grid.Row="4" Grid.Column="9"/>
-            <TextBlock Margin="2,2" Grid.Row="4" Grid.Column="10">Next:</TextBlock>
-            <TextBox Margin="2,2" Grid.Row="4" Grid.Column="11"/>
+            <TextBlock Margin="0,0,5,0" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">Zone3:</TextBlock>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper3Sp}" />
+            <Button  Margin="5,2" Grid.Row="4" Grid.Column="4" />
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper3Abort}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper3Hold}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper3Alarm}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper3Next}"/>
 
-            <TextBlock Margin="0,0,5,0" Grid.Row="5" Grid.Column="0" >Zone5:</TextBlock>
-            <TextBox Margin="5,2" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" />
-            <Button  Margin="5,2" Grid.Row="5" Grid.Column="3" />
-            <TextBlock Margin="2,2" Grid.Row="5" Grid.Column="4">Abort:</TextBlock>
-            <TextBox Margin="2,2" Grid.Row="5" Grid.Column="5"/>
-            <TextBlock Margin="2,2" Grid.Row="5" Grid.Column="6">Hold:</TextBlock>
-            <TextBox Margin="2,2" Grid.Row="5" Grid.Column="7"/>
-            <TextBlock Margin="2,2" Grid.Row="5" Grid.Column="8">Alarm:</TextBlock>
-            <TextBox Margin="2,2" Grid.Row="5" Grid.Column="9"/>
-            <TextBlock Margin="2,2" Grid.Row="5" Grid.Column="10">Next:</TextBlock>
-            <TextBox Margin="2,2" Grid.Row="5" Grid.Column="11"/>
+            <TextBlock Margin="0,0,5,0" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">Zone4:</TextBlock>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper4Sp}" />
+            <Button  Margin="5,2" Grid.Row="5" Grid.Column="4" />
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper4Abort}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper4Hold}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper4Alarm}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper4Next}"/>
 
-            <TextBlock Margin="0,0,5,0" Grid.Row="6" Grid.Column="0" >Zone6:</TextBlock>
-            <TextBox Margin="5,2" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" />
-            <Button  Margin="5,2" Grid.Row="6" Grid.Column="3" />
-            <TextBlock Margin="2,2" Grid.Row="6" Grid.Column="4">Abort:</TextBlock>
-            <TextBox Margin="2,2" Grid.Row="6" Grid.Column="5"/>
-            <TextBlock Margin="2,2" Grid.Row="6" Grid.Column="6">Hold:</TextBlock>
-            <TextBox Margin="2,2" Grid.Row="6" Grid.Column="7"/>
-            <TextBlock Margin="2,2" Grid.Row="6" Grid.Column="8">Alarm:</TextBlock>
-            <TextBox Margin="2,2" Grid.Row="6" Grid.Column="9"/>
-            <TextBlock Margin="2,2" Grid.Row="6" Grid.Column="10">Next:</TextBlock>
-            <TextBox Margin="2,2" Grid.Row="6" Grid.Column="11"/>
+            <TextBlock Margin="0,0,5,0" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">Zone5:</TextBlock>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper5Sp}" />
+            <Button  Margin="5,2" Grid.Row="6" Grid.Column="4" />
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper5Abort}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper5Hold}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper5Alarm}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper5Next}"/>
+
+            <TextBlock Margin="0,0,5,0" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">Zone6:</TextBlock>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper6Sp}" />
+            <Button  Margin="5,2" Grid.Row="7" Grid.Column="4" />
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="7" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper6Abort}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="7" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper6Hold}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="7" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper6Alarm}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="7" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper6Next}"/>
         </Grid>
-        <Rectangle Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="30" Height="1" Fill="#FFAAA5A5" />
-        <Grid Grid.Row="10" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="14">
+        <Rectangle Margin="-15,0" Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="28" Height="1" Fill="#FFAAA5A5" />
+        <Grid Grid.Row="11" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="14">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />
@@ -331,14 +294,28 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
             <TextBlock Margin="0,0,0,0" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="15" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Boat Loader</TextBlock>
-            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">Axis Position:</TextBlock>
-            <TextBox Margin="2,2" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" />
-            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2">Axis Speed:</TextBlock>
-            <TextBox Margin="2,2" Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="2" />
+            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">Axis Position:</TextBlock>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.AxisPosSp}"/>
+            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="2" VerticalAlignment="Center">Axis Speed:</TextBlock>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="1" Grid.Column="8" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.AxisSpeedSp}"/>
         </Grid>
-        <Rectangle Grid.Row="12" Grid.Column="0" Grid.ColumnSpan="30" Height="1" Fill="#FFAAA5A5" />
-        <Grid Grid.Row="13" Grid.Column="1" Grid.RowSpan="3" Grid.ColumnSpan="28">
+        <Rectangle Margin="-15,0" Grid.Row="13" Grid.Column="1" Grid.ColumnSpan="28" Height="1" Fill="#FFAAA5A5" />
+        <Grid Grid.Row="14" Grid.Column="1" Grid.RowSpan="3" Grid.ColumnSpan="28">
             <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
                 <ColumnDefinition />
                 <ColumnDefinition />
                 <ColumnDefinition />
@@ -360,38 +337,52 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
             <TextBlock Margin="0,0,0,0" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="15" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Electric Valve</TextBlock>
-            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="0">EV1:</TextBlock>
-            <Button  Margin="5,2" Grid.Row="1" Grid.Column="1" />
-            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="2">EV2:</TextBlock>
-            <Button  Margin="5,2" Grid.Row="1" Grid.Column="3"/>
-            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="4">EV3:</TextBlock>
-            <Button  Margin="5,2" Grid.Row="1" Grid.Column="5"/>
-            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="6">EV4:</TextBlock>
-            <Button  Margin="5,2" Grid.Row="1" Grid.Column="7"/>
-            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="8">EV5:</TextBlock>
-            <Button  Margin="5,2" Grid.Row="1" Grid.Column="9"/>
-            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="10">EV6:</TextBlock>
-            <Button  Margin="5,2" Grid.Row="1" Grid.Column="11"/>
-            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="12">EV7:</TextBlock>
-            <Button  Margin="5,2" Grid.Row="1" Grid.Column="13"/>
-            <TextBlock Margin="0,0,0,0" Grid.Row="2" Grid.Column="0">EV8:</TextBlock>
-            <Button  Margin="5,2" Grid.Row="2" Grid.Column="1"/>
-            <TextBlock Margin="0,0,0,0" Grid.Row="2" Grid.Column="2">EV9:</TextBlock>
-            <Button  Margin="5,2" Grid.Row="2" Grid.Column="3"/>
-            <TextBlock Margin="0,0,0,0" Grid.Row="2" Grid.Column="4">EV10:</TextBlock>
-            <Button  Margin="5,2" Grid.Row="2" Grid.Column="5"/>
-            <TextBlock Margin="0,0,0,0" Grid.Row="2" Grid.Column="6">EV11:</TextBlock>
-            <Button  Margin="5,2" Grid.Row="2" Grid.Column="7"/>
-            <TextBlock Margin="0,0,0,0" Grid.Row="2" Grid.Column="8">EV12:</TextBlock>
-            <Button  Margin="5,2" Grid.Row="2" Grid.Column="9"/>
-            <TextBlock Margin="0,0,0,0" Grid.Row="2" Grid.Column="10">EV13:</TextBlock>
-            <Button  Margin="5,2" Grid.Row="2" Grid.Column="11" />
-            <TextBlock Margin="0,0,0,0" Grid.Row="2" Grid.Column="12">EV14:</TextBlock>
-            <Button  Margin="5,2" Grid.Row="2" Grid.Column="13" />
+            <Button Margin="5,2" Grid.Row="1" Grid.Column="0"/>
+            <TextBlock Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
+            <Button Margin="5,2" Grid.Row="1" Grid.Column="4"/>
+            <TextBlock Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI2</TextBlock>
+            <Button Margin="5,2" Grid.Row="1" Grid.Column="8"/>
+            <TextBlock Grid.Row="1" Grid.Column="9" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
+            <Button Margin="5,2" Grid.Row="1" Grid.Column="12"/>
+            <TextBlock Grid.Row="1" Grid.Column="13" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI2</TextBlock>
+            <Button Margin="5,2" Grid.Row="1" Grid.Column="16"/>
+            <TextBlock Grid.Row="1" Grid.Column="17" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
+            <Button Margin="5,2" Grid.Row="1" Grid.Column="20"/>
+            <TextBlock Grid.Row="1" Grid.Column="21" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI2</TextBlock>
+            <Button Margin="5,2" Grid.Row="1" Grid.Column="24"/>
+            <TextBlock Grid.Row="1" Grid.Column="25" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
+            <Button Margin="5,2" Grid.Row="2" Grid.Column="0"/>
+            <TextBlock Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
+            <Button Margin="5,2" Grid.Row="2" Grid.Column="4"/>
+            <TextBlock Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI2</TextBlock>
+            <Button Margin="5,2" Grid.Row="2" Grid.Column="8"/>
+            <TextBlock Grid.Row="2" Grid.Column="9" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
+            <Button Margin="5,2" Grid.Row="2" Grid.Column="12"/>
+            <TextBlock Grid.Row="2" Grid.Column="13" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI2</TextBlock>
+            <Button Margin="5,2" Grid.Row="2" Grid.Column="16"/>
+            <TextBlock Grid.Row="2" Grid.Column="17" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
+            <Button Margin="5,2" Grid.Row="2" Grid.Column="20"/>
+            <TextBlock Grid.Row="2" Grid.Column="21" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI2</TextBlock>
+            <Button Margin="5,2" Grid.Row="2" Grid.Column="24"/>
+            <TextBlock Grid.Row="2" Grid.Column="25" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
         </Grid>
-        <Rectangle Grid.Row="16" Grid.Column="0" Grid.ColumnSpan="30" Height="1" Fill="#FFAAA5A5" />
-        <Grid Grid.Row="17" Grid.Column="1" Grid.RowSpan="3" Grid.ColumnSpan="28">
+        <Rectangle Margin="-15,0" Grid.Row="17" Grid.Column="1" Grid.ColumnSpan="28" Height="1" Fill="#FFAAA5A5" />
+        <Grid Grid.Row="18" Grid.Column="1" Grid.RowSpan="3" Grid.ColumnSpan="28">
             <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
                 <ColumnDefinition />
                 <ColumnDefinition />
                 <ColumnDefinition />
@@ -413,38 +404,52 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
             <TextBlock Margin="0,0,0,0" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="15" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Digital Input</TextBlock>
-            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="0">DI1:</TextBlock>
-            <Button  Margin="5,2" Grid.Row="1" Grid.Column="1" />
-            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="2">DI2:</TextBlock>
-            <Button  Margin="5,2" Grid.Row="1" Grid.Column="3"/>
-            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="4">DI3:</TextBlock>
-            <Button  Margin="5,2" Grid.Row="1" Grid.Column="5"/>
-            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="6">DI4:</TextBlock>
-            <Button  Margin="5,2" Grid.Row="1" Grid.Column="7"/>
-            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="8">DI5:</TextBlock>
-            <Button  Margin="5,2" Grid.Row="1" Grid.Column="9"/>
-            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="10">DI6:</TextBlock>
-            <Button  Margin="5,2" Grid.Row="1" Grid.Column="11"/>
-            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="12">DI7:</TextBlock>
-            <Button  Margin="5,2" Grid.Row="1" Grid.Column="13"/>
-            <TextBlock Margin="0,0,0,0" Grid.Row="2" Grid.Column="0">DI8:</TextBlock>
-            <Button  Margin="5,2" Grid.Row="2" Grid.Column="1"/>
-            <TextBlock Margin="0,0,0,0" Grid.Row="2" Grid.Column="2">DI9:</TextBlock>
-            <Button  Margin="5,2" Grid.Row="2" Grid.Column="3"/>
-            <TextBlock Margin="0,0,0,0" Grid.Row="2" Grid.Column="4">DI10:</TextBlock>
-            <Button  Margin="5,2" Grid.Row="2" Grid.Column="5"/>
-            <TextBlock Margin="0,0,0,0" Grid.Row="2" Grid.Column="6">DI11:</TextBlock>
-            <Button  Margin="5,2" Grid.Row="2" Grid.Column="7"/>
-            <TextBlock Margin="0,0,0,0" Grid.Row="2" Grid.Column="8">DI12:</TextBlock>
-            <Button  Margin="5,2" Grid.Row="2" Grid.Column="9"/>
-            <TextBlock Margin="0,0,0,0" Grid.Row="2" Grid.Column="10">DI13:</TextBlock>
-            <Button  Margin="5,2" Grid.Row="2" Grid.Column="11" />
-            <TextBlock Margin="0,0,0,0" Grid.Row="2" Grid.Column="12">DI14:</TextBlock>
-            <Button  Margin="5,2" Grid.Row="2" Grid.Column="13" />
+            <Button Margin="5,2" Grid.Row="1" Grid.Column="0"/>
+            <TextBlock Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
+            <Button Margin="5,2" Grid.Row="1" Grid.Column="4"/>
+            <TextBlock Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI2</TextBlock>
+            <Button Margin="5,2" Grid.Row="1" Grid.Column="8"/>
+            <TextBlock Grid.Row="1" Grid.Column="9" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
+            <Button Margin="5,2" Grid.Row="1" Grid.Column="12"/>
+            <TextBlock Grid.Row="1" Grid.Column="13" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI2</TextBlock>
+            <Button Margin="5,2" Grid.Row="1" Grid.Column="16"/>
+            <TextBlock Grid.Row="1" Grid.Column="17" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
+            <Button Margin="5,2" Grid.Row="1" Grid.Column="20"/>
+            <TextBlock Grid.Row="1" Grid.Column="21" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI2</TextBlock>
+            <Button Margin="5,2" Grid.Row="1" Grid.Column="24"/>
+            <TextBlock Grid.Row="1" Grid.Column="25" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
+            <Button Margin="5,2" Grid.Row="2" Grid.Column="0"/>
+            <TextBlock Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
+            <Button Margin="5,2" Grid.Row="2" Grid.Column="4"/>
+            <TextBlock Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI2</TextBlock>
+            <Button Margin="5,2" Grid.Row="2" Grid.Column="8"/>
+            <TextBlock Grid.Row="2" Grid.Column="9" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
+            <Button Margin="5,2" Grid.Row="2" Grid.Column="12"/>
+            <TextBlock Grid.Row="2" Grid.Column="13" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI2</TextBlock>
+            <Button Margin="5,2" Grid.Row="2" Grid.Column="16"/>
+            <TextBlock Grid.Row="2" Grid.Column="17" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
+            <Button Margin="5,2" Grid.Row="2" Grid.Column="20"/>
+            <TextBlock Grid.Row="2" Grid.Column="21" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI2</TextBlock>
+            <Button Margin="5,2" Grid.Row="2" Grid.Column="24"/>
+            <TextBlock Grid.Row="2" Grid.Column="25" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
         </Grid>
-        <Rectangle Grid.Row="20" Grid.Column="0" Grid.ColumnSpan="30" Height="1" Fill="#FFAAA5A5" />
-        <Grid Grid.Row="21" Grid.Column="1" Grid.RowSpan="3" Grid.ColumnSpan="28">
+        <Rectangle Margin="-15,0" Grid.Row="21" Grid.Column="1" Grid.ColumnSpan="28" Height="1" Fill="#FFAAA5A5" />
+        <Grid Grid.Row="22" Grid.Column="1" Grid.RowSpan="3" Grid.ColumnSpan="28">
             <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
                 <ColumnDefinition />
                 <ColumnDefinition />
                 <ColumnDefinition />
@@ -466,37 +471,37 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
             <TextBlock Margin="0,0,0,0" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="15" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Digital Output</TextBlock>
-            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="0">DO1:</TextBlock>
-            <Button  Margin="5,2" Grid.Row="1" Grid.Column="1" />
-            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="2">DO2:</TextBlock>
-            <Button  Margin="5,2" Grid.Row="1" Grid.Column="3"/>
-            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="4">DO3:</TextBlock>
-            <Button  Margin="5,2" Grid.Row="1" Grid.Column="5"/>
-            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="6">DO4:</TextBlock>
-            <Button  Margin="5,2" Grid.Row="1" Grid.Column="7"/>
-            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="8">DO5:</TextBlock>
-            <Button  Margin="5,2" Grid.Row="1" Grid.Column="9"/>
-            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="10">DO6:</TextBlock>
-            <Button  Margin="5,2" Grid.Row="1" Grid.Column="11"/>
-            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="12">DO7:</TextBlock>
-            <Button  Margin="5,2" Grid.Row="1" Grid.Column="13"/>
-            <TextBlock Margin="0,0,0,0" Grid.Row="2" Grid.Column="0">DO8:</TextBlock>
-            <Button  Margin="5,2" Grid.Row="2" Grid.Column="1"/>
-            <TextBlock Margin="0,0,0,0" Grid.Row="2" Grid.Column="2">DO9:</TextBlock>
-            <Button  Margin="5,2" Grid.Row="2" Grid.Column="3"/>
-            <TextBlock Margin="0,0,0,0" Grid.Row="2" Grid.Column="4">DO10:</TextBlock>
-            <Button  Margin="5,2" Grid.Row="2" Grid.Column="5"/>
-            <TextBlock Margin="0,0,0,0" Grid.Row="2" Grid.Column="6">DO11:</TextBlock>
-            <Button  Margin="5,2" Grid.Row="2" Grid.Column="7"/>
-            <TextBlock Margin="0,0,0,0" Grid.Row="2" Grid.Column="8">DO12:</TextBlock>
-            <Button  Margin="5,2" Grid.Row="2" Grid.Column="9"/>
-            <TextBlock Margin="0,0,0,0" Grid.Row="2" Grid.Column="10">DO13:</TextBlock>
-            <Button  Margin="5,2" Grid.Row="2" Grid.Column="11" />
-            <TextBlock Margin="0,0,0,0" Grid.Row="2" Grid.Column="12">DO14:</TextBlock>
-            <Button  Margin="5,2" Grid.Row="2" Grid.Column="13" />
+            <Button Margin="5,2" Grid.Row="1" Grid.Column="0"/>
+            <TextBlock Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
+            <Button Margin="5,2" Grid.Row="1" Grid.Column="4"/>
+            <TextBlock Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI2</TextBlock>
+            <Button Margin="5,2" Grid.Row="1" Grid.Column="8"/>
+            <TextBlock Grid.Row="1" Grid.Column="9" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
+            <Button Margin="5,2" Grid.Row="1" Grid.Column="12"/>
+            <TextBlock Grid.Row="1" Grid.Column="13" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI2</TextBlock>
+            <Button Margin="5,2" Grid.Row="1" Grid.Column="16"/>
+            <TextBlock Grid.Row="1" Grid.Column="17" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
+            <Button Margin="5,2" Grid.Row="1" Grid.Column="20"/>
+            <TextBlock Grid.Row="1" Grid.Column="21" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI2</TextBlock>
+            <Button Margin="5,2" Grid.Row="1" Grid.Column="24"/>
+            <TextBlock Grid.Row="1" Grid.Column="25" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
+            <Button Margin="5,2" Grid.Row="2" Grid.Column="0"/>
+            <TextBlock Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
+            <Button Margin="5,2" Grid.Row="2" Grid.Column="4"/>
+            <TextBlock Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI2</TextBlock>
+            <Button Margin="5,2" Grid.Row="2" Grid.Column="8"/>
+            <TextBlock Grid.Row="2" Grid.Column="9" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
+            <Button Margin="5,2" Grid.Row="2" Grid.Column="12"/>
+            <TextBlock Grid.Row="2" Grid.Column="13" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI2</TextBlock>
+            <Button Margin="5,2" Grid.Row="2" Grid.Column="16"/>
+            <TextBlock Grid.Row="2" Grid.Column="17" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
+            <Button Margin="5,2" Grid.Row="2" Grid.Column="20"/>
+            <TextBlock Grid.Row="2" Grid.Column="21" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI2</TextBlock>
+            <Button Margin="5,2" Grid.Row="2" Grid.Column="24"/>
+            <TextBlock Grid.Row="2" Grid.Column="25" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
         </Grid>
-        <Rectangle Grid.Row="24" Grid.Column="0" Grid.ColumnSpan="30" Height="1" Fill="#FFAAA5A5" />
-        <Grid Grid.Row="25" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="28">
+        <Rectangle Margin="-15,0" Grid.Row="25" Grid.Column="1" Grid.ColumnSpan="28" Height="1" Fill="#FFAAA5A5" />
+        <Grid Grid.Row="26" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="28">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />
@@ -518,20 +523,20 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
             <TextBlock Margin="0,0,0,0" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="15" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Abort And Delay</TextBlock>
-            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="0">Analog:</TextBlock>
-            <TextBox  Margin="5,2" Grid.Row="1" Grid.Column="1"/>
-            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="2">Digital:</TextBlock>
-            <TextBox  Margin="5,2" Grid.Row="1" Grid.Column="3"/>
-            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="4">Temperature:</TextBlock>
-            <TextBox  Margin="5,2" Grid.Row="1" Grid.Column="5"/>
-            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="6">Manual:</TextBlock>
-            <TextBox  Margin="5,2" Grid.Row="1" Grid.Column="7"/>
-            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="8">Power:</TextBlock>
-            <TextBox  Margin="5,2" Grid.Row="1" Grid.Column="9"/>
-            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="10">MFC Delay:</TextBlock>
-            <TextBox  Margin="5,2" Grid.Row="1" Grid.Column="11" />
-            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="12">Analog Delay:</TextBlock>
-            <TextBox  Margin="5,2" Grid.Row="1" Grid.Column="13" />
+            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center">Analog:</TextBlock>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}"  Margin="5,2" Grid.Row="1" Grid.Column="1" Text="{Binding Path=TubeRecipeViewModel.AnalogAbort}"/>
+            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center">Digital:</TextBlock>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}"  Margin="5,2" Grid.Row="1" Grid.Column="3" Text="{Binding Path=TubeRecipeViewModel.DigitalAbort}"/>
+            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="4" VerticalAlignment="Center">Temperature:</TextBlock>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}"  Margin="5,2" Grid.Row="1" Grid.Column="5" Text="{Binding Path=TubeRecipeViewModel.TemperAbort}"/>
+            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="6" VerticalAlignment="Center">Manual:</TextBlock>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}"  Margin="5,2" Grid.Row="1" Grid.Column="7" Text="{Binding Path=TubeRecipeViewModel.ManualAbort}"/>
+            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="8" VerticalAlignment="Center">Power:</TextBlock>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}"  Margin="5,2" Grid.Row="1" Grid.Column="9" Text="{Binding Path=TubeRecipeViewModel.PowerAbort}"/>
+            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="10" VerticalAlignment="Center">MFC Delay:</TextBlock>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}"  Margin="5,2" Grid.Row="1" Grid.Column="11" Text="{Binding Path=TubeRecipeViewModel.MfcDelay}"/>
+            <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="12" VerticalAlignment="Center">Analog Delay:</TextBlock>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}"  Margin="5,2" Grid.Row="1" Grid.Column="13" Text="{Binding Path=TubeRecipeViewModel.AnalogDelay}"/>
         </Grid>
     </Grid>
 

@@ -39,7 +39,7 @@ namespace Demo.ui
             InitializeComponent();
 
             mTubeMonitorPageModel = new TubeMonitorPageModel();
-            mTubePageStyle = new TubePageStyle(); ;
+            mTubePageStyle = new TubePageStyle();
         }
 
         public void CloseButton_Click(object sender, RoutedEventArgs e)

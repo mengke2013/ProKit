@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Threading;
 using log4net;
 using Rocky.Core.Opc.Ua;
+using Demo.com.entity;
 
 namespace Demo.com
 {
@@ -32,6 +33,12 @@ namespace Demo.com
             Thread t1 = new Thread(new ParameterizedThreadStart(ReadOpcNodesExec));
             t1.IsBackground = true;
             t1.Start((byte)(selectedTube-1));
+        }
+
+        public ComRecipeStepNodeComponent ReadRecipeStep(byte selectedTybe)
+        {
+            //read from socket
+            return null;
         }
 
         private ComNodeHelper() { }

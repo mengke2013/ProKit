@@ -18,6 +18,8 @@ namespace Demo.ui
         public TubePageStyle()
         {
             mStyleTextBox = new Style(typeof(TextBox));
+
+            /*
             mTextBoxWidthSetter = new Setter
             {
                 Property = TextBox.WidthProperty,
@@ -28,10 +30,10 @@ namespace Demo.ui
                 Property = TextBox.HeightProperty,
                 Value = 20
             };
-
-
             mStyleTextBox.Setters.Add(mTextBoxWidthSetter);
             mStyleTextBox.Setters.Add(mTextBoxHeightSetter);
+            */
+
             mStyleTextBox.Setters.Add(new Setter
             {
                 Property = TextBox.VerticalContentAlignmentProperty,
@@ -67,7 +69,7 @@ namespace Demo.ui
         {
             set
             {
-                if (!mTextBoxWidthSetter.IsSealed)
+                if (mTextBoxWidthSetter == null || !mTextBoxWidthSetter.IsSealed)
                 {
                     //mTextBoxWidthSetter.Value = value;
                     mStyleTextBox.Setters.Remove(mTextBoxWidthSetter);
@@ -82,7 +84,21 @@ namespace Demo.ui
         }
         public object TextBoxHeight
         {
-            set { if (!mTextBoxHeightSetter.IsSealed) mTextBoxHeightSetter.Value = value; }
+            set
+            {
+                if (mTextBoxHeightSetter == null || !mTextBoxHeightSetter.IsSealed)
+                {
+                    //mTextBoxWidthSetter.Value = value;
+                    mStyleTextBox.Setters.Remove(mTextBoxHeightSetter);
+                    mTextBoxHeightSetter = new Setter
+                    {
+                        Property = TextBox.HeightProperty,
+                        Value = value
+                    };
+                    mStyleTextBox.Setters.Add(mTextBoxHeightSetter);
+                }
+            }
+            //set { if (!mTextBoxHeightSetter.IsSealed) mTextBoxHeightSetter.Value = value; }
         }
 
         public Style TextBoxStyle
