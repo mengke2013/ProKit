@@ -8,13 +8,13 @@ using MySql.Data;
 using MySql.Data.Entity;
 using MySql.Data.MySqlClient;
 
+
 namespace Demo.ui.model
 {
-    class TubeRecipePageModel
+    class TubeRecipePageModel 
     {
         private List<StepListItemModel> mStepListItemModels;
         private TubeRecipeViewModel mRecipeViewModel;
-        private TubePageStyle mTubePageStyle;
 
         public TubeRecipePageModel()
         {
@@ -117,6 +117,20 @@ namespace Demo.ui.model
             //intValue &= ~(1 << bitPosition);
         }
 
+        public void ParseRecipeData(byte[] recipeBytes)
+        {
+            TubeRecipeViewModel.StepName = Encoding.ASCII.GetString(recipeBytes, 0, 32).TrimEnd('\0');
+            TubeRecipeViewModel.StepType = (sbyte)recipeBytes[36];
+            TubeRecipeViewModel.StepTime = BitConverter.ToInt32(recipeBytes, 32);
+
+            TubeRecipeViewModel.Gas1Sp = BitConverter.ToInt16(recipeBytes, 77);
+            TubeRecipeViewModel.Gas2Sp = BitConverter.ToInt16(recipeBytes, 83);
+            TubeRecipeViewModel.Gas5Sp = BitConverter.ToInt16(recipeBytes, 101);
+            TubeRecipeViewModel.Gas6Sp = BitConverter.ToInt16(recipeBytes, 107);
+            TubeRecipeViewModel.Gas8Sp = BitConverter.ToInt16(recipeBytes, 119);
+            TubeRecipeViewModel.Ana1Sp = BitConverter.ToInt16(recipeBytes, 125);
+        }
+
         public List<StepListItemModel> StepListItems
         {
             get
@@ -130,10 +144,5 @@ namespace Demo.ui.model
             get { return mRecipeViewModel; }
         }
 
-        public TubePageStyle TubePageStyle
-        {
-            get { return mTubePageStyle; }
-            set { mTubePageStyle = value; }
-        }
     }
 }

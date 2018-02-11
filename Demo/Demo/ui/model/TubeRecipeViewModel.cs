@@ -3,17 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
 namespace Demo.ui.model
 {
-    class TubeRecipeViewModel
+    class TubeRecipeViewModel : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private TubePageStyle mTubePageStyle;
         private int mStepIndex;
         private string mStepName;
         private int mStepType;
         private int mStepTime;
 
-        private int mGas1Sp;
+        private short mGas1Sp;
         private int mGas2Sp;
         private int mGas5Sp;
         private int mGas6Sp;
@@ -102,55 +106,90 @@ namespace Demo.ui.model
         public string StepName
         {
             get { return mStepName; }
-            set { mStepName = value; }
+            set {
+                mStepName = value;
+                Notify("StepName");
+            }
         }
 
         public int StepType
         {
             get { return mStepType; }
-            set { mStepType = value; }
+            set
+            {
+                mStepType = value;
+                Notify("StepType");
+            }
         }
 
         public int StepTime
         {
             get { return mStepTime; }
-            set { mStepTime = value; }
+            set
+            {
+                mStepTime = value;
+                Notify("StepTime");
+            }
         }
 
-        public int Gas1Sp
+        public short Gas1Sp
         {
             get { return mGas1Sp; }
-            set { mGas1Sp = value; }
+            set
+            {
+                mGas1Sp = value;
+                Notify("Gas1Sp");
+            }
         }
 
         public int Gas2Sp
         {
             get { return mGas2Sp; }
-            set { mGas2Sp = value; }
+            set
+            {
+                mGas2Sp = value;
+                Notify("Gas2Sp");
+            }
         }
 
         public int Gas5Sp
         {
             get { return mGas5Sp; }
-            set { mGas5Sp = value; }
+            set
+            {
+                mGas5Sp = value;
+                Notify("Gas5Sp");
+            }
         }
 
         public int Gas6Sp
         {
             get { return mGas6Sp; }
-            set { mGas6Sp = value; }
+            set
+            {
+                mGas6Sp = value;
+                Notify("Gas6Sp");
+            }
         }
 
         public int Gas8Sp
         {
             get { return mGas8Sp; }
-            set { mGas8Sp = value; }
+            set
+            {
+                mGas8Sp = value;
+                Notify("Gas8Sp");
+            }
         }
 
         public int Ana1Sp
         {
             get { return mAna1Sp; }
-            set { mAna1Sp = value; }
+            set
+            {
+                mAna1Sp = value;
+                Notify("Ana1Sp");
+            }
         }
 
         public int Temper1Sp
@@ -529,6 +568,21 @@ namespace Demo.ui.model
         {
             get { return mAnalogDelay; }
             set { mAnalogDelay = value; }
+        }
+
+        public TubePageStyle TubePageStyle
+        {
+            get { return mTubePageStyle; }
+            set { mTubePageStyle = value; }
+        }
+
+        void Notify(string propName)
+        {
+
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propName));
+            }
         }
     }
 }

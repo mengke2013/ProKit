@@ -92,13 +92,13 @@
             <Grid.RowDefinitions>
                 <RowDefinition />
             </Grid.RowDefinitions>
-            <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Path=TubeRecipeViewModel.StepIndex}" FontSize="14" FontWeight="Bold" Foreground="#FF402FEA" />
+            <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Path=StepIndex}" FontSize="14" FontWeight="Bold" Foreground="#FF402FEA" />
             <TextBlock Margin="0,0,5,0" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Step Name:</TextBlock>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2" Grid.Row="0" Grid.Column="2" Text="{Binding Path=TubeRecipeViewModel.StepName}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2" Grid.Row="0" Grid.Column="2" Text="{Binding Path=StepName}"/>
             <TextBlock Margin="0,0,5,0" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Step Type:</TextBlock>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2" Grid.Row="0" Grid.Column="4" Text="{Binding Path=TubeRecipeViewModel.StepType}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2" Grid.Row="0" Grid.Column="4" Text="{Binding Path=StepType}"/>
             <TextBlock Margin="0,0,5,0" Grid.Row="0" Grid.Column="5" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Step Time:</TextBlock>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2" Grid.Row="0" Grid.Column="6" Text="{Binding Path=TubeRecipeViewModel.StepTime}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2" Grid.Row="0" Grid.Column="6" Text="{Binding Path=StepTime}"/>
 
             <Button Margin="0,0,5,0" Grid.Row="0" Grid.Column="10" Grid.ColumnSpan="2" Content="Edit" FontSize="14" FontWeight="Bold" Foreground="#FF646366"></Button>
             <Button Margin="0,0,0,0" Grid.Row="0" Grid.Column="12" Grid.ColumnSpan="2" Content="Commit" FontSize="14" FontWeight="Bold" Foreground="#FF646366"></Button>
@@ -140,52 +140,52 @@
             <TextBlock Margin="0,0,5,0" Grid.Row="1" Grid.Column="11" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" >Next</TextBlock>
 
             <TextBlock Margin="0,0,5,0" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">N2:</TextBlock>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Gas1Sp}" />
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Gas1Sp}" />
             <Button  Margin="5,2" Grid.Row="2" Grid.Column="4" />
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Gas1Abort}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Gas1Hold}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Gas1Alarm}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Gas1Next}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Gas1Abort}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Gas1Hold}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Gas1Alarm}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Gas1Next}"/>
 
             <TextBlock Margin="0,0,5,0" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">H2:</TextBlock>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Gas2Sp}" />
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Gas2Sp}" />
             <Button  Margin="5,2" Grid.Row="3" Grid.Column="4" />
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Gas2Abort}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Gas2Hold}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Gas2Alarm}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Gas2Next}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Gas2Abort}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Gas2Hold}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Gas2Alarm}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Gas2Next}"/>
 
             <TextBlock Margin="0,0,5,0" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">BCl3:</TextBlock>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Gas5Sp}" />
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Gas5Sp}" />
             <Button  Margin="5,2" Grid.Row="4" Grid.Column="4" />
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Gas5Abort}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Gas5Hold}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Gas5Alarm}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Gas5Next}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Gas5Abort}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Gas5Hold}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Gas5Alarm}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Gas5Next}"/>
 
             <TextBlock Margin="0,0,5,0" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">O2:</TextBlock>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Gas6Sp}" />
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Gas6Sp}" />
             <Button  Margin="5,2" Grid.Row="5" Grid.Column="4" />
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Gas6Abort}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Gas6Hold}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Gas6Alarm}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Gas6Next}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Gas6Abort}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Gas6Hold}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Gas6Alarm}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Gas6Next}"/>
 
             <TextBlock Margin="0,0,5,0" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">PC8:</TextBlock>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Gas8Sp}" />
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Gas8Sp}" />
             <Button  Margin="5,2" Grid.Row="6" Grid.Column="4" />
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Gas8Abort}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Gas8Hold}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Gas8Alarm}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Gas8Next}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Gas8Abort}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Gas8Hold}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Gas8Alarm}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Gas8Next}"/>
 
             <TextBlock Margin="0,0,5,0" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">Vacuum:</TextBlock>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Ana1Sp}" />
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Ana1Sp}" />
             <Button  Margin="5,2" Grid.Row="7" Grid.Column="4" />
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="7" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Ana1Abort}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="7" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Ana1Hold}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="7" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Ana1Alarm}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="7" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Ana1Next}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="7" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Ana1Abort}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="7" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Ana1Hold}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="7" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Ana1Alarm}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="7" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Ana1Next}"/>
         </Grid>
         <Grid Grid.Row="2" Grid.Column="16" Grid.RowSpan="8" Grid.ColumnSpan="14">
             <Grid.ColumnDefinitions>
@@ -224,52 +224,52 @@
 
             <TextBlock Margin="0,0,5,0" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">Zone1:</TextBlock>
             <Button  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Content="Int/Ext" />
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper1Sp}" />
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Temper1Sp}" />
             <Button  Margin="5,2" Grid.Row="2" Grid.Column="4" />
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper1Abort}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper1Hold}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper1Alarm}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper1Next}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Temper1Abort}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Temper1Hold}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Temper1Alarm}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Temper1Next}"/>
 
             <TextBlock Margin="0,0,5,0" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">Zone2:</TextBlock>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper2Sp}" />
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Temper2Sp}" />
             <Button  Margin="5,2" Grid.Row="3" Grid.Column="4" />
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper2Abort}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper2Hold}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper2Alarm}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper2Next}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Temper2Abort}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Temper2Hold}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Temper2Alarm}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Temper2Next}"/>
 
             <TextBlock Margin="0,0,5,0" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">Zone3:</TextBlock>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper3Sp}" />
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Temper3Sp}" />
             <Button  Margin="5,2" Grid.Row="4" Grid.Column="4" />
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper3Abort}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper3Hold}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper3Alarm}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper3Next}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Temper3Abort}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Temper3Hold}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Temper3Alarm}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Temper3Next}"/>
 
             <TextBlock Margin="0,0,5,0" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">Zone4:</TextBlock>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper4Sp}" />
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Temper4Sp}" />
             <Button  Margin="5,2" Grid.Row="5" Grid.Column="4" />
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper4Abort}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper4Hold}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper4Alarm}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper4Next}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Temper4Abort}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Temper4Hold}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Temper4Alarm}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Temper4Next}"/>
 
             <TextBlock Margin="0,0,5,0" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">Zone5:</TextBlock>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper5Sp}" />
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Temper5Sp}" />
             <Button  Margin="5,2" Grid.Row="6" Grid.Column="4" />
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper5Abort}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper5Hold}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper5Alarm}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper5Next}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Temper5Abort}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Temper5Hold}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Temper5Alarm}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Temper5Next}"/>
 
             <TextBlock Margin="0,0,5,0" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">Zone6:</TextBlock>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper6Sp}" />
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Temper6Sp}" />
             <Button  Margin="5,2" Grid.Row="7" Grid.Column="4" />
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="7" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper6Abort}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="7" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper6Hold}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="7" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper6Alarm}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="7" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.Temper6Next}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="7" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Temper6Abort}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="7" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Temper6Hold}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="7" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Temper6Alarm}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="7" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Temper6Next}"/>
         </Grid>
         <Rectangle Margin="-15,0" Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="28" Height="1" Fill="#FFAAA5A5" />
         <Grid Grid.Row="11" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="14">
@@ -295,9 +295,9 @@
             </Grid.RowDefinitions>
             <TextBlock Margin="0,0,0,0" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="15" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Boat Loader</TextBlock>
             <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">Axis Position:</TextBlock>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.AxisPosSp}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=AxisPosSp}"/>
             <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="2" VerticalAlignment="Center">Axis Speed:</TextBlock>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="1" Grid.Column="8" Grid.ColumnSpan="2" Text="{Binding Path=TubeRecipeViewModel.AxisSpeedSp}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="1" Grid.Column="8" Grid.ColumnSpan="2" Text="{Binding Path=AxisSpeedSp}"/>
         </Grid>
         <Rectangle Margin="-15,0" Grid.Row="13" Grid.Column="1" Grid.ColumnSpan="28" Height="1" Fill="#FFAAA5A5" />
         <Grid Grid.Row="14" Grid.Column="1" Grid.RowSpan="3" Grid.ColumnSpan="28">
@@ -524,19 +524,19 @@
             </Grid.RowDefinitions>
             <TextBlock Margin="0,0,0,0" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="15" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Abort And Delay</TextBlock>
             <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center">Analog:</TextBlock>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}"  Margin="5,2" Grid.Row="1" Grid.Column="1" Text="{Binding Path=TubeRecipeViewModel.AnalogAbort}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}"  Margin="5,2" Grid.Row="1" Grid.Column="1" Text="{Binding Path=AnalogAbort}"/>
             <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center">Digital:</TextBlock>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}"  Margin="5,2" Grid.Row="1" Grid.Column="3" Text="{Binding Path=TubeRecipeViewModel.DigitalAbort}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}"  Margin="5,2" Grid.Row="1" Grid.Column="3" Text="{Binding Path=DigitalAbort}"/>
             <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="4" VerticalAlignment="Center">Temperature:</TextBlock>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}"  Margin="5,2" Grid.Row="1" Grid.Column="5" Text="{Binding Path=TubeRecipeViewModel.TemperAbort}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}"  Margin="5,2" Grid.Row="1" Grid.Column="5" Text="{Binding Path=TemperAbort}"/>
             <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="6" VerticalAlignment="Center">Manual:</TextBlock>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}"  Margin="5,2" Grid.Row="1" Grid.Column="7" Text="{Binding Path=TubeRecipeViewModel.ManualAbort}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}"  Margin="5,2" Grid.Row="1" Grid.Column="7" Text="{Binding Path=ManualAbort}"/>
             <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="8" VerticalAlignment="Center">Power:</TextBlock>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}"  Margin="5,2" Grid.Row="1" Grid.Column="9" Text="{Binding Path=TubeRecipeViewModel.PowerAbort}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}"  Margin="5,2" Grid.Row="1" Grid.Column="9" Text="{Binding Path=PowerAbort}"/>
             <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="10" VerticalAlignment="Center">MFC Delay:</TextBlock>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}"  Margin="5,2" Grid.Row="1" Grid.Column="11" Text="{Binding Path=TubeRecipeViewModel.MfcDelay}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}"  Margin="5,2" Grid.Row="1" Grid.Column="11" Text="{Binding Path=MfcDelay}"/>
             <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="12" VerticalAlignment="Center">Analog Delay:</TextBlock>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}"  Margin="5,2" Grid.Row="1" Grid.Column="13" Text="{Binding Path=TubeRecipeViewModel.AnalogDelay}"/>
+            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}"  Margin="5,2" Grid.Row="1" Grid.Column="13" Text="{Binding Path=AnalogDelay}"/>
         </Grid>
     </Grid>
 

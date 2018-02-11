@@ -81,7 +81,7 @@ namespace Demo.com
         {
             try
             {
-                mClient1 = new OpcClient("192.168.1.63");
+                mClient1 = new OpcClient("192.168.1.64");
                 mClient2 = new OpcClient("192.168.1.64");
                 //mClient1.Connect();
             }
