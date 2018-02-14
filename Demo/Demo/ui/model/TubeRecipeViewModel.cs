@@ -7,14 +7,17 @@ using System.ComponentModel;
 
 namespace Demo.ui.model
 {
-    class TubeRecipeViewModel : INotifyPropertyChanged
+    public class TubeRecipeViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+        private bool mUpdateView;
+        private bool mDirty;
+
         private TubePageStyle mTubePageStyle;
-        private int mStepIndex;
+        private byte mStepIndex;
         private string mStepName;
-        private int mStepType;
+        private sbyte mStepType;
         private int mStepTime;
 
         private short mGas1Sp;
@@ -80,43 +83,77 @@ namespace Demo.ui.model
         private int mTemper6Alarm;
         private int mTemper6Next;
 
+        private short mTemperRegulInt;
+
         private int mAxisPosSp;
         private int mAxisSpeedSp;
 
-        private int mAnalogAbort;
-        private int mDigitalAbort;
-        private int mTemperAbort;
-        private int mManualAbort;
-        private int mPowerAbort;
-        private int mMfcDelay;
-        private int mAnalogDelay;
-        
+        private int mRamp;
+        private int mDigOutput;
+        private int mEv;
+        private byte mNum;
+        private int mCheckSum;
+        private bool[] mEvs;
+        private bool[] mDigOutputs;
 
-        public TubeRecipeViewModel(int stepIndex)
+        private byte mAnalogAbort;
+        private byte mDigitalAbort;
+        private byte mTemperAbort;
+        private byte mManualAbort;
+        private byte mPowerAbort;
+        private byte mMfcDelay;
+        private byte mAnalogDelay;
+
+        private byte[] mAlrmDigIns;
+        private DiSelectorModel[] mDiSelectorModels;
+
+
+
+        public TubeRecipeViewModel(byte stepIndex)
         {
             mStepIndex = stepIndex;
+
+            mAlrmDigIns = new byte[32];
+            mDiSelectorModels = new DiSelectorModel[32];
+            for (byte i = 0; i < 32; ++i)
+            {
+                mAlrmDigIns[i] = 0;
+                mDiSelectorModels[i] = new DiSelectorModel();
+            }
+            mEvs = new bool[32];
         }
 
-        public int StepIndex
+        public byte StepIndex
         {
             get { return mStepIndex; }
-            set { mStepIndex = value; }
+            set
+            {
+                mStepIndex = value;
+                UpdateProperty("StepIndex");
+            }
         }
 
         public string StepName
         {
             get { return mStepName; }
-            set {
+            set
+            {
+                if (mStepName != value)
+                {
+                    mDirty = true;
+                }
                 mStepName = value;
-                Notify("StepName");
+                UpdateProperty("StepName");
             }
         }
 
-        public int StepType
+        public sbyte StepType
         {
             get { return mStepType; }
             set
             {
+                if (value > 10)
+                    return;
                 mStepType = value;
                 Notify("StepType");
             }
@@ -195,388 +232,803 @@ namespace Demo.ui.model
         public int Temper1Sp
         {
             get { return mTemper1Sp; }
-            set { mTemper1Sp = value; }
+            set
+            {
+                mTemper1Sp = value;
+                Notify("Temper1Sp");
+            }
         }
 
         public int Temper2Sp
         {
             get { return mTemper2Sp; }
-            set { mTemper2Sp = value; }
+            set
+            {
+                mTemper2Sp = value;
+                Notify("Temper2Sp");
+            }
         }
 
         public int Temper3Sp
         {
             get { return mTemper3Sp; }
-            set { mTemper3Sp = value; }
+            set
+            {
+                mTemper3Sp = value;
+                Notify("Temper3Sp");
+            }
         }
 
         public int Temper4Sp
         {
             get { return mTemper4Sp; }
-            set { mTemper4Sp = value; }
+            set
+            {
+                mTemper4Sp = value;
+                Notify("Temper4Sp");
+            }
         }
 
         public int Temper5Sp
         {
             get { return mTemper5Sp; }
-            set { mTemper5Sp = value; }
+            set
+            {
+                mTemper5Sp = value;
+                Notify("Temper5Sp");
+            }
         }
 
         public int Temper6Sp
         {
             get { return mTemper6Sp; }
-            set { mTemper6Sp = value; }
+            set
+            {
+                mTemper6Sp = value;
+                Notify("Temper6Sp");
+            }
         }
 
         public int Gas1Abort
         {
             get { return mGas1Abort; }
-            set { mGas1Abort = value; }
+            set
+            {
+                mGas1Abort = value;
+                Notify("Gas1Abort");
+            }
         }
 
         public int Gas1Hold
         {
             get { return mGas1Hold; }
-            set { mGas1Hold = value; }
+            set
+            {
+                mGas1Hold = value;
+                Notify("Gas1Hold");
+            }
         }
 
         public int Gas1Alarm
         {
             get { return mGas1Alarm; }
-            set { mGas1Alarm = value; }
+            set
+            {
+                mGas1Alarm = value;
+                Notify("Gas1Alarm");
+            }
         }
 
         public int Gas1Next
         {
             get { return mGas1Next; }
-            set { mGas1Next = value; }
+            set
+            {
+                mGas1Next = value;
+                Notify("Gas1Next");
+            }
         }
 
         public int Gas2Abort
         {
             get { return mGas2Abort; }
-            set { mGas2Abort = value; }
+            set
+            {
+                mGas2Abort = value;
+                Notify("Gas2Abort");
+            }
         }
 
         public int Gas2Hold
         {
             get { return mGas2Hold; }
-            set { mGas2Hold = value; }
+            set
+            {
+                mGas2Hold = value;
+                Notify("Gas2Hold");
+            }
         }
 
         public int Gas2Alarm
         {
             get { return mGas2Alarm; }
-            set { mGas2Alarm = value; }
+            set
+            {
+                mGas2Alarm = value;
+                Notify("Gas2Alarm");
+            }
         }
 
         public int Gas2Next
         {
             get { return mGas2Next; }
-            set { mGas2Next = value; }
+            set
+            {
+                mGas2Next = value;
+                Notify("Gas2Next");
+            }
         }
 
         public int Gas5Abort
         {
             get { return mGas5Abort; }
-            set { mGas5Abort = value; }
+            set
+            {
+                mGas5Abort = value;
+                Notify("Gas5Abort");
+            }
         }
 
         public int Gas5Hold
         {
             get { return mGas5Hold; }
-            set { mGas5Hold = value; }
+            set
+            {
+                mGas5Hold = value;
+                Notify("Gas5Hold");
+            }
         }
 
         public int Gas5Alarm
         {
             get { return mGas5Alarm; }
-            set { mGas5Alarm = value; }
+            set
+            {
+                mGas5Alarm = value;
+                Notify("Gas5Alarm");
+            }
         }
 
         public int Gas5Next
         {
             get { return mGas5Next; }
-            set { mGas5Next = value; }
+            set
+            {
+                mGas5Next = value;
+                Notify("Gas5Next");
+            }
         }
 
         public int Gas6Abort
         {
             get { return mGas6Abort; }
-            set { mGas6Abort = value; }
+            set
+            {
+                mGas6Abort = value;
+                Notify("Gas6Abort");
+            }
         }
 
         public int Gas6Hold
         {
             get { return mGas6Hold; }
-            set { mGas6Hold = value; }
+            set
+            {
+                mGas6Hold = value;
+                Notify("Gas6Hold");
+            }
         }
 
         public int Gas6Alarm
         {
             get { return mGas6Alarm; }
-            set { mGas6Alarm = value; }
+            set
+            {
+                mGas6Alarm = value;
+                Notify("Gas6Alarm");
+            }
         }
 
         public int Gas6Next
         {
             get { return mGas6Next; }
-            set { mGas6Next = value; }
+            set
+            {
+                mGas6Next = value;
+                Notify("Gas6Next");
+            }
         }
 
         public int Gas8Abort
         {
             get { return mGas8Abort; }
-            set { mGas8Abort = value; }
+            set
+            {
+                mGas8Abort = value;
+                Notify("Gas8Abort");
+            }
         }
 
         public int Gas8Hold
         {
             get { return mGas8Hold; }
-            set { mGas8Hold = value; }
+            set
+            {
+                mGas8Hold = value;
+                Notify("Gas8Hold");
+            }
         }
 
         public int Gas8Alarm
         {
             get { return mGas8Alarm; }
-            set { mGas8Alarm = value; }
+            set
+            {
+                mGas8Alarm = value;
+                Notify("Gas8Alarm");
+            }
         }
 
         public int Gas8Next
         {
             get { return mGas8Next; }
-            set { mGas8Next = value; }
+            set
+            {
+                mGas8Next = value;
+                Notify("Gas8Next");
+            }
         }
 
         public int Ana1Abort
         {
             get { return mAna1Abort; }
-            set { mAna1Abort = value; }
+            set
+            {
+                mAna1Abort = value;
+                Notify("Ana1Abort");
+            }
         }
 
         public int Ana1Hold
         {
             get { return mAna1Hold; }
-            set { mAna1Hold = value; }
+            set
+            {
+                mAna1Hold = value;
+                Notify("Ana1Hold");
+            }
         }
 
         public int Ana1Alarm
         {
             get { return mAna1Alarm; }
-            set { mAna1Alarm = value; }
+            set
+            {
+                mAna1Alarm = value;
+                Notify("Ana1Alarm");
+            }
         }
 
         public int Ana1Next
         {
             get { return mAna1Next; }
-            set { mAna1Next = value; }
+            set
+            {
+                mAna1Next = value;
+                Notify("Ana1Next");
+            }
         }
 
         public int Temper1Abort
         {
             get { return mTemper1Abort; }
-            set { mTemper1Abort = value; }
+            set
+            {
+                mTemper1Abort = value;
+                Notify("Temper1Abort");
+            }
         }
 
         public int Temper1Hold
         {
             get { return mTemper1Hold; }
-            set { mTemper1Hold = value; }
+            set
+            {
+                mTemper1Hold = value;
+                Notify("Temper1Hold");
+            }
         }
 
         public int Temper1Alarm
         {
             get { return mTemper1Alarm; }
-            set { mTemper1Alarm = value; }
+            set
+            {
+                mTemper1Alarm = value;
+                Notify("Temper1Alarm");
+            }
         }
 
         public int Temper1Next
         {
             get { return mTemper1Next; }
-            set { mTemper1Next = value; }
+            set
+            {
+                mTemper1Next = value;
+                Notify("Temper1Next");
+            }
         }
 
         public int Temper2Abort
         {
             get { return mTemper2Abort; }
-            set { mTemper2Abort = value; }
+            set
+            {
+                mTemper2Abort = value;
+                Notify("Temper2Abort");
+            }
         }
 
         public int Temper2Hold
         {
             get { return mTemper2Hold; }
-            set { mTemper2Hold = value; }
+            set
+            {
+                mTemper2Hold = value;
+                Notify("Temper2Hold");
+            }
         }
 
         public int Temper2Alarm
         {
             get { return mTemper2Alarm; }
-            set { mTemper2Alarm = value; }
+            set
+            {
+                mTemper2Alarm = value;
+                Notify("Temper2Alarm");
+            }
         }
 
         public int Temper2Next
         {
             get { return mTemper2Next; }
-            set { mTemper2Next = value; }
+            set
+            {
+                mTemper2Next = value;
+                Notify("Temper2Next");
+            }
         }
 
         public int Temper3Abort
         {
             get { return mTemper3Abort; }
-            set { mTemper3Abort = value; }
+            set
+            {
+                mTemper3Abort = value;
+                Notify("Temper3Abort");
+            }
         }
 
         public int Temper3Hold
         {
             get { return mTemper3Hold; }
-            set { mTemper3Hold = value; }
+            set
+            {
+                mTemper3Hold = value;
+                Notify("Temper3Hold");
+            }
         }
 
         public int Temper3Alarm
         {
             get { return mTemper3Alarm; }
-            set { mTemper3Alarm = value; }
+            set
+            {
+                mTemper3Alarm = value;
+                Notify("Temper3Alarm");
+            }
         }
 
         public int Temper3Next
         {
             get { return mTemper3Next; }
-            set { mTemper3Next = value; }
+            set
+            {
+                mTemper3Next = value;
+                Notify("Temper3Next");
+            }
         }
 
         public int Temper4Abort
         {
             get { return mTemper4Abort; }
-            set { mTemper4Abort = value; }
+            set
+            {
+                mTemper4Abort = value;
+                Notify("Temper4Abort");
+            }
         }
 
         public int Temper4Hold
         {
             get { return mTemper4Hold; }
-            set { mTemper4Hold = value; }
+            set
+            {
+                mTemper4Hold = value;
+                Notify("Temper4Hold");
+            }
         }
 
         public int Temper4Alarm
         {
             get { return mTemper4Alarm; }
-            set { mTemper4Alarm = value; }
+            set
+            {
+                mTemper4Alarm = value;
+                Notify("Temper4Alarm");
+            }
         }
 
         public int Temper4Next
         {
             get { return mTemper4Next; }
-            set { mTemper4Next = value; }
+            set
+            {
+                mTemper4Next = value;
+                Notify("Temper4Next");
+            }
         }
 
         public int Temper5Abort
         {
             get { return mTemper5Abort; }
-            set { mTemper5Abort = value; }
+            set
+            {
+                mTemper5Abort = value;
+                Notify("Temper5Abort");
+            }
         }
 
         public int Temper5Hold
         {
             get { return mTemper5Hold; }
-            set { mTemper5Hold = value; }
+            set
+            {
+                mTemper5Hold = value;
+                Notify("Temper5Hold");
+            }
         }
 
         public int Temper5Alarm
         {
             get { return mTemper5Alarm; }
-            set { mTemper5Alarm = value; }
+            set
+            {
+                mTemper5Alarm = value;
+                Notify("Temper5Alarm");
+            }
         }
 
         public int Temper5Next
         {
             get { return mTemper5Next; }
-            set { mTemper5Next = value; }
+            set
+            {
+                mTemper5Next = value;
+                Notify("Temper5Next");
+            }
         }
 
         public int Temper6Abort
         {
             get { return mTemper6Abort; }
-            set { mTemper6Abort = value; }
+            set
+            {
+                mTemper6Abort = value;
+                Notify("Temper6Abort");
+            }
         }
 
         public int Temper6Hold
         {
             get { return mTemper6Hold; }
-            set { mTemper6Hold = value; }
+            set
+            {
+                mTemper6Hold = value;
+                Notify("Temper6Hold");
+            }
         }
 
         public int Temper6Alarm
         {
             get { return mTemper6Alarm; }
-            set { mTemper6Alarm = value; }
+            set
+            {
+                mTemper6Alarm = value;
+                Notify("Temper6Alarm");
+            }
         }
 
         public int Temper6Next
         {
             get { return mTemper6Next; }
-            set { mTemper6Next = value; }
+            set
+            {
+                mTemper6Next = value;
+                Notify("Temper6Next");
+            }
+        }
+
+        public short TemperRegulInt
+        {
+            get { return mTemperRegulInt; }
+            set
+            {
+                mTemperRegulInt = value;
+                Notify("TemperRegulInt");
+            }
         }
 
         public int AxisPosSp
         {
             get { return mAxisPosSp; }
-            set { mAxisPosSp = value; }
+            set
+            {
+                mAxisPosSp = value;
+                Notify("AxisPosSp");
+            }
         }
 
         public int AxisSpeedSp
         {
             get { return mAxisSpeedSp; }
-            set { mAxisSpeedSp = value; }
+            set
+            {
+                mAxisSpeedSp = value;
+                Notify("AxisSpeedSp");
+            }
         }
 
-        public int AnalogAbort
+        public int Ramp
+        {
+            get { return mRamp; }
+            set
+            {
+                mRamp = value;
+                Notify("Ramp");
+            }
+        }
+
+        public int DigOutput
+        {
+            get { return mDigOutput; }
+            set
+            {
+                mDigOutput = value;
+                bool[] bytes = new bool[32];
+                for (byte i = 0; i < 32; ++i)
+                {
+                    bytes[i] = GetBitValue(mDigOutput, i);
+                }
+                DigOutputs = bytes;
+            }
+        }
+
+        public int Ev
+        {
+            get { return mEv; }
+            set
+            {
+                mEv = value;
+              
+                bool[] bytes = new bool[32];
+                for (byte i = 0; i < 32; ++i)
+                {
+                    bytes[i] = GetBitValue(mEv, i);
+                }
+                Evs = bytes;
+            }
+        }
+
+        public static bool GetBitValue(int value, byte index)
+        {
+            if (index > 31) throw new ArgumentOutOfRangeException("index"); //索引出错
+            var val = 1 << index;
+            return (value & val) == val;
+        }
+
+        public static int SetBitValue(int value, ushort index, bool bitValue)
+        {
+            if (index > 31) throw new ArgumentOutOfRangeException("index"); //索引出错
+            var val = 1 << index;
+            return bitValue ? (value | val) : (value & ~val);
+        }
+
+        public bool[] Evs
+        {
+            get { return mEvs; }
+            set
+            {
+                mEvs = value;
+                Notify("Evs");
+            }
+        }
+
+        public bool[] DigOutputs
+        {
+            get { return mDigOutputs; }
+            set
+            {
+                mDigOutputs = value;
+                Notify("DigOutputs");
+            }
+        }
+
+        public byte Num
+        {
+            get { return mNum; }
+            set
+            {
+                mNum = value;
+                Notify("Num");
+            }
+        }
+
+        public int CheckSum
+        {
+            get { return mCheckSum; }
+            set
+            {
+                mCheckSum = value;
+                Notify("CheckSum");
+            }
+        }
+
+        public byte AnalogAbort
         {
             get { return mAnalogAbort; }
-            set { mAnalogAbort = value; }
+            set
+            {
+                mAnalogAbort = value;
+                Notify("AnalogAbort");
+            }
         }
 
-        public int DigitalAbort
+        public byte DigitalAbort
         {
             get { return mDigitalAbort; }
-            set { mDigitalAbort = value; }
+            set
+            {
+                mDigitalAbort = value;
+                Notify("DigitalAbort");
+            }
         }
 
-        public int TemperAbort
+        public byte TemperAbort
         {
             get { return mTemperAbort; }
-            set { mTemperAbort = value; }
+            set
+            {
+                mTemperAbort = value;
+                Notify("TemperAbort");
+            }
         }
 
-        public int ManualAbort
+        public byte ManualAbort
         {
             get { return mManualAbort; }
-            set { mManualAbort = value; }
+            set
+            {
+                mManualAbort = value;
+                Notify("ManualAbort");
+            }
         }
 
-        public int PowerAbort
+        public byte PowerAbort
         {
             get { return mPowerAbort; }
-            set { mPowerAbort = value; }
+            set
+            {
+                mPowerAbort = value;
+                Notify("PowerAbort");
+            }
         }
 
-        public int MfcDelay
+        public byte MfcDelay
         {
             get { return mMfcDelay; }
-            set { mMfcDelay = value; }
+            set
+            {
+                mMfcDelay = value;
+                Notify("MfcDelay");
+            }
         }
 
-        public int AnalogDelay
+        public byte AnalogDelay
         {
             get { return mAnalogDelay; }
-            set { mAnalogDelay = value; }
+            set
+            {
+                mAnalogDelay = value;
+                Notify("AnalogDelay");
+            }
         }
 
         public TubePageStyle TubePageStyle
         {
             get { return mTubePageStyle; }
-            set { mTubePageStyle = value; }
+            set
+            {
+                mTubePageStyle = value;
+                Notify("TubePageStyle");
+            }
         }
 
-        void Notify(string propName)
+        public DiSelectorModel[] DiSelectorModels
+        {
+            get { return mDiSelectorModels; }
+            set
+            {
+                mDiSelectorModels = value;
+                Notify("DiSelectorModels");
+            }
+        }
+
+        public byte[] AlrmDigIns
+        {
+            get
+            {
+                for (byte i = 0; i < mAlrmDigIns.Length; ++i)
+                {
+                    mAlrmDigIns[i] = mDiSelectorModels[i].DiTypeId;
+                }
+                return mAlrmDigIns;
+            }
+            set
+            {
+                mAlrmDigIns = value;
+
+                for (byte i = 0; i < mAlrmDigIns.Length; ++i)
+                {
+                    mDiSelectorModels[i].DiTypeId = mAlrmDigIns[i];
+                }
+
+                Notify("AlrmDigIns");
+            }
+        }
+
+
+        public bool UpdateView
+        {
+            get { return mUpdateView; }
+            set { mUpdateView = value; }
+        }
+
+        private bool Dirty
+        {
+            get { return mDirty; }
+            set { mDirty = value; }
+        }
+
+        private void UpdateProperty(string pName)
+        {
+            if (mUpdateView)
+            {
+                Notify(pName);
+            }
+        }
+
+        public void Notify(string propName)
         {
 
             if (PropertyChanged != null)

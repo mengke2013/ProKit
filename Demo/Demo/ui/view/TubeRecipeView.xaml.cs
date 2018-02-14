@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Demo.ui.model;
 
 namespace Demo.ui.view
 {
@@ -20,9 +21,26 @@ namespace Demo.ui.view
     /// </summary>
     public partial class TubeRecipeView : UserControl
     {
+        public delegate void ClickHandler(object sender, RoutedEventArgs e, byte stepIndex);
+        public event ClickHandler CommitClick;
+
+        private TubeRecipeViewModel mRecipeViewMode;
+
         public TubeRecipeView()
         {
             InitializeComponent();
+        }
+
+        private void Commit_Click(object sender, RoutedEventArgs e)
+        {
+            this.CommitClick(sender, e, mRecipeViewMode.StepIndex);
+            e.Handled = false;
+        }
+
+        public TubeRecipeViewModel RecipeViewMode
+        {
+            get { return mRecipeViewMode; }
+            set { mRecipeViewMode = value; }
         }
     }
 }

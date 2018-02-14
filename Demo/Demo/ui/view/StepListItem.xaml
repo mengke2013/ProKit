@@ -7,11 +7,11 @@
              mc:Ignorable="d" 
              d:DesignHeight="60" d:DesignWidth="100">
     <Grid>
-        <Border BorderBrush="Black" BorderThickness="1">
-        <WrapPanel>
-            
-            <TextBlock Margin="3" Text="{Binding Path=StepIndex}" Width="15" FontSize="12" FontWeight="Bold" Foreground="#FF402FEA" />
-        </WrapPanel>
+        <Border BorderBrush="Black" BorderThickness="1" MouseDown="Item_Click">
+            <Grid >
+                <TextBlock Margin="3" Text="{Binding Path=StepIndex}" FontSize="12" FontWeight="Bold" Foreground="#FF402FEA"/>
+           
+            </Grid>
         </Border>
     </Grid>
 </UserControl>

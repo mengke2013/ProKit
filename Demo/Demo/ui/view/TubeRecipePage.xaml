@@ -80,7 +80,7 @@
                         <ColumnDefinition MaxWidth="10"/>
                     </Grid.ColumnDefinitions>
 
-                    <view:TubeRecipeView Grid.Row="1" Grid.Column="1" />
+                    <view:TubeRecipeView x:Name="RecipeView" Grid.Row="1" Grid.Column="1" />
                 </Grid>
                 <GridSplitter Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" />
                 <Grid Grid.Row="1" Grid.Column="2">
@@ -121,10 +121,10 @@
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
                     -->
-                    <view:StepListItem Grid.Row="0" Grid.Column="0" DataContext="{Binding Path=StepListItems[0]}"></view:StepListItem>
-                    <view:StepListItem Grid.Row="0" Grid.Column="1" DataContext="{Binding Path=StepListItems[1]}"></view:StepListItem>
-                    <view:StepListItem Grid.Row="0" Grid.Column="2" DataContext="{Binding Path=StepListItems[2]}"></view:StepListItem>
-                    <view:StepListItem Grid.Row="0" Grid.Column="3" DataContext="{Binding Path=StepListItems[3]}"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem1" Grid.Row="0" Grid.Column="0"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem2" Grid.Row="0" Grid.Column="1"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem3" Grid.Row="0" Grid.Column="2"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem4" Grid.Row="0" Grid.Column="3"></view:StepListItem>
                     <view:StepListItem Grid.Row="1" Grid.Column="0" DataContext="{Binding Path=StepListItems[4]}"></view:StepListItem>
                     <view:StepListItem Grid.Row="1" Grid.Column="1" DataContext="{Binding Path=StepListItems[5]}"></view:StepListItem>
                     <view:StepListItem Grid.Row="1" Grid.Column="2" DataContext="{Binding Path=StepListItems[6]}"></view:StepListItem>

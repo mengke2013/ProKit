@@ -19,17 +19,17 @@ namespace Demo.ui.model
         public TubeRecipePageModel()
         {
             mStepListItemModels = new List<StepListItemModel>();
-            for (int i = 0; i < 64; ++i)
+            for (byte i = 0; i < 64; ++i)
             {
-                StepListItemModel stepListItemModel = new StepListItemModel(i + 1);
+                StepListItemModel stepListItemModel = new StepListItemModel((byte)(i + 1));
                 stepListItemModel.RowIndex = i;
                 mStepListItemModels.Add(stepListItemModel);
             }
+            mRecipeViewModel = new TubeRecipeViewModel(1);
         }
 
         public void LoadData(byte selectedTube)
         {
-            mRecipeViewModel = new TubeRecipeViewModel(1);
             mRecipeViewModel.StepName = "Test Step";
             mRecipeViewModel.StepType = 1;
             mRecipeViewModel.StepTime = 60;
@@ -112,13 +112,14 @@ namespace Demo.ui.model
             //test |= 1 << 0;
             test &= ~(1 << 0);
             test |= 1 << 3;
-            mRecipeViewModel.AnalogDelay = test;
+            //mRecipeViewModel.AnalogDelay = test;
             //intValue |= 1 << bitPosition;
             //intValue &= ~(1 << bitPosition);
         }
 
         public void ParseRecipeData(byte[] recipeBytes)
         {
+            TubeRecipeViewModel.UpdateView = true;
             TubeRecipeViewModel.StepName = Encoding.ASCII.GetString(recipeBytes, 0, 32).TrimEnd('\0');
             TubeRecipeViewModel.StepType = (sbyte)recipeBytes[36];
             TubeRecipeViewModel.StepTime = BitConverter.ToInt32(recipeBytes, 32);
@@ -129,6 +130,94 @@ namespace Demo.ui.model
             TubeRecipeViewModel.Gas6Sp = BitConverter.ToInt16(recipeBytes, 107);
             TubeRecipeViewModel.Gas8Sp = BitConverter.ToInt16(recipeBytes, 119);
             TubeRecipeViewModel.Ana1Sp = BitConverter.ToInt16(recipeBytes, 125);
+            TubeRecipeViewModel.Temper1Sp = BitConverter.ToInt16(recipeBytes, 173);
+            TubeRecipeViewModel.Temper2Sp = BitConverter.ToInt16(recipeBytes, 189);
+            TubeRecipeViewModel.Temper3Sp = BitConverter.ToInt16(recipeBytes, 205);
+            TubeRecipeViewModel.Temper4Sp = BitConverter.ToInt16(recipeBytes, 221);
+            TubeRecipeViewModel.Temper5Sp = BitConverter.ToInt16(recipeBytes, 237);
+            TubeRecipeViewModel.Temper6Sp = BitConverter.ToInt16(recipeBytes, 253);
+
+            TubeRecipeViewModel.TemperRegulInt = BitConverter.ToInt16(recipeBytes, 301);
+            TubeRecipeViewModel.AxisPosSp = BitConverter.ToInt32(recipeBytes, 303);
+            TubeRecipeViewModel.AxisSpeedSp = BitConverter.ToInt32(recipeBytes, 307);
+            TubeRecipeViewModel.Ramp = BitConverter.ToInt32(recipeBytes, 311);
+            TubeRecipeViewModel.DigOutput = BitConverter.ToInt32(recipeBytes, 315);
+            TubeRecipeViewModel.Ev = BitConverter.ToInt32(recipeBytes, 319);
+            TubeRecipeViewModel.Num = recipeBytes[323];
+            TubeRecipeViewModel.CheckSum = BitConverter.ToInt32(recipeBytes, 324);
+
+            TubeRecipeViewModel.AnalogAbort = recipeBytes[38];
+            TubeRecipeViewModel.DigitalAbort = recipeBytes[39];
+            TubeRecipeViewModel.TemperAbort = recipeBytes[40];
+            TubeRecipeViewModel.ManualAbort = recipeBytes[41];
+            TubeRecipeViewModel.PowerAbort = recipeBytes[42];
+            TubeRecipeViewModel.AnalogDelay = recipeBytes[43];
+            TubeRecipeViewModel.MfcDelay = recipeBytes[44];
+
+            byte[] alrmDigIns = new byte[32];
+            Array.Copy(recipeBytes, 45, alrmDigIns, 0, 32);
+            TubeRecipeViewModel.AlrmDigIns = alrmDigIns;
+            TubeRecipeViewModel.UpdateView = false;
+        }
+
+        public void ConvertRecipeData(byte[] recipeBytes)
+        {
+            byte[] cBytes;
+            cBytes = System.Text.Encoding.ASCII.GetBytes(TubeRecipeViewModel.StepName);
+            Array.Copy(cBytes, 0, recipeBytes, 0, cBytes.Length);
+            cBytes = BitConverter.GetBytes(TubeRecipeViewModel.StepTime);
+            Array.Copy(cBytes, 0, recipeBytes, 32, cBytes.Length);
+            recipeBytes[36] = (byte)TubeRecipeViewModel.StepType;
+            cBytes = BitConverter.GetBytes(TubeRecipeViewModel.Gas1Sp);
+            Array.Copy(cBytes, 0, recipeBytes, 77, cBytes.Length);
+            cBytes = BitConverter.GetBytes(TubeRecipeViewModel.Gas2Sp);
+            Array.Copy(cBytes, 0, recipeBytes, 83, cBytes.Length);
+            cBytes = BitConverter.GetBytes(TubeRecipeViewModel.Gas5Sp);
+            Array.Copy(cBytes, 0, recipeBytes, 101, cBytes.Length);
+            cBytes = BitConverter.GetBytes(TubeRecipeViewModel.Gas6Sp);
+            Array.Copy(cBytes, 0, recipeBytes, 107, cBytes.Length);
+            cBytes = BitConverter.GetBytes(TubeRecipeViewModel.Gas8Sp);
+            Array.Copy(cBytes, 0, recipeBytes, 119, cBytes.Length);
+            cBytes = BitConverter.GetBytes(TubeRecipeViewModel.Ana1Sp);
+            Array.Copy(cBytes, 0, recipeBytes, 125, cBytes.Length);
+            cBytes = BitConverter.GetBytes(TubeRecipeViewModel.Temper1Sp);
+            Array.Copy(cBytes, 0, recipeBytes, 173, cBytes.Length);
+            cBytes = BitConverter.GetBytes(TubeRecipeViewModel.Temper2Sp);
+            Array.Copy(cBytes, 0, recipeBytes, 189, cBytes.Length);
+            cBytes = BitConverter.GetBytes(TubeRecipeViewModel.Temper3Sp);
+            Array.Copy(cBytes, 0, recipeBytes, 205, cBytes.Length);
+            cBytes = BitConverter.GetBytes(TubeRecipeViewModel.Temper4Sp);
+            Array.Copy(cBytes, 0, recipeBytes, 221, cBytes.Length);
+            cBytes = BitConverter.GetBytes(TubeRecipeViewModel.Temper5Sp);
+            Array.Copy(cBytes, 0, recipeBytes, 237, cBytes.Length);
+            cBytes = BitConverter.GetBytes(TubeRecipeViewModel.Temper6Sp);
+            Array.Copy(cBytes, 0, recipeBytes, 253, cBytes.Length);
+            cBytes = BitConverter.GetBytes(TubeRecipeViewModel.TemperRegulInt);
+            Array.Copy(cBytes, 0, recipeBytes, 301, cBytes.Length);
+            cBytes = BitConverter.GetBytes(TubeRecipeViewModel.AxisPosSp);
+            Array.Copy(cBytes, 0, recipeBytes, 303, cBytes.Length);
+            cBytes = BitConverter.GetBytes(TubeRecipeViewModel.AxisSpeedSp);
+            Array.Copy(cBytes, 0, recipeBytes, 307, cBytes.Length);
+            cBytes = BitConverter.GetBytes(TubeRecipeViewModel.Ramp);
+            Array.Copy(cBytes, 0, recipeBytes, 311, cBytes.Length);
+            cBytes = BitConverter.GetBytes(TubeRecipeViewModel.DigOutput);
+            Array.Copy(cBytes, 0, recipeBytes, 315, cBytes.Length);
+            cBytes = BitConverter.GetBytes(TubeRecipeViewModel.Ev);
+            Array.Copy(cBytes, 0, recipeBytes, 319, cBytes.Length);
+            recipeBytes[323] = (byte)TubeRecipeViewModel.Num;
+            cBytes = BitConverter.GetBytes(TubeRecipeViewModel.CheckSum);
+            Array.Copy(cBytes, 0, recipeBytes, 319, cBytes.Length);
+
+            recipeBytes[38] = (byte)TubeRecipeViewModel.AnalogAbort;
+            recipeBytes[39] = (byte)TubeRecipeViewModel.DigitalAbort;
+            recipeBytes[40] = (byte)TubeRecipeViewModel.TemperAbort;
+            recipeBytes[41] = (byte)TubeRecipeViewModel.ManualAbort;
+            recipeBytes[42] = (byte)TubeRecipeViewModel.PowerAbort;
+            recipeBytes[43] = (byte)TubeRecipeViewModel.AnalogDelay;
+            recipeBytes[44] = (byte)TubeRecipeViewModel.MfcDelay;
+
+            cBytes = TubeRecipeViewModel.AlrmDigIns;
+            Array.Copy(cBytes, 0, recipeBytes, 45, 32);
         }
 
         public List<StepListItemModel> StepListItems

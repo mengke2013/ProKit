@@ -9,7 +9,7 @@ using System.Windows.Media;
 
 namespace Demo.ui
 {
-    class TubePageStyle
+    public class TubePageStyle
     {
         private Style mStyleTextBox;
         private Setter mTextBoxWidthSetter;

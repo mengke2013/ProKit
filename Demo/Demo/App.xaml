@@ -2,8 +2,15 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Demo"
+             xmlns:model="clr-namespace:Demo.ui.model"
              StartupUri="ui/Home.xaml">
     <Application.Resources>
-         
+        <model:DiSelectorModels x:Key="DiSelectorLookup">
+            <model:DiSelectorModel DiTypeLabel="None" DiTypeId="0" />
+            <model:DiSelectorModel DiTypeLabel="Hold" DiTypeId="1" />
+            <model:DiSelectorModel DiTypeLabel="Abort" DiTypeId="2" />
+            <model:DiSelectorModel DiTypeLabel="Alarm" DiTypeId="3" />
+            <model:DiSelectorModel DiTypeLabel="Next" DiTypeId="4" />
+        </model:DiSelectorModels>
     </Application.Resources>
 </Application>

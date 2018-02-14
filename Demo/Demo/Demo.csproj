@@ -96,6 +96,7 @@
     <Compile Include="com\TcpClient.cs" />
     <Compile Include="ui\ComNodeWraper.cs" />
     <Compile Include="ui\ITubePage.cs" />
+    <Compile Include="ui\model\DiSelectorModel.cs" />
     <Compile Include="ui\model\StepDetailModel.cs" />
     <Compile Include="ui\model\RecipeStepDetailItemModel.cs" />
     <Compile Include="ui\model\StepListItemModel.cs" />
@@ -106,6 +107,12 @@
     <Compile Include="ui\model\TubeTrendPageModel.cs" />
     <Compile Include="ui\TubePageStyle.cs" />
     <Compile Include="ui\UIConstants.cs" />
+    <Compile Include="ui\view\DiSelector.xaml.cs">
+      <DependentUpon>DiSelector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ui\view\ProgressDlg.xaml.cs">
+      <DependentUpon>ProgressDlg.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ui\view\RecipeStepDetailItem.xaml.cs">
       <DependentUpon>RecipeStepDetailItem.xaml</DependentUpon>
     </Compile>
@@ -171,6 +178,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ui\test\TestControls.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ui\view\DiSelector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ui\view\ProgressDlg.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

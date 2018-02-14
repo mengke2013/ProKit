@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace Demo.ui.model
 {
-    class StepListItemModel
+    public class StepListItemModel
     {
-        private int mStepIndex;
+        private byte mStepIndex;
         private int mRowIndex;
 
-        public StepListItemModel(int stepIndex)
+        public StepListItemModel(byte stepIndex)
         {
             mStepIndex = stepIndex;
         }
 
-        public int StepIndex
+        public byte StepIndex
         {
             get { return mStepIndex; }
             set { mStepIndex = value; }

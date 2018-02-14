@@ -100,8 +100,8 @@
             <TextBlock Margin="0,0,5,0" Grid.Row="0" Grid.Column="5" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Step Time:</TextBlock>
             <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2" Grid.Row="0" Grid.Column="6" Text="{Binding Path=StepTime}"/>
 
-            <Button Margin="0,0,5,0" Grid.Row="0" Grid.Column="10" Grid.ColumnSpan="2" Content="Edit" FontSize="14" FontWeight="Bold" Foreground="#FF646366"></Button>
-            <Button Margin="0,0,0,0" Grid.Row="0" Grid.Column="12" Grid.ColumnSpan="2" Content="Commit" FontSize="14" FontWeight="Bold" Foreground="#FF646366"></Button>
+            
+            <Button Margin="0,0,0,0" Grid.Row="0" Grid.Column="12" Grid.ColumnSpan="2" Content="Commit" FontSize="14" FontWeight="Bold" Foreground="#FF646366" Click="Commit_Click"></Button>
         </Grid>
         <Rectangle Margin="-15,0" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="28" Height="1" Fill="#FFAAA5A5" />
         <Grid Grid.Row="2" Grid.Column="1" Grid.RowSpan="8" Grid.ColumnSpan="14">
@@ -337,31 +337,31 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
             <TextBlock Margin="0,0,0,0" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="15" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Electric Valve</TextBlock>
-            <Button Margin="5,2" Grid.Row="1" Grid.Column="0"/>
+            <TextBox Margin="5,2" Grid.Row="1" Grid.Column="0" Text="{Binding Path=Evs[0]}"/>
             <TextBlock Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
-            <Button Margin="5,2" Grid.Row="1" Grid.Column="4"/>
+            <TextBox Margin="5,2" Grid.Row="1" Grid.Column="4" Text="{Binding Path=Evs[1]}"/>
             <TextBlock Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI2</TextBlock>
-            <Button Margin="5,2" Grid.Row="1" Grid.Column="8"/>
+            <TextBox Margin="5,2" Grid.Row="1" Grid.Column="8" Text="{Binding Path=Evs[2]}"/>
             <TextBlock Grid.Row="1" Grid.Column="9" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
-            <Button Margin="5,2" Grid.Row="1" Grid.Column="12"/>
+            <TextBox Margin="5,2" Grid.Row="1" Grid.Column="12" Text="{Binding Path=Evs[3]}"/>
             <TextBlock Grid.Row="1" Grid.Column="13" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI2</TextBlock>
-            <Button Margin="5,2" Grid.Row="1" Grid.Column="16"/>
+            <TextBox Margin="5,2" Grid.Row="1" Grid.Column="16" Text="{Binding Path=Evs[4]}"/>
             <TextBlock Grid.Row="1" Grid.Column="17" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
-            <Button Margin="5,2" Grid.Row="1" Grid.Column="20"/>
+            <TextBox Margin="5,2" Grid.Row="1" Grid.Column="20" Text="{Binding Path=Evs[5]}"/>
             <TextBlock Grid.Row="1" Grid.Column="21" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI2</TextBlock>
-            <Button Margin="5,2" Grid.Row="1" Grid.Column="24"/>
+            <TextBox Margin="5,2" Grid.Row="1" Grid.Column="24" Text="{Binding Path=Evs[6]}"/>
             <TextBlock Grid.Row="1" Grid.Column="25" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
-            <Button Margin="5,2" Grid.Row="2" Grid.Column="0"/>
+            <TextBox Margin="5,2" Grid.Row="2" Grid.Column="0" Text="{Binding Path=Evs[7]}"/>
             <TextBlock Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
-            <Button Margin="5,2" Grid.Row="2" Grid.Column="4"/>
+            <TextBox Margin="5,2" Grid.Row="2" Grid.Column="4" Text="{Binding Path=Evs[8]}"/>
             <TextBlock Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI2</TextBlock>
-            <Button Margin="5,2" Grid.Row="2" Grid.Column="8"/>
+            <TextBox Margin="5,2" Grid.Row="2" Grid.Column="8" Text="{Binding Path=Evs[9]}"/>
             <TextBlock Grid.Row="2" Grid.Column="9" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
-            <Button Margin="5,2" Grid.Row="2" Grid.Column="12"/>
+            <TextBox Margin="5,2" Grid.Row="2" Grid.Column="12" Text="{Binding Path=Evs[10]}"/>
             <TextBlock Grid.Row="2" Grid.Column="13" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI2</TextBlock>
-            <Button Margin="5,2" Grid.Row="2" Grid.Column="16"/>
+            <TextBox Margin="5,2" Grid.Row="2" Grid.Column="16" Text="{Binding Path=Evs[11]}"/>
             <TextBlock Grid.Row="2" Grid.Column="17" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
-            <Button Margin="5,2" Grid.Row="2" Grid.Column="20"/>
+            <TextBox Margin="5,2" Grid.Row="2" Grid.Column="20" Text="{Binding Path=Evs[12]}"/>
             <TextBlock Grid.Row="2" Grid.Column="21" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI2</TextBlock>
             <Button Margin="5,2" Grid.Row="2" Grid.Column="24"/>
             <TextBlock Grid.Row="2" Grid.Column="25" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
@@ -404,34 +404,27 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
             <TextBlock Margin="0,0,0,0" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="15" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Digital Input</TextBlock>
-            <Button Margin="5,2" Grid.Row="1" Grid.Column="0"/>
-            <TextBlock Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
-            <Button Margin="5,2" Grid.Row="1" Grid.Column="4"/>
-            <TextBlock Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI2</TextBlock>
-            <Button Margin="5,2" Grid.Row="1" Grid.Column="8"/>
-            <TextBlock Grid.Row="1" Grid.Column="9" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
-            <Button Margin="5,2" Grid.Row="1" Grid.Column="12"/>
-            <TextBlock Grid.Row="1" Grid.Column="13" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI2</TextBlock>
-            <Button Margin="5,2" Grid.Row="1" Grid.Column="16"/>
-            <TextBlock Grid.Row="1" Grid.Column="17" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
-            <Button Margin="5,2" Grid.Row="1" Grid.Column="20"/>
-            <TextBlock Grid.Row="1" Grid.Column="21" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI2</TextBlock>
-            <Button Margin="5,2" Grid.Row="1" Grid.Column="24"/>
-            <TextBlock Grid.Row="1" Grid.Column="25" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
-            <Button Margin="5,2" Grid.Row="2" Grid.Column="0"/>
-            <TextBlock Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
-            <Button Margin="5,2" Grid.Row="2" Grid.Column="4"/>
-            <TextBlock Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI2</TextBlock>
-            <Button Margin="5,2" Grid.Row="2" Grid.Column="8"/>
-            <TextBlock Grid.Row="2" Grid.Column="9" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
-            <Button Margin="5,2" Grid.Row="2" Grid.Column="12"/>
-            <TextBlock Grid.Row="2" Grid.Column="13" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI2</TextBlock>
-            <Button Margin="5,2" Grid.Row="2" Grid.Column="16"/>
-            <TextBlock Grid.Row="2" Grid.Column="17" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
-            <Button Margin="5,2" Grid.Row="2" Grid.Column="20"/>
-            <TextBlock Grid.Row="2" Grid.Column="21" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI2</TextBlock>
-            <Button Margin="5,2" Grid.Row="2" Grid.Column="24"/>
-            <TextBlock Grid.Row="2" Grid.Column="25" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
+            <local:DiSelector Margin="5,2" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" DataContext="{Binding Path=DiSelectorModels[0]}"/>
+            <TextBlock Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
+            <local:DiSelector Margin="5,2" Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="2" DataContext="{Binding Path=DiSelectorModels[1]}"/>
+            <TextBlock Grid.Row="1" Grid.Column="8" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI2</TextBlock>
+            <local:DiSelector Margin="5,2" Grid.Row="1" Grid.Column="12" Grid.ColumnSpan="2" DataContext="{Binding Path=DiSelectorModels[2]}"/>
+            <TextBlock Grid.Row="1" Grid.Column="14" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI3</TextBlock>
+            <local:DiSelector Margin="5,2" Grid.Row="1" Grid.Column="18" Grid.ColumnSpan="2" DataContext="{Binding Path=DiSelectorModels[3]}"/>
+            <TextBlock Grid.Row="1" Grid.Column="20" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI4</TextBlock>
+            <local:DiSelector Margin="5,2" Grid.Row="1" Grid.Column="24" Grid.ColumnSpan="2" DataContext="{Binding Path=DiSelectorModels[4]}"/>
+            <TextBlock Grid.Row="1" Grid.Column="26" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI5</TextBlock>
+           
+            <local:DiSelector Margin="5,2" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" DataContext="{Binding Path=DiSelectorModels[5]}"/>
+            <TextBlock Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI6</TextBlock>
+            <local:DiSelector Margin="5,2" Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="2" DataContext="{Binding Path=DiSelectorModels[6]}"/>
+            <TextBlock Grid.Row="2" Grid.Column="8" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI7</TextBlock>
+            <local:DiSelector Margin="5,2" Grid.Row="2" Grid.Column="12" Grid.ColumnSpan="2" DataContext="{Binding Path=DiSelectorModels[7]}"/>
+            <TextBlock Grid.Row="2" Grid.Column="14" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI8</TextBlock>
+            <local:DiSelector Margin="5,2" Grid.Row="2" Grid.Column="18" Grid.ColumnSpan="2" DataContext="{Binding Path=DiSelectorModels[8]}"/>
+            <TextBlock Grid.Row="2" Grid.Column="20" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI9</TextBlock>
+            <local:DiSelector Margin="5,2" Grid.Row="2" Grid.Column="24" Grid.ColumnSpan="2" DataContext="{Binding Path=DiSelectorModels[9]}"/>
+            <TextBlock Grid.Row="2" Grid.Column="26" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI10</TextBlock>
         </Grid>
         <Rectangle Margin="-15,0" Grid.Row="21" Grid.Column="1" Grid.ColumnSpan="28" Height="1" Fill="#FFAAA5A5" />
         <Grid Grid.Row="22" Grid.Column="1" Grid.RowSpan="3" Grid.ColumnSpan="28">
@@ -471,31 +464,31 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
             <TextBlock Margin="0,0,0,0" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="15" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Digital Output</TextBlock>
-            <Button Margin="5,2" Grid.Row="1" Grid.Column="0"/>
+            <TextBox Margin="5,2" Grid.Row="1" Grid.Column="0" Text="{Binding Path=DigOutputs[0]}"/>
             <TextBlock Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
-            <Button Margin="5,2" Grid.Row="1" Grid.Column="4"/>
+            <TextBox Margin="5,2" Grid.Row="1" Grid.Column="4" Text="{Binding Path=DigOutputs[1]}"/>
             <TextBlock Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI2</TextBlock>
-            <Button Margin="5,2" Grid.Row="1" Grid.Column="8"/>
+            <TextBox Margin="5,2" Grid.Row="1" Grid.Column="8" Text="{Binding Path=DigOutputs[2]}"/>
             <TextBlock Grid.Row="1" Grid.Column="9" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
-            <Button Margin="5,2" Grid.Row="1" Grid.Column="12"/>
+            <TextBox Margin="5,2" Grid.Row="1" Grid.Column="12" Text="{Binding Path=DigOutputs[3]}"/>
             <TextBlock Grid.Row="1" Grid.Column="13" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI2</TextBlock>
-            <Button Margin="5,2" Grid.Row="1" Grid.Column="16"/>
+            <TextBox Margin="5,2" Grid.Row="1" Grid.Column="16" Text="{Binding Path=DigOutputs[4]}"/>
             <TextBlock Grid.Row="1" Grid.Column="17" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
-            <Button Margin="5,2" Grid.Row="1" Grid.Column="20"/>
+            <TextBox Margin="5,2" Grid.Row="1" Grid.Column="20" Text="{Binding Path=DigOutputs[5]}"/>
             <TextBlock Grid.Row="1" Grid.Column="21" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI2</TextBlock>
-            <Button Margin="5,2" Grid.Row="1" Grid.Column="24"/>
+            <TextBox Margin="5,2" Grid.Row="1" Grid.Column="24" Text="{Binding Path=DigOutputs[6]}"/>
             <TextBlock Grid.Row="1" Grid.Column="25" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
-            <Button Margin="5,2" Grid.Row="2" Grid.Column="0"/>
+            <TextBox Margin="5,2" Grid.Row="2" Grid.Column="0" Text="{Binding Path=DigOutputs[7]}"/>
             <TextBlock Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
-            <Button Margin="5,2" Grid.Row="2" Grid.Column="4"/>
+            <TextBox Margin="5,2" Grid.Row="2" Grid.Column="4" Text="{Binding Path=DigOutputs[8]}"/>
             <TextBlock Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI2</TextBlock>
-            <Button Margin="5,2" Grid.Row="2" Grid.Column="8"/>
+            <TextBox Margin="5,2" Grid.Row="2" Grid.Column="8" Text="{Binding Path=DigOutputs[9]}"/>
             <TextBlock Grid.Row="2" Grid.Column="9" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
-            <Button Margin="5,2" Grid.Row="2" Grid.Column="12"/>
+            <TextBox Margin="5,2" Grid.Row="2" Grid.Column="12" Text="{Binding Path=DigOutputs[10]}"/>
             <TextBlock Grid.Row="2" Grid.Column="13" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI2</TextBlock>
-            <Button Margin="5,2" Grid.Row="2" Grid.Column="16"/>
+            <TextBox Margin="5,2" Grid.Row="2" Grid.Column="16" Text="{Binding Path=DigOutputs[11]}"/>
             <TextBlock Grid.Row="2" Grid.Column="17" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
-            <Button Margin="5,2" Grid.Row="2" Grid.Column="20"/>
+            <TextBox Margin="5,2" Grid.Row="2" Grid.Column="20" Text="{Binding Path=DigOutputs[12]}"/>
             <TextBlock Grid.Row="2" Grid.Column="21" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI2</TextBlock>
             <Button Margin="5,2" Grid.Row="2" Grid.Column="24"/>
             <TextBlock Grid.Row="2" Grid.Column="25" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
