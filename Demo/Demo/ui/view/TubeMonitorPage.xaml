@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Demo.ui"
+             xmlns:controls="clr-namespace:Demo.ui.controls"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="950">
     <DockPanel>
@@ -136,7 +137,7 @@
                         <Border Margin="0,0,0,0"  Width="40" Height="30"  BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="2">
                             <TextBlock Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">H2</TextBlock>
                         </Border>
-                        <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="0,5,0,0" Text="{Binding  Path=Gas2Sp}"></TextBox>
+                        <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="0,5,0,0" Text="{Binding  Path=Gas2Sp}"></controls:ClickSelectTextBox>
                         <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="0,5,0,0" Text="{Binding  Path=Gas2CurMeas}"></TextBox>
                     </StackPanel>
 
@@ -155,7 +156,7 @@
                         <Border Margin="0,0,0,0"  Width="40" Height="30"  BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="2">
                             <TextBlock Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">N2</TextBlock>
                         </Border>
-                        <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="0,5,0,0" Text="{Binding  Path=Gas1Sp}"></TextBox>
+                        <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="0,5,0,0" Text="{Binding  Path=Gas1Sp}"></controls:ClickSelectTextBox>
                         <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="0,5,0,0" Text="{Binding  Path=Gas1CurMeas}"></TextBox>
                     </StackPanel>
                     <Rectangle Margin="0,0,0,41" Grid.Row="1" Grid.Column="9" Grid.RowSpan="7" Grid.ColumnSpan="2"  Height="2" VerticalAlignment="Bottom"  Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
@@ -173,7 +174,7 @@
                         <Border Margin="0,0,0,0"  Width="40" Height="30"  BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="2">
                             <TextBlock Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">BCl3</TextBlock>
                         </Border>
-                        <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="0,5,0,0" Text="{Binding  Path=Gas6Sp}"></TextBox>
+                        <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="0,5,0,0" Text="{Binding  Path=Gas6Sp}"></controls:ClickSelectTextBox>
                         <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="0,5,0,0" Text="{Binding  Path=Gas6CurMeas}"></TextBox>
                     </StackPanel>
                     <StackPanel Grid.Row="2" Grid.Column="6" Grid.RowSpan="2" Grid.ColumnSpan="1">
@@ -196,7 +197,7 @@
                         <Border Margin="0,0,0,0"  Width="40" Height="30"  BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="2">
                             <TextBlock Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">PC8</TextBlock>
                         </Border>
-                        <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="0,5,0,0" Text="{Binding  Path=Gas8Sp}"></TextBox>
+                        <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="0,5,0,0" Text="{Binding  Path=Gas8Sp}"></controls:ClickSelectTextBox>
                         <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="0,5,0,0"  Text="{Binding  Path=Gas8CurMeas}"></TextBox>
                     </StackPanel>
                     <Image Margin="-50,-5,0,0" Width="30" Height="25" Grid.Row="3" Grid.Column="5" Grid.RowSpan="2" Grid.ColumnSpan="1" HorizontalAlignment="Left" VerticalAlignment="Top" Source="/Demo;component/images/singleValve.bmp" Opacity="0.8"></Image>
@@ -221,7 +222,7 @@
                         <Border Margin="0,0,0,0"  Width="40" Height="30"  BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="2">
                             <TextBlock Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">O2</TextBlock>
                         </Border>
-                        <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="0,5,0,0" Text="{Binding  Path=Gas5Sp}"></TextBox>
+                        <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="0,5,0,0" Text="{Binding  Path=Gas5Sp}"></controls:ClickSelectTextBox>
                         <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="0,5,0,0" Text="{Binding  Path=Gas5CurMeas}"></TextBox>
                     </StackPanel>
                     <Rectangle Margin="0,0,0,65" Grid.Row="1" Grid.Column="9" Grid.RowSpan="7" Grid.ColumnSpan="2"  Height="2" VerticalAlignment="Bottom"  Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
@@ -383,7 +384,7 @@
                                 <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Zone1</TextBlock>
                             </DockPanel>
                             <DockPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="1">
-                                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper1Sp}"/>
+                                <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper1Sp}"/>
                             </DockPanel>
                             <DockPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="1">
                                 <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper1IntValue}"/>
@@ -395,7 +396,7 @@
                                 <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Zone2</TextBlock>
                             </DockPanel>
                             <DockPanel Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="1">
-                                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper2Sp}"/>
+                                <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper2Sp}"/>
                             </DockPanel>
                             <DockPanel Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="1">
                                 <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper2IntValue}"/>
@@ -407,7 +408,7 @@
                                 <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Zone3</TextBlock>
                             </DockPanel>
                             <DockPanel Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="1">
-                                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper3Sp}"/>
+                                <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper3Sp}"/>
                             </DockPanel>
                             <DockPanel Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="1">
                                 <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper3IntValue}"/>
@@ -419,7 +420,7 @@
                                 <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Zone4</TextBlock>
                             </DockPanel>
                             <DockPanel Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="1">
-                                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper4Sp}"/>
+                                <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper4Sp}"/>
                             </DockPanel>
                             <DockPanel Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="1">
                                 <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper4IntValue}"/>
@@ -431,7 +432,7 @@
                                 <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Zone5</TextBlock>
                             </DockPanel>
                             <DockPanel Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="1">
-                                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper5Sp}"/>
+                                <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper5Sp}"/>
                             </DockPanel>
                             <DockPanel Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="1">
                                 <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper5IntValue}"/>
@@ -443,7 +444,7 @@
                                 <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Zone6</TextBlock>
                             </DockPanel>
                             <DockPanel Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="1">
-                                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper6Sp}"/>
+                                <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper6Sp}"/>
                             </DockPanel>
                             <DockPanel Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="1">
                                 <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper6IntValue}"/>
@@ -473,15 +474,15 @@
                             <DockPanel Margin="0,0,0,0" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1">
                                 <TextBlock Margin="5,2" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Target</TextBlock>
                             </DockPanel>
-                            <TextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Grid.Row="0" Grid.Column="1" Text="{Binding  Path=PaddlePosSp}"></TextBox>
+                            <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Grid.Row="0" Grid.Column="1" Text="{Binding  Path=PaddlePosSp}"></controls:ClickSelectTextBox>
                             <DockPanel Margin="0,0,0,0" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1">
                                 <TextBlock Margin="5,2" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Position</TextBlock>
                             </DockPanel>
-                            <TextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Grid.Row="2" Grid.Column="1" Text="{Binding  Path=PaddlePosAct}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Grid.Row="2" Grid.Column="1" Text="{Binding  Path=PaddlePosAct}"/>
                             <DockPanel Margin="0,0,0,0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1">
                                 <TextBlock Margin="5,2" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Speed</TextBlock>
                             </DockPanel>
-                            <TextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Grid.Row="1" Grid.Column="1" Text="{Binding  Path=PaddleSpeedSp}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Grid.Row="1" Grid.Column="1" Text="{Binding  Path=PaddleSpeedSp}"/>
                             <WrapPanel Margin="0" Grid.Row="0" Grid.Column="8" HorizontalAlignment="Left" VerticalAlignment="Center">
                                 <Button Margin="-15,0,5,0" Width="20" Height="20"></Button>
                                 <TextBlock Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Door</TextBlock>
@@ -552,7 +553,7 @@
                         <StackPanel>
                             <Rectangle Margin="0,0,0,5" Width="10" VerticalAlignment="Top" Height="30" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
                             <TextBlock Margin="0,0,0,5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Tube Presure</TextBlock>
-                            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=Ana1CurMeas}"></TextBox>
+                            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=Ana1CurMeas}"></controls:ClickSelectTextBox>
                         </StackPanel>
                     </Grid>
                     <Grid Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="3" Grid.RowSpan="3">
@@ -563,7 +564,7 @@
                                     <TextBlock Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Gate</TextBlock>
                                 </WrapPanel>
                             </Border>
-                            <TextBox Margin="0,5,0,0" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=Ana4CurMeas}"></TextBox>
+                            <controls:ClickSelectTextBox Margin="0,5,0,0" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=Ana4CurMeas}"></controls:ClickSelectTextBox>
                             <Button Margin="0,5,0,0" Width="70" Height="30"  Content="PID" FontSize="14" FontWeight="Bold" Foreground="#FF646366"></Button>
                         </StackPanel>
                     </Grid>
@@ -572,7 +573,7 @@
                         <StackPanel>
                             <Rectangle Margin="0,0,0,5" Width="10" VerticalAlignment="Top" Height="30" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
                             <TextBlock Margin="0,0,0,5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Ballast Presure</TextBlock>
-                            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=Ana3CurMeas}"></TextBox>
+                            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=Ana3CurMeas}"></controls:ClickSelectTextBox>
                         </StackPanel>
                     </Grid>
                     <Grid Grid.Row="2" Grid.Column="11" Grid.ColumnSpan="1" Grid.RowSpan="3">

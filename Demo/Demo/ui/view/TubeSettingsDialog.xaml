@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Demo.ui.view"
+        xmlns:controls="clr-namespace:Demo.ui.controls"
         mc:Ignorable="d"
         Title="TubeSettingsDialog" Height="600" Width="900">
     <DockPanel>
@@ -16,10 +17,10 @@
                 </WrapPanel>
             </DockPanel>
             <WrapPanel DockPanel.Dock="Right" Margin="5,0" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center">
+                <Button Content="Load" Padding="5,0" Margin="5,0" Width="80" Height="25" Click="Load_Click"/>
+                <Button Content="Save" Padding="5,0" Margin="5,0" Width="80" Height="25" Click="Save_Click" />
                 <Button Content="Read" Padding="5,0" Margin="5,0" Width="80" Height="25" Click="Read_Click" />
-                <Button Content="Load" Padding="5,0" Margin="5,0" Width="80" Height="25" />
-                <Button Content="Save" Padding="5,0" Margin="5,0" Width="80" Height="25" Click="Write_Click" />
-                <Button Content="Write" Padding="5,0" Margin="5,0" Width="80" Height="25" />
+                <Button Content="Write" Padding="5,0" Margin="5,0" Width="80" Height="25" Click="Write_Click" />
             </WrapPanel>
         </DockPanel>
         <TabControl>
@@ -97,37 +98,37 @@
                             <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Max Value</TextBlock>
                         </DockPanel>
                         <DockPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=Gas1MaxValue}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=Gas1MaxValue}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=Gas2MaxValue}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=Gas2MaxValue}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=Gas5MaxValue}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=Gas5MaxValue}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=Gas6MaxValue}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=Gas6MaxValue}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=Gas8MaxValue}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=Gas8MaxValue}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="1">
                             <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Ev Index</TextBlock>
                         </DockPanel>
                         <DockPanel Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="1">
-                            <TextBox Margin="5,2" Text="{Binding  Path=Gas1Ev}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=Gas1Ev}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="1">
-                            <TextBox Margin="5,2" Text="{Binding  Path=Gas2Ev}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=Gas2Ev}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="1">
-                            <TextBox Margin="5,2" Text="{Binding  Path=Gas5Ev}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=Gas5Ev}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="1">
-                            <TextBox Margin="5,2" Text="{Binding  Path=Gas6Ev}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=Gas6Ev}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="1">
-                            <TextBox Margin="5,2" Text="{Binding  Path=Gas8Ev}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=Gas8Ev}"/>
                         </DockPanel>
                     </Grid>
                     <Grid Margin="0,0,0,0" Grid.Row="1" Grid.Column="6" Grid.RowSpan="6" Grid.ColumnSpan="3">
@@ -163,19 +164,19 @@
                             <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Max Value</TextBlock>
                         </DockPanel>
                         <DockPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=Ana1MaxValue}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=Ana1MaxValue}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=Ana3MaxValue}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=Ana3MaxValue}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=Ana4MaxValue}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=Ana4MaxValue}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=Ana5MaxValue}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=Ana5MaxValue}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=Ana6MaxValue}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=Ana6MaxValue}"/>
                         </DockPanel>
                     </Grid>
                     <Grid Margin="0,0,0,0" Grid.Row="1" Grid.Column="10" Grid.RowSpan="6" Grid.ColumnSpan="3">
@@ -205,13 +206,13 @@
                             <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Vacuum</TextBlock>
                         </DockPanel>
                         <DockPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=VacuumKp}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=VacuumKp}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=VacuumTn}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=VacuumTn}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=VacuumTd}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=VacuumTd}"/>
                         </DockPanel>
                     </Grid>
                    </Grid>
@@ -309,145 +310,145 @@
                             <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Zone1</TextBlock>
                         </DockPanel>
                         <DockPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=TemperIntKp1}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=TemperIntKp1}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=TemperIntTn1}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=TemperIntTn1}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=TemperIntTd1}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=TemperIntTd1}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2">
                             <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Zone1</TextBlock>
                         </DockPanel>
                         <DockPanel Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=TemperExtKp1}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=TemperExtKp1}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=TemperExtTn1}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=TemperExtTn1}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=TemperExtTd1}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=TemperExtTd1}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="2">
                             <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Zone2</TextBlock>
                         </DockPanel>
                         <DockPanel Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=TemperIntKp2}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=TemperIntKp2}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=TemperIntTn2}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=TemperIntTn2}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=TemperIntTd2}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=TemperIntTd2}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="2">
                             <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Zone2</TextBlock>
                         </DockPanel>
                         <DockPanel Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=TemperExtKp2}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=TemperExtKp2}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="6" Grid.Column="3" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=TemperExtTn2}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=TemperExtTn2}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="7" Grid.Column="3" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=TemperExtTd2}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=TemperExtTd2}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="2">
-                            <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Zone3</TextBlock>
+                            <controls:ClickSelectTextBox Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Zone3</controls:ClickSelectTextBox>
                         </DockPanel>
                         <DockPanel Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=TemperIntKp3}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=TemperIntKp3}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=TemperIntTn3}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=TemperIntTn3}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="3" Grid.Column="5" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=TemperIntTd3}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=TemperIntTd3}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="4" Grid.Column="5" Grid.ColumnSpan="2">
                             <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Zone3</TextBlock>
                         </DockPanel>
                         <DockPanel Grid.Row="5" Grid.Column="5" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=TemperExtKp3}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=TemperExtKp3}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="6" Grid.Column="5" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=TemperExtTn3}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=TemperExtTn3}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="7" Grid.Column="5" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=TemperExtTd3}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=TemperExtTd3}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="0" Grid.Column="7" Grid.ColumnSpan="2">
                             <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Zone4</TextBlock>
                         </DockPanel>
                         <DockPanel Grid.Row="1" Grid.Column="7" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=TemperIntKp4}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=TemperIntKp4}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="2" Grid.Column="7" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=TemperIntTn4}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=TemperIntTn4}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="3" Grid.Column="7" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=TemperIntTd4}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=TemperIntTd4}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="4" Grid.Column="7" Grid.ColumnSpan="2">
                             <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Zone4</TextBlock>
                         </DockPanel>
                         <DockPanel Grid.Row="5" Grid.Column="7" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=TemperExtKp4}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=TemperExtKp4}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="6" Grid.Column="7" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=TemperExtTn4}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=TemperExtTn4}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="7" Grid.Column="7" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=TemperExtTd4}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=TemperExtTd4}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="0" Grid.Column="9" Grid.ColumnSpan="2">
                             <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Zone5</TextBlock>
                         </DockPanel>
                         <DockPanel Grid.Row="1" Grid.Column="9" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=TemperIntKp5}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=TemperIntKp5}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="2" Grid.Column="9" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=TemperIntTn5}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=TemperIntTn5}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="3" Grid.Column="9" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=TemperIntTd5}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=TemperIntTd5}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="4" Grid.Column="9" Grid.ColumnSpan="2">
                             <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Zone5</TextBlock>
                         </DockPanel>
                         <DockPanel Grid.Row="5" Grid.Column="9" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=TemperExtKp5}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=TemperExtKp5}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="6" Grid.Column="9" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=TemperExtTn5}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=TemperExtTn5}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="7" Grid.Column="9" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=TemperExtTd5}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=TemperExtTd5}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="0" Grid.Column="11" Grid.ColumnSpan="2">
                             <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Zone6</TextBlock>
                         </DockPanel>
                         <DockPanel Grid.Row="1" Grid.Column="11" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=TemperIntKp6}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=TemperIntKp6}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="2" Grid.Column="11" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=TemperIntTn6}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=TemperIntTn6}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="3" Grid.Column="11" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=TemperIntTd6}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=TemperIntTd6}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="4" Grid.Column="11" Grid.ColumnSpan="2">
                             <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Zone6</TextBlock>
                         </DockPanel>
                         <DockPanel Grid.Row="5" Grid.Column="11" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=TemperExtKp6}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=TemperExtKp6}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="6" Grid.Column="11" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=TemperExtTn6}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=TemperExtTn6}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="7" Grid.Column="11" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=TemperExtTd6}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=TemperExtTd6}"/>
                         </DockPanel>
                         
                     </Grid>
@@ -547,22 +548,22 @@
                         </DockPanel>
 
                         <DockPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=MaxPressure}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=MaxPressure}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=MinPressure}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=MinPressure}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=MaxTemper}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=MaxTemper}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=MaxTemper5}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=MaxTemper5}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="3" Grid.Column="6" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=MinTemper5}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=MinTemper5}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="1" Grid.Column="10" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=MaxPump}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=MaxPump}"/>
                         </DockPanel>
                     </Grid>
                    </Grid>
@@ -643,19 +644,19 @@
                             <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Critical</TextBlock>
                         </DockPanel>
                         <DockPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="1">
-                            <TextBox Margin="5,2" Text="{Binding  Path=DI1}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=DI1}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="1">
-                            <TextBox Margin="5,2" Text="{Binding  Path=DI2}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=DI2}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="1">
-                            <TextBox Margin="5,2" Text="{Binding  Path=DI3}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=DI3}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="1">
-                            <TextBox Margin="5,2" Text="{Binding  Path=DI4}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=DI4}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="1">
-                            <TextBox Margin="5,2" Text="{Binding  Path=DI5}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=DI5}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="1">
                             <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">DI 6</TextBlock>
@@ -676,19 +677,19 @@
                             <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Critical</TextBlock>
                         </DockPanel>
                         <DockPanel Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="1">
-                            <TextBox Margin="5,2" Text="{Binding  Path=DI6}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=DI6}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="1">
-                            <TextBox Margin="5,2" Text="{Binding  Path=DI7}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=DI7}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="1">
-                            <TextBox Margin="5,2" Text="{Binding  Path=DI8}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=DI8}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="1">
-                            <TextBox Margin="5,2" Text="{Binding  Path=DI9}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=DI9}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="1">
-                            <TextBox Margin="5,2" Text="{Binding  Path=DI10}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=DI10}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="1">
                             <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">DI 6</TextBlock>
@@ -709,19 +710,19 @@
                             <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Critical</TextBlock>
                         </DockPanel>
                         <DockPanel Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="1">
-                            <TextBox Margin="5,2" Text="{Binding  Path=DI11}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=DI11}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="1">
-                            <TextBox Margin="5,2" Text="{Binding  Path=DI12}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=DI12}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="3" Grid.Column="5" Grid.ColumnSpan="1">
-                            <TextBox Margin="5,2" Text="{Binding  Path=DI13}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=DI13}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="4" Grid.Column="5" Grid.ColumnSpan="1">
-                            <TextBox Margin="5,2" Text="{Binding  Path=DI14}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=DI14}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="5" Grid.Column="5" Grid.ColumnSpan="1">
-                            <TextBox Margin="5,2" Text="{Binding  Path=DI15}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=DI15}"/>
                         </DockPanel>
                     </Grid>
                   </Grid>
@@ -792,13 +793,13 @@
                         </DockPanel>
 
                         <DockPanel Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=Offset}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=Offset}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=PositionDev}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=PositionDev}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2">
-                            <TextBox Margin="5,2" Text="{Binding  Path=ClosePosition}"/>
+                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=ClosePosition}"/>
                         </DockPanel>
                     </Grid>
                </Grid>

@@ -20,8 +20,8 @@ namespace Demo.com
 
         private Socket mSocket;
 
-        public delegate void OnReadRecipeComplete(byte[] recipeBytes);
-        public delegate void OnSendRecipeComplete();
+        public delegate void OnReadRecipeComplete(byte[] recipeBytes, byte stepIndex);
+        public delegate void OnSendRecipeComplete(byte stepIndex);
 
         public static TcpClient Instance
         {
@@ -102,7 +102,7 @@ namespace Demo.com
 
         }
 
-        public void GetRecipe(int stepIndex, byte[] recipeData, OnReadRecipeComplete callback)
+        public void ReadCompleteRecipe(byte[] recipeData)
         {
             mSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             int port = 2000;
@@ -111,13 +111,87 @@ namespace Demo.com
             IPEndPoint ipe = new IPEndPoint(ip, port);
             mSocket.BeginConnect(ipe, asyncResult =>
             {
-                mSocket.BeginReceive(recipeData, 0, recipeData.Length, SocketFlags.None, asyncResult1 =>
+                mSocket.BeginReceive(recipeData, 0, recipeData.Length, SocketFlags.None,
+                          new AsyncCallback(ReadCompleteRecipeCallback), mSocket);
+            }, null);
+        }
+
+        private void ReadCompleteRecipeCallback(IAsyncResult ar)
+        {
+            SocketError errorCode;
+            int nBytesRec = mSocket.EndReceive(ar, out errorCode);
+            if (errorCode != SocketError.Success)
+            {
+                nBytesRec = 0;
+            }
+            else if (nBytesRec > 0)
+            {
+
+            }
+            else
+            {
+
+            }
+            //callback(recipeData, stepIndex);
+        }
+
+        public void GetRecipeStep(byte stepIndex, byte[] recipeData, OnReadRecipeComplete callback)
+        {
+            mSocket.BeginReceive(recipeData, 0, recipeData.Length, SocketFlags.None, asyncResult1 =>
+            {
+                SocketError errorCode;
+                int nBytesRec = mSocket.EndReceive(asyncResult1, out errorCode);
+                if (errorCode != SocketError.Success)
                 {
-                    int length = mSocket.EndReceive(asyncResult1);
+                    nBytesRec = 0;
+                }
+                else if (nBytesRec > 0)
+                {
+
+                }
+                else
+                {
+
+                }
+                callback(recipeData, stepIndex);
+               
+            }, null);
+        }
+
+
+
+        public void GetRecipe(byte stepIndex, byte[] recipeData, OnReadRecipeComplete callback)
+        {
+            mSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            int port = 2000;
+            string host = "192.168.1.64";
+            IPAddress ip = IPAddress.Parse(host);
+            IPEndPoint ipe = new IPEndPoint(ip, port);
+            mSocket.BeginConnect(ipe, asyncResult =>
+            {
+                //Socket s = (Socket)asyncResult.AsyncState;
+                if (asyncResult.IsCompleted)
+                {
+                    mSocket.BeginReceive(recipeData, 0, recipeData.Length, SocketFlags.None, asyncResult1 =>
+                    {
+                        //   int length = mSocket.EndReceive(asyncResult1);
+                        //Socket s1 = (Socket)asyncResult.AsyncState;
+                        SocketError errorCode;
+                        int nBytesRec = mSocket.EndReceive(asyncResult1, out errorCode);
+                        if (errorCode != SocketError.Success)
+                        {
+                            nBytesRec = 0;
+                        }
+                        mSocket.EndConnect(asyncResult);
+                        callback(recipeData, stepIndex);
+                        //Console.WriteLine(string.Format("客户端发送消息:{0}", Encoding.UTF8.GetString(data)));
+                    }, null);
+                }
+                else
+                {
                     mSocket.EndConnect(asyncResult);
-                    callback(recipeData);
-                    //Console.WriteLine(string.Format("客户端发送消息:{0}", Encoding.UTF8.GetString(data)));
-                }, null);
+                    callback(recipeData, stepIndex);
+                }
             },null);
 
         }
@@ -161,7 +235,7 @@ namespace Demo.com
             }
         }
 
-        public void SendRecipe(int stepIndex, byte[] recipeData, OnSendRecipeComplete callback)
+        public void SendRecipe(byte stepIndex, byte[] recipeData, OnSendRecipeComplete callback)
         {
             mSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             int port = 2000;
@@ -174,7 +248,7 @@ namespace Demo.com
                 {
                     int length = mSocket.EndReceive(asyncResult1);
                     mSocket.EndConnect(asyncResult);
-                    callback();
+                    callback(stepIndex);
                     //Console.WriteLine(string.Format("客户端发送消息:{0}", Encoding.UTF8.GetString(data)));
                 }, null);
             }, null);

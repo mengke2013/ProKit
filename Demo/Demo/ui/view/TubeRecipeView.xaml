@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Demo.ui.view"
+             xmlns:controls="clr-namespace:Demo.ui.controls"
              mc:Ignorable="d" 
              d:DesignHeight="800" d:DesignWidth="600">
 
@@ -94,11 +95,11 @@
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Path=StepIndex}" FontSize="14" FontWeight="Bold" Foreground="#FF402FEA" />
             <TextBlock Margin="0,0,5,0" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Step Name:</TextBlock>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2" Grid.Row="0" Grid.Column="2" Text="{Binding Path=StepName}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2" Grid.Row="0" Grid.Column="2" Text="{Binding Path=StepName}"/>
             <TextBlock Margin="0,0,5,0" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Step Type:</TextBlock>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2" Grid.Row="0" Grid.Column="4" Text="{Binding Path=StepType}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2" Grid.Row="0" Grid.Column="4" Text="{Binding Path=StepType}"/>
             <TextBlock Margin="0,0,5,0" Grid.Row="0" Grid.Column="5" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Step Time:</TextBlock>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2" Grid.Row="0" Grid.Column="6" Text="{Binding Path=StepTime}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2" Grid.Row="0" Grid.Column="6" Text="{Binding Path=StepTime}"/>
 
             
             <Button Margin="0,0,0,0" Grid.Row="0" Grid.Column="12" Grid.ColumnSpan="2" Content="Commit" FontSize="14" FontWeight="Bold" Foreground="#FF646366" Click="Commit_Click"></Button>
@@ -140,52 +141,52 @@
             <TextBlock Margin="0,0,5,0" Grid.Row="1" Grid.Column="11" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" >Next</TextBlock>
 
             <TextBlock Margin="0,0,5,0" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">N2:</TextBlock>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Gas1Sp}" />
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Gas1Sp}" />
             <Button  Margin="5,2" Grid.Row="2" Grid.Column="4" />
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Gas1Abort}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Gas1Hold}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Gas1Alarm}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Gas1Next}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Gas1Abort}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Gas1Hold}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Gas1Alarm}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Gas1Next}"/>
 
             <TextBlock Margin="0,0,5,0" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">H2:</TextBlock>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Gas2Sp}" />
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Gas2Sp}" />
             <Button  Margin="5,2" Grid.Row="3" Grid.Column="4" />
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Gas2Abort}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Gas2Hold}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Gas2Alarm}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Gas2Next}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Gas2Abort}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Gas2Hold}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Gas2Alarm}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Gas2Next}"/>
 
             <TextBlock Margin="0,0,5,0" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">BCl3:</TextBlock>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Gas5Sp}" />
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Gas5Sp}" />
             <Button  Margin="5,2" Grid.Row="4" Grid.Column="4" />
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Gas5Abort}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Gas5Hold}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Gas5Alarm}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Gas5Next}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Gas5Abort}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Gas5Hold}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Gas5Alarm}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Gas5Next}"/>
 
             <TextBlock Margin="0,0,5,0" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">O2:</TextBlock>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Gas6Sp}" />
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Gas6Sp}" />
             <Button  Margin="5,2" Grid.Row="5" Grid.Column="4" />
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Gas6Abort}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Gas6Hold}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Gas6Alarm}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Gas6Next}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Gas6Abort}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Gas6Hold}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Gas6Alarm}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Gas6Next}"/>
 
             <TextBlock Margin="0,0,5,0" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">PC8:</TextBlock>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Gas8Sp}" />
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Gas8Sp}" />
             <Button  Margin="5,2" Grid.Row="6" Grid.Column="4" />
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Gas8Abort}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Gas8Hold}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Gas8Alarm}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Gas8Next}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Gas8Abort}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Gas8Hold}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Gas8Alarm}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Gas8Next}"/>
 
             <TextBlock Margin="0,0,5,0" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">Vacuum:</TextBlock>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Ana1Sp}" />
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Ana1Sp}" />
             <Button  Margin="5,2" Grid.Row="7" Grid.Column="4" />
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="7" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Ana1Abort}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="7" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Ana1Hold}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="7" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Ana1Alarm}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="7" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Ana1Next}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="7" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Ana1Abort}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="7" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Ana1Hold}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="7" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Ana1Alarm}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="7" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Ana1Next}"/>
         </Grid>
         <Grid Grid.Row="2" Grid.Column="16" Grid.RowSpan="8" Grid.ColumnSpan="14">
             <Grid.ColumnDefinitions>
@@ -224,52 +225,52 @@
 
             <TextBlock Margin="0,0,5,0" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">Zone1:</TextBlock>
             <Button  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Content="Int/Ext" />
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Temper1Sp}" />
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Temper1Sp}" />
             <Button  Margin="5,2" Grid.Row="2" Grid.Column="4" />
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Temper1Abort}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Temper1Hold}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Temper1Alarm}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Temper1Next}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Temper1Abort}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Temper1Hold}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Temper1Alarm}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Temper1Next}"/>
 
             <TextBlock Margin="0,0,5,0" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">Zone2:</TextBlock>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Temper2Sp}" />
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Temper2Sp}" />
             <Button  Margin="5,2" Grid.Row="3" Grid.Column="4" />
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Temper2Abort}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Temper2Hold}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Temper2Alarm}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Temper2Next}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Temper2Abort}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Temper2Hold}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Temper2Alarm}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Temper2Next}"/>
 
             <TextBlock Margin="0,0,5,0" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">Zone3:</TextBlock>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Temper3Sp}" />
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Temper3Sp}" />
             <Button  Margin="5,2" Grid.Row="4" Grid.Column="4" />
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Temper3Abort}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Temper3Hold}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Temper3Alarm}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Temper3Next}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Temper3Abort}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Temper3Hold}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Temper3Alarm}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Temper3Next}"/>
 
             <TextBlock Margin="0,0,5,0" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">Zone4:</TextBlock>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Temper4Sp}" />
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Temper4Sp}" />
             <Button  Margin="5,2" Grid.Row="5" Grid.Column="4" />
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Temper4Abort}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Temper4Hold}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Temper4Alarm}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Temper4Next}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Temper4Abort}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Temper4Hold}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Temper4Alarm}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Temper4Next}"/>
 
             <TextBlock Margin="0,0,5,0" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">Zone5:</TextBlock>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Temper5Sp}" />
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Temper5Sp}" />
             <Button  Margin="5,2" Grid.Row="6" Grid.Column="4" />
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Temper5Abort}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Temper5Hold}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Temper5Alarm}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Temper5Next}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Temper5Abort}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Temper5Hold}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Temper5Alarm}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Temper5Next}"/>
 
             <TextBlock Margin="0,0,5,0" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">Zone6:</TextBlock>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Temper6Sp}" />
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Temper6Sp}" />
             <Button  Margin="5,2" Grid.Row="7" Grid.Column="4" />
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="7" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Temper6Abort}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="7" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Temper6Hold}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="7" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Temper6Alarm}"/>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="7" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Temper6Next}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="7" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Temper6Abort}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="7" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Temper6Hold}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="7" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Temper6Alarm}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="7" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Temper6Next}"/>
         </Grid>
         <Rectangle Margin="-15,0" Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="28" Height="1" Fill="#FFAAA5A5" />
         <Grid Grid.Row="11" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="14">
@@ -295,9 +296,9 @@
             </Grid.RowDefinitions>
             <TextBlock Margin="0,0,0,0" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="15" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Boat Loader</TextBlock>
             <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">Axis Position:</TextBlock>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=AxisPosSp}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=AxisPosSp}"/>
             <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="2" VerticalAlignment="Center">Axis Speed:</TextBlock>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="1" Grid.Column="8" Grid.ColumnSpan="2" Text="{Binding Path=AxisSpeedSp}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="1" Grid.Column="8" Grid.ColumnSpan="2" Text="{Binding Path=AxisSpeedSp}"/>
         </Grid>
         <Rectangle Margin="-15,0" Grid.Row="13" Grid.Column="1" Grid.ColumnSpan="28" Height="1" Fill="#FFAAA5A5" />
         <Grid Grid.Row="14" Grid.Column="1" Grid.RowSpan="3" Grid.ColumnSpan="28">
@@ -337,34 +338,27 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
             <TextBlock Margin="0,0,0,0" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="15" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Electric Valve</TextBlock>
-            <TextBox Margin="5,2" Grid.Row="1" Grid.Column="0" Text="{Binding Path=Evs[0]}"/>
-            <TextBlock Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
-            <TextBox Margin="5,2" Grid.Row="1" Grid.Column="4" Text="{Binding Path=Evs[1]}"/>
-            <TextBlock Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI2</TextBlock>
-            <TextBox Margin="5,2" Grid.Row="1" Grid.Column="8" Text="{Binding Path=Evs[2]}"/>
-            <TextBlock Grid.Row="1" Grid.Column="9" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
-            <TextBox Margin="5,2" Grid.Row="1" Grid.Column="12" Text="{Binding Path=Evs[3]}"/>
-            <TextBlock Grid.Row="1" Grid.Column="13" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI2</TextBlock>
-            <TextBox Margin="5,2" Grid.Row="1" Grid.Column="16" Text="{Binding Path=Evs[4]}"/>
-            <TextBlock Grid.Row="1" Grid.Column="17" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
-            <TextBox Margin="5,2" Grid.Row="1" Grid.Column="20" Text="{Binding Path=Evs[5]}"/>
-            <TextBlock Grid.Row="1" Grid.Column="21" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI2</TextBlock>
-            <TextBox Margin="5,2" Grid.Row="1" Grid.Column="24" Text="{Binding Path=Evs[6]}"/>
-            <TextBlock Grid.Row="1" Grid.Column="25" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
-            <TextBox Margin="5,2" Grid.Row="2" Grid.Column="0" Text="{Binding Path=Evs[7]}"/>
-            <TextBlock Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
-            <TextBox Margin="5,2" Grid.Row="2" Grid.Column="4" Text="{Binding Path=Evs[8]}"/>
-            <TextBlock Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI2</TextBlock>
-            <TextBox Margin="5,2" Grid.Row="2" Grid.Column="8" Text="{Binding Path=Evs[9]}"/>
-            <TextBlock Grid.Row="2" Grid.Column="9" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
-            <TextBox Margin="5,2" Grid.Row="2" Grid.Column="12" Text="{Binding Path=Evs[10]}"/>
-            <TextBlock Grid.Row="2" Grid.Column="13" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI2</TextBlock>
-            <TextBox Margin="5,2" Grid.Row="2" Grid.Column="16" Text="{Binding Path=Evs[11]}"/>
-            <TextBlock Grid.Row="2" Grid.Column="17" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
-            <TextBox Margin="5,2" Grid.Row="2" Grid.Column="20" Text="{Binding Path=Evs[12]}"/>
-            <TextBlock Grid.Row="2" Grid.Column="21" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI2</TextBlock>
-            <Button Margin="5,2" Grid.Row="2" Grid.Column="24"/>
-            <TextBlock Grid.Row="2" Grid.Column="25" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
+            <local:DioSwitcher Margin="5,2" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Value="{Binding Path=Ev1}"/>
+            <TextBlock Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">EV1</TextBlock>
+            <local:DioSwitcher Margin="5,2" Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="2" Value="{Binding Path=Ev2}"/>
+            <TextBlock Grid.Row="1" Grid.Column="8" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">EV2</TextBlock>
+            <local:DioSwitcher Margin="5,2" Grid.Row="1" Grid.Column="12" Grid.ColumnSpan="2" Value="{Binding Path=Ev3}"/>
+            <TextBlock Grid.Row="1" Grid.Column="14" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">EV3</TextBlock>
+            <local:DioSwitcher Margin="5,2" Grid.Row="1" Grid.Column="18" Grid.ColumnSpan="2" Value="{Binding Path=Ev4}"/>
+            <TextBlock Grid.Row="1" Grid.Column="20" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">EV4</TextBlock>
+            <local:DioSwitcher Margin="5,2" Grid.Row="1" Grid.Column="24" Grid.ColumnSpan="2" Value="{Binding Path=Ev5}"/>
+            <TextBlock Grid.Row="1" Grid.Column="26" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">EV5</TextBlock>
+
+            <local:DioSwitcher Margin="5,2" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Value="{Binding Path=Ev6}"/>
+            <TextBlock Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">EV6</TextBlock>
+            <local:DioSwitcher Margin="5,2" Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="2" Value="{Binding Path=Ev7}"/>
+            <TextBlock Grid.Row="2" Grid.Column="8" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">EV7</TextBlock>
+            <local:DioSwitcher Margin="5,2" Grid.Row="2" Grid.Column="12" Grid.ColumnSpan="2" Value="{Binding Path=Ev8}"/>
+            <TextBlock Grid.Row="2" Grid.Column="14" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">EV8</TextBlock>
+            <local:DioSwitcher Margin="5,2" Grid.Row="2" Grid.Column="18" Grid.ColumnSpan="2" Value="{Binding Path=Ev9}"/>
+            <TextBlock Grid.Row="2" Grid.Column="20" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">EV9</TextBlock>
+            <local:DioSwitcher Margin="5,2" Grid.Row="2" Grid.Column="24" Grid.ColumnSpan="2" Value="{Binding Path=Ev10}"/>
+            <TextBlock Grid.Row="2" Grid.Column="26" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">EV10</TextBlock>
         </Grid>
         <Rectangle Margin="-15,0" Grid.Row="17" Grid.Column="1" Grid.ColumnSpan="28" Height="1" Fill="#FFAAA5A5" />
         <Grid Grid.Row="18" Grid.Column="1" Grid.RowSpan="3" Grid.ColumnSpan="28">
@@ -464,34 +458,27 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
             <TextBlock Margin="0,0,0,0" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="15" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Digital Output</TextBlock>
-            <TextBox Margin="5,2" Grid.Row="1" Grid.Column="0" Text="{Binding Path=DigOutputs[0]}"/>
-            <TextBlock Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
-            <TextBox Margin="5,2" Grid.Row="1" Grid.Column="4" Text="{Binding Path=DigOutputs[1]}"/>
-            <TextBlock Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI2</TextBlock>
-            <TextBox Margin="5,2" Grid.Row="1" Grid.Column="8" Text="{Binding Path=DigOutputs[2]}"/>
-            <TextBlock Grid.Row="1" Grid.Column="9" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
-            <TextBox Margin="5,2" Grid.Row="1" Grid.Column="12" Text="{Binding Path=DigOutputs[3]}"/>
-            <TextBlock Grid.Row="1" Grid.Column="13" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI2</TextBlock>
-            <TextBox Margin="5,2" Grid.Row="1" Grid.Column="16" Text="{Binding Path=DigOutputs[4]}"/>
-            <TextBlock Grid.Row="1" Grid.Column="17" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
-            <TextBox Margin="5,2" Grid.Row="1" Grid.Column="20" Text="{Binding Path=DigOutputs[5]}"/>
-            <TextBlock Grid.Row="1" Grid.Column="21" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI2</TextBlock>
-            <TextBox Margin="5,2" Grid.Row="1" Grid.Column="24" Text="{Binding Path=DigOutputs[6]}"/>
-            <TextBlock Grid.Row="1" Grid.Column="25" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
-            <TextBox Margin="5,2" Grid.Row="2" Grid.Column="0" Text="{Binding Path=DigOutputs[7]}"/>
-            <TextBlock Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
-            <TextBox Margin="5,2" Grid.Row="2" Grid.Column="4" Text="{Binding Path=DigOutputs[8]}"/>
-            <TextBlock Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI2</TextBlock>
-            <TextBox Margin="5,2" Grid.Row="2" Grid.Column="8" Text="{Binding Path=DigOutputs[9]}"/>
-            <TextBlock Grid.Row="2" Grid.Column="9" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
-            <TextBox Margin="5,2" Grid.Row="2" Grid.Column="12" Text="{Binding Path=DigOutputs[10]}"/>
-            <TextBlock Grid.Row="2" Grid.Column="13" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI2</TextBlock>
-            <TextBox Margin="5,2" Grid.Row="2" Grid.Column="16" Text="{Binding Path=DigOutputs[11]}"/>
-            <TextBlock Grid.Row="2" Grid.Column="17" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
-            <TextBox Margin="5,2" Grid.Row="2" Grid.Column="20" Text="{Binding Path=DigOutputs[12]}"/>
-            <TextBlock Grid.Row="2" Grid.Column="21" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI2</TextBlock>
-            <Button Margin="5,2" Grid.Row="2" Grid.Column="24"/>
-            <TextBlock Grid.Row="2" Grid.Column="25" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
+            <local:DioSwitcher Margin="5,2" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Value="{Binding Path=DigOutput1}"/>
+            <TextBlock Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
+            <local:DioSwitcher Margin="5,2" Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="2" Value="{Binding Path=DigOutput2}"/>
+            <TextBlock Grid.Row="1" Grid.Column="8" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI2</TextBlock>
+            <local:DioSwitcher Margin="5,2" Grid.Row="1" Grid.Column="12" Grid.ColumnSpan="2" Value="{Binding Path=DigOutput3}"/>
+            <TextBlock Grid.Row="1" Grid.Column="14" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI3</TextBlock>
+            <local:DioSwitcher Margin="5,2" Grid.Row="1" Grid.Column="18" Grid.ColumnSpan="2" Value="{Binding Path=DigOutput4}"/>
+            <TextBlock Grid.Row="1" Grid.Column="20" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI4</TextBlock>
+            <local:DioSwitcher Margin="5,2" Grid.Row="1" Grid.Column="24" Grid.ColumnSpan="2" Value="{Binding Path=DigOutput5}"/>
+            <TextBlock Grid.Row="1" Grid.Column="26" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI5</TextBlock>
+
+            <local:DioSwitcher Margin="5,2" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Value="{Binding Path=DigOutput6}"/>
+            <TextBlock Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI6</TextBlock>
+            <local:DioSwitcher Margin="5,2" Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="2" Value="{Binding Path=DigOutput7}"/>
+            <TextBlock Grid.Row="2" Grid.Column="8" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI7</TextBlock>
+            <local:DioSwitcher Margin="5,2" Grid.Row="2" Grid.Column="12" Grid.ColumnSpan="2" Value="{Binding Path=DigOutput8}"/>
+            <TextBlock Grid.Row="2" Grid.Column="14" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI8</TextBlock>
+            <local:DioSwitcher Margin="5,2" Grid.Row="2" Grid.Column="18" Grid.ColumnSpan="2" Value="{Binding Path=DigOutput9}"/>
+            <TextBlock Grid.Row="2" Grid.Column="20" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI9</TextBlock>
+            <local:DioSwitcher Margin="5,2" Grid.Row="2" Grid.Column="24" Grid.ColumnSpan="2" Value="{Binding Path=DigOutput10}"/>
+            <TextBlock Grid.Row="2" Grid.Column="26" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI10</TextBlock>
         </Grid>
         <Rectangle Margin="-15,0" Grid.Row="25" Grid.Column="1" Grid.ColumnSpan="28" Height="1" Fill="#FFAAA5A5" />
         <Grid Grid.Row="26" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="28">
@@ -517,19 +504,19 @@
             </Grid.RowDefinitions>
             <TextBlock Margin="0,0,0,0" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="15" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Abort And Delay</TextBlock>
             <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center">Analog:</TextBlock>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}"  Margin="5,2" Grid.Row="1" Grid.Column="1" Text="{Binding Path=AnalogAbort}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}"  Margin="5,2" Grid.Row="1" Grid.Column="1" Text="{Binding Path=AnalogAbort}"/>
             <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center">Digital:</TextBlock>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}"  Margin="5,2" Grid.Row="1" Grid.Column="3" Text="{Binding Path=DigitalAbort}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}"  Margin="5,2" Grid.Row="1" Grid.Column="3" Text="{Binding Path=DigitalAbort}"/>
             <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="4" VerticalAlignment="Center">Temperature:</TextBlock>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}"  Margin="5,2" Grid.Row="1" Grid.Column="5" Text="{Binding Path=TemperAbort}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}"  Margin="5,2" Grid.Row="1" Grid.Column="5" Text="{Binding Path=TemperAbort}"/>
             <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="6" VerticalAlignment="Center">Manual:</TextBlock>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}"  Margin="5,2" Grid.Row="1" Grid.Column="7" Text="{Binding Path=ManualAbort}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}"  Margin="5,2" Grid.Row="1" Grid.Column="7" Text="{Binding Path=ManualAbort}"/>
             <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="8" VerticalAlignment="Center">Power:</TextBlock>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}"  Margin="5,2" Grid.Row="1" Grid.Column="9" Text="{Binding Path=PowerAbort}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}"  Margin="5,2" Grid.Row="1" Grid.Column="9" Text="{Binding Path=PowerAbort}"/>
             <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="10" VerticalAlignment="Center">MFC Delay:</TextBlock>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}"  Margin="5,2" Grid.Row="1" Grid.Column="11" Text="{Binding Path=MfcDelay}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}"  Margin="5,2" Grid.Row="1" Grid.Column="11" Text="{Binding Path=MfcDelay}"/>
             <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="12" VerticalAlignment="Center">Analog Delay:</TextBlock>
-            <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}"  Margin="5,2" Grid.Row="1" Grid.Column="13" Text="{Binding Path=AnalogDelay}"/>
+            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}"  Margin="5,2" Grid.Row="1" Grid.Column="13" Text="{Binding Path=AnalogDelay}"/>
         </Grid>
     </Grid>
 

@@ -95,7 +95,9 @@
     <Compile Include="com\entity\ComRecipeStepNodeComponent.cs" />
     <Compile Include="com\TcpClient.cs" />
     <Compile Include="ui\ComNodeWraper.cs" />
+    <Compile Include="ui\controls\ClickSelectTextBox.cs" />
     <Compile Include="ui\ITubePage.cs" />
+    <Compile Include="ui\model\DioSwitcherModel.cs" />
     <Compile Include="ui\model\DiSelectorModel.cs" />
     <Compile Include="ui\model\StepDetailModel.cs" />
     <Compile Include="ui\model\RecipeStepDetailItemModel.cs" />
@@ -107,6 +109,9 @@
     <Compile Include="ui\model\TubeTrendPageModel.cs" />
     <Compile Include="ui\TubePageStyle.cs" />
     <Compile Include="ui\UIConstants.cs" />
+    <Compile Include="ui\view\DioSwitcher.xaml.cs">
+      <DependentUpon>DioSwitcher.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ui\view\DiSelector.xaml.cs">
       <DependentUpon>DiSelector.xaml</DependentUpon>
     </Compile>
@@ -178,6 +183,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ui\test\TestControls.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ui\view\DioSwitcher.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

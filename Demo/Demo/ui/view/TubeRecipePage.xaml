@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Demo.ui"
+             xmlns:controls="clr-namespace:Demo.ui.controls"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="950">
     <DockPanel>
@@ -125,66 +126,66 @@
                     <view:StepListItem x:Name="StepItem2" Grid.Row="0" Grid.Column="1"></view:StepListItem>
                     <view:StepListItem x:Name="StepItem3" Grid.Row="0" Grid.Column="2"></view:StepListItem>
                     <view:StepListItem x:Name="StepItem4" Grid.Row="0" Grid.Column="3"></view:StepListItem>
-                    <view:StepListItem Grid.Row="1" Grid.Column="0" DataContext="{Binding Path=StepListItems[4]}"></view:StepListItem>
-                    <view:StepListItem Grid.Row="1" Grid.Column="1" DataContext="{Binding Path=StepListItems[5]}"></view:StepListItem>
-                    <view:StepListItem Grid.Row="1" Grid.Column="2" DataContext="{Binding Path=StepListItems[6]}"></view:StepListItem>
-                    <view:StepListItem Grid.Row="1" Grid.Column="3" DataContext="{Binding Path=StepListItems[7]}"></view:StepListItem>
-                    <view:StepListItem Grid.Row="2" Grid.Column="0" DataContext="{Binding Path=StepListItems[8]}"></view:StepListItem>
-                    <view:StepListItem Grid.Row="2" Grid.Column="1" DataContext="{Binding Path=StepListItems[9]}"></view:StepListItem>
-                    <view:StepListItem Grid.Row="2" Grid.Column="2" DataContext="{Binding Path=StepListItems[10]}"></view:StepListItem>
-                    <view:StepListItem Grid.Row="2" Grid.Column="3" DataContext="{Binding Path=StepListItems[11]}"></view:StepListItem>
-                    <view:StepListItem Grid.Row="3" Grid.Column="0" DataContext="{Binding Path=StepListItems[12]}"></view:StepListItem>
-                    <view:StepListItem Grid.Row="3" Grid.Column="1" DataContext="{Binding Path=StepListItems[13]}"></view:StepListItem>
-                    <view:StepListItem Grid.Row="3" Grid.Column="2" DataContext="{Binding Path=StepListItems[14]}"></view:StepListItem>
-                    <view:StepListItem Grid.Row="3" Grid.Column="3" DataContext="{Binding Path=StepListItems[15]}"></view:StepListItem>
-                    <view:StepListItem Grid.Row="4" Grid.Column="0" DataContext="{Binding Path=StepListItems[16]}"></view:StepListItem>
-                    <view:StepListItem Grid.Row="4" Grid.Column="1" DataContext="{Binding Path=StepListItems[17]}"></view:StepListItem>
-                    <view:StepListItem Grid.Row="4" Grid.Column="2" DataContext="{Binding Path=StepListItems[18]}"></view:StepListItem>
-                    <view:StepListItem Grid.Row="4" Grid.Column="3" DataContext="{Binding Path=StepListItems[19]}"></view:StepListItem>
-                    <view:StepListItem Grid.Row="5" Grid.Column="0" DataContext="{Binding Path=StepListItems[20]}"></view:StepListItem>
-                    <view:StepListItem Grid.Row="5" Grid.Column="1" DataContext="{Binding Path=StepListItems[21]}"></view:StepListItem>
-                    <view:StepListItem Grid.Row="5" Grid.Column="2" DataContext="{Binding Path=StepListItems[22]}"></view:StepListItem>
-                    <view:StepListItem Grid.Row="5" Grid.Column="3" DataContext="{Binding Path=StepListItems[23]}"></view:StepListItem>
-                    <view:StepListItem Grid.Row="6" Grid.Column="0" DataContext="{Binding Path=StepListItems[24]}"></view:StepListItem>
-                    <view:StepListItem Grid.Row="6" Grid.Column="1" DataContext="{Binding Path=StepListItems[25]}"></view:StepListItem>
-                    <view:StepListItem Grid.Row="6" Grid.Column="2" DataContext="{Binding Path=StepListItems[26]}"></view:StepListItem>
-                    <view:StepListItem Grid.Row="6" Grid.Column="3" DataContext="{Binding Path=StepListItems[27]}"></view:StepListItem>
-                    <view:StepListItem Grid.Row="7" Grid.Column="0" DataContext="{Binding Path=StepListItems[28]}"></view:StepListItem>
-                    <view:StepListItem Grid.Row="7" Grid.Column="1" DataContext="{Binding Path=StepListItems[29]}"></view:StepListItem>
-                    <view:StepListItem Grid.Row="7" Grid.Column="2" DataContext="{Binding Path=StepListItems[30]}"></view:StepListItem>
-                    <view:StepListItem Grid.Row="7" Grid.Column="3" DataContext="{Binding Path=StepListItems[31]}"></view:StepListItem>
-                    <view:StepListItem Grid.Row="8" Grid.Column="0" DataContext="{Binding Path=StepListItems[32]}"></view:StepListItem>
-                    <view:StepListItem Grid.Row="8" Grid.Column="1" DataContext="{Binding Path=StepListItems[33]}"></view:StepListItem>
-                    <view:StepListItem Grid.Row="8" Grid.Column="2" DataContext="{Binding Path=StepListItems[34]}"></view:StepListItem>
-                    <view:StepListItem Grid.Row="8" Grid.Column="3" DataContext="{Binding Path=StepListItems[35]}"></view:StepListItem>
-                    <Button Grid.Row="9" Grid.Column="0" Content="test"></Button>
-                    <Button Grid.Row="9" Grid.Column="1" Content="test"></Button>
-                    <Button Grid.Row="9" Grid.Column="2" Content="test"></Button>
-                    <Button Grid.Row="9" Grid.Column="3" Content="test"></Button>
-                    <Button Grid.Row="10" Grid.Column="0" Content="test"></Button>
-                    <Button Grid.Row="10" Grid.Column="1" Content="test"></Button>
-                    <Button Grid.Row="10" Grid.Column="2" Content="test"></Button>
-                    <Button Grid.Row="10" Grid.Column="3" Content="test"></Button>
-                    <Button Grid.Row="11" Grid.Column="0" Content="test"></Button>
-                    <Button Grid.Row="11" Grid.Column="1" Content="test"></Button>
-                    <Button Grid.Row="11" Grid.Column="2" Content="test"></Button>
-                    <Button Grid.Row="11" Grid.Column="3" Content="test"></Button>
-                    <Button Grid.Row="12" Grid.Column="0" Content="test"></Button>
-                    <Button Grid.Row="12" Grid.Column="1" Content="test"></Button>
-                    <Button Grid.Row="12" Grid.Column="2" Content="test"></Button>
-                    <Button Grid.Row="12" Grid.Column="3" Content="test"></Button>
-                    <Button Grid.Row="13" Grid.Column="0" Content="test"></Button>
-                    <Button Grid.Row="13" Grid.Column="1" Content="test"></Button>
-                    <Button Grid.Row="13" Grid.Column="2" Content="test"></Button>
-                    <Button Grid.Row="13" Grid.Column="3" Content="test"></Button>
-                    <Button Grid.Row="14" Grid.Column="0" Content="test"></Button>
-                    <Button Grid.Row="14" Grid.Column="1" Content="test"></Button>
-                    <Button Grid.Row="14" Grid.Column="2" Content="test"></Button>
-                    <Button Grid.Row="14" Grid.Column="3" Content="test"></Button>
-                    <Button Grid.Row="15" Grid.Column="0" Content="test"></Button>
-                    <Button Grid.Row="15" Grid.Column="1" Content="test"></Button>
-                    <Button Grid.Row="15" Grid.Column="2" Content="test"></Button>
-                    <Button Grid.Row="15" Grid.Column="3" Content="test"></Button>
+                    <view:StepListItem x:Name="StepItem5" Grid.Row="1" Grid.Column="0"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem6" Grid.Row="1" Grid.Column="1"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem7" Grid.Row="1" Grid.Column="2"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem8" Grid.Row="1" Grid.Column="3"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem9" Grid.Row="2" Grid.Column="0"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem10" Grid.Row="2" Grid.Column="1"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem11" Grid.Row="2" Grid.Column="2"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem12" Grid.Row="2" Grid.Column="3"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem13" Grid.Row="3" Grid.Column="0"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem14" Grid.Row="3" Grid.Column="1"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem15" Grid.Row="3" Grid.Column="2"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem16" Grid.Row="3" Grid.Column="3"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem17" Grid.Row="4" Grid.Column="0"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem18" Grid.Row="4" Grid.Column="1"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem19" Grid.Row="4" Grid.Column="2"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem20" Grid.Row="4" Grid.Column="3"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem21" Grid.Row="5" Grid.Column="0"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem22" Grid.Row="5" Grid.Column="1"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem23" Grid.Row="5" Grid.Column="2"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem24" Grid.Row="5" Grid.Column="3"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem25" Grid.Row="6" Grid.Column="0"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem26" Grid.Row="6" Grid.Column="1"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem27" Grid.Row="6" Grid.Column="2"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem28" Grid.Row="6" Grid.Column="3"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem29" Grid.Row="7" Grid.Column="0"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem30" Grid.Row="7" Grid.Column="1"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem31" Grid.Row="7" Grid.Column="2"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem32" Grid.Row="7" Grid.Column="3"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem33" Grid.Row="8" Grid.Column="0"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem34" Grid.Row="8" Grid.Column="1"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem35" Grid.Row="8" Grid.Column="2"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem36" Grid.Row="8" Grid.Column="3"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem37" Grid.Row="9" Grid.Column="0"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem38" Grid.Row="9" Grid.Column="1"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem39" Grid.Row="9" Grid.Column="2"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem40" Grid.Row="9" Grid.Column="3"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem41" Grid.Row="10" Grid.Column="0"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem42" Grid.Row="10" Grid.Column="1"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem43" Grid.Row="10" Grid.Column="2"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem44" Grid.Row="10" Grid.Column="3"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem45" Grid.Row="11" Grid.Column="0"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem46" Grid.Row="11" Grid.Column="1"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem47" Grid.Row="11" Grid.Column="2"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem48" Grid.Row="11" Grid.Column="3"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem49" Grid.Row="12" Grid.Column="0"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem50" Grid.Row="12" Grid.Column="1"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem51" Grid.Row="12" Grid.Column="2"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem52" Grid.Row="12" Grid.Column="3"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem53" Grid.Row="13" Grid.Column="0"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem54" Grid.Row="13" Grid.Column="1"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem55" Grid.Row="13" Grid.Column="2"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem56" Grid.Row="13" Grid.Column="3"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem57" Grid.Row="14" Grid.Column="0"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem58" Grid.Row="14" Grid.Column="1"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem59" Grid.Row="14" Grid.Column="2"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem60" Grid.Row="14" Grid.Column="3"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem61" Grid.Row="15" Grid.Column="0"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem62" Grid.Row="15" Grid.Column="1"></view:StepListItem>
+                    <view:StepListItem x:Name="StepItem63" Grid.Row="15" Grid.Column="2"></view:StepListItem>
+                    <Button Grid.Row="15" Grid.Column="3" Content="End"></Button>
                     
                 </Grid>
             </Grid>

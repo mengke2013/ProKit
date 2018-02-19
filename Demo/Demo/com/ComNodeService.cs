@@ -104,6 +104,9 @@ namespace Demo.com
             return 0;
         }
 
-     
+        public bool IsConnected()
+        {
+            return (mClient1.Status == 1 && mClient2.Status == 1);
+        }
     }
 }

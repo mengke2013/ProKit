@@ -206,7 +206,7 @@ namespace Demo.ui.model
             Array.Copy(cBytes, 0, recipeBytes, 319, cBytes.Length);
             recipeBytes[323] = (byte)TubeRecipeViewModel.Num;
             cBytes = BitConverter.GetBytes(TubeRecipeViewModel.CheckSum);
-            Array.Copy(cBytes, 0, recipeBytes, 319, cBytes.Length);
+            Array.Copy(cBytes, 0, recipeBytes, 324, cBytes.Length);
 
             recipeBytes[38] = (byte)TubeRecipeViewModel.AnalogAbort;
             recipeBytes[39] = (byte)TubeRecipeViewModel.DigitalAbort;

@@ -93,8 +93,6 @@ namespace Demo.ui.model
         private int mEv;
         private byte mNum;
         private int mCheckSum;
-        private bool[] mEvs;
-        private bool[] mDigOutputs;
 
         private byte mAnalogAbort;
         private byte mDigitalAbort;
@@ -107,12 +105,10 @@ namespace Demo.ui.model
         private byte[] mAlrmDigIns;
         private DiSelectorModel[] mDiSelectorModels;
 
-
-
         public TubeRecipeViewModel(byte stepIndex)
         {
             mStepIndex = stepIndex;
-
+            mStepName = "";
             mAlrmDigIns = new byte[32];
             mDiSelectorModels = new DiSelectorModel[32];
             for (byte i = 0; i < 32; ++i)
@@ -120,7 +116,7 @@ namespace Demo.ui.model
                 mAlrmDigIns[i] = 0;
                 mDiSelectorModels[i] = new DiSelectorModel();
             }
-            mEvs = new bool[32];
+            mDigOutput = 0;
         }
 
         public byte StepIndex
@@ -811,16 +807,154 @@ namespace Demo.ui.model
 
         public int DigOutput
         {
-            get { return mDigOutput; }
+            get
+            {
+                return mDigOutput;
+            }
             set
             {
                 mDigOutput = value;
-                bool[] bytes = new bool[32];
-                for (byte i = 0; i < 32; ++i)
-                {
-                    bytes[i] = GetBitValue(mDigOutput, i);
-                }
-                DigOutputs = bytes;
+
+                Notify("DigOutput1");
+                Notify("DigOutput2");
+                Notify("DigOutput3");
+                Notify("DigOutput4");
+                Notify("DigOutput5");
+                Notify("DigOutput6");
+                Notify("DigOutput7");
+                Notify("DigOutput8");
+                Notify("DigOutput9");
+                Notify("DigOutput10");
+            }
+        }
+
+        public bool DigOutput1
+        {
+            get
+            {
+                return GetBitValue(mDigOutput, 0);
+            }
+            set
+            {
+                mDigOutput = SetBitValue(mDigOutput, 0, value);
+                Notify("DigOutput1");
+            }
+        }
+
+        public bool DigOutput2
+        {
+            get
+            {
+                return GetBitValue(mDigOutput, 1);
+            }
+            set
+            {
+                mDigOutput = SetBitValue(mDigOutput, 1, value);
+                Notify("DigOutput2");
+            }
+        }
+
+        public bool DigOutput3
+        {
+            get
+            {
+                return GetBitValue(mDigOutput, 2);
+            }
+            set
+            {
+                mDigOutput = SetBitValue(mDigOutput, 2, value);
+                Notify("DigOutput3");
+            }
+        }
+
+        public bool DigOutput4
+        {
+            get
+            {
+                return GetBitValue(mDigOutput, 3);
+            }
+            set
+            {
+                mDigOutput = SetBitValue(mDigOutput, 3, value);
+                Notify("DigOutput4");
+            }
+        }
+
+        public bool DigOutput5
+        {
+            get
+            {
+                return GetBitValue(mDigOutput, 4);
+            }
+            set
+            {
+                mDigOutput = SetBitValue(mDigOutput, 4, value);
+                Notify("DigOutput5");
+            }
+        }
+
+        public bool DigOutput6
+        {
+            get
+            {
+                return GetBitValue(mDigOutput, 5);
+            }
+            set
+            {
+                mDigOutput = SetBitValue(mDigOutput, 5, value);
+                Notify("DigOutput6");
+            }
+        }
+
+        public bool DigOutput7
+        {
+            get
+            {
+                return GetBitValue(mDigOutput, 6);
+            }
+            set
+            {
+                mDigOutput = SetBitValue(mDigOutput, 6, value);
+                Notify("DigOutput7");
+            }
+        }
+
+        public bool DigOutput8
+        {
+            get
+            {
+                return GetBitValue(mDigOutput, 7);
+            }
+            set
+            {
+                mDigOutput = SetBitValue(mDigOutput, 7, value);
+                Notify("DigOutput8");
+            }
+        }
+
+        public bool DigOutput9
+        {
+            get
+            {
+                return GetBitValue(mDigOutput, 8);
+            }
+            set
+            {
+                mDigOutput = SetBitValue(mDigOutput, 8, value);
+                Notify("DigOutput9");
+            }
+        }
+
+        public bool DigOutput10
+        {
+            get
+            {
+                return GetBitValue(mDigOutput, 9);
+            }
+            set
+            {
+                mDigOutput = SetBitValue(mDigOutput, 9, value);
+                Notify("DigOutput10");
             }
         }
 
@@ -830,13 +964,147 @@ namespace Demo.ui.model
             set
             {
                 mEv = value;
-              
-                bool[] bytes = new bool[32];
-                for (byte i = 0; i < 32; ++i)
-                {
-                    bytes[i] = GetBitValue(mEv, i);
-                }
-                Evs = bytes;
+
+                Notify("Ev1");
+                Notify("Ev2");
+                Notify("Ev3");
+                Notify("Ev4");
+                Notify("Ev5");
+                Notify("Ev6");
+                Notify("Ev7");
+                Notify("Ev8");
+                Notify("Ev9");
+                Notify("Ev10");
+            }
+        }
+
+        public bool Ev1
+        {
+            get
+            {
+                return GetBitValue(mEv, 0);
+            }
+            set
+            {
+                mEv = SetBitValue(mEv, 0, value);
+                Notify("Ev1");
+            }
+        }
+
+        public bool Ev2
+        {
+            get
+            {
+                return GetBitValue(mEv, 1);
+            }
+            set
+            {
+                mEv = SetBitValue(mEv, 1, value);
+                Notify("Ev2");
+            }
+        }
+
+        public bool Ev3
+        {
+            get
+            {
+                return GetBitValue(mEv, 2);
+            }
+            set
+            {
+                mEv = SetBitValue(mEv, 2, value);
+                Notify("Ev3");
+            }
+        }
+
+        public bool Ev4
+        {
+            get
+            {
+                return GetBitValue(mEv, 3);
+            }
+            set
+            {
+                mEv = SetBitValue(mEv, 3, value);
+                Notify("Ev4");
+            }
+        }
+
+        public bool Ev5
+        {
+            get
+            {
+                return GetBitValue(mEv, 4);
+            }
+            set
+            {
+                mEv = SetBitValue(mEv, 4, value);
+                Notify("Ev5");
+            }
+        }
+
+        public bool Ev6
+        {
+            get
+            {
+                return GetBitValue(mEv, 5);
+            }
+            set
+            {
+                mEv = SetBitValue(mEv, 5, value);
+                Notify("Ev6");
+            }
+        }
+
+        public bool Ev7
+        {
+            get
+            {
+                return GetBitValue(mEv, 6);
+            }
+            set
+            {
+                mEv = SetBitValue(mEv, 6, value);
+                Notify("Ev7");
+            }
+        }
+
+        public bool Ev8
+        {
+            get
+            {
+                return GetBitValue(mEv, 7);
+            }
+            set
+            {
+                mEv = SetBitValue(mEv, 7, value);
+                Notify("Ev8");
+            }
+        }
+
+        public bool Ev9
+        {
+            get
+            {
+                return GetBitValue(mEv, 8);
+            }
+            set
+            {
+                mEv = SetBitValue(mEv, 8, value);
+                Notify("Ev9");
+            }
+        }
+
+        public bool Ev10
+        {
+            get
+            {
+                return GetBitValue(mEv, 9);
+            }
+            set
+            {
+                mEv = SetBitValue(mEv, 9, value);
+                Notify("Ev10");
             }
         }
 
@@ -852,26 +1120,6 @@ namespace Demo.ui.model
             if (index > 31) throw new ArgumentOutOfRangeException("index"); //索引出错
             var val = 1 << index;
             return bitValue ? (value | val) : (value & ~val);
-        }
-
-        public bool[] Evs
-        {
-            get { return mEvs; }
-            set
-            {
-                mEvs = value;
-                Notify("Evs");
-            }
-        }
-
-        public bool[] DigOutputs
-        {
-            get { return mDigOutputs; }
-            set
-            {
-                mDigOutputs = value;
-                Notify("DigOutputs");
-            }
         }
 
         public byte Num
