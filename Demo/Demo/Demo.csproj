@@ -91,14 +91,21 @@
     </ApplicationDefinition>
     <Compile Include="com\ComNodeHelper.cs" />
     <Compile Include="com\ComNodeService.cs" />
+    <Compile Include="com\entity\ComTubeStatusInfoNodeComponent.cs" />
     <Compile Include="com\entity\ComCommandNodeComponent.cs" />
     <Compile Include="com\entity\ComRecipeStepNodeComponent.cs" />
     <Compile Include="com\TcpClient.cs" />
+    <Compile Include="model\Process.cs" />
+    <Compile Include="model\Recipe.cs" />
+    <Compile Include="model\RecipeStep.cs" />
+    <Compile Include="service\ProcessService.cs" />
+    <Compile Include="service\RecipeService.cs" />
     <Compile Include="ui\ComNodeWraper.cs" />
     <Compile Include="ui\controls\ClickSelectTextBox.cs" />
     <Compile Include="ui\ITubePage.cs" />
     <Compile Include="ui\model\DioSwitcherModel.cs" />
     <Compile Include="ui\model\DiSelectorModel.cs" />
+    <Compile Include="ui\model\ProgressDlgModel.cs" />
     <Compile Include="ui\model\StepDetailModel.cs" />
     <Compile Include="ui\model\RecipeStepDetailItemModel.cs" />
     <Compile Include="ui\model\StepListItemModel.cs" />
@@ -177,6 +184,7 @@
     <Compile Include="ui\view\TubeSettingsPage.xaml.cs">
       <DependentUpon>TubeSettingsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="utilities\BitUtility.cs" />
     <Compile Include="utilities\Properties.cs" />
     <Page Include="ui\Home.xaml">
       <SubType>Designer</SubType>
@@ -344,9 +352,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="service\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="images\alarm.png" />
   </ItemGroup>

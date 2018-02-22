@@ -9,7 +9,11 @@ namespace Demo.ui.model
     public class StepListItemModel
     {
         private byte mStepIndex;
+        private string mStepName;
+        private sbyte mStepType;
+        private int mStepTime;
         private int mRowIndex;
+
 
         public StepListItemModel(byte stepIndex)
         {
@@ -20,6 +24,24 @@ namespace Demo.ui.model
         {
             get { return mStepIndex; }
             set { mStepIndex = value; }
+        }
+
+        public string StepName
+        {
+            get { return mStepName; }
+            set { mStepName = value;}
+        }
+
+        public sbyte StepType
+        {
+            get { return mStepType; }
+            set { mStepType = value; }
+        }
+
+        public int StepTime
+        {
+            get { return mStepTime; }
+            set { mStepTime = value; }
         }
 
         public int RowIndex

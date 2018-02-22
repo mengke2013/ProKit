@@ -61,6 +61,8 @@ namespace Demo.ui.model
         private string[] mEvColors;
         private string[] mPipeColors;
 
+        private int mProcessRemainingTime;
+
         private TubePageStyle mTubePageStyle;
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -768,6 +770,21 @@ namespace Demo.ui.model
                 mPaddleSpeedSp = value;
                 Notify("PaddleSpeedSp");
             }
+        }
+
+        public int ProcessRemainingTime
+        {
+            get { return mProcessRemainingTime; }
+            set
+            {
+                mProcessRemainingTime = value;
+                Notify("ProcessRemainingTimeS");
+            }
+        }
+
+        public string ProcessRemainingTimeS
+        {
+            get { return string.Format("{2}:{1}:{0}", (mProcessRemainingTime%3600)%60, (int)((mProcessRemainingTime % 3600) / 60), ((int)mProcessRemainingTime / 3600)); }
         }
 
         void Notify(string propName)

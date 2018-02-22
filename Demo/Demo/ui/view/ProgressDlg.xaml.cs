@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Demo.ui.model;
 
 namespace Demo.ui.view
 {
@@ -19,9 +20,20 @@ namespace Demo.ui.view
     /// </summary>
     public partial class ProgressDlg : Window
     {
+
+        private ProgressDlgModel mProgressModel;
+
         public ProgressDlg()
         {
             InitializeComponent();
+            ProgressModel = new ProgressDlgModel();
+            this.DataContext = ProgressModel;
+        }
+
+        public ProgressDlgModel ProgressModel
+        {
+            get { return mProgressModel; }
+            set { mProgressModel = value; }
         }
     }
 }

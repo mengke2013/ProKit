@@ -28,7 +28,7 @@ namespace Demo.ui.model
             mRecipeViewModel = new TubeRecipeViewModel(1);
         }
 
-        public void LoadData(byte selectedTube)
+        private void LoadTestData()
         {
             mRecipeViewModel.StepName = "Test Step";
             mRecipeViewModel.StepType = 1;
@@ -115,6 +115,21 @@ namespace Demo.ui.model
             //mRecipeViewModel.AnalogDelay = test;
             //intValue |= 1 << bitPosition;
             //intValue &= ~(1 << bitPosition);
+        }
+
+        public void LoadData(byte selectedTube)
+        {
+            LoadTestData();
+        }
+
+        public void UpdateStepListItems(byte[] stepListBytes)
+        {
+            for (int i = 0; i < 64; ++i)
+            {
+                mStepListItemModels[i].StepName = Encoding.ASCII.GetString(stepListBytes, 0+i*64, 32+i*64).TrimEnd('\0');
+                mStepListItemModels[i].StepType = (sbyte)stepListBytes[36 + i * 64];
+                mStepListItemModels[i].StepTime = BitConverter.ToInt32(stepListBytes, 32 + i * 64);
+            }
         }
 
         public void ParseRecipeData(byte[] recipeBytes)

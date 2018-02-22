@@ -22,6 +22,8 @@ using System.Windows.Threading;
 using System.Threading;
 using System.Net;
 using System.Net.Sockets;
+using Demo.service;
+using Demo.model;
 
 namespace Demo.ui
 {
@@ -129,7 +131,29 @@ namespace Demo.ui
             RecipeView.CommitClick += new TubeRecipeView.ClickHandler(Step_Commit_Click);
         }
 
-        public void CloseButton_Click(object sender, RoutedEventArgs e)
+        public void LoadTubePage(byte selectedTube)
+        {
+            log.Debug("TubeRecipePage:LoadTubePage");
+            mSelectedTube = selectedTube;
+
+            Recipe recipe = RecipeService.Instance.LoadRecipe(mSelectedTube);
+            if (recipe == null)
+            {
+                txtBlockRecipeInfo.Visibility = Visibility.Visible;
+                gridRecipePanel.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                txtBlockRecipeInfo.Visibility = Visibility.Hidden;
+                gridRecipePanel.Visibility = Visibility.Visible;
+
+                //synchronize recipe step data
+                mTubeRecipePageModel.LoadData(mSelectedTube);
+                //SynRecipeStep(1);
+            }
+        }
+
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             this.CloseClick(sender, e);
             e.Handled = false;
@@ -155,20 +179,23 @@ namespace Demo.ui
         private void Step_Commit_Click(object sender, RoutedEventArgs e, byte stepIndex)
         {
             log.Debug("Commit Step " + stepIndex);
-            if (ComNodeService.Instance.IsConnected())
+            bool startCommit = RecipeService.Instance.CommitStep(mSelectedTube, stepIndex, OnCommitStepComplete);
+            if (startCommit)
             {
-                CommitRecipeStep(stepIndex);
+                mProgressDlg.ShowDialog();
             }
-
         }
 
-        public void LoadTubePage(byte selectedTube)
+        private void RefreshBtn_Click(object sender, RoutedEventArgs e)
         {
-            log.Debug("TubeRecipePage:LoadTubePage");
-            mSelectedTube = selectedTube;
-
-            //synchronize recipe step data
-            //SynRecipeStep(1);
+            log.Debug("TubeRecipePage:RefreshBtn_Click");
+            bool startSyn = RecipeService.Instance.SynRecipe(mSelectedTube, OnSynRecipeComplete, OnSynStepComplete);
+            if (startSyn)
+            {
+                mProgressDlg.ProgressModel.MaxValue = 64;
+                mProgressDlg.ProgressModel.Progress = 0;
+                mProgressDlg.ShowDialog();
+            }
         }
 
         private void DownloadBtn_Click(object sender, RoutedEventArgs e)
@@ -183,38 +210,77 @@ namespace Demo.ui
             var result = openFileDialog.ShowDialog();
             if (result == true)
             {
-                //synchronize recipe step data
-                //WriteRecipeData();
-                // mProgressDlg.ShowDialog();
-                mRecipeBak = new Demo.utilities.Properties(openFileDialog.FileName);
-                MessageBox.Show(mRecipeBak.get("1"));
+                bool startDownload = RecipeService.Instance.DownloadRecipe(openFileDialog.FileName, mSelectedTube, OnDownRecipeComplete, OnDownloadStepComplete);
+                if (startDownload)
+                {
+                    mProgressDlg.ProgressModel.MaxValue = 64;
+                    mProgressDlg.ProgressModel.Progress = 0;
+                    mProgressDlg.ShowDialog();
+                }
             }
-
         }
 
         private void BackupBtn_Click(object sender, RoutedEventArgs e)
         {
             log.Debug("TubeRecipePage:BackupBtn_Click");
             //save recipe data from PLC to DB or File
-            var saveFileDialog = new Microsoft.Win32.SaveFileDialog() {
+            var saveFileDialog = new Microsoft.Win32.SaveFileDialog()
+            {
                 Filter = "Recipe Data Files (*.rcd)|*.rcd"
             };
             saveFileDialog.Title = "Save a Recipe Data File";
             var result = saveFileDialog.ShowDialog();
             if (result == true)
             {
-                mRecipeBak = new Demo.utilities.Properties(saveFileDialog.FileName);
-                //ReadRecipeData();
-                //mProgressDlg.ShowDialog();
-
-                mRecipeBak.set("1", "Test");
-                mRecipeBak.Save();
-                MessageBox.Show("Recipe Data File is saved successfully.");
+                bool startBackup = RecipeService.Instance.BackupRecipe(saveFileDialog.FileName, mSelectedTube, OnBackupRecipeComplete);
+                if (startBackup)
+                {
+                    mProgressDlg.ShowDialog();
+                }
             }
+        }
 
-           
- 
+        private void OnSynRecipeComplete(Recipe recipe)
+        {
+            this.Dispatcher.BeginInvoke(DispatcherPriority.Normal, (ThreadStart)delegate ()
+            {
+                mProgressDlg.Hide();
+                //StepItems[0].Item_Click(null, null);
+                MessageBox.Show("OnSynRecipeComplete");
+                //Recipe recipe = RecipeService.Instance.LoadRecipe();
+            });
+        }
 
+        private void OnSynStepComplete(RecipeStep step)
+        {
+            mProgressDlg.ProgressModel.Progress = step.StepIndex;
+        }
+
+        private void OnDownRecipeComplete(Recipe recipe)
+        {
+            this.Dispatcher.BeginInvoke(DispatcherPriority.Normal, (ThreadStart)delegate ()
+            {
+                mProgressDlg.Hide();
+                //StepItems[0].Item_Click(null, null);
+                MessageBox.Show("OnDownloadRecipeComplete");
+            });
+        }
+
+        private void OnDownloadStepComplete(RecipeStep step)
+        {
+            mProgressDlg.ProgressModel.Progress = step.StepIndex;
+        }
+
+        private void OnBackupRecipeComplete()
+        {
+            mProgressDlg.Hide();
+            MessageBox.Show("Done");
+        }
+
+        private void OnCommitStepComplete(byte stepIndex)
+        {
+            mProgressDlg.Hide();
+            MessageBox.Show("Done");
         }
 
         private void SynRecipeStep(byte stepIndex)
@@ -224,7 +290,6 @@ namespace Demo.ui
                 ReadRecipeData(stepIndex);
                 mProgressDlg.ShowDialog();
             }
-
         }
 
         public void ReadRecipeData()
@@ -297,7 +362,6 @@ namespace Demo.ui
                 Demo.com.TcpClient.Instance.Close();
             }
         }
-
 
         private void SynRecipeStepCallback(byte[] recipeBytes, byte stepIndex)
         {
@@ -376,12 +440,13 @@ namespace Demo.ui
                 //parse recipe step data
                 byte[] recipeBytes = new byte[328];
                 Array.Copy(so2.buffer, 0, recipeBytes, 0, 328);
-                mRecipeBak.set(String.Format("{0}", so2.stepIndex), Encoding.ASCII.GetString(so2.buffer));
+                mRecipeBak.set(String.Format("{0}", so2.stepIndex), Encoding.Unicode.GetString(so2.buffer));
                 mRecipeBak.Save();
             }
 
             if (so2.stepIndex < 63)
             {
+                mProgressDlg.ProgressModel.Progress = so2.stepIndex;
                 //go next step 
                 so2.stepIndex = (byte)(so2.stepIndex + 1);
                 socket.BeginReceive(so2.buffer, 0, StateObject.BUFFER_SIZE, SocketFlags.None,
@@ -413,7 +478,7 @@ namespace Demo.ui
 
             so2.stepIndex = (byte)1;
             string strRecipeData = mRecipeBak.get(String.Format("{0}", so2.stepIndex));
-            so2.buffer = Encoding.ASCII.GetBytes(strRecipeData);
+            so2.buffer = Encoding.Unicode.GetBytes(strRecipeData);
             socket.BeginConnect(ipe, ar =>
             {
                 so2.aResult = ar;
@@ -443,12 +508,12 @@ namespace Demo.ui
             {
                 if (so2.stepIndex < 63)
                 {
+                    mProgressDlg.ProgressModel.Progress = so2.stepIndex;
                     Thread.Sleep(200);
                     //go next step 
                     so2.stepIndex = (byte)(so2.stepIndex + 1);
                     string strRecipeData = mRecipeBak.get(String.Format("{0}", so2.stepIndex));
-                    so2.buffer = Encoding.ASCII.GetBytes(strRecipeData);
-                    log.Debug(so2.buffer);
+                    so2.buffer = Encoding.Unicode.GetBytes(strRecipeData);
                     sSocket.BeginSend(so2.buffer, 0, StateObject.BUFFER_SIZE, SocketFlags.None,
                         new AsyncCallback(WriteCompleteRecipeCallback), so2);
                 }

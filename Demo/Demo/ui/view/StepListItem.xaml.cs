@@ -32,11 +32,14 @@ namespace Demo.ui.view
             InitializeComponent();
         }
 
-        private void Item_Click(object sender, MouseButtonEventArgs e)
+        public void Item_Click(object sender, MouseButtonEventArgs e)
         {
             this.Background = new SolidColorBrush(Colors.Green);
             this.ItemClick(sender, e, mItemMode.StepIndex);
-            e.Handled = false;
+            if (e != null)
+            {
+                e.Handled = false;
+            }
         }
 
         public StepListItemModel ItemMode

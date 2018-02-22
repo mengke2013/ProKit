@@ -18,43 +18,45 @@
                 </Button>
                 <Grid >
                     <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="210"/>
                         <ColumnDefinition />
                         <ColumnDefinition />
-                        <ColumnDefinition />
-                        <ColumnDefinition />
+                        <ColumnDefinition Width="140"/>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition />
                     </Grid.RowDefinitions>
-                    <WrapPanel Margin="5,8,5,2" VerticalAlignment="Bottom" Grid.Column="0" Grid.ColumnSpan="2">
-                        <Button>
-                            <Image Source="/Demo;component/images/play.png" Width="40" Height="40"></Image>
+                    <WrapPanel Margin="5,8,5,2" VerticalAlignment="Bottom" Grid.Column="0" Grid.ColumnSpan="1">
+                        <Button Name="btnStart" Click="StartButton_Click" Width="40" Height="40">
+                            <Image Source="/Demo;component/images/play.png" ></Image>
                         </Button>
-                        <Button>
-                            <Image Source="/Demo;component/images/pause.png" Width="40" Height="40"></Image>
+                        <Button Name="btnHold" Click="HoldButton_Click" Width="40" Height="40">
+                            <Image Source="/Demo;component/images/pause.png" ></Image>
                         </Button>
-                        <Button>
-                            <Image Source="/Demo;component/images/next.png" Width="40" Height="40"></Image>
+                        <Button Width="40" Height="40">
+                            <Image Source="/Demo;component/images/next.png" ></Image>
                         </Button>
-                        <Button>
-                            <Image Source="/Demo;component/images/abort.png" Width="40" Height="40"></Image>
+                        <Button Name="btnIdle" Click="IdleButton_Click" Width="40" Height="40">
+                            <Image Source="/Demo;component/images/abort.png" ></Image>
                         </Button>
-                        <Button>
-                            <Image Source="/Demo;component/images/idle.png" Width="40" Height="40"></Image>
+                        <Button Width="40" Height="40">
+                            <Image Source="/Demo;component/images/idle.png" ></Image>
                         </Button>
-                        <TextBlock Grid.Column="3" Margin="30,0,15,3" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="16" Foreground="#FF236EC9" FontWeight="Bold">Recipe Demo</TextBlock>
                     </WrapPanel>
+                    <ProgressBar Name="pgbProcess" Margin="5,0,5,2" Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Bottom" Height="8" Maximum="{Binding Path=MaxValue}" Value="{Binding Path=Progress}"></ProgressBar>
+                    <TextBlock  Margin="10,8,10,2" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="16" Foreground="#FF236EC9" FontWeight="Bold">Recipe Demo</TextBlock>
+                    <TextBlock Margin="10,8,10,2" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Text="{Binding Path=ProcessRemainingTimeS}" FontSize="12" Foreground="#FF236EC9" FontWeight="Bold"></TextBlock>
                     <WrapPanel Margin="5,8,5,2" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Bottom">
-                        <Button  Margin="30,0,15,0" Click="SettingsButton_Click" >
-                            <Image Source="/Demo;component/images/configuration.png" Width="40" Height="40"></Image>
+                        <Button  Margin="0,0,5,0" Click="SettingsButton_Click" Width="40" Height="40">
+                            <Image Source="/Demo;component/images/configuration.png"></Image>
                         </Button>
-                        <Button  Margin="0,0,15,0" >
-                            <Image Source="/Demo;component/images/maintenance.png" Width="40" Height="40"></Image>
+                        <Button  Margin="0,0,5,0" Width="40" Height="40">
+                            <Image Source="/Demo;component/images/maintenance.png"></Image>
                         </Button>
-                        <Button Margin="0,0,15,0" >
-                            <Image Source="/Demo;component/images/alarm.png" Width="40" Height="40"></Image>
+                        <Button Margin="0,0,0,0" Width="40" Height="40">
+                            <Image Source="/Demo;component/images/alarm.png"></Image>
                         </Button>
-                        <TextBlock  Margin="10,0,15,0"  FontSize="12" VerticalAlignment="Bottom" Foreground="#FF236EC9" FontWeight="Bold">00:00:00</TextBlock>
+                        
                     </WrapPanel>
                 </Grid>
             </DockPanel>

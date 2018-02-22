@@ -17,6 +17,9 @@ using Rocky.Core.Opc.Ua;
 using Demo.com;
 using log4net;
 using Demo.ui.view;
+using System.Threading;
+using System.Windows.Threading;
+using Demo.service;
 
 namespace Demo.ui
 {
@@ -33,6 +36,7 @@ namespace Demo.ui
 
         private TubeMonitorPageModel mTubeMonitorPageModel;
         private TubePageStyle mTubePageStyle;
+        private ProgressDlgModel mPgbProcessModel;
 
         public TubeMonitorPage()
         {
@@ -40,6 +44,9 @@ namespace Demo.ui
 
             mTubeMonitorPageModel = new TubeMonitorPageModel();
             mTubePageStyle = new TubePageStyle();
+            mPgbProcessModel = new ProgressDlgModel();
+            pgbProcess.DataContext = mPgbProcessModel;
+
         }
 
         public void CloseButton_Click(object sender, RoutedEventArgs e)
@@ -54,13 +61,53 @@ namespace Demo.ui
             e.Handled = false;
         }
 
+        public void StartButton_Click(object sender, RoutedEventArgs e)
+        {
+            ProcessService.Instance.StartProcess(mTubeMonitorPageModel.SelectedTube);
+            btnStart.IsEnabled = false;
+            btnHold.IsEnabled = true;
+            mPgbProcessModel.MaxValue = 100;
+            mPgbProcessModel.Progress = 0;
+            Thread processRunThread = new Thread(() => {
+                while (mPgbProcessModel.Progress != mPgbProcessModel.MaxValue)
+                {
+                    //The invoke only needs to be used when updating GUI Elements
+                    Thread.Sleep(500);
+                    mPgbProcessModel.Progress += 1;
+                    mTubeMonitorPageModel.ProcessRemainingTime = mPgbProcessModel.MaxValue - mPgbProcessModel.Progress;
+                }
+              
+                this.Dispatcher.BeginInvoke(DispatcherPriority.Normal, (ThreadStart)delegate ()
+                {
+                    MessageBox.Show("Done");
+                    btnHold.IsEnabled = false;
+                    btnStart.IsEnabled = true;
+                });
+     
+            });
+            processRunThread.IsBackground = true;
+            processRunThread.Start();
+        }
+
+        public void HoldButton_Click(object sender, RoutedEventArgs e)
+        {
+            btnHold.IsEnabled = false;
+            btnStart.IsEnabled = true;
+        }
+
+        public void IdleButton_Click(object sender, RoutedEventArgs e)
+        {
+            btnHold.IsEnabled = false;
+            btnStart.IsEnabled = true;
+        }
+
         public void LoadPage(byte selectedTube)
         {
             log.Info("TubeMonitorPage");
             mTubeMonitorPageModel.SelectedTube = selectedTube;
 
             mTubePageStyle.TextBoxWidth = this.ActualWidth / 20;
-            mTubePageStyle.TextBoxHeight = this.ActualHeight / 20;
+            mTubePageStyle.TextBoxHeight = this.ActualHeight / 25;
 
             mTubeMonitorPageModel.TubePageStyle = mTubePageStyle;
 

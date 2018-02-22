@@ -18,6 +18,7 @@ using System.Threading;
 using System.Windows.Media.Effects;
 using Demo.ui.model;
 using Demo.ui.view;
+using System.ComponentModel;
 
 namespace Demo.ui
 {
@@ -29,8 +30,8 @@ namespace Demo.ui
         public static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         private byte mSelectedTube = 0;
-        
-        private byte[] tubePageIndexes = {1,1,1,1,1,1};
+
+        private byte[] tubePageIndexes = { 1, 1, 1, 1, 1, 1 };
         private string[] tubePageTitleLabels = { "Monitor", "Trend", "Recipe", "Report", "Events" };
         private ITubePage[] tubePages = new ITubePage[5];
         private Button[] TubeTabHeaders = new Button[5];
@@ -59,8 +60,32 @@ namespace Demo.ui
             tubeMonitorPage.SettingsClick += new TubeControlBar.ClickHandler(bdMainSettings_Click);
             tubeRecipePage.CloseClick += new TubeControlBar.ClickHandler(bdMainClose_Click);
             this.DataContext = this;
-           
 
+
+
+        }
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            if (MessageBox.Show("Would you want to exit?", "Confirm", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+
+            }
+            else
+            {
+                // if you want to stop it, set e.Cancel = true
+                e.Cancel = true;
+            }
+
+        }
+
+        protected override void OnClosed(EventArgs e)
+        {
+            //Application.Current.ShutdownMode = ShutdownMode.OnMainWindowClose;
+            //if (this.IsAfreshLogin == true) return;
+
+            base.OnClosed(e);
+            Application.Current.Shutdown();
 
         }
 
@@ -121,7 +146,7 @@ namespace Demo.ui
             txtBlkTube3Zone4Int.DataContext = new ComNodeWraper(ComProcessNodeComponent.Instance.TubeNodeComponents[2].FurnaceNodeComponent.TemperNodeComponents[3].IntValue);
             txtBlkTube3Zone5Int.DataContext = new ComNodeWraper(ComProcessNodeComponent.Instance.TubeNodeComponents[2].FurnaceNodeComponent.TemperNodeComponents[4].IntValue);
             txtBlkTube3Zone6Int.DataContext = new ComNodeWraper(ComProcessNodeComponent.Instance.TubeNodeComponents[2].FurnaceNodeComponent.TemperNodeComponents[5].IntValue);
-            
+
             txtBlkTube4Gas1Int.DataContext = new ComNodeWraper(ComProcessNodeComponent.Instance.TubeNodeComponents[3].MfcNodeComponent.GasNodeComponents[0].CurMeas);
             txtBlkTube4Gas2Int.DataContext = new ComNodeWraper(ComProcessNodeComponent.Instance.TubeNodeComponents[3].MfcNodeComponent.GasNodeComponents[1].CurMeas);
             txtBlkTube4Gas5Int.DataContext = new ComNodeWraper(ComProcessNodeComponent.Instance.TubeNodeComponents[3].MfcNodeComponent.GasNodeComponents[3].CurMeas);
@@ -188,12 +213,12 @@ namespace Demo.ui
             bd0.Visibility = Visibility.Hidden;
             bd1.Visibility = Visibility.Hidden;
         }
-        
+
         private void bdMainSettings_Click(object sender, RoutedEventArgs e)
         {
             TubeSettingsDialog settingsDlg = new TubeSettingsDialog(mSelectedTube);
-            settingsDlg.Height = this.ActualHeight/3*2;
-            settingsDlg.Width = this.ActualWidth/3*2;
+            settingsDlg.Height = this.ActualHeight / 3 * 2;
+            settingsDlg.Width = this.ActualWidth / 3 * 2;
             settingsDlg.Owner = this;
             settingsDlg.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             settingsDlg.VerticalAlignment = VerticalAlignment.Center;
@@ -242,7 +267,7 @@ namespace Demo.ui
             bdMainPanel.Height = this.ActualHeight - 130;
             bdMainPanel.Width = this.ActualWidth - 190;
             mSelectedTube = 2;
-            bd1.Margin = new Thickness(130,126,0,0);
+            bd1.Margin = new Thickness(130, 126, 0, 0);
             bd1.Visibility = Visibility.Visible;
             DisableAllTabs();
             borderTube2.Background = new SolidColorBrush(Colors.White);
@@ -406,7 +431,7 @@ namespace Demo.ui
 
         private void ShowActivedTubePage()
         {
-            bd0.Margin = new Thickness(381+(tubePageIndexes[mSelectedTube - 1]-1) * 85, 42, 0, 0);
+            bd0.Margin = new Thickness(381 + (tubePageIndexes[mSelectedTube - 1] - 1) * 85, 42, 0, 0);
             DisableAllTubePages();
             tubePages[tubePageIndexes[mSelectedTube - 1] - 1].UI().Visibility = Visibility.Visible;
             tubePageTitle.Text = tubePageTitleLabels[tubePageIndexes[mSelectedTube - 1] - 1];
@@ -546,7 +571,7 @@ namespace Demo.ui
                 opcReadNodes.Add(ComProcessNodeComponent.Instance.TubeNodeComponents[tubeIndex].DioNodeComponent.Ev);
                 opcReadNodes.Add(ComProcessNodeComponent.Instance.TubeNodeComponents[tubeIndex].DioNodeComponent.DigInput);
                 opcReadNodes.Add(ComProcessNodeComponent.Instance.TubeNodeComponents[tubeIndex].DioNodeComponent.DigOutput);
-                ComNodeService.Instance.ReadComNodes((byte)(tubeIndex+1), opcReadNodes);
+                ComNodeService.Instance.ReadComNodes((byte)(tubeIndex + 1), opcReadNodes);
                 opcReadNodes.Clear();
             }
 

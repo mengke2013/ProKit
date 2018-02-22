@@ -14,6 +14,7 @@ namespace Demo.com
         ComPaddleNodeComponent mPaddleNodeComponent;
         ComDioNodeComponent mDioNodeComponent;
         ComCommandNodeComponent mCommandNodeComponent;
+        ComTubeStatusInfoNodeComponent mStatusInfoNodeComponent;
 
 
         public ComTubeNodeComponent(byte tubeIndex)
@@ -24,6 +25,7 @@ namespace Demo.com
             mPaddleNodeComponent = new ComPaddleNodeComponent(tubeIndex);
             mDioNodeComponent = new ComDioNodeComponent(tubeIndex);
             mCommandNodeComponent = new ComCommandNodeComponent(tubeIndex);
+            mStatusInfoNodeComponent = new ComTubeStatusInfoNodeComponent(tubeIndex);
         }
 
         public ComFurnaceNodeComponent FurnaceNodeComponent
@@ -71,6 +73,14 @@ namespace Demo.com
             get
             {
                 return mCommandNodeComponent;
+            }
+        }
+
+        public ComTubeStatusInfoNodeComponent StatusInfoNodeComponent
+        {
+            get
+            {
+                return mStatusInfoNodeComponent;
             }
         }
     }

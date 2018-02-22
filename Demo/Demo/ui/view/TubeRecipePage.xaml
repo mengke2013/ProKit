@@ -33,13 +33,18 @@
                                 <TextBlock>Download</TextBlock>
                             </StackPanel>
                         </Button>
-                        <Button Click="BackupBtn_Click">
+                        <Button Margin="0,0,5,0" Click="BackupBtn_Click">
                             <StackPanel Width="40" Height="40">
                                 <Image Source="/Demo;component/images/up.png" Width="25" Height="25"></Image>
                                 <TextBlock>Backup</TextBlock>
                             </StackPanel>
                         </Button>
-
+                        <Button Click="RefreshBtn_Click">
+                            <StackPanel Width="40" Height="40">
+                                <Image Source="/Demo;component/images/up.png" Width="25" Height="25"></Image>
+                                <TextBlock>Refresh</TextBlock>
+                            </StackPanel>
+                        </Button>
                     </WrapPanel>
                     <TextBlock Margin="15,0,15,3" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="16" Foreground="#FF236EC9" FontWeight="Bold">Recipe Demo</TextBlock>
                 </Grid>
@@ -58,7 +63,8 @@
             </Grid.ColumnDefinitions>
             <Rectangle Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Margin="30,0,30,2" Height="1" Fill="#FFAAA5A5" />
 
-            <Grid Margin="5,0" Grid.Row="1" Grid.Column="1">
+            <TextBlock Name="txtBlockRecipeInfo" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14"> Click refresh button to get the recipe from device</TextBlock>
+            <Grid Name="gridRecipePanel" Margin="5,0" Grid.Row="1" Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition MaxHeight="10"/>
                     <RowDefinition />

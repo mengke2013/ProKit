@@ -11,6 +11,7 @@ namespace Demo.com
     {
         private OpcNode mTchLoad;
         private OpcNode mControlWord;
+        private OpcNode mTchStart;
 
         public ComCommandNodeComponent(byte tubeIndex)
         {
@@ -18,6 +19,8 @@ namespace Demo.com
             mTchLoad = new OpcNode(sNodeId);
             sNodeId = string.Format("ns=4;s=|var|CODESYS Control for PFC200 SL.Application.TUBE{0}.SynControlWord", tubeIndex);
             mControlWord = new OpcNode(sNodeId);
+            sNodeId = string.Format("ns=4;s=|var|CODESYS Control for PFC200 SL.Application.TUBE{0}.TchStart", tubeIndex);
+            mTchStart = new OpcNode(sNodeId);
         }
 
         public OpcNode TchLoad
@@ -30,6 +33,12 @@ namespace Demo.com
         {
             get { return mControlWord; }
             set { mControlWord = value; }
+        }
+
+        public OpcNode TchStart
+        {
+            get { return mTchStart; }
+            set { mTchStart = value; }
         }
 
     }
