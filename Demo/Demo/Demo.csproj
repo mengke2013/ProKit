@@ -98,10 +98,12 @@
     <Compile Include="model\Process.cs" />
     <Compile Include="model\Recipe.cs" />
     <Compile Include="model\RecipeStep.cs" />
+    <Compile Include="service\ComService.cs" />
     <Compile Include="service\ProcessService.cs" />
     <Compile Include="service\RecipeService.cs" />
     <Compile Include="ui\ComNodeWraper.cs" />
     <Compile Include="ui\controls\ClickSelectTextBox.cs" />
+    <Compile Include="ui\converter\RecipeConverter.cs" />
     <Compile Include="ui\ITubePage.cs" />
     <Compile Include="ui\model\DioSwitcherModel.cs" />
     <Compile Include="ui\model\DiSelectorModel.cs" />

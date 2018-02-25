@@ -8,6 +8,7 @@ using System.Windows;
 using log4net;
 using Rocky.Core.Opc.Ua;
 using Demo.com;
+using Demo.service;
 
 namespace Demo
 {
@@ -21,6 +22,9 @@ namespace Demo
         public App()
         {
             SubscriptComNodes();
+            ComService.Instance.StartHeartBeatService();
+
+            ProcessService.Instance.StartPullInfoService();
         }
 
         protected override void OnStartup(StartupEventArgs e)

@@ -21,7 +21,7 @@ namespace Demo.ui.view
     /// </summary>
     public partial class TubeRecipeView : UserControl
     {
-        public delegate void ClickHandler(object sender, RoutedEventArgs e, byte stepIndex);
+        public delegate void ClickHandler(object sender, RoutedEventArgs e, int stepIndex);
         public event ClickHandler CommitClick;
 
         private TubeRecipeViewModel mRecipeViewMode;

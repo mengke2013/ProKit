@@ -8,7 +8,7 @@ namespace Demo.ui.model
 {
     public class StepListItemModel
     {
-        private byte mStepIndex;
+        private int mStepIndex;
         private string mStepName;
         private sbyte mStepType;
         private int mStepTime;
@@ -20,7 +20,7 @@ namespace Demo.ui.model
             mStepIndex = stepIndex;
         }
 
-        public byte StepIndex
+        public int StepIndex
         {
             get { return mStepIndex; }
             set { mStepIndex = value; }

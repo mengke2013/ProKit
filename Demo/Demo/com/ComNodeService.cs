@@ -65,6 +65,22 @@ namespace Demo.com
             }
         }
 
+        public void WriteComNodesToTubeGroup(byte tubeGroup, List<OpcNode> opcNodes)
+        {
+            if (IsConnected())
+            {
+                if (tubeGroup == 1)
+                {
+                    mClient1.WriteValue(opcNodes);
+                }
+                else if (tubeGroup == 2)
+                {
+                    mClient2.WriteValue(opcNodes);
+                }
+            }
+
+        }
+
         public void SubscriptComNodes(byte tubeIndex, List<OpcNode> opcNodes)
         {
             if (tubeIndex < 4 && mClient1 != null)

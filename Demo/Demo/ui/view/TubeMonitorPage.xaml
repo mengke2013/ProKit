@@ -44,8 +44,13 @@
                         </Button>
                     </WrapPanel>
                     <ProgressBar Name="pgbProcess" Margin="5,0,5,2" Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Bottom" Height="8" Maximum="{Binding Path=MaxValue}" Value="{Binding Path=Progress}"></ProgressBar>
-                    <TextBlock  Margin="10,8,10,2" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="16" Foreground="#FF236EC9" FontWeight="Bold">Recipe Demo</TextBlock>
-                    <TextBlock Margin="10,8,10,2" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Text="{Binding Path=ProcessRemainingTimeS}" FontSize="12" Foreground="#FF236EC9" FontWeight="Bold"></TextBlock>
+                    <WrapPanel Margin="10,8,10,2" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">
+                        <TextBlock   Text="{Binding Path=ProcessName}" FontSize="16" Foreground="#FF236EC9" FontWeight="Bold"></TextBlock>
+                    </WrapPanel>
+                    <WrapPanel Margin="10,8,10,2" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center">
+                        <TextBlock Text="{Binding Path=ProcessStatus}" FontSize="16" Foreground="#FF236EC9" FontWeight="Bold"></TextBlock>
+                        <TextBlock Margin="10,0,0,0" VerticalAlignment="Bottom" Text="{Binding Path=ProcessRemainingTimeS}" FontSize="12" Foreground="#FF236EC9" FontWeight="Bold"></TextBlock>
+                    </WrapPanel>
                     <WrapPanel Margin="5,8,5,2" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Bottom">
                         <Button  Margin="0,0,5,0" Click="SettingsButton_Click" Width="40" Height="40">
                             <Image Source="/Demo;component/images/configuration.png"></Image>

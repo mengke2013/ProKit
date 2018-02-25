@@ -15,6 +15,9 @@ namespace Demo.ui.model
         private byte mSelectedTube = 1;
         private byte mPreSelectedTube = 1;
         private NodeValueUpdateEventHandler mPreUpdateHandler;
+
+        private string mProcessName;
+        private string mProcessStatus;
         private string mGas1Sp;
         private string mGas2Sp;
         private string mGas5Sp;
@@ -222,6 +225,26 @@ namespace Demo.ui.model
         {
             get { return mTubePageStyle; }
             set { mTubePageStyle = value; }
+        }
+
+        public string ProcessName
+        {
+            get { return mProcessName; }
+            set
+            {
+                mProcessName = value;
+                Notify("ProcessName");
+            }
+        }
+
+        public string ProcessStatus
+        {
+            get { return mProcessStatus; }
+            set
+            {
+                mProcessStatus = value;
+                Notify("ProcessStatus");
+            }
         }
 
         public string Ev1Color

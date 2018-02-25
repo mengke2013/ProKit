@@ -38,6 +38,11 @@ namespace Demo.ui
         private TubePageStyle mTubePageStyle;
         private ProgressDlgModel mPgbProcessModel;
 
+        private int processTotalTime;
+
+        Thread mUpdateUIRunThread;
+        bool mUpdateUI;
+
         public TubeMonitorPage()
         {
             InitializeComponent();
@@ -45,8 +50,11 @@ namespace Demo.ui
             mTubeMonitorPageModel = new TubeMonitorPageModel();
             mTubePageStyle = new TubePageStyle();
             mPgbProcessModel = new ProgressDlgModel();
+            mPgbProcessModel.MaxValue = 100;
             pgbProcess.DataContext = mPgbProcessModel;
 
+
+            StartUpdateUIServer();
         }
 
         public void CloseButton_Click(object sender, RoutedEventArgs e)
@@ -63,30 +71,15 @@ namespace Demo.ui
 
         public void StartButton_Click(object sender, RoutedEventArgs e)
         {
-            ProcessService.Instance.StartProcess(mTubeMonitorPageModel.SelectedTube);
+            ProcessService.Instance.StartProcess(mTubeMonitorPageModel.SelectedTube, OnStartProcessComplete);
+            processTotalTime = ProcessService.Instance.GetTotalTime(mTubeMonitorPageModel.SelectedTube);
             btnStart.IsEnabled = false;
             btnHold.IsEnabled = true;
-            mPgbProcessModel.MaxValue = 100;
-            mPgbProcessModel.Progress = 0;
-            Thread processRunThread = new Thread(() => {
-                while (mPgbProcessModel.Progress != mPgbProcessModel.MaxValue)
-                {
-                    //The invoke only needs to be used when updating GUI Elements
-                    Thread.Sleep(500);
-                    mPgbProcessModel.Progress += 1;
-                    mTubeMonitorPageModel.ProcessRemainingTime = mPgbProcessModel.MaxValue - mPgbProcessModel.Progress;
-                }
-              
-                this.Dispatcher.BeginInvoke(DispatcherPriority.Normal, (ThreadStart)delegate ()
-                {
-                    MessageBox.Show("Done");
-                    btnHold.IsEnabled = false;
-                    btnStart.IsEnabled = true;
-                });
-     
-            });
-            processRunThread.IsBackground = true;
-            processRunThread.Start();
+        }
+
+        private void OnStartProcessComplete()
+        {
+            MessageBox.Show("OnStartProcessComplete");
         }
 
         public void HoldButton_Click(object sender, RoutedEventArgs e)
@@ -113,6 +106,44 @@ namespace Demo.ui
 
             DataContext = mTubeMonitorPageModel;
             mTubeMonitorPageModel.UpdateDataSource();
+        }
+
+        private void StartUpdateUIServer()
+        {
+            mUpdateUIRunThread = new Thread(() =>
+            {
+                ProcessStatus status = ProcessStatus.UNKNOWN;
+                while (mUpdateUI)
+                {
+                    if (mTubeMonitorPageModel.SelectedTube != 0)
+                    {
+                        status = ProcessService.Instance.GetStatus(mTubeMonitorPageModel.SelectedTube);
+                        this.Dispatcher.BeginInvoke(DispatcherPriority.Normal, (ThreadStart)delegate ()
+                        {
+                            btnHold.IsEnabled = (status == ProcessStatus.RUNNING);
+                            btnStart.IsEnabled = (status == ProcessStatus.HOLDING);
+                        });
+
+                        mTubeMonitorPageModel.ProcessStatus = ProcessService.Instance.GetProcessStatus(mTubeMonitorPageModel.SelectedTube);
+                        mTubeMonitorPageModel.ProcessName = ProcessService.Instance.GetProcessName(mTubeMonitorPageModel.SelectedTube);
+                        if ((status == ProcessStatus.RUNNING || status == ProcessStatus.HOLDING || status == ProcessStatus.ABORT) && processTotalTime > 0)
+                        {
+                            mPgbProcessModel.Progress = 100 * (processTotalTime - ProcessService.Instance.GetRemainingTime(mTubeMonitorPageModel.SelectedTube)) / processTotalTime;
+                            mTubeMonitorPageModel.ProcessRemainingTime = ProcessService.Instance.GetRemainingTime(mTubeMonitorPageModel.SelectedTube);
+                        }
+
+                    }
+                    Thread.Sleep(1000);
+                }
+            });
+            mUpdateUI = true;
+            mUpdateUIRunThread.IsBackground = true;
+            mUpdateUIRunThread.Start();
+        }
+
+        private void StopUpdateUIServer()
+        {
+            mUpdateUI = false;
         }
     }
 }

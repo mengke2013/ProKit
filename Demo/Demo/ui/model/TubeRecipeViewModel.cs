@@ -15,7 +15,7 @@ namespace Demo.ui.model
         private bool mDirty;
 
         private TubePageStyle mTubePageStyle;
-        private byte mStepIndex;
+        private int mStepIndex;
         private string mStepName;
         private sbyte mStepType;
         private int mStepTime;
@@ -119,7 +119,7 @@ namespace Demo.ui.model
             mDigOutput = 0;
         }
 
-        public byte StepIndex
+        public int StepIndex
         {
             get { return mStepIndex; }
             set

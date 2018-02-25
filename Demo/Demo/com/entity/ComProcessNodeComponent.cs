@@ -15,6 +15,8 @@ namespace Demo.com
         private ComTubeNodeComponent[] mTubeNodeComponents;
         private ComTubeGroupConfNodeComponent[] mTubeGroupConfNodeComponents;
         private OpcNode test;
+        private OpcNode[] TubeGroupHeartBeats;
+
 
 
         public static ComProcessNodeComponent Instance
@@ -45,6 +47,14 @@ namespace Demo.com
             }
         }
 
+        public OpcNode[] TubeGroupHeartBeatNodes
+        {
+            get
+            {
+                return TubeGroupHeartBeats;
+            }
+        }
+
         private ComProcessNodeComponent()
         {
             mTubeNodeComponents = new ComTubeNodeComponent[6];
@@ -59,6 +69,12 @@ namespace Demo.com
                 mTubeGroupConfNodeComponents[tubeGroupIndex - 1] = new ComTubeGroupConfNodeComponent(tubeGroupIndex);
             }
             test = new OpcNode("ns=4;s=|var|CODESYS Control for PFC200 SL.Application.MES.WaferID");
+            TubeGroupHeartBeats = new OpcNode[2];
+            for (byte tubeGroupIndex = 1; tubeGroupIndex <= 2; ++tubeGroupIndex)
+            {
+                TubeGroupHeartBeats[tubeGroupIndex - 1] = new OpcNode("ns=4;s=|var|CODESYS Control for PFC200 SL.Application.OPC.ClientHeartBeat");
+            }
+
         }
     }
 }

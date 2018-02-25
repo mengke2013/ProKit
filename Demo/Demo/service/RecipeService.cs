@@ -21,7 +21,7 @@ namespace Demo.service
         public delegate void OnSynStepComplete(RecipeStep step);
         public delegate void OnDownloadRecipeComplete(Recipe recipe);
         public delegate void OnDownloadStepComplete(RecipeStep step);
-        public delegate void OnCommitStepComplete(byte stepIndex);
+        public delegate void OnCommitStepComplete(int stepIndex);
         public delegate void OnBackupRecipeComplete();
 
         private static RecipeService instance;
@@ -35,7 +35,7 @@ namespace Demo.service
 
         private RecipeService()
         {
-            //mRecipe = new Recipe();
+            mRecipe = new Recipe();
         }
 
         public static RecipeService Instance
@@ -54,8 +54,13 @@ namespace Demo.service
         {
             if (System.IO.File.Exists(string.Format("recipe_tmp{0}.data", tubeIndex)))
             {
-                if (mTubeIndex == tubeIndex && mRecipe != null)
+                if (mTubeIndex == tubeIndex)
                 {
+                    if (!ComNodeService.Instance.IsConnected())
+                    {
+                        return null;
+
+                    }
                 }
                 else
                 {
@@ -65,16 +70,13 @@ namespace Demo.service
                         return null;
                     }
 
-                    if (mRecipe == null)
-                    {
-                        mRecipe = new Recipe();
-                    }
                     mRecipeTmpStore = new Demo.utilities.Properties(string.Format("recipe_tmp{0}.data", tubeIndex));
                     for (int i = 0; i < mRecipe.Steps.Length - 1; ++i)
                     {
-                        string strStepData = mRecipeBak.get(String.Format("{0}", i + 1));
-                        byte[] stepBytes = Encoding.Unicode.GetBytes(strStepData);
+                        string strStepData = mRecipeTmpStore.get(String.Format("{0}", i + 1));
+                        byte[] stepBytes = Encoding.Default.GetBytes(strStepData);
                         mRecipe.Steps[i] = DecryptStepData(stepBytes);
+                        mRecipe.Steps[i].StepIndex = i + 1;
                     }
                 }
                 return mRecipe;
@@ -124,7 +126,7 @@ namespace Demo.service
             return true;
         }
 
-        public bool CommitStep(byte tubeIndex, byte stepIndex, OnCommitStepComplete callback)
+        public bool CommitStep(byte tubeIndex, int stepIndex, OnCommitStepComplete callback)
         {
             mTubeIndex = tubeIndex;
             if (!ComNodeService.Instance.IsConnected())
@@ -136,9 +138,25 @@ namespace Demo.service
             return true;
         }
 
+        public RecipeStep GetRecipeStep(int stepIndex)
+        {
+            return mRecipe == null ? null : mRecipe.Steps[stepIndex - 1];
+        }
+
         public Recipe GetRecipeModel(byte tubeIndex)
         {
             return mRecipe;
+        }
+
+        public int GetRecipeTime(byte tubeIndex)
+        {
+            if (mRecipe == null)
+            {
+                return 0;
+            }
+
+            return 2000;
+            
         }
 
         private void SaveRecipeData(string fileName, OnBackupRecipeComplete callback)
@@ -151,7 +169,7 @@ namespace Demo.service
                     mRecipeBak = new Demo.utilities.Properties(fileName);
                     for (int i = 0; i < 63; ++i)
                     {
-                        string strStepData = mRecipeBak.get(String.Format("{0}", i + 1));
+                        string strStepData = mRecipeTmpStore.get(String.Format("{0}", i + 1));
                         mRecipeBak.set(String.Format("{0}", i + 1), strStepData);
                         mRecipeBak.Save();
                     }
@@ -162,7 +180,7 @@ namespace Demo.service
             processRunThread.Start();
         }
 
-        private void WriteStepeData(byte stepIndex, OnCommitStepComplete callback)
+        private void WriteStepeData(int stepIndex, OnCommitStepComplete callback)
         {
             Thread processRunThread = new Thread(() =>
             {
@@ -171,7 +189,7 @@ namespace Demo.service
                     RecipeStep step = mRecipe.Steps[stepIndex - 1];
                     List<OpcNode> opcWriteNodes = new List<OpcNode>();
                     sbyte comCommand = 22;
-                    ComProcessNodeComponent.Instance.TubeNodeComponents[mTubeIndex - 1].CommandNodeComponent.ControlWord.Value = stepIndex;
+                    ComProcessNodeComponent.Instance.TubeNodeComponents[mTubeIndex - 1].CommandNodeComponent.ControlWord.Value = (byte)stepIndex;
                     ComProcessNodeComponent.Instance.TubeNodeComponents[mTubeIndex - 1].CommandNodeComponent.TchLoad.Value = comCommand;
                     opcWriteNodes.Add(ComProcessNodeComponent.Instance.TubeNodeComponents[mTubeIndex - 1].CommandNodeComponent.ControlWord);
                     opcWriteNodes.Add(ComProcessNodeComponent.Instance.TubeNodeComponents[mTubeIndex - 1].CommandNodeComponent.TchLoad);
@@ -191,7 +209,6 @@ namespace Demo.service
                             {
                                 SocketError errorCode;
                                 int nBytesSend = socket.EndSend(asyncResult1, out errorCode);
-                                socket.EndConnect(asyncResult);
 
                                 if (errorCode != SocketError.Success)
                                 {
@@ -200,13 +217,13 @@ namespace Demo.service
 
                                 if (nBytesSend != 328)
                                 {
-                                //return with error code
-                                //MessageBox.Show("error");
-                                log.Error("error:step " + stepIndex);
+                                    //return with error code
+                                    //MessageBox.Show("error");
+                                    log.Error("error:step " + stepIndex);
                                 }
                                 else
                                 {
-                                    mRecipeTmpStore.set(String.Format("{0}", stepIndex), recipeBytes);
+                                    mRecipeTmpStore.set(String.Format("{0}", stepIndex), Encoding.Default.GetString(recipeBytes));
                                     mRecipeTmpStore.Save();
                                     //finish recipe
                                     socket.EndConnect(asyncResult);
@@ -288,7 +305,7 @@ namespace Demo.service
             so2.dldRecipeCallback = rCallback;
             so2.stepIndex = (byte)1;
             string strRecipeData = mRecipeBak.get(String.Format("{0}", so2.stepIndex));
-            so2.buffer = Encoding.Unicode.GetBytes(strRecipeData);
+            so2.buffer = Encoding.Default.GetBytes(strRecipeData);
             socket.BeginConnect(ipe, ar =>
             {
                 so2.aResult = ar;
@@ -347,7 +364,7 @@ namespace Demo.service
                     string strRecipeData = mRecipeBak.get(String.Format("{0}", so2.stepIndex));
                     mRecipeTmpStore.set(String.Format("{0}", so2.stepIndex), strRecipeData);
                     mRecipeTmpStore.Save();
-                    so2.buffer = Encoding.Unicode.GetBytes(strRecipeData);
+                    so2.buffer = Encoding.Default.GetBytes(strRecipeData);
                     sSocket.BeginSend(so2.buffer, 0, StateObject.BUFFER_SIZE, SocketFlags.None,
                         new AsyncCallback(WriteCompleteRecipeCallback), so2);
                 }
@@ -385,7 +402,9 @@ namespace Demo.service
                 //parse recipe step data
                 byte[] recipeBytes = new byte[328];
                 Array.Copy(so2.buffer, 0, recipeBytes, 0, 328);
-                mRecipeTmpStore.set(String.Format("{0}", so2.stepIndex), Encoding.Unicode.GetString(so2.buffer));
+                mRecipe.Steps[so2.stepIndex-1] = DecryptStepData(so2.buffer);
+                mRecipe.Steps[so2.stepIndex-1].StepIndex = so2.stepIndex;
+                mRecipeTmpStore.set(String.Format("{0}", so2.stepIndex), Encoding.Default.GetString(so2.buffer));
                 mRecipeTmpStore.Save();
             }
 
@@ -393,9 +412,7 @@ namespace Demo.service
             {
                 //mProgressDlg.ProgressModel.Progress = so2.stepIndex;
                 //go next step 
-                RecipeStep step = new RecipeStep();
-                step.StepIndex = so2.stepIndex;
-                so2.synStepCallback(step);
+                so2.synStepCallback(mRecipe.Steps[so2.stepIndex - 1]);
 
                 so2.stepIndex = (byte)(so2.stepIndex + 1);
                 socket.BeginReceive(so2.buffer, 0, StateObject.BUFFER_SIZE, SocketFlags.None,
@@ -405,8 +422,7 @@ namespace Demo.service
             {
                 //finish recipe
                 socket.EndConnect(so2.aResult);
-                Recipe recipe = null;
-                so2.synRecipeCallback(recipe);
+                so2.synRecipeCallback(mRecipe);
                 return;
             }
         }
@@ -415,7 +431,7 @@ namespace Demo.service
         {
             byte[] recipeBytes = new byte[328];
             byte[] cBytes;
-            cBytes = System.Text.Encoding.ASCII.GetBytes(step.StepName);
+            cBytes = System.Text.Encoding.Default.GetBytes(step.StepName);
             Array.Copy(cBytes, 0, recipeBytes, 0, cBytes.Length);
             cBytes = BitConverter.GetBytes(step.StepTime);
             Array.Copy(cBytes, 0, recipeBytes, 32, cBytes.Length);
@@ -477,7 +493,7 @@ namespace Demo.service
         {
             RecipeStep step = new RecipeStep();
 
-            step.StepName = Encoding.ASCII.GetString(recipeBytes, 0, 32).TrimEnd('\0');
+            step.StepName = Encoding.Default.GetString(recipeBytes, 0, 32).TrimEnd('\0');
             step.StepType = (sbyte)recipeBytes[36];
             step.StepTime = BitConverter.ToInt32(recipeBytes, 32);
 

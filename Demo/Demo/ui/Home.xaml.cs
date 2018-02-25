@@ -19,6 +19,7 @@ using System.Windows.Media.Effects;
 using Demo.ui.model;
 using Demo.ui.view;
 using System.ComponentModel;
+using Demo.service;
 
 namespace Demo.ui
 {
@@ -69,7 +70,7 @@ namespace Demo.ui
         {
             if (MessageBox.Show("Would you want to exit?", "Confirm", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
-
+                ProcessService.Instance.EndPullInfoService();
             }
             else
             {

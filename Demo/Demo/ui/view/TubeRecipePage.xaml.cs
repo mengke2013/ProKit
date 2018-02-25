@@ -24,6 +24,7 @@ using System.Net;
 using System.Net.Sockets;
 using Demo.service;
 using Demo.model;
+using Demo.ui.converter;
 
 namespace Demo.ui
 {
@@ -41,7 +42,6 @@ namespace Demo.ui
 
         public event TubeControlBar.ClickHandler CloseClick;
         private ProgressDlg mProgressDlg;
-        Demo.utilities.Properties mRecipeBak = new Demo.utilities.Properties("recipe_bak.data");
 
         public TubeRecipePage()
         {
@@ -148,8 +148,8 @@ namespace Demo.ui
                 gridRecipePanel.Visibility = Visibility.Visible;
 
                 //synchronize recipe step data
-                mTubeRecipePageModel.LoadData(mSelectedTube);
-                //SynRecipeStep(1);
+                //mTubeRecipePageModel.LoadData(mSelectedTube);
+                StepItems[0].Item_Click(null, null);
             }
         }
 
@@ -159,10 +159,11 @@ namespace Demo.ui
             e.Handled = false;
         }
 
-        private void Item_Select_Click(object sender, RoutedEventArgs e, byte stepIndex)
+        private void Item_Select_Click(object sender, RoutedEventArgs e, int stepIndex)
         {
             log.Debug("Step " + stepIndex);
             // MessageBox.Show("Step" + stepIndex);
+
             for (byte i = 0; i < StepItems.Length; ++i)
             {
                 if (i != stepIndex - 1)
@@ -170,15 +171,15 @@ namespace Demo.ui
                     StepItems[i].Background = new SolidColorBrush(Colors.White);
                 }
             }
-            mTubeRecipePageModel.TubeRecipeViewModel.UpdateView = true;
-            mTubeRecipePageModel.TubeRecipeViewModel.StepIndex = stepIndex;
-            mTubeRecipePageModel.TubeRecipeViewModel.UpdateView = false;
-            SynRecipeStep(stepIndex);
+
+            LoadStep(stepIndex);
         }
 
-        private void Step_Commit_Click(object sender, RoutedEventArgs e, byte stepIndex)
+        private void Step_Commit_Click(object sender, RoutedEventArgs e, int stepIndex)
         {
             log.Debug("Commit Step " + stepIndex);
+            RecipeStep step = RecipeService.Instance.GetRecipeStep(stepIndex);
+            RecipeConverter.ConvertRecipeModel(step, mTubeRecipePageModel); 
             bool startCommit = RecipeService.Instance.CommitStep(mSelectedTube, stepIndex, OnCommitStepComplete);
             if (startCommit)
             {
@@ -240,14 +241,20 @@ namespace Demo.ui
             }
         }
 
+        private void LoadStep(int stepIndex)
+        {
+            RecipeStep step = RecipeService.Instance.GetRecipeStep(stepIndex);
+            RecipeConverter.ConvertRecipePageModel(mTubeRecipePageModel, step);
+        }
+
         private void OnSynRecipeComplete(Recipe recipe)
         {
             this.Dispatcher.BeginInvoke(DispatcherPriority.Normal, (ThreadStart)delegate ()
             {
                 mProgressDlg.Hide();
-                //StepItems[0].Item_Click(null, null);
+                StepItems[0].Item_Click(null, null);
                 MessageBox.Show("OnSynRecipeComplete");
-                //Recipe recipe = RecipeService.Instance.LoadRecipe();
+                //LoadStep(1);
             });
         }
 
@@ -261,7 +268,7 @@ namespace Demo.ui
             this.Dispatcher.BeginInvoke(DispatcherPriority.Normal, (ThreadStart)delegate ()
             {
                 mProgressDlg.Hide();
-                //StepItems[0].Item_Click(null, null);
+                StepItems[0].Item_Click(null, null);
                 MessageBox.Show("OnDownloadRecipeComplete");
             });
         }
@@ -273,273 +280,20 @@ namespace Demo.ui
 
         private void OnBackupRecipeComplete()
         {
-            mProgressDlg.Hide();
-            MessageBox.Show("Done");
-        }
-
-        private void OnCommitStepComplete(byte stepIndex)
-        {
-            mProgressDlg.Hide();
-            MessageBox.Show("Done");
-        }
-
-        private void SynRecipeStep(byte stepIndex)
-        {
-            if (ComNodeService.Instance.IsConnected())
-            {
-                ReadRecipeData(stepIndex);
-                mProgressDlg.ShowDialog();
-            }
-        }
-
-        public void ReadRecipeData()
-        {
-            Thread t1 = new Thread(new ParameterizedThreadStart(ReadRecipeStepExec));
-            t1.IsBackground = true;
-            t1.Start((byte)1);
-        }
-
-        private void ReadRecipeStepExec(Object obj)
-        {
-            byte stepIndex = (byte)obj;
-            List<OpcNode> opcWriteNodes = new List<OpcNode>();
-            sbyte comCommand = 21;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].CommandNodeComponent.ControlWord.Value = (byte)70;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].CommandNodeComponent.TchLoad.Value = comCommand;
-
-            opcWriteNodes.Add(ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].CommandNodeComponent.ControlWord);
-            opcWriteNodes.Add(ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].CommandNodeComponent.TchLoad);
-            ComNodeService.Instance.WriteComNodes(mSelectedTube, opcWriteNodes);
-            ReadCompleteRecipe();
-        }
-
-        public void WriteRecipeData()
-        {
-            Thread t1 = new Thread(new ParameterizedThreadStart(WriteRecipeStepExec));
-            t1.IsBackground = true;
-            t1.Start((byte)1);
-        }
-
-        private void WriteRecipeStepExec(Object obj)
-        {
-            byte stepIndex = (byte)obj;
-            List<OpcNode> opcWriteNodes = new List<OpcNode>();
-            sbyte comCommand = 22;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].CommandNodeComponent.ControlWord.Value = (byte)70;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].CommandNodeComponent.TchLoad.Value = comCommand;
-
-            opcWriteNodes.Add(ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].CommandNodeComponent.ControlWord);
-            opcWriteNodes.Add(ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].CommandNodeComponent.TchLoad);
-            ComNodeService.Instance.WriteComNodes(mSelectedTube, opcWriteNodes);
-            WriteCompleteRecipe();
-        }
-
-        private void ReadRecipeData(byte stepIndex)
-        {
-            Thread t1 = new Thread(new ParameterizedThreadStart(ReadRecipeDataExec));
-            t1.IsBackground = true;
-            t1.Start(stepIndex);
-        }
-
-        private void ReadRecipeDataExec(Object obj)
-        {
-            byte stepIndex = (byte)obj;
-            List<OpcNode> opcWriteNodes = new List<OpcNode>();
-            sbyte comCommand = 21;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].CommandNodeComponent.ControlWord.Value = stepIndex;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].CommandNodeComponent.TchLoad.Value = comCommand;
-
-            opcWriteNodes.Add(ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].CommandNodeComponent.ControlWord);
-            opcWriteNodes.Add(ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].CommandNodeComponent.TchLoad);
-            ComNodeService.Instance.WriteComNodes(mSelectedTube, opcWriteNodes);
-            byte[] recipeBytes = new byte[328];
-            try
-            {
-                Demo.com.TcpClient.Instance.GetRecipe(stepIndex, recipeBytes, SynRecipeStepCallback);
-            }
-            catch (Exception ee)
-            {
-                Demo.com.TcpClient.Instance.Close();
-            }
-        }
-
-        private void SynRecipeStepCallback(byte[] recipeBytes, byte stepIndex)
-        {
-            mTubeRecipePageModel.ParseRecipeData(recipeBytes);
             this.Dispatcher.BeginInvoke(DispatcherPriority.Normal, (ThreadStart)delegate ()
             {
                 mProgressDlg.Hide();
+                MessageBox.Show("Done");
             });
         }
 
-        private void CommitRecipeStep(byte stepIndex)
+        private void OnCommitStepComplete(int stepIndex)
         {
-            List<OpcNode> opcWriteNodes = new List<OpcNode>();
-            sbyte comCommand = 22;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].CommandNodeComponent.ControlWord.Value = stepIndex;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].CommandNodeComponent.TchLoad.Value = comCommand;
-            opcWriteNodes.Add(ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].CommandNodeComponent.ControlWord);
-            opcWriteNodes.Add(ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].CommandNodeComponent.TchLoad);
-            ComNodeService.Instance.WriteComNodes(mSelectedTube, opcWriteNodes);
-
-            byte[] recipeBytes = new byte[328];
-            mTubeRecipePageModel.ConvertRecipeData(recipeBytes);
-            try
+            this.Dispatcher.BeginInvoke(DispatcherPriority.Normal, (ThreadStart)delegate ()
             {
-                Demo.com.TcpClient.Instance.SendRecipe(stepIndex, recipeBytes, CommitRecipeStepCallback);
-            }
-            catch (Exception ee)
-            {
-                Demo.com.TcpClient.Instance.Close();
-            }
-        }
-
-        private void CommitRecipeStepCallback(byte stepIndex)
-        {
-            MessageBox.Show("Done");
-        }
-
-
-        public void ReadCompleteRecipe()
-        {
-            Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            int port = 2000;
-            string host = "192.168.1.64";
-            IPAddress ip = IPAddress.Parse(host);
-            IPEndPoint ipe = new IPEndPoint(ip, port);
-            StateObject so2 = new StateObject();
-            so2.socket = socket;
-            so2.stepIndex = (byte)1;
-            socket.BeginConnect(ipe, asyncResult =>
-            {
-                so2.aResult = asyncResult;
-                socket.BeginReceive(so2.buffer, 0, StateObject.BUFFER_SIZE, SocketFlags.None,
-                          new AsyncCallback(ReadCompleteRecipeCallback), so2);
-            }, null);
-        }
-
-        private void ReadCompleteRecipeCallback(IAsyncResult ar)
-        {
-            SocketError errorCode;
-            StateObject so2 = (StateObject)ar.AsyncState;
-            Socket socket = so2.socket;
-            int nBytesRec = socket.EndReceive(ar, out errorCode);
-            if (errorCode != SocketError.Success)
-            {
-                nBytesRec = 0;
-            }
-
-            if (nBytesRec != 328)
-            {
-                //return with error code
-                //MessageBox.Show("error");
-                log.Error("error:step " + so2.stepIndex);
-            }
-            else
-            {
-                //parse recipe step data
-                byte[] recipeBytes = new byte[328];
-                Array.Copy(so2.buffer, 0, recipeBytes, 0, 328);
-                mRecipeBak.set(String.Format("{0}", so2.stepIndex), Encoding.Unicode.GetString(so2.buffer));
-                mRecipeBak.Save();
-            }
-
-            if (so2.stepIndex < 63)
-            {
-                mProgressDlg.ProgressModel.Progress = so2.stepIndex;
-                //go next step 
-                so2.stepIndex = (byte)(so2.stepIndex + 1);
-                socket.BeginReceive(so2.buffer, 0, StateObject.BUFFER_SIZE, SocketFlags.None,
-                    new AsyncCallback(ReadCompleteRecipeCallback), so2);
-            }
-            else
-            {
-                //finish recipe
-                socket.EndConnect(so2.aResult);
-                this.Dispatcher.BeginInvoke(DispatcherPriority.Normal, (ThreadStart)delegate ()
-                {
-                    mProgressDlg.Hide();
-                });
-                MessageBox.Show("done");
-                return;
-            }
-        }
-
-        public void WriteCompleteRecipe()
-        {
-            Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            int port = 2000;
-            string host = "192.168.1.64";
-            IPAddress ip = IPAddress.Parse(host);
-            IPEndPoint ipe = new IPEndPoint(ip, port);
-
-            StateObject so2 = new StateObject();
-            so2.socket = socket;
-
-            so2.stepIndex = (byte)1;
-            string strRecipeData = mRecipeBak.get(String.Format("{0}", so2.stepIndex));
-            so2.buffer = Encoding.Unicode.GetBytes(strRecipeData);
-            socket.BeginConnect(ipe, ar =>
-            {
-                so2.aResult = ar;
-                socket.BeginSend(so2.buffer, 0, StateObject.BUFFER_SIZE, SocketFlags.None,
-                      new AsyncCallback(WriteCompleteRecipeCallback), so2);
-            }, null);
-        }
-
-        private void WriteCompleteRecipeCallback(IAsyncResult ar)
-        {
-            SocketError errorCode;
-            StateObject so2 = (StateObject)ar.AsyncState;
-            Socket sSocket = so2.socket;
-            int nBytesSend = sSocket.EndSend(ar, out errorCode);
-            if (errorCode != SocketError.Success)
-            {
-                nBytesSend = 0;
-            }
-
-            if (nBytesSend != 328)
-            {
-                //return with error code
-                //MessageBox.Show("error");
-                log.Error("error:step " + so2.stepIndex);
-            }
-            else
-            {
-                if (so2.stepIndex < 63)
-                {
-                    mProgressDlg.ProgressModel.Progress = so2.stepIndex;
-                    Thread.Sleep(200);
-                    //go next step 
-                    so2.stepIndex = (byte)(so2.stepIndex + 1);
-                    string strRecipeData = mRecipeBak.get(String.Format("{0}", so2.stepIndex));
-                    so2.buffer = Encoding.Unicode.GetBytes(strRecipeData);
-                    sSocket.BeginSend(so2.buffer, 0, StateObject.BUFFER_SIZE, SocketFlags.None,
-                        new AsyncCallback(WriteCompleteRecipeCallback), so2);
-                }
-                else
-                {
-                    //finish recipe
-                    sSocket.EndConnect(so2.aResult);
-                    this.Dispatcher.BeginInvoke(DispatcherPriority.Normal, (ThreadStart)delegate ()
-                    {
-                        mProgressDlg.Hide();
-                    });
-                    MessageBox.Show("done");
-                    //SynRecipeStep(1);
-                    return;
-                }
-            }
-        }
-
-        public class StateObject
-        {
-            public Socket socket = null;
-            public const int BUFFER_SIZE = 328;
-            public byte[] buffer = new byte[BUFFER_SIZE];
-            public byte stepIndex;
-            public IAsyncResult aResult;
-            public StringBuilder sb = new StringBuilder();
+                mProgressDlg.Hide();
+                MessageBox.Show("Done");
+            });
         }
     }
 }
