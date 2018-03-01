@@ -22,9 +22,8 @@ using System.Windows.Threading;
 using System.Threading;
 using System.Net;
 using System.Net.Sockets;
-using Demo.service;
 using Demo.model;
-using Demo.ui.converter;
+using Demo.controller;
 
 namespace Demo.ui
 {
@@ -42,6 +41,7 @@ namespace Demo.ui
 
         public event TubeControlBar.ClickHandler CloseClick;
         private ProgressDlg mProgressDlg;
+        private RecipeController mController;
 
         public TubeRecipePage()
         {
@@ -55,7 +55,7 @@ namespace Demo.ui
             mTubePageStyle = new TubePageStyle();
             mTubeRecipePageModel.TubeRecipeViewModel.TubePageStyle = mTubePageStyle;
             this.DataContext = mTubeRecipePageModel.TubeRecipeViewModel;
-
+            mController = new RecipeController();
 
             StepItems = new StepListItem[63];
             StepItems[0] = StepItem1;
@@ -136,7 +136,7 @@ namespace Demo.ui
             log.Debug("TubeRecipePage:LoadTubePage");
             mSelectedTube = selectedTube;
 
-            Recipe recipe = RecipeService.Instance.LoadRecipe(mSelectedTube);
+            Recipe recipe = mController.LoadRecipe(mSelectedTube);
             if (recipe == null)
             {
                 txtBlockRecipeInfo.Visibility = Visibility.Visible;
@@ -178,9 +178,9 @@ namespace Demo.ui
         private void Step_Commit_Click(object sender, RoutedEventArgs e, int stepIndex)
         {
             log.Debug("Commit Step " + stepIndex);
-            RecipeStep step = RecipeService.Instance.GetRecipeStep(stepIndex);
-            RecipeConverter.ConvertRecipeModel(step, mTubeRecipePageModel); 
-            bool startCommit = RecipeService.Instance.CommitStep(mSelectedTube, stepIndex, OnCommitStepComplete);
+            RecipeStep step = mController.GetRecipeStep(mSelectedTube, stepIndex);
+            mController.ConvertRecipeModel(step, mTubeRecipePageModel); 
+            bool startCommit = mController.CommitStep(mSelectedTube, stepIndex, null, OnCommitStepComplete);
             if (startCommit)
             {
                 mProgressDlg.ShowDialog();
@@ -190,7 +190,7 @@ namespace Demo.ui
         private void RefreshBtn_Click(object sender, RoutedEventArgs e)
         {
             log.Debug("TubeRecipePage:RefreshBtn_Click");
-            bool startSyn = RecipeService.Instance.SynRecipe(mSelectedTube, OnSynRecipeComplete, OnSynStepComplete);
+            bool startSyn = mController.SynRecipe(mSelectedTube, OnSynRecipeComplete, OnSynStepComplete);
             if (startSyn)
             {
                 mProgressDlg.ProgressModel.MaxValue = 64;
@@ -211,7 +211,7 @@ namespace Demo.ui
             var result = openFileDialog.ShowDialog();
             if (result == true)
             {
-                bool startDownload = RecipeService.Instance.DownloadRecipe(openFileDialog.FileName, mSelectedTube, OnDownRecipeComplete, OnDownloadStepComplete);
+                bool startDownload = mController.DownloadRecipe(openFileDialog.FileName, mSelectedTube, OnDownRecipeComplete, OnDownloadStepComplete);
                 if (startDownload)
                 {
                     mProgressDlg.ProgressModel.MaxValue = 64;
@@ -233,7 +233,7 @@ namespace Demo.ui
             var result = saveFileDialog.ShowDialog();
             if (result == true)
             {
-                bool startBackup = RecipeService.Instance.BackupRecipe(saveFileDialog.FileName, mSelectedTube, OnBackupRecipeComplete);
+                bool startBackup = mController.BackupRecipe(saveFileDialog.FileName, mSelectedTube, OnBackupRecipeComplete);
                 if (startBackup)
                 {
                     mProgressDlg.ShowDialog();
@@ -243,8 +243,8 @@ namespace Demo.ui
 
         private void LoadStep(int stepIndex)
         {
-            RecipeStep step = RecipeService.Instance.GetRecipeStep(stepIndex);
-            RecipeConverter.ConvertRecipePageModel(mTubeRecipePageModel, step);
+            RecipeStep step = mController.GetRecipeStep(mSelectedTube,stepIndex);
+            mController.ConvertRecipePageModel(mTubeRecipePageModel, step);
         }
 
         private void OnSynRecipeComplete(Recipe recipe)
@@ -287,7 +287,7 @@ namespace Demo.ui
             });
         }
 
-        private void OnCommitStepComplete(int stepIndex)
+        private void OnCommitStepComplete(RecipeStep step)
         {
             this.Dispatcher.BeginInvoke(DispatcherPriority.Normal, (ThreadStart)delegate ()
             {

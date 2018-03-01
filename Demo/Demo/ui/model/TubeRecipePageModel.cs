@@ -11,7 +11,7 @@ using MySql.Data.MySqlClient;
 
 namespace Demo.ui.model
 {
-    class TubeRecipePageModel 
+    public class TubeRecipePageModel 
     {
         private List<StepListItemModel> mStepListItemModels;
         private TubeRecipeViewModel mRecipeViewModel;

@@ -13,17 +13,7 @@ using System.Net.Sockets;
 
 namespace Demo.service
 {
-    public enum ProcessStatus
-    {
-        UNKNOWN = -1,
-        RUNNING = 0,
-        HOLDING = 1,
-        IDLE = 2,
-        ABORT = 3,
-        DOWNLOADING = 6,
-        END = 10,
-        INIT = 20
-    }
+
 
     class ProcessService
     {
@@ -66,10 +56,91 @@ namespace Demo.service
             }
         }
 
-        public void UpdateProcessInfo(int tubeGroupIndex)
+        public void StartProcess(byte tubeIndex, OnStartProcessComplete callback)
         {
-            byte[] command = Encoding.Default.GetBytes(new char[] { 'A' });
-            socketObjs[tubeGroupIndex-1].socket.BeginSend(command, 0, 1, SocketFlags.None, ar =>
+            Thread processRunThread = new Thread(() =>
+            {
+                lock (mLock)
+                {
+                    List<OpcNode> opcWriteNodes = new List<OpcNode>();
+                    bool comCommand = true;
+                    ComProcessNodeComponent.Instance.TubeNodeComponents[tubeIndex - 1].CommandNodeComponent.TchStart.Value = comCommand;
+
+                    opcWriteNodes.Add(ComProcessNodeComponent.Instance.TubeNodeComponents[tubeIndex - 1].CommandNodeComponent.TchStart);
+                    ComNodeService.Instance.WriteComNodes(tubeIndex, opcWriteNodes);
+                    callback();
+                }
+            });
+            processRunThread.IsBackground = true;
+            processRunThread.Start();
+        }
+
+        public ProcessStatus GetStatus(byte tubeIndex)
+        {
+            return (ProcessStatus)mProcesses[tubeIndex-1].Status;
+        }
+
+        public string GetProcessName(byte tubeIndex)
+        {
+            return  mProcesses[tubeIndex-1].ProcessName;
+        }
+
+        public string GetProcessStatus(byte tubeIndex)
+        {
+            return GetStatus(tubeIndex).ToString();
+        }
+
+        public int GetProcessTime(byte tubeIndex)
+        {
+            return mProcesses[tubeIndex-1].ProcessTime;
+        }
+
+        public int GetStepNum(byte tubeIndex)
+        {
+            return mProcesses[tubeIndex-1].StepNum;
+        }
+
+        public int GetStepEscapedTime(byte tubeIndex)
+        {
+            return mProcesses[tubeIndex-1].StepEscapedTime;
+        }
+
+        public int GetRemainingTime(byte tubeIndex)
+        {
+            return mProcesses[tubeIndex-1].ProcessRemainingTime;
+        }
+
+        public void StartPullInfoService()
+        {
+            Thread processRunThread = new Thread(() =>
+            {
+                //connect(1);
+                connect(2);
+            });
+            processRunThread.IsBackground = true;
+            processRunThread.Start();
+
+            //PullProcessInfo(1);
+            //PullProcessInfo(2);
+        }
+
+        public void EndPullInfoService()
+        {
+            //disconnect(1);
+            disconnect(2);
+        }
+
+
+
+
+
+
+
+
+        private void UpdateProcessInfo(int tubeGroupIndex)
+        {
+            byte[] command = { 10, 0, 0 };
+            socketObjs[tubeGroupIndex-1].socket.BeginSend(command, 0, 3, SocketFlags.None, ar =>
             {
                 SocketError errorCode;
                 int nBytesSend = socketObjs[tubeGroupIndex - 1].socket.EndSend(ar, out errorCode);
@@ -78,7 +149,7 @@ namespace Demo.service
                     nBytesSend = 0;
                 }
 
-                if (nBytesSend != 1)
+                if (nBytesSend != 3)
                 {
                     //return with error code
                     //MessageBox.Show("error");
@@ -92,8 +163,6 @@ namespace Demo.service
 
             }
             , null);
-
-
         }
 
         private void OnUpdateComplete(IAsyncResult ar)
@@ -118,6 +187,13 @@ namespace Demo.service
                 byte[] cDataBytes = new byte[1024];
                 Array.Copy(socketObj.buffer, 0, cDataBytes, 0, 1024);
                 DecryptProcess(socketObj.tubeGroup, cDataBytes);
+                //socket.Shutdown(SocketShutdown.Both);
+                //socket.EndConnect(socketObj.cResult);
+                //socket.Close();
+                Thread.Sleep(1000);
+             
+                //connect(socketObj.tubeGroup);
+                UpdateProcessInfo(socketObj.tubeGroup);
             }
         }
 
@@ -171,41 +247,7 @@ namespace Demo.service
 
         }
 
-
-        public void StartProcess(byte tubeIndex, OnStartProcessComplete callback)
-        {
-            Thread processRunThread = new Thread(() =>
-            {
-                lock (mLock)
-                {
-                    List<OpcNode> opcWriteNodes = new List<OpcNode>();
-                    bool comCommand = true;
-                    ComProcessNodeComponent.Instance.TubeNodeComponents[tubeIndex - 1].CommandNodeComponent.TchLoad.Value = comCommand;
-
-                    opcWriteNodes.Add(ComProcessNodeComponent.Instance.TubeNodeComponents[tubeIndex - 1].CommandNodeComponent.TchStart);
-                    ComNodeService.Instance.WriteComNodes(tubeIndex, opcWriteNodes);
-                    callback();
-                }
-            });
-            processRunThread.IsBackground = true;
-            processRunThread.Start();
-        }
-
-        public void StartPullInfoService()
-        {
-            //PullProcessInfo(1);
-            //PullProcessInfo(2);
-
-            //connect(1);
-            connect(2);
-        }
-
-        public void EndPullInfoService()
-        {
-            //disconnect(1);
-            disconnect(2);
-        }
-
+        /*
         public void PullProcessInfo(int tubeGroup)
         {
             Thread processRunThread = new Thread(() =>
@@ -277,46 +319,9 @@ namespace Demo.service
                     new AsyncCallback(OnReceiveComplete), so2);
             }
         }
+        */
 
-        public ProcessStatus GetStatus(byte tubeIndex)
-        {
-            return (ProcessStatus)0;//mProcesses[tubeIndex].Status;
-        }
-
-        public string GetProcessName(byte tubeIndex)
-        {
-            return "Demo";// mProcesses[tubeIndex].ProcessName;
-        }
-
-        public string GetProcessStatus(byte tubeIndex)
-        {
-            return GetStatus(tubeIndex).ToString();
-        }
-
-        public int GetProcessTime(byte tubeIndex)
-        {
-            return mProcesses[tubeIndex].ProcessTime;
-        }
-
-        public int GetStepNum(byte tubeIndex)
-        {
-            return mProcesses[tubeIndex].StepNum;
-        }
-
-        public int GetStepEscapedTime(byte tubeIndex)
-        {
-            return mProcesses[tubeIndex].StepEscapedTime;
-        }
-
-        public int GetTotalTime(byte tubeIndex)
-        {
-            return mProcesses[tubeIndex].ProcessTotalTime;
-        }
-
-        public int GetRemainingTime(byte tubeIndex)
-        {
-            return 0;
-        }
+        
 
         private void DecryptProcess(int tubeGroup, byte[] processBytes)
         {
@@ -324,12 +329,15 @@ namespace Demo.service
             {
                 for (int i = 0; i < 3; ++i)
                 {
-                    int index = i + 3 * (tubeGroup - 1);
+                    int index = i;
+                    //int index = i + 3 * (tubeGroup - 1);
                     mProcesses[index].ProcessName = Encoding.Default.GetString(processBytes, 300 * i + 0, 32).TrimEnd('\0');
                     mProcesses[index].ProcessTime = BitConverter.ToInt32(processBytes, 300 * i + 32);
                     mProcesses[index].StepNum = (sbyte)processBytes[300 * i + 36];
                     mProcesses[index].StepEscapedTime = BitConverter.ToInt32(processBytes, 300 * i + 37);
-                    mProcesses[index].Status = (sbyte)processBytes[300 * i + 230];
+                    mProcesses[index].Status = (sbyte)processBytes[300 * i + 229];
+                    mProcesses[index].ProcessRemainingTime = BitConverter.ToInt32(processBytes, 300 * i + 230);
+                    log.Debug("remaining time:" + mProcesses[index].ProcessRemainingTime);
                 }
             }
         }

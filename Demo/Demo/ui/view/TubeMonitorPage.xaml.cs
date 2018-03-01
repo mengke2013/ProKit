@@ -19,7 +19,7 @@ using log4net;
 using Demo.ui.view;
 using System.Threading;
 using System.Windows.Threading;
-using Demo.service;
+using Demo.controller;
 
 namespace Demo.ui
 {
@@ -37,8 +37,7 @@ namespace Demo.ui
         private TubeMonitorPageModel mTubeMonitorPageModel;
         private TubePageStyle mTubePageStyle;
         private ProgressDlgModel mPgbProcessModel;
-
-        private int processTotalTime;
+        private MonitorController mController;
 
         Thread mUpdateUIRunThread;
         bool mUpdateUI;
@@ -52,7 +51,7 @@ namespace Demo.ui
             mPgbProcessModel = new ProgressDlgModel();
             mPgbProcessModel.MaxValue = 100;
             pgbProcess.DataContext = mPgbProcessModel;
-
+            mController = new MonitorController();
 
             StartUpdateUIServer();
         }
@@ -71,8 +70,7 @@ namespace Demo.ui
 
         public void StartButton_Click(object sender, RoutedEventArgs e)
         {
-            ProcessService.Instance.StartProcess(mTubeMonitorPageModel.SelectedTube, OnStartProcessComplete);
-            processTotalTime = ProcessService.Instance.GetTotalTime(mTubeMonitorPageModel.SelectedTube);
+            mController.StartProcess(mTubeMonitorPageModel.SelectedTube, OnStartProcessComplete);
             btnStart.IsEnabled = false;
             btnHold.IsEnabled = true;
         }
@@ -117,19 +115,21 @@ namespace Demo.ui
                 {
                     if (mTubeMonitorPageModel.SelectedTube != 0)
                     {
-                        status = ProcessService.Instance.GetStatus(mTubeMonitorPageModel.SelectedTube);
+                        status = mController.GetStatus(mTubeMonitorPageModel.SelectedTube);
                         this.Dispatcher.BeginInvoke(DispatcherPriority.Normal, (ThreadStart)delegate ()
                         {
                             btnHold.IsEnabled = (status == ProcessStatus.RUNNING);
-                            btnStart.IsEnabled = (status == ProcessStatus.HOLDING);
+                            btnStart.IsEnabled = (status == ProcessStatus.INIT || status == ProcessStatus.END || status == ProcessStatus.IDLE || status == ProcessStatus.HOLDING);
                         });
 
-                        mTubeMonitorPageModel.ProcessStatus = ProcessService.Instance.GetProcessStatus(mTubeMonitorPageModel.SelectedTube);
-                        mTubeMonitorPageModel.ProcessName = ProcessService.Instance.GetProcessName(mTubeMonitorPageModel.SelectedTube);
-                        if ((status == ProcessStatus.RUNNING || status == ProcessStatus.HOLDING || status == ProcessStatus.ABORT) && processTotalTime > 0)
+                        mController.UpdateMonitorModel(mTubeMonitorPageModel);
+
+                        int processTotalTime = mController.GetProcessEscapedTime(mTubeMonitorPageModel.SelectedTube) + mController.GetRemainingTime(mTubeMonitorPageModel.SelectedTube);
+                        //if ((status == ProcessStatus.RUNNING || status == ProcessStatus.HOLDING || status == ProcessStatus.ABORT) && processTotalTime > 0)
+                        if (processTotalTime > 0)
                         {
-                            mPgbProcessModel.Progress = 100 * (processTotalTime - ProcessService.Instance.GetRemainingTime(mTubeMonitorPageModel.SelectedTube)) / processTotalTime;
-                            mTubeMonitorPageModel.ProcessRemainingTime = ProcessService.Instance.GetRemainingTime(mTubeMonitorPageModel.SelectedTube);
+                            mPgbProcessModel.Progress = 100 * (processTotalTime - mController.GetRemainingTime(mTubeMonitorPageModel.SelectedTube)) / processTotalTime;
+                            mTubeMonitorPageModel.ProcessRemainingTime = mController.GetRemainingTime(mTubeMonitorPageModel.SelectedTube);
                         }
 
                     }

@@ -3,14 +3,57 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Demo.model;
 using Demo.ui.model;
+using Demo.model;
+using Demo.service;
 
-namespace Demo.ui.converter
+namespace Demo.controller
 {
-    class RecipeConverter
+    public class RecipeController
     {
-        public static void ConvertRecipePageModel(TubeRecipePageModel recipePage, RecipeStep step)
+        public Recipe LoadRecipe(byte tubeIndex)
+        {
+            //add validation
+            Recipe recipe = RecipeService.Instance.LoadRecipe(tubeIndex);
+            return recipe;
+        }
+
+        public bool SynRecipe(byte tubeIndex, RecipeService.OnSynRecipeComplete rCallback, RecipeService.OnSynStepComplete sCallback)
+        {
+            //add validation
+            bool startSyn = RecipeService.Instance.SynRecipe(tubeIndex, rCallback, sCallback);
+            return startSyn;
+        }
+
+        public bool DownloadRecipe(string fileName, byte tubeIndex, RecipeService.OnDownloadRecipeComplete rCallback, RecipeService.OnDownloadStepComplete sCallback)
+        {
+            //add validation
+            bool startDownload = RecipeService.Instance.DownloadRecipe(fileName, tubeIndex, rCallback, sCallback);
+            return startDownload;
+        }
+
+        public bool BackupRecipe(string fileName, byte tubeIndex, RecipeService.OnBackupRecipeComplete callback)
+        {
+            //add validation
+            bool startBackup = RecipeService.Instance.BackupRecipe(fileName, tubeIndex, callback);
+            return startBackup;
+        }
+
+        public bool CommitStep(byte tubeIndex, int stepIndex, RecipeService.OnDownloadRecipeComplete rCallback, RecipeService.OnDownloadStepComplete sCallback)
+        {
+            //add validation
+            bool startCommit = RecipeService.Instance.CommitStep(tubeIndex, stepIndex, rCallback, sCallback);
+            return startCommit;
+        }
+
+        public RecipeStep GetRecipeStep(byte tubeIndex, int stepIndex)
+        {
+            //add validation
+            RecipeStep step = RecipeService.Instance.GetRecipeStep(stepIndex);
+            return step;
+        }
+
+        public void ConvertRecipePageModel(TubeRecipePageModel recipePage, RecipeStep step)
         {
             recipePage.TubeRecipeViewModel.UpdateView = true;
             recipePage.TubeRecipeViewModel.StepIndex = step.StepIndex;
@@ -51,7 +94,7 @@ namespace Demo.ui.converter
             recipePage.TubeRecipeViewModel.UpdateView = false;
         }
 
-        public static void ConvertRecipeModel(RecipeStep step, TubeRecipePageModel recipePage)
+        public void ConvertRecipeModel(RecipeStep step, TubeRecipePageModel recipePage)
         {
             step.StepIndex = recipePage.TubeRecipeViewModel.StepIndex;
             step.StepName = recipePage.TubeRecipeViewModel.StepName;

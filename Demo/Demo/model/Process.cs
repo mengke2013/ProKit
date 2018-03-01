@@ -9,7 +9,7 @@ namespace Demo.model
     class Process
     {
         private string mProcessName;
-        private int mProcessTotalTime;
+        private int mProcessRemainingTime;
         private int mProcessTime;
         private int mStepNum;
         private int mStepEscapedTime;
@@ -110,10 +110,10 @@ namespace Demo.model
             get { return mProcessName; }
             set { mProcessName = value; }
         }
-        public int ProcessTotalTime
+        public int ProcessRemainingTime
         {
-            get { return mProcessTotalTime; }
-            set { mProcessTotalTime = value; }
+            get { return mProcessRemainingTime; }
+            set { mProcessRemainingTime = value; }
         }
         public int ProcessTime
         {

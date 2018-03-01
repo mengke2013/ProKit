@@ -70,7 +70,7 @@ namespace Demo.ui
         {
             if (MessageBox.Show("Would you want to exit?", "Confirm", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
-                ProcessService.Instance.EndPullInfoService();
+                //ProcessService.Instance.EndPullInfoService();
             }
             else
             {

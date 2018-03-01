@@ -95,6 +95,8 @@
     <Compile Include="com\entity\ComCommandNodeComponent.cs" />
     <Compile Include="com\entity\ComRecipeStepNodeComponent.cs" />
     <Compile Include="com\TcpClient.cs" />
+    <Compile Include="controller\MonitorController.cs" />
+    <Compile Include="controller\RecipeController.cs" />
     <Compile Include="model\Process.cs" />
     <Compile Include="model\Recipe.cs" />
     <Compile Include="model\RecipeStep.cs" />
@@ -103,7 +105,6 @@
     <Compile Include="service\RecipeService.cs" />
     <Compile Include="ui\ComNodeWraper.cs" />
     <Compile Include="ui\controls\ClickSelectTextBox.cs" />
-    <Compile Include="ui\converter\RecipeConverter.cs" />
     <Compile Include="ui\ITubePage.cs" />
     <Compile Include="ui\model\DioSwitcherModel.cs" />
     <Compile Include="ui\model\DiSelectorModel.cs" />

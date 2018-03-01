@@ -12,6 +12,18 @@ using Demo.service;
 
 namespace Demo
 {
+    public enum ProcessStatus
+    {
+        UNKNOWN = -1,
+        RUNNING = 0,
+        HOLDING = 1,
+        IDLE = 2,
+        ABORT = 3,
+        DOWNLOADING = 6,
+        END = 10,
+        INIT = 20
+    }
+
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>

@@ -13,7 +13,7 @@ using log4net;
 
 namespace Demo.service
 {
-    class RecipeService
+    public class RecipeService
     {
         public static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
@@ -23,11 +23,15 @@ namespace Demo.service
         public delegate void OnDownloadStepComplete(RecipeStep step);
         public delegate void OnCommitStepComplete(int stepIndex);
         public delegate void OnBackupRecipeComplete();
+        public delegate void OnConnectComplete();
 
         private static RecipeService instance;
+        private SocketObject mSocketObj;
+        private string[] hosts = { "192.168.1.64", "192.168.1.64" };
 
         private Recipe mRecipe;
         private byte mTubeIndex;
+        private bool mDisconnect;
         Demo.utilities.Properties mRecipeTmpStore;
         Demo.utilities.Properties mRecipeBak = new Demo.utilities.Properties("recipe_bak.data");
 
@@ -35,7 +39,9 @@ namespace Demo.service
 
         private RecipeService()
         {
-            mRecipe = new Recipe();
+           
+            mSocketObj = new SocketObject();
+            mSocketObj.socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         }
 
         public static RecipeService Instance
@@ -54,31 +60,27 @@ namespace Demo.service
         {
             if (System.IO.File.Exists(string.Format("recipe_tmp{0}.data", tubeIndex)))
             {
-                if (mTubeIndex == tubeIndex)
+                mTubeIndex = tubeIndex;
+                if (!ComNodeService.Instance.IsConnected())
                 {
-                    if (!ComNodeService.Instance.IsConnected())
-                    {
-                        return null;
-
-                    }
+                    return null;
                 }
-                else
-                {
-                    mTubeIndex = tubeIndex;
-                    if (!ComNodeService.Instance.IsConnected())
-                    {
-                        return null;
-                    }
 
+                if (mRecipe == null)
+                {
+                    mRecipe = new Recipe();
                     mRecipeTmpStore = new Demo.utilities.Properties(string.Format("recipe_tmp{0}.data", tubeIndex));
                     for (int i = 0; i < mRecipe.Steps.Length - 1; ++i)
                     {
                         string strStepData = mRecipeTmpStore.get(String.Format("{0}", i + 1));
-                        byte[] stepBytes = Encoding.Default.GetBytes(strStepData);
+                        byte[] stepBytes = new byte[328];
+                        byte[] tBytes = Encoding.Default.GetBytes(strStepData);
+                        Array.Copy(tBytes, 0, stepBytes, 0, tBytes.Length);
                         mRecipe.Steps[i] = DecryptStepData(stepBytes);
                         mRecipe.Steps[i].StepIndex = i + 1;
                     }
                 }
+
                 return mRecipe;
             }
             else
@@ -96,7 +98,7 @@ namespace Demo.service
                 return false;
             }
 
-            ReadRecipeData(rCallback, sCallback);
+            ReciveRecipeData(tubeIndex, 0, rCallback, sCallback);
             return true;
         }
 
@@ -108,9 +110,8 @@ namespace Demo.service
             {
                 return false;
             }
-
-            mRecipeBak = new Demo.utilities.Properties(fileName);
-            WriteRecipeData(rCallback, sCallback);
+           
+            SendRecipeData(tubeIndex, 0, rCallback, sCallback);
             return true;
         }
 
@@ -126,7 +127,7 @@ namespace Demo.service
             return true;
         }
 
-        public bool CommitStep(byte tubeIndex, int stepIndex, OnCommitStepComplete callback)
+        public bool CommitStep(byte tubeIndex, int stepIndex, OnDownloadRecipeComplete rCallback, OnDownloadStepComplete sCallback)
         {
             mTubeIndex = tubeIndex;
             if (!ComNodeService.Instance.IsConnected())
@@ -134,7 +135,7 @@ namespace Demo.service
                 return false;
             }
 
-            WriteStepeData(stepIndex, callback);
+            SendRecipeData(tubeIndex, (byte)stepIndex, rCallback, sCallback);
             return true;
         }
 
@@ -143,27 +144,14 @@ namespace Demo.service
             return mRecipe == null ? null : mRecipe.Steps[stepIndex - 1];
         }
 
-        public Recipe GetRecipeModel(byte tubeIndex)
-        {
-            return mRecipe;
-        }
 
-        public int GetRecipeTime(byte tubeIndex)
-        {
-            if (mRecipe == null)
-            {
-                return 0;
-            }
 
-            return 2000;
-            
-        }
 
         private void SaveRecipeData(string fileName, OnBackupRecipeComplete callback)
         {
             Thread processRunThread = new Thread(() =>
             {
-                lock (mLock)
+                //lock (mLock)
                 {
                     mRecipeTmpStore = new Demo.utilities.Properties(string.Format("recipe_tmp{0}.data", mTubeIndex));
                     mRecipeBak = new Demo.utilities.Properties(fileName);
@@ -180,11 +168,363 @@ namespace Demo.service
             processRunThread.Start();
         }
 
+        private void ReciveRecipeData(byte tubeIndex, byte stepIndex, OnSynRecipeComplete rCallback, OnSynStepComplete sCallback)
+        {
+            Thread processRunThread = new Thread(() =>
+            {
+                //lock (mLock)
+                {
+                    mRecipeTmpStore = new Demo.utilities.Properties(string.Format("recipe_tmp{0}.data", mTubeIndex));
+                    ReceiveCompleteRecipe(tubeIndex, stepIndex, rCallback, sCallback);
+                }
+            });
+            processRunThread.IsBackground = true;
+            processRunThread.Start();
+        }
+
+        private void ReceiveCompleteRecipe(byte tubeIndex, byte stepIndex, OnSynRecipeComplete rCallback, OnSynStepComplete sCallback)
+        {
+            mSocketObj.synStepCallback = sCallback;
+            mSocketObj.synRecipeCallback = rCallback;
+            mSocketObj.tubeIndex = tubeIndex;
+            if (stepIndex == 0)
+            {
+                mSocketObj.receiveRecipe = true;
+                mSocketObj.stepIndex = (byte)1;
+            }
+            else if (stepIndex > 0 && stepIndex < 65)
+            {
+                mSocketObj.receiveRecipe = false;
+                mSocketObj.stepIndex = stepIndex;
+            }
+
+            if (!mSocketObj.socket.Connected)
+            {
+                mSocketObj.connectCallback = new OnConnectComplete(ReceiveCompleteRecipeAferConnect);
+                mSocketObj.tubeIndex = tubeIndex;
+                if (tubeIndex < 4)
+                {
+                    connect(1);
+                }
+                else if (tubeIndex > 3)
+                {
+                    connect(2);
+                }
+
+            }
+            else
+            {
+                ReceiveRecipeStep();
+            }
+        }
+
+        private void ReceiveCompleteRecipeAferConnect()
+        {
+            ReceiveRecipeStep();
+        }
+
+        private void ReceiveRecipeStep()
+        {
+            byte[] command = { 30, mSocketObj.tubeIndex, mSocketObj.stepIndex };
+            mSocketObj.socket.BeginSend(command, 0, 3, SocketFlags.None, ar =>
+            {
+                SocketError errorCode;
+                int nBytesSend = mSocketObj.socket.EndSend(ar, out errorCode);
+                if (errorCode != SocketError.Success)
+                {
+                    nBytesSend = 0;
+                }
+
+                if (nBytesSend != 3)
+                {
+                    //return with error code
+                    //MessageBox.Show("error");
+                    log.Error("error");
+                }
+                else
+                {
+                    mSocketObj.sResult = ar;
+                    //string strRecipeData = mRecipeBak.get(String.Format("{0}", so.stepIndex));
+                    //so.buffer = Encoding.Default.GetBytes(strRecipeData);
+                    mSocketObj.socket.BeginReceive(mSocketObj.buffer, 0, mSocketObj.buffer.Length, SocketFlags.None, new AsyncCallback(OnReceiveRecipeStepComplete), mSocketObj);
+                }
+            }
+            , null);
+        }
+
+        private void OnReceiveRecipeStepComplete(IAsyncResult ar)
+        {
+            SocketError errorCode;
+            int nBytesSend = mSocketObj.socket.EndReceive(ar, out errorCode);
+            if (errorCode != SocketError.Success)
+            {
+                nBytesSend = 0;
+            }
+
+            if (nBytesSend != mSocketObj.buffer.Length)
+            {
+                //return with error code
+                //MessageBox.Show("error");
+                log.Error("error");
+            }
+            else
+            {
+                //byte[] recipeBytes = new byte[328];
+                //Array.Copy(so.buffer, 0, recipeBytes, 0, 328);
+                mRecipe.Steps[mSocketObj.stepIndex - 1] = DecryptStepData(mSocketObj.buffer);
+                mRecipe.Steps[mSocketObj.stepIndex - 1].StepIndex = mSocketObj.stepIndex;
+                mRecipeTmpStore.set(String.Format("{0}", mSocketObj.stepIndex), Encoding.Default.GetString(mSocketObj.buffer));
+                mRecipeTmpStore.Save();
+            }
+
+            if (mSocketObj.synStepCallback != null)
+            {
+                mSocketObj.synStepCallback(mRecipe.Steps[mSocketObj.stepIndex - 1]);
+            }
+
+
+            if (mSocketObj.receiveRecipe && mSocketObj.stepIndex < 63)
+            {
+                //mProgressDlg.ProgressModel.Progress = so2.stepIndex;
+                //go next step 
+                mSocketObj.stepIndex = (byte)(mSocketObj.stepIndex + 1);
+                ReceiveRecipeStep();
+            }
+            else
+            {
+                //finish recipe
+                //mSocketObj.socket.EndConnect(so.cResult);
+                if (mSocketObj.synRecipeCallback != null)
+                {
+                    mSocketObj.synRecipeCallback(mRecipe);
+                }
+                if (mDisconnect)
+                {
+                    mSocketObj.socket.EndConnect(mSocketObj.cResult);
+                    mSocketObj.socket.Shutdown(SocketShutdown.Both);
+                    mSocketObj.socket.Close();
+                }
+            }
+        }
+
+        private void SendRecipeData(byte tubeIndex, byte stepIndex, OnDownloadRecipeComplete rCallback, OnDownloadStepComplete sCallback)
+        {
+            Thread processRunThread = new Thread(() =>
+            {
+                //lock (mLock)
+                {
+                    mRecipeTmpStore = new Demo.utilities.Properties(string.Format("recipe_tmp{0}.data", mTubeIndex));
+                    SendCompleteRecipe(tubeIndex, stepIndex, rCallback, sCallback);
+                }
+            });
+            processRunThread.IsBackground = true;
+            processRunThread.Start();
+        }
+
+        private void SendCompleteRecipe(byte tubeIndex, byte stepIndex, OnDownloadRecipeComplete rCallback, OnDownloadStepComplete sCallback)
+        {
+
+            mSocketObj.dldStepCallback = sCallback;
+            mSocketObj.dldRecipeCallback = rCallback;
+            mSocketObj.tubeIndex = tubeIndex;
+            if (stepIndex == 0)
+            {
+                mSocketObj.sendRecipe = true;
+                mSocketObj.stepIndex = (byte)1;
+            }
+            else if (stepIndex > 0 && stepIndex < 65)
+            {
+                mSocketObj.sendRecipe = false;
+                mSocketObj.stepIndex = stepIndex;
+            }
+
+            if (!mSocketObj.socket.Connected)
+            {
+                mSocketObj.connectCallback = new OnConnectComplete(SendCompleteRecipeAferConnect);
+                mSocketObj.tubeIndex = tubeIndex;
+                if (tubeIndex < 4)
+                {
+                    connect(1);
+                }
+                else if (tubeIndex > 3)
+                {
+                    connect(2);
+                }
+
+            }
+            else
+            {
+                SendRecipeStep();
+            }
+        }
+
+        private void SendCompleteRecipeAferConnect()
+        {
+            SendRecipeStep();
+        }
+
+        private void connect(int tubeGroup)
+        {
+            
+            Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            int port = 2000;
+            IPAddress ip = IPAddress.Parse(hosts[tubeGroup - 1]);
+            IPEndPoint ipe = new IPEndPoint(ip, port);
+            mSocketObj.ipe = ipe;
+            mSocketObj.socket.BeginConnect(ipe, new AsyncCallback(OnSocketConnectComplete), mSocketObj);
+        }
+
+        private void disconnect(int tubeGroup)
+        {
+            if (mSocketObj.socket.Connected)
+            {
+                mDisconnect = true;
+            }
+        }
+
+        private void OnSocketConnectComplete(IAsyncResult ar)
+        {
+            if (!mSocketObj.socket.Connected)
+            {
+                //socket.EndConnect(ar);
+                //socket.Disconnect(true);
+                log.Error("connection failed, reconnect..." + mSocketObj.ipe.Address);
+                mSocketObj.socket.BeginConnect(mSocketObj.ipe, new AsyncCallback(OnSocketConnectComplete), mSocketObj);
+            }
+            else
+            {
+                mSocketObj.cResult = ar;
+                log.Info("connected " + mSocketObj.ipe.Address + " successfully");
+                mDisconnect = false;
+                mSocketObj.connectCallback();
+            }
+
+        }
+
+        private void SendRecipeStep()
+        {
+            byte[] command = { 20, mSocketObj.tubeIndex, mSocketObj.stepIndex };
+            mSocketObj.socket.BeginSend(command, 0, 3, SocketFlags.None, ar =>
+            {
+                SocketError errorCode;
+                int nBytesSend = mSocketObj.socket.EndSend(ar, out errorCode);
+                if (errorCode != SocketError.Success)
+                {
+                    nBytesSend = 0;
+                }
+
+                if (nBytesSend != 3)
+                {
+                    //return with error code
+                    //MessageBox.Show("error");
+                    log.Error("error");
+                }
+                else
+                {
+                    mSocketObj.sResult = ar;
+                    byte[] recipeBytes = null;
+                    if (mSocketObj.sendRecipe)
+                    {
+                        string strRecipeData = mRecipeBak.get(String.Format("{0}", mSocketObj.stepIndex));
+                        recipeBytes = Encoding.Default.GetBytes(strRecipeData);
+                    }
+                    else
+                    {
+                        recipeBytes = EncryptStepData(mRecipe.Steps[mSocketObj.stepIndex - 1]);
+                    }
+                    //string strRecipeData = mRecipeBak.get(String.Format("{0}", mSocketObj.stepIndex));
+                    //byte[] recipeBytes = Encoding.Default.GetBytes(strRecipeData);
+                    //byte[] recipeBytes = EncryptStepData(mRecipe.Steps[mSocketObj.stepIndex - 1]);
+                    Array.Copy(recipeBytes, 0, mSocketObj.buffer, 0, recipeBytes.Length);
+                    mSocketObj.socket.BeginSend(mSocketObj.buffer, 0, mSocketObj.buffer.Length, SocketFlags.None, ar1 =>
+                    {
+                        SocketError errorCode1;
+                        int nBytesSend1 = mSocketObj.socket.EndSend(ar1, out errorCode1);
+                        if (errorCode1 != SocketError.Success)
+                        {
+                            nBytesSend1 = 0;
+                        }
+
+                        if (nBytesSend1 != mSocketObj.buffer.Length)
+                        {
+                            //return with error code
+                            //MessageBox.Show("error");
+                            log.Error("error");
+                        }
+                        else
+                        {
+                            mSocketObj.sResult = ar1;
+                            mSocketObj.socket.BeginReceive(mSocketObj.endCommand, 0, mSocketObj.endCommand.Length, SocketFlags.None, new AsyncCallback(OnReceiveSendRecipeStepComplete), null);
+                        }
+                    }, null);
+
+                }
+            }
+            , null);
+        }
+
+        private void OnReceiveSendRecipeStepComplete(IAsyncResult ar)
+        {
+            SocketError errorCode;
+            int nBytesRec = mSocketObj.socket.EndReceive(ar, out errorCode);
+            if (errorCode != SocketError.Success)
+            {
+                nBytesRec = 0;
+            }
+
+            if (nBytesRec != 1 && mSocketObj.stepIndex != mSocketObj.endCommand[0])
+            {
+                //return with error code
+                //MessageBox.Show("error");
+                log.Error("error:step " + mSocketObj.stepIndex);
+            }
+            else
+            {
+                //parse recipe step data
+                byte[] recipeBytes = new byte[328];
+                Array.Copy(mSocketObj.buffer, 0, recipeBytes, 0, 328);
+                mRecipe.Steps[mSocketObj.stepIndex - 1] = DecryptStepData(mSocketObj.buffer);
+                mRecipe.Steps[mSocketObj.stepIndex - 1].StepIndex = mSocketObj.stepIndex;
+                mRecipeTmpStore.set(String.Format("{0}", mSocketObj.stepIndex), Encoding.Default.GetString(mSocketObj.buffer));
+                mRecipeTmpStore.Save();
+
+            }
+            if (mSocketObj.dldStepCallback != null)
+            {
+                mSocketObj.dldStepCallback(mRecipe.Steps[mSocketObj.stepIndex - 1]);
+            }
+            
+
+            if (mSocketObj.sendRecipe && mSocketObj.stepIndex < 63)
+            {
+                //mProgressDlg.ProgressModel.Progress = so2.stepIndex;
+                //go next step 
+                mSocketObj.stepIndex = (byte)(mSocketObj.stepIndex + 1);
+                SendRecipeStep();
+            }
+            else
+            {
+                //finish recipe
+                // mSocketObj.socket.EndConnect(mSocketObj.cResult);
+                if (mSocketObj.dldRecipeCallback != null)
+                {
+                    mSocketObj.dldRecipeCallback(mRecipe);
+                }
+                if (mDisconnect)
+                {
+                    mSocketObj.socket.EndConnect(mSocketObj.cResult);
+                    mSocketObj.socket.Shutdown(SocketShutdown.Both);
+                    mSocketObj.socket.Close();
+                }
+            }
+        }
+
+        /*
         private void WriteStepeData(int stepIndex, OnCommitStepComplete callback)
         {
             Thread processRunThread = new Thread(() =>
             {
-                lock (mLock)
+                //lock (mLock)
                 {
                     RecipeStep step = mRecipe.Steps[stepIndex - 1];
                     List<OpcNode> opcWriteNodes = new List<OpcNode>();
@@ -426,6 +766,7 @@ namespace Demo.service
                 return;
             }
         }
+        */
 
         private byte[] EncryptStepData(RecipeStep step)
         {
@@ -546,6 +887,26 @@ namespace Demo.service
             public OnDownloadRecipeComplete dldRecipeCallback;
             public IAsyncResult aResult;
             public StringBuilder sb = new StringBuilder();
+        }
+
+        private class SocketObject
+        {
+            public Socket socket = null;
+            public IPEndPoint ipe;
+            public const int BUFFER_SIZE = 328;
+            public byte[] buffer = new byte[BUFFER_SIZE];
+            public byte[] endCommand = new byte[10];
+            public IAsyncResult cResult;
+            public IAsyncResult sResult;
+            public byte tubeIndex;
+            public byte stepIndex;
+            public bool sendRecipe;
+            public bool receiveRecipe;
+            public OnSynStepComplete synStepCallback;
+            public OnSynRecipeComplete synRecipeCallback;
+            public OnDownloadStepComplete dldStepCallback;
+            public OnDownloadRecipeComplete dldRecipeCallback;
+            public OnConnectComplete connectCallback;
         }
     }
 }
