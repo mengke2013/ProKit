@@ -9,6 +9,7 @@ namespace Demo.model
     class Process
     {
         private string mProcessName;
+        private string mStepName;
         private int mProcessRemainingTime;
         private int mProcessTime;
         private int mStepNum;
@@ -110,6 +111,13 @@ namespace Demo.model
             get { return mProcessName; }
             set { mProcessName = value; }
         }
+
+        public string StepName
+        {
+            get { return mStepName; }
+            set { mStepName = value; }
+        }
+
         public int ProcessRemainingTime
         {
             get { return mProcessRemainingTime; }

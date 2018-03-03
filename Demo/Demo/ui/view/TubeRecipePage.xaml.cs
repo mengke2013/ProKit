@@ -151,6 +151,7 @@ namespace Demo.ui
                 //mTubeRecipePageModel.LoadData(mSelectedTube);
                 StepItems[0].Item_Click(null, null);
             }
+            mTubeRecipePageModel.TubeRecipeViewModel.ProcessName = mController.GetRecipeName(mSelectedTube);
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)

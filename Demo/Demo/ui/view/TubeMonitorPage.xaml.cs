@@ -41,6 +41,7 @@ namespace Demo.ui
 
         Thread mUpdateUIRunThread;
         bool mUpdateUI;
+        bool mManual;
 
         public TubeMonitorPage()
         {
@@ -51,7 +52,7 @@ namespace Demo.ui
             mPgbProcessModel = new ProgressDlgModel();
             mPgbProcessModel.MaxValue = 100;
             pgbProcess.DataContext = mPgbProcessModel;
-            mController = new MonitorController();
+            mController = new MonitorController(this);
 
             StartUpdateUIServer();
         }
@@ -68,6 +69,25 @@ namespace Demo.ui
             e.Handled = false;
         }
 
+        public void ManualButton_Click(object sender, RoutedEventArgs e)
+        {
+            mManual = !mManual;
+            mTubeMonitorPageModel.EditVisible = mManual ? Visibility.Visible : Visibility.Hidden;
+            btnManual.Content = mManual ? "Auto" : "Manual";
+            btnCommit.Visibility = mManual ? Visibility.Visible : Visibility.Hidden;
+        }
+
+        public void CommitButton_Click(object sender, RoutedEventArgs e)
+        {
+            mController.CommitChanges(mTubeMonitorPageModel.SelectedTube, OnCommitEditSetpointComplete);
+
+        }
+
+        private void OnCommitEditSetpointComplete()
+        {
+            MessageBox.Show("Done");
+        }
+
         public void StartButton_Click(object sender, RoutedEventArgs e)
         {
             mController.StartProcess(mTubeMonitorPageModel.SelectedTube, OnStartProcessComplete);
@@ -82,14 +102,48 @@ namespace Demo.ui
 
         public void HoldButton_Click(object sender, RoutedEventArgs e)
         {
+            mController.HoldProcess(mTubeMonitorPageModel.SelectedTube, OnHoldProcessComplete);
             btnHold.IsEnabled = false;
             btnStart.IsEnabled = true;
         }
 
+        private void OnHoldProcessComplete()
+        {
+            MessageBox.Show("OnHoldProcessComplete");
+        }
+
+        public void NextButton_Click(object sender, RoutedEventArgs e)
+        {
+            mController.NextProcess(mTubeMonitorPageModel.SelectedTube, OnNextProcessComplete);
+        }
+
+        private void OnNextProcessComplete()
+        {
+            MessageBox.Show("OnNextProcessComplete");
+        }
+
         public void IdleButton_Click(object sender, RoutedEventArgs e)
         {
+            mController.IdleProcess(mTubeMonitorPageModel.SelectedTube, OnIdleProcessComplete);
             btnHold.IsEnabled = false;
             btnStart.IsEnabled = true;
+        }
+
+        private void OnIdleProcessComplete()
+        {
+            MessageBox.Show("OnIdleProcessComplete");
+        }
+
+        public void AbortButton_Click(object sender, RoutedEventArgs e)
+        {
+            mController.AbortProcess(mTubeMonitorPageModel.SelectedTube, OnAbortProcessComplete);
+            btnHold.IsEnabled = false;
+            btnStart.IsEnabled = true;
+        }
+
+        private void OnAbortProcessComplete()
+        {
+            MessageBox.Show("OnAbortProcessComplete");
         }
 
         public void LoadPage(byte selectedTube)
@@ -104,6 +158,12 @@ namespace Demo.ui
 
             DataContext = mTubeMonitorPageModel;
             mTubeMonitorPageModel.UpdateDataSource();
+            mTubeMonitorPageModel.EditVisible = mManual ? Visibility.Visible : Visibility.Hidden;
+        }
+
+        public TubeMonitorPageModel GetPageModel()
+        {
+            return mTubeMonitorPageModel;
         }
 
         private void StartUpdateUIServer()

@@ -36,7 +36,7 @@ namespace Demo
             SubscriptComNodes();
             ComService.Instance.StartHeartBeatService();
 
-            ProcessService.Instance.StartPullInfoService();
+            SocketClient.Instance.StartTcpService(new SocketClient.OnConnectEnd(OnConnectEnd));
         }
 
         protected override void OnStartup(StartupEventArgs e)
@@ -49,6 +49,11 @@ namespace Demo
         {
             log.Info("<<<========================End==");
             base.OnExit(e);
+        }
+
+        private void OnConnectEnd()
+        {
+            ProcessService.Instance.StartPullInfoService();
         }
 
         private void SubscriptComNodes()

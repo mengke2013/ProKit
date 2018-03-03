@@ -12,6 +12,10 @@ namespace Demo.com
         private OpcNode mTchLoad;
         private OpcNode mControlWord;
         private OpcNode mTchStart;
+        private OpcNode mTchHold;
+        private OpcNode mTchNext;
+        private OpcNode mTchIdle;
+        private OpcNode mTchAbort;
 
         public ComCommandNodeComponent(byte tubeIndex)
         {
@@ -21,6 +25,14 @@ namespace Demo.com
             mControlWord = new OpcNode(sNodeId);
             sNodeId = string.Format("ns=4;s=|var|CODESYS Control for PFC200 SL.Application.TUBE{0}.TchStart", tubeIndex);
             mTchStart = new OpcNode(sNodeId);
+            sNodeId = string.Format("ns=4;s=|var|CODESYS Control for PFC200 SL.Application.TUBE{0}.TchHold", tubeIndex);
+            mTchHold = new OpcNode(sNodeId);
+            sNodeId = string.Format("ns=4;s=|var|CODESYS Control for PFC200 SL.Application.TUBE{0}.TchNext", tubeIndex);
+            mTchNext = new OpcNode(sNodeId);
+            sNodeId = string.Format("ns=4;s=|var|CODESYS Control for PFC200 SL.Application.TUBE{0}.TchIdle", tubeIndex);
+            mTchIdle = new OpcNode(sNodeId);
+            sNodeId = string.Format("ns=4;s=|var|CODESYS Control for PFC200 SL.Application.TUBE{0}.TchAbort", tubeIndex);
+            mTchAbort = new OpcNode(sNodeId);
         }
 
         public OpcNode TchLoad
@@ -41,5 +53,28 @@ namespace Demo.com
             set { mTchStart = value; }
         }
 
+        public OpcNode TchHold
+        {
+            get { return mTchHold; }
+            set { mTchHold = value; }
+        }
+
+        public OpcNode TchNext
+        {
+            get { return mTchNext; }
+            set { mTchNext = value; }
+        }
+
+        public OpcNode TchIdle
+        {
+            get { return mTchIdle; }
+            set { mTchIdle = value; }
+        }
+
+        public OpcNode TchAbort
+        {
+            get { return mTchAbort; }
+            set { mTchAbort = value; }
+        }
     }
 }

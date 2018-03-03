@@ -41,7 +41,7 @@ namespace Demo.service
         {
            
             mSocketObj = new SocketObject();
-            mSocketObj.socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            //mSocketObj.socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         }
 
         public static RecipeService Instance
@@ -110,7 +110,7 @@ namespace Demo.service
             {
                 return false;
             }
-           
+            mRecipeBak = new Demo.utilities.Properties(fileName);
             SendRecipeData(tubeIndex, 0, rCallback, sCallback);
             return true;
         }
@@ -161,6 +161,9 @@ namespace Demo.service
                         mRecipeBak.set(String.Format("{0}", i + 1), strStepData);
                         mRecipeBak.Save();
                     }
+                    string strRecipeName = mRecipeTmpStore.get("rn");
+                    mRecipeBak.set("rn", strRecipeName);
+                    mRecipeBak.Save();
                     callback();
                 }
             });
@@ -184,6 +187,7 @@ namespace Demo.service
 
         private void ReceiveCompleteRecipe(byte tubeIndex, byte stepIndex, OnSynRecipeComplete rCallback, OnSynStepComplete sCallback)
         {
+            mSocketObj.socket = SocketClient.Instance.GetTcpSocket2(tubeIndex);
             mSocketObj.synStepCallback = sCallback;
             mSocketObj.synRecipeCallback = rCallback;
             mSocketObj.tubeIndex = tubeIndex;
@@ -292,6 +296,13 @@ namespace Demo.service
             }
             else
             {
+                List<OpcNode> opcReadNodes = new List<OpcNode>();
+                opcReadNodes.Add(ComProcessNodeComponent.Instance.TubeNodeComponents[mTubeIndex - 1].StatusInfoNodeComponent.RecipeName);
+                ComNodeService.Instance.ReadComNodes((byte)(mTubeIndex + 1), opcReadNodes);
+                string recipename = (string)ComProcessNodeComponent.Instance.TubeNodeComponents[mTubeIndex - 1].StatusInfoNodeComponent.RecipeName.Value;
+                mRecipeTmpStore.set("rn", recipename);
+                mRecipeTmpStore.Save();
+
                 //finish recipe
                 //mSocketObj.socket.EndConnect(so.cResult);
                 if (mSocketObj.synRecipeCallback != null)
@@ -323,7 +334,7 @@ namespace Demo.service
 
         private void SendCompleteRecipe(byte tubeIndex, byte stepIndex, OnDownloadRecipeComplete rCallback, OnDownloadStepComplete sCallback)
         {
-
+            mSocketObj.socket = SocketClient.Instance.GetTcpSocket2(tubeIndex);
             mSocketObj.dldStepCallback = sCallback;
             mSocketObj.dldRecipeCallback = rCallback;
             mSocketObj.tubeIndex = tubeIndex;
@@ -504,6 +515,18 @@ namespace Demo.service
             }
             else
             {
+                if (mSocketObj.sendRecipe)
+                {
+                    List<OpcNode> opcWriteNodes = new List<OpcNode>();
+                    // string recipeName = "Test AAA";
+                    string recipeName = mRecipeBak.get("rn").TrimEnd('\0');
+                    byte[] recipeBytes = new byte[32];
+                    Array.Copy(Encoding.Default.GetBytes(recipeName), 0, recipeBytes, 0, recipeName.Length);
+                    ComProcessNodeComponent.Instance.TubeNodeComponents[mTubeIndex - 1].StatusInfoNodeComponent.RecipeName.Value = Encoding.Default.GetString(recipeBytes);
+                    opcWriteNodes.Add(ComProcessNodeComponent.Instance.TubeNodeComponents[mTubeIndex - 1].StatusInfoNodeComponent.RecipeName);
+                    ComNodeService.Instance.WriteComNodes(mTubeIndex, opcWriteNodes);
+                }
+
                 //finish recipe
                 // mSocketObj.socket.EndConnect(mSocketObj.cResult);
                 if (mSocketObj.dldRecipeCallback != null)

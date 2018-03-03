@@ -15,6 +15,7 @@ namespace Demo.ui.model
         private bool mDirty;
 
         private TubePageStyle mTubePageStyle;
+        private string mProcessName;
         private int mStepIndex;
         private string mStepName;
         private sbyte mStepType;
@@ -126,6 +127,16 @@ namespace Demo.ui.model
             {
                 mStepIndex = value;
                 UpdateProperty("StepIndex");
+            }
+        }
+
+        public string ProcessName
+        {
+            get { return mProcessName; }
+            set
+            {
+                mProcessName = value;
+                Notify("ProcessName");
             }
         }
 

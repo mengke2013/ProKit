@@ -53,6 +53,13 @@ namespace Demo.controller
             return step;
         }
 
+        public string GetRecipeName(byte tubeIndex)
+        {
+            //add validation
+            string recipeName = ProcessService.Instance.GetProcessName(tubeIndex);
+            return recipeName;
+        }
+
         public void ConvertRecipePageModel(TubeRecipePageModel recipePage, RecipeStep step)
         {
             recipePage.TubeRecipeViewModel.UpdateView = true;

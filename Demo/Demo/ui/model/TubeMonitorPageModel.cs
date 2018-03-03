@@ -7,22 +7,27 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using Rocky.Core.Opc.Ua;
 using Demo.com;
+using System.Windows;
 
 namespace Demo.ui.model
 {
-    class TubeMonitorPageModel : INotifyPropertyChanged
+    public class TubeMonitorPageModel : INotifyPropertyChanged
     {
         private byte mSelectedTube = 1;
         private byte mPreSelectedTube = 1;
         private NodeValueUpdateEventHandler mPreUpdateHandler;
 
+        private Visibility mEditVisible;
+
         private string mProcessName;
+        private string mStepName;
+        private int mStepTime;
         private string mProcessStatus;
-        private string mGas1Sp;
-        private string mGas2Sp;
-        private string mGas5Sp;
-        private string mGas6Sp;
-        private string mGas8Sp;
+        private int mGas1Sp;
+        private int mGas2Sp;
+        private int mGas5Sp;
+        private int mGas6Sp;
+        private int mGas8Sp;
         private string mGas1CurMeas;
         private string mGas2CurMeas;
         private string mGas5CurMeas;
@@ -34,12 +39,13 @@ namespace Demo.ui.model
         private string mAna1CurMeas;
         private string mAna3CurMeas;
         private string mAna4CurMeas;
-        private string mTemper1Sp;
-        private string mTemper2Sp;
-        private string mTemper3Sp;
-        private string mTemper4Sp;
-        private string mTemper5Sp;
-        private string mTemper6Sp;
+        private bool mTemperInt;
+        private int mTemper1Sp;
+        private int mTemper2Sp;
+        private int mTemper3Sp;
+        private int mTemper4Sp;
+        private int mTemper5Sp;
+        private int mTemper6Sp;
         private string mTemper1IntValue;
         private string mTemper2IntValue;
         private string mTemper3IntValue;
@@ -210,6 +216,16 @@ namespace Demo.ui.model
             }
         }
 
+        public Visibility EditVisible
+        {
+            get { return mEditVisible; }
+            set
+            {
+                mEditVisible = value;
+                Notify("EditVisible");
+            }
+        }
+
         public byte SelectedTube
         {
             get { return mSelectedTube; }
@@ -245,6 +261,31 @@ namespace Demo.ui.model
                 mProcessStatus = value;
                 Notify("ProcessStatus");
             }
+        }
+
+        public string StepName
+        {
+            get { return mStepName; }
+            set
+            {
+                mStepName = value;
+                Notify("StepName");
+            }
+        }
+
+        public int StepTime
+        {
+            get { return mStepTime; }
+            set
+            {
+                mStepTime = value;
+                Notify("StepTimeS");
+            }
+        }
+
+        public string StepTimeS
+        {
+            get { return string.Format("{2}:{1}:{0}", (mStepTime % 3600) % 60, (int)((mStepTime % 3600) / 60), ((int)mStepTime / 3600)); }
         }
 
         public string Ev1Color
@@ -365,7 +406,7 @@ namespace Demo.ui.model
             get { return mPipeColors[13]; }
         }
 
-        public string Gas1Sp
+        public int Gas1Sp
         {
             get { return mGas1Sp; }
             set
@@ -375,7 +416,7 @@ namespace Demo.ui.model
             }
         }
 
-        public string Gas2Sp
+        public int Gas2Sp
         {
             get { return mGas2Sp; }
             set
@@ -385,7 +426,7 @@ namespace Demo.ui.model
             }
         }
 
-        public string Gas5Sp
+        public int Gas5Sp
         {
             get { return mGas5Sp; }
             set
@@ -395,7 +436,7 @@ namespace Demo.ui.model
             }
         }
 
-        public string Gas6Sp
+        public int Gas6Sp
         {
             get { return mGas6Sp; }
             set
@@ -405,7 +446,7 @@ namespace Demo.ui.model
             }
         }
 
-        public string Gas8Sp
+        public int Gas8Sp
         {
             get { return mGas8Sp; }
             set
@@ -525,7 +566,17 @@ namespace Demo.ui.model
             }
         }
 
-        public string Temper1Sp
+        public bool TemperInt
+        {
+            get { return mTemperInt; }
+            set
+            {
+                mTemperInt = value;
+                Notify("TemperInt");
+            }
+        }
+
+        public int Temper1Sp
         {
             get { return mTemper1Sp; }
             set
@@ -535,7 +586,7 @@ namespace Demo.ui.model
             }
         }
 
-        public string Temper2Sp
+        public int Temper2Sp
         {
             get { return mTemper2Sp; }
             set
@@ -545,7 +596,7 @@ namespace Demo.ui.model
             }
         }
 
-        public string Temper3Sp
+        public int Temper3Sp
         {
             get { return mTemper3Sp; }
             set
@@ -555,7 +606,7 @@ namespace Demo.ui.model
             }
         }
 
-        public string Temper4Sp
+        public int Temper4Sp
         {
             get { return mTemper4Sp; }
             set
@@ -565,7 +616,7 @@ namespace Demo.ui.model
             }
         }
 
-        public string Temper5Sp
+        public int Temper5Sp
         {
             get { return mTemper5Sp; }
             set
@@ -575,7 +626,7 @@ namespace Demo.ui.model
             }
         }
 
-        public string Temper6Sp
+        public int Temper6Sp
         {
             get { return mTemper6Sp; }
             set
@@ -823,27 +874,27 @@ namespace Demo.ui.model
         {
             if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[0].CurSp.NodeID)
             {
-                Temper1Sp = newValue.ToString();
+                //Temper1Sp = newValue.ToString();
             }
             else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[1].CurSp.NodeID)
             {
-                Temper2Sp = newValue.ToString();
+                //Temper2Sp = newValue.ToString();
             }
             else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[2].CurSp.NodeID)
             {
-                Temper3Sp = newValue.ToString();
+                //Temper3Sp = newValue.ToString();
             }
             else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[3].CurSp.NodeID)
             {
-                Temper4Sp = newValue.ToString();
+               // Temper4Sp = newValue.ToString();
             }
             else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[4].CurSp.NodeID)
             {
-                Temper5Sp = newValue.ToString();
+                //Temper5Sp = newValue.ToString();
             }
             else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[5].CurSp.NodeID)
             {
-                Temper6Sp = newValue.ToString();
+                //Temper6Sp = newValue.ToString();
             }
             else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[0].IntValue.NodeID)
             {
@@ -919,23 +970,23 @@ namespace Demo.ui.model
             }
             else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].MfcNodeComponent.GasNodeComponents[0].CurSp.NodeID)
             {
-                Gas1Sp = newValue.ToString();
+                //Gas1Sp = newValue.ToString();
             }
             else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].MfcNodeComponent.GasNodeComponents[1].CurSp.NodeID)
             {
-                Gas2Sp = newValue.ToString();
+                //Gas2Sp = newValue.ToString();
             }
             else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].MfcNodeComponent.GasNodeComponents[4].CurSp.NodeID)
             {
-                Gas5Sp = newValue.ToString();
+                //Gas5Sp = newValue.ToString();
             }
             else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].MfcNodeComponent.GasNodeComponents[5].CurSp.NodeID)
             {
-                Gas6Sp = newValue.ToString();
+                //Gas6Sp = newValue.ToString();
             }
             else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].MfcNodeComponent.GasNodeComponents[7].CurSp.NodeID)
             {
-                Gas8Sp = newValue.ToString();
+                //Gas8Sp = newValue.ToString();
             }
             else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].MfcNodeComponent.GasNodeComponents[0].CurMeas.NodeID)
             {
