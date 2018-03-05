@@ -255,6 +255,21 @@ namespace Demo.service
             return mProcesses[tubeIndex - 1].Gas8CurMeas;
         }
 
+        public int GetAna1Value(byte tubeIndex)
+        {
+            return mProcesses[tubeIndex - 1].Ana1CurMeas;
+        }
+
+        public int GetAna1Sp(byte tubeIndex)
+        {
+            return mProcesses[tubeIndex - 1].Ana1Sp;
+        }
+
+        public bool GetTemperInt(byte tubeIndex)
+        {
+            return mProcesses[tubeIndex - 1].TemperInt;
+        }
+
         public int GetTemper1Sp(byte tubeIndex)
         {
             return mProcesses[tubeIndex - 1].Temper1Sp;
@@ -345,6 +360,36 @@ namespace Demo.service
             return mProcesses[tubeIndex - 1].Temper6ExtValue;
         }
 
+        public int GetPaddleSpeedSp(byte tubeIndex)
+        {
+            return mProcesses[tubeIndex - 1].PaddleSpeedSp;
+        }
+
+        public int GetPaddlePosSp(byte tubeIndex)
+        {
+            return mProcesses[tubeIndex - 1].PaddlePosSp;
+        }
+
+        public int GetPaddlePosAct(byte tubeIndex)
+        {
+            return mProcesses[tubeIndex - 1].PaddlePosAct;
+        }
+
+        public int GetEv(byte tubeIndex)
+        {
+            return mProcesses[tubeIndex - 1].Ev;
+        }
+
+        public int GetDi(byte tubeIndex)
+        {
+            return mProcesses[tubeIndex - 1].Di;
+        }
+
+        public int GetDo(byte tubeIndex)
+        {
+            return mProcesses[tubeIndex - 1].Do;
+        }
+
         public EditProcess GetEditProcess()
         {
             return mEditProcess; 
@@ -412,7 +457,7 @@ namespace Demo.service
                 else
                 {
                     so.sResult = ar;
-                    byte[] setpointBytes = new byte[64];
+                    byte[] setpointBytes = new byte[66];
                     byte[] tSetpointData = EncryptEditSetpointData(so.tubeIndex);
                     Array.Copy(tSetpointData, 0, setpointBytes, 0, tSetpointData.Length);
                     so.socket.BeginSend(setpointBytes, 0, setpointBytes.Length, SocketFlags.None, ar1 =>
@@ -669,7 +714,7 @@ namespace Demo.service
 
         private byte[] EncryptEditSetpointData(int tubeIndex)
         {
-            byte[] setpointBytes = new byte[64];
+            byte[] setpointBytes = new byte[66];
             byte[] cBytes;
             cBytes = BitConverter.GetBytes(mEditProcess.EditGas1Sp);
             Array.Copy(cBytes, 0, setpointBytes, 0, cBytes.Length);
@@ -687,6 +732,8 @@ namespace Demo.service
             Array.Copy(cBytes, 0, setpointBytes, 12, cBytes.Length);
             cBytes = BitConverter.GetBytes(mEditProcess.EditGas8Sp);
             Array.Copy(cBytes, 0, setpointBytes, 14, cBytes.Length);
+            cBytes = BitConverter.GetBytes((short)mEditProcess.EditAna1Sp);
+            Array.Copy(cBytes, 0, setpointBytes, 32, cBytes.Length);
             cBytes = BitConverter.GetBytes(mEditProcess.EditTemper1Sp);
             Array.Copy(cBytes, 0, setpointBytes, 16, cBytes.Length);
             cBytes = BitConverter.GetBytes(mEditProcess.EditTemper2Sp);
@@ -701,8 +748,23 @@ namespace Demo.service
             Array.Copy(cBytes, 0, setpointBytes, 26, cBytes.Length);
             cBytes = BitConverter.GetBytes(mEditProcess.EditTemper7Sp);
             Array.Copy(cBytes, 0, setpointBytes, 28, cBytes.Length);
-            cBytes = BitConverter.GetBytes(mEditProcess.EditTemper8Sp);
+            cBytes = BitConverter.GetBytes((short)mEditProcess.EditTemper8Sp);
             Array.Copy(cBytes, 0, setpointBytes, 30, cBytes.Length);
+            cBytes = BitConverter.GetBytes(mEditProcess.EditPaddlePosSp);
+            Array.Copy(cBytes, 0, setpointBytes, 48, cBytes.Length);
+            cBytes = BitConverter.GetBytes(mEditProcess.EditPaddleSpeedSp);
+            Array.Copy(cBytes, 0, setpointBytes, 52, cBytes.Length);
+            cBytes = BitConverter.GetBytes(mEditProcess.EditEvSp);
+            Array.Copy(cBytes, 0, setpointBytes, 56, cBytes.Length);
+            cBytes = BitConverter.GetBytes(mEditProcess.EditDoSp);
+            Array.Copy(cBytes, 0, setpointBytes, 60, cBytes.Length);
+            short iTemperIntSp = 0;
+            if (mEditProcess.EditTemperIntSp)
+            {
+                iTemperIntSp = 1;
+            }
+            cBytes = BitConverter.GetBytes(iTemperIntSp);
+            Array.Copy(cBytes, 0, setpointBytes, 64, cBytes.Length);
             return setpointBytes;
         }
 
@@ -718,6 +780,7 @@ namespace Demo.service
                     mProcesses[index].ProcessTime = BitConverter.ToInt32(processBytes, 300 * i + 32);
                     mProcesses[index].StepNum = (sbyte)processBytes[300 * i + 36];
                     mProcesses[index].StepEscapedTime = BitConverter.ToInt32(processBytes, 300 * i + 37);
+                    mProcesses[index].StepName = Encoding.Default.GetString(processBytes, 300 * i + 234, 32).TrimEnd('\0');
 
                     mProcesses[index].Gas1Sp = BitConverter.ToInt16(processBytes, 300 * i + 41);
                     mProcesses[index].Gas1CurMeas = BitConverter.ToInt16(processBytes, 300 * i + 57);
@@ -729,7 +792,9 @@ namespace Demo.service
                     mProcesses[index].Gas6CurMeas = BitConverter.ToInt16(processBytes, 300 * i + 67);
                     mProcesses[index].Gas8Sp = BitConverter.ToInt16(processBytes, 300 * i + 55);
                     mProcesses[index].Gas8CurMeas = BitConverter.ToInt16(processBytes, 300 * i + 71);
-                    mProcesses[index].StepName = Encoding.Default.GetString(processBytes, 300 * i + 234, 32).TrimEnd('\0');
+
+                    mProcesses[index].Ana1Sp = BitConverter.ToInt16(processBytes, 300 * i + 81);
+                    mProcesses[index].Ana1CurMeas = BitConverter.ToInt16(processBytes, 300 * i + 97);
 
                     mProcesses[index].Temper1Sp = BitConverter.ToInt16(processBytes, 300 * i + 121);
                     mProcesses[index].Temper2Sp = BitConverter.ToInt16(processBytes, 300 * i + 123);
@@ -738,6 +803,15 @@ namespace Demo.service
                     mProcesses[index].Temper5Sp = BitConverter.ToInt16(processBytes, 300 * i + 129);
                     mProcesses[index].Temper6Sp = BitConverter.ToInt16(processBytes, 300 * i + 131);
 
+                    mProcesses[index].PaddlePosSp = BitConverter.ToInt32(processBytes, 300 * i + 201);
+                    mProcesses[index].PaddlePosAct = BitConverter.ToInt32(processBytes, 300 * i + 205);
+                    mProcesses[index].PaddleSpeedSp = BitConverter.ToInt32(processBytes, 300 * i + 209);
+                    mProcesses[index].Ev = BitConverter.ToInt32(processBytes, 300 * i + 221);
+                    mProcesses[index].Di = BitConverter.ToInt32(processBytes, 300 * i + 213);
+                    mProcesses[index].Do = BitConverter.ToInt32(processBytes, 300 * i + 217);
+                    //mProcesses[index].TemperInt = BitConverter.ToBoolean(processBytes, 300 * i + 266);
+                    short iTemperInt = BitConverter.ToInt16(processBytes, 300 * i + 266);
+                    mProcesses[index].TemperInt = (iTemperInt == 1);
 
                     mProcesses[index].Status = (sbyte)processBytes[300 * i + 229];
                     mProcesses[index].ProcessRemainingTime = BitConverter.ToInt32(processBytes, 300 * i + 230);

@@ -75,6 +75,11 @@ namespace Demo.ui
             mTubeMonitorPageModel.EditVisible = mManual ? Visibility.Visible : Visibility.Hidden;
             btnManual.Content = mManual ? "Auto" : "Manual";
             btnCommit.Visibility = mManual ? Visibility.Visible : Visibility.Hidden;
+
+            if (mManual)
+            {
+                mController.LoadMonitorSetpoints(mTubeMonitorPageModel);
+            }
         }
 
         public void CommitButton_Click(object sender, RoutedEventArgs e)
@@ -157,7 +162,6 @@ namespace Demo.ui
             mTubeMonitorPageModel.TubePageStyle = mTubePageStyle;
 
             DataContext = mTubeMonitorPageModel;
-            mTubeMonitorPageModel.UpdateDataSource();
             mTubeMonitorPageModel.EditVisible = mManual ? Visibility.Visible : Visibility.Hidden;
         }
 

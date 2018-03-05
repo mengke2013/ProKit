@@ -19,6 +19,17 @@ namespace Demo.controller
             mPage = page;
         }
 
+        public void LoadMonitorSetpoints(TubeMonitorPageModel uiModel)
+        {
+            uiModel.Ana1Sp = ProcessService.Instance.GetAna1Sp(uiModel.SelectedTube);
+            uiModel.TemperIntSp = uiModel.TemperInt;
+            uiModel.PaddlePosSp = ProcessService.Instance.GetPaddlePosSp(uiModel.SelectedTube);
+            uiModel.EditPaddleSpeedSp = uiModel.PaddleSpeedSp;
+            uiModel.EvSp = uiModel.EvValue;
+            uiModel.DoSp = uiModel.DoValue;
+
+        }
+
         public void UpdateMonitorModel(TubeMonitorPageModel uiModel)
         {
             uiModel.ProcessStatus = ProcessService.Instance.GetProcessStatus(uiModel.SelectedTube);
@@ -31,7 +42,8 @@ namespace Demo.controller
             uiModel.Gas5CurMeas = ProcessService.Instance.GetGas5Sp(uiModel.SelectedTube) + "/" + ProcessService.Instance.GetGas5Value(uiModel.SelectedTube);
             uiModel.Gas6CurMeas = ProcessService.Instance.GetGas6Sp(uiModel.SelectedTube) + "/" + ProcessService.Instance.GetGas6Value(uiModel.SelectedTube);
             uiModel.Gas8CurMeas = ProcessService.Instance.GetGas8Sp(uiModel.SelectedTube) + "/" + ProcessService.Instance.GetGas8Value(uiModel.SelectedTube);
-            if (uiModel.TemperInt)
+            uiModel.Ana1CurMeas = ProcessService.Instance.GetAna1Sp(uiModel.SelectedTube) + "/" + ProcessService.Instance.GetAna1Value(uiModel.SelectedTube);
+            if (ProcessService.Instance.GetTemperInt(uiModel.SelectedTube))
             {
                 uiModel.Temper1IntValue = ProcessService.Instance.GetTemper1Sp(uiModel.SelectedTube) + "/" + ProcessService.Instance.GetTemper1IntValue(uiModel.SelectedTube);
                 uiModel.Temper2IntValue = ProcessService.Instance.GetTemper2Sp(uiModel.SelectedTube) + "/" + ProcessService.Instance.GetTemper2IntValue(uiModel.SelectedTube);
@@ -64,7 +76,11 @@ namespace Demo.controller
                 uiModel.Temper5IntValue = ProcessService.Instance.GetTemper5IntValue(uiModel.SelectedTube).ToString();
                 uiModel.Temper6IntValue = ProcessService.Instance.GetTemper6IntValue(uiModel.SelectedTube).ToString();
             }
-            
+            uiModel.PaddleSpeedSp = ProcessService.Instance.GetPaddleSpeedSp(uiModel.SelectedTube);
+            uiModel.PaddlePosAct = ProcessService.Instance.GetPaddlePosSp(uiModel.SelectedTube) + "/" + ProcessService.Instance.GetPaddlePosAct(uiModel.SelectedTube);
+            uiModel.EvValue = ProcessService.Instance.GetEv(uiModel.SelectedTube);
+            uiModel.DiValue = ProcessService.Instance.GetDi(uiModel.SelectedTube);
+            uiModel.DoValue = ProcessService.Instance.GetDo(uiModel.SelectedTube);
         }
 
         public void CommitChanges(byte tubeIndex, ProcessService.OnCommitEditSetpointComplete callback)
@@ -159,12 +175,18 @@ namespace Demo.controller
             process.EditGas5Sp = monitorPageModel.Gas5Sp;
             process.EditGas6Sp = monitorPageModel.Gas6Sp;
             process.EditGas8Sp = monitorPageModel.Gas8Sp;
+            process.EditAna1Sp = monitorPageModel.Ana1Sp;
+            process.EditTemperIntSp = monitorPageModel.TemperIntSp;
             process.EditTemper1Sp = monitorPageModel.Temper1Sp;
             process.EditTemper2Sp = monitorPageModel.Temper2Sp;
             process.EditTemper3Sp = monitorPageModel.Temper3Sp;
             process.EditTemper4Sp = monitorPageModel.Temper4Sp;
             process.EditTemper5Sp = monitorPageModel.Temper5Sp;
             process.EditTemper6Sp = monitorPageModel.Temper6Sp;
+            process.EditPaddlePosSp = monitorPageModel.PaddlePosSp;
+            process.EditPaddleSpeedSp = monitorPageModel.EditPaddleSpeedSp;
+            process.EditEvSp = monitorPageModel.EvSp;
+            process.EditDoSp = monitorPageModel.DoSp;
         }
     }
 }

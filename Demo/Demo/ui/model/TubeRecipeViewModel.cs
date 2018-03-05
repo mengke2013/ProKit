@@ -84,7 +84,7 @@ namespace Demo.ui.model
         private int mTemper6Alarm;
         private int mTemper6Next;
 
-        private short mTemperRegulInt;
+        private bool mTemperRegulInt;
 
         private int mAxisPosSp;
         private int mAxisSpeedSp;
@@ -776,7 +776,7 @@ namespace Demo.ui.model
             }
         }
 
-        public short TemperRegulInt
+        public bool TemperRegulInt
         {
             get { return mTemperRegulInt; }
             set

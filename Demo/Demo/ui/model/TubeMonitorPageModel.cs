@@ -8,6 +8,7 @@ using System.ComponentModel;
 using Rocky.Core.Opc.Ua;
 using Demo.com;
 using System.Windows;
+using Demo.utilities;
 
 namespace Demo.ui.model
 {
@@ -15,7 +16,6 @@ namespace Demo.ui.model
     {
         private byte mSelectedTube = 1;
         private byte mPreSelectedTube = 1;
-        private NodeValueUpdateEventHandler mPreUpdateHandler;
 
         private Visibility mEditVisible;
 
@@ -33,13 +33,14 @@ namespace Demo.ui.model
         private string mGas5CurMeas;
         private string mGas6CurMeas;
         private string mGas8CurMeas;
-        private string mAna1Sp;
+        private int mAna1Sp;
         private string mAna3Sp;
         private string mAna4Sp;
         private string mAna1CurMeas;
         private string mAna3CurMeas;
         private string mAna4CurMeas;
         private bool mTemperInt;
+        private bool mTemperIntSp;
         private int mTemper1Sp;
         private int mTemper2Sp;
         private int mTemper3Sp;
@@ -65,10 +66,18 @@ namespace Demo.ui.model
         private string mTemper5HeatPower;
         private string mTemper6HeatPower;
         private string mPaddlePosAct;
-        private string mPaddlePosSp;
-        private string mPaddleSpeedSp;
+        private int mPaddlePosSp;
+        private int mPaddleSpeedSp;
+        private int mEditPaddleSpeedSp;
         private string[] mEvColors;
         private string[] mPipeColors;
+        private int mEvSp;
+        private int mEvValue;
+        private string[] mDiColors;
+        private int mDiValue;
+        private string[] mDoColors;
+        private int mDoSp;
+        private int mDoValue;
 
         private int mProcessRemainingTime;
 
@@ -84,115 +93,202 @@ namespace Demo.ui.model
                 mEvColors[i] = "#FFD3C7C7";
             }
 
-            mPipeColors = new string[14];
-            for(int i = 0; i < 14; ++i)
+            mPipeColors = new string[32];
+            for (int i = 0; i < 32; ++i)
             {
                 mPipeColors[i] = "#FFD3C7C7";
             }
+
+            mDiColors = new string[32];
+            for (int i = 0; i < 32; ++i)
+            {
+                mDiColors[i] = "#FFD3C7C7";
+            }
+
+            mDoColors = new string[32];
+            for (int i = 0; i < 32; ++i)
+            {
+                mDoColors[i] = "#FFD3C7C7";
+            }
         }
 
-        public void UpdateDataSource()
+        public int DiValue
         {
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].MfcNodeComponent.GasNodeComponents[0].CurSp.Notification -= mPreUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].MfcNodeComponent.GasNodeComponents[1].CurSp.Notification -= mPreUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].MfcNodeComponent.GasNodeComponents[4].CurSp.Notification -= mPreUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].MfcNodeComponent.GasNodeComponents[5].CurSp.Notification -= mPreUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].MfcNodeComponent.GasNodeComponents[7].CurSp.Notification -= mPreUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].MfcNodeComponent.GasNodeComponents[0].CurMeas.Notification -= mPreUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].MfcNodeComponent.GasNodeComponents[1].CurMeas.Notification -= mPreUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].MfcNodeComponent.GasNodeComponents[4].CurMeas.Notification -= mPreUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].MfcNodeComponent.GasNodeComponents[5].CurMeas.Notification -= mPreUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].MfcNodeComponent.GasNodeComponents[7].CurMeas.Notification -= mPreUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].VacuumNodeComponent.AnalogNodeComponents[0].CurSp.Notification -= mPreUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].VacuumNodeComponent.AnalogNodeComponents[2].CurSp.Notification -= mPreUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].VacuumNodeComponent.AnalogNodeComponents[3].CurSp.Notification -= mPreUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].VacuumNodeComponent.AnalogNodeComponents[0].CurMeas.Notification -= mPreUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].VacuumNodeComponent.AnalogNodeComponents[2].CurMeas.Notification -= mPreUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].VacuumNodeComponent.AnalogNodeComponents[3].CurMeas.Notification -= mPreUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[0].CurSp.Notification -= mPreUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[1].CurSp.Notification -= mPreUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[2].CurSp.Notification -= mPreUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[3].CurSp.Notification -= mPreUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[4].CurSp.Notification -= mPreUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[5].CurSp.Notification -= mPreUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[0].IntValue.Notification -= mPreUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[1].IntValue.Notification -= mPreUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[2].IntValue.Notification -= mPreUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[3].IntValue.Notification -= mPreUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[4].IntValue.Notification -= mPreUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[5].IntValue.Notification -= mPreUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[0].ExtValue.Notification -= mPreUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[1].ExtValue.Notification -= mPreUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[2].ExtValue.Notification -= mPreUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[3].ExtValue.Notification -= mPreUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[4].ExtValue.Notification -= mPreUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[5].ExtValue.Notification -= mPreUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[0].HeatPower.Notification -= mPreUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[1].HeatPower.Notification -= mPreUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[2].HeatPower.Notification -= mPreUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[3].HeatPower.Notification -= mPreUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[4].HeatPower.Notification -= mPreUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[5].HeatPower.Notification -= mPreUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].PaddleNodeComponent.PosAct.Notification -= mPreUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].PaddleNodeComponent.CurPosSp.Notification -= mPreUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mPreSelectedTube - 1].PaddleNodeComponent.CurSpeedSp.Notification -= mPreUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].DioNodeComponent.Ev.Notification -= mPreUpdateHandler;
-            NodeValueUpdateEventHandler newUpdateHandler = new NodeValueUpdateEventHandler(NodeValueUpdate);
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].MfcNodeComponent.GasNodeComponents[0].CurSp.Notification += newUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].MfcNodeComponent.GasNodeComponents[1].CurSp.Notification += newUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].MfcNodeComponent.GasNodeComponents[4].CurSp.Notification += newUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].MfcNodeComponent.GasNodeComponents[5].CurSp.Notification += newUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].MfcNodeComponent.GasNodeComponents[7].CurSp.Notification += newUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].MfcNodeComponent.GasNodeComponents[0].CurMeas.Notification += newUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].MfcNodeComponent.GasNodeComponents[1].CurMeas.Notification += newUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].MfcNodeComponent.GasNodeComponents[4].CurMeas.Notification += newUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].MfcNodeComponent.GasNodeComponents[5].CurMeas.Notification += newUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].MfcNodeComponent.GasNodeComponents[7].CurMeas.Notification += newUpdateHandler;
-
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].VacuumNodeComponent.AnalogNodeComponents[0].CurSp.Notification += newUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].VacuumNodeComponent.AnalogNodeComponents[2].CurSp.Notification += newUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].VacuumNodeComponent.AnalogNodeComponents[3].CurSp.Notification += newUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].VacuumNodeComponent.AnalogNodeComponents[0].CurMeas.Notification += newUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].VacuumNodeComponent.AnalogNodeComponents[2].CurMeas.Notification += newUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].VacuumNodeComponent.AnalogNodeComponents[3].CurMeas.Notification += newUpdateHandler;
-
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[0].CurSp.Notification += newUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[1].CurSp.Notification += newUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[2].CurSp.Notification += newUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[3].CurSp.Notification += newUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[4].CurSp.Notification += newUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[5].CurSp.Notification += newUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[0].IntValue.Notification += newUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[1].IntValue.Notification += newUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[2].IntValue.Notification += newUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[3].IntValue.Notification += newUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[4].IntValue.Notification += newUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[5].IntValue.Notification += newUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[0].ExtValue.Notification += newUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[1].ExtValue.Notification += newUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[2].ExtValue.Notification += newUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[3].ExtValue.Notification += newUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[4].ExtValue.Notification += newUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[5].ExtValue.Notification += newUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[0].HeatPower.Notification += newUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[1].HeatPower.Notification += newUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[2].HeatPower.Notification += newUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[3].HeatPower.Notification += newUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[4].HeatPower.Notification += newUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[5].HeatPower.Notification += newUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].PaddleNodeComponent.PosAct.Notification += newUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].PaddleNodeComponent.CurPosSp.Notification += newUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].PaddleNodeComponent.CurSpeedSp.Notification += newUpdateHandler;
-            ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].DioNodeComponent.Ev.Notification += newUpdateHandler;
-            mPreUpdateHandler = newUpdateHandler;
+            get { return mDiValue; }
+            set
+            {
+                mDiValue = value;
+                var arr = new BitArray(BitConverter.GetBytes(mDiValue));
+                for (int i = 0; i < 32; ++i)
+                {
+                    if (arr[i])
+                    {
+                        mDiColors[i] = "Green";
+                    }
+                    else
+                    {
+                        mDiColors[i] = "Red";
+                    }
+                    Notify("Di" + (i + 1) + "Color");
+                }
+            }
         }
 
-        private void UpdateEv()
+        public int DoSp
         {
-            try {
-               System.Int32 val = (System.Int32)ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].DioNodeComponent.Ev.Value;
-                var arr = new BitArray(BitConverter.GetBytes(val));
-           
+            get { return mDoSp; }
+            set
+            {
+                mDoSp = value;
+                Notify("Do1");
+                Notify("Do2");
+                Notify("Do3");
+                Notify("Do4");
+                Notify("Do5");
+                Notify("Do6");
+                Notify("Do7");
+            }
+        }
+
+        public int DoValue
+        {
+            get { return mDoValue; }
+            set
+            {
+                mDoValue = value;
+                var arr = new BitArray(BitConverter.GetBytes(mDoValue));
+                for (int i = 0; i < 32; ++i)
+                {
+                    if (arr[i])
+                    {
+                        mDoColors[i] = "Green";
+                    }
+                    else
+                    {
+                        mDoColors[i] = "Red";
+                    }
+                    Notify("Do" + (i + 1) + "Color");
+                }
+            }
+        }
+
+        public bool Do1
+        {
+            get
+            {
+                return BitUtility.GetBitValue(mDoSp, 0);
+            }
+            set
+            {
+                mDoSp = BitUtility.SetBitValue(mDoSp, 0, value);
+                Notify("Do1");
+            }
+        }
+
+        public bool Do2
+        {
+            get
+            {
+                return BitUtility.GetBitValue(mDoSp, 1);
+            }
+            set
+            {
+                mDoSp = BitUtility.SetBitValue(mDoSp, 1, value);
+                Notify("Do2");
+            }
+        }
+
+        public bool Do3
+        {
+            get
+            {
+                return BitUtility.GetBitValue(mDoSp, 2);
+            }
+            set
+            {
+                mDoSp = BitUtility.SetBitValue(mDoSp, 2, value);
+                Notify("Do3");
+            }
+        }
+
+        public bool Do4
+        {
+            get
+            {
+                return BitUtility.GetBitValue(mDoSp, 3);
+            }
+            set
+            {
+                mDoSp = BitUtility.SetBitValue(mDoSp, 3, value);
+                Notify("Do4");
+            }
+        }
+
+        public bool Do5
+        {
+            get
+            {
+                return BitUtility.GetBitValue(mDoSp, 4);
+            }
+            set
+            {
+                mDoSp = BitUtility.SetBitValue(mDoSp, 4, value);
+                Notify("Do5");
+            }
+        }
+
+        public bool Do6
+        {
+            get
+            {
+                return BitUtility.GetBitValue(mDoSp, 5);
+            }
+            set
+            {
+                mDoSp = BitUtility.SetBitValue(mDoSp, 5, value);
+                Notify("Do6");
+            }
+        }
+
+        public bool Do7
+        {
+            get
+            {
+                return BitUtility.GetBitValue(mDoSp, 6);
+            }
+            set
+            {
+                mDoSp = BitUtility.SetBitValue(mDoSp, 6, value);
+                Notify("Do6");
+            }
+        }
+
+        public int EvSp
+        {
+            get { return mEvSp; }
+            set
+            {
+                mEvSp = value;
+                Notify("Ev1");
+                Notify("Ev2");
+                Notify("Ev3");
+                Notify("Ev5");
+                Notify("Ev6");
+                Notify("Ev8");
+                Notify("Ev10");
+                Notify("Ev11");
+                Notify("Ev14");
+            }
+        }
+
+        public int EvValue
+        {
+            get { return mEvValue; }
+            set
+            {
+                mEvValue = value;
+                var arr = new BitArray(BitConverter.GetBytes(mEvValue));
+
                 var myVal = arr[21];
                 for (int i = 0; i < 32; ++i)
                 {
@@ -206,13 +302,126 @@ namespace Demo.ui.model
                         mEvColors[i] = "Red";
                         mPipeColors[i] = "#FFD3C7C7";
                     }
-                    Notify("Ev"+(i+1)+"Color");
+                    Notify("Ev" + (i + 1) + "Color");
                     Notify("Pipe" + (i + 1) + "Color");
                 }
             }
-            catch (Exception ee)
+        }
+
+        public bool Ev1
+        {
+            get
             {
-                
+                return BitUtility.GetBitValue(mEvSp, 0);
+            }
+            set
+            {
+                mEvSp = BitUtility.SetBitValue(mEvSp, 0, value);
+                Notify("Ev1");
+            }
+        }
+
+        public bool Ev2
+        {
+            get
+            {
+                return BitUtility.GetBitValue(mEvSp, 1);
+            }
+            set
+            {
+                mEvSp = BitUtility.SetBitValue(mEvSp, 1, value);
+                Notify("Ev2");
+            }
+        }
+
+        public bool Ev3
+        {
+            get
+            {
+                return BitUtility.GetBitValue(mEvSp, 2);
+            }
+            set
+            {
+                mEvSp = BitUtility.SetBitValue(mEvSp, 2, value);
+                Notify("Ev3");
+            }
+        }
+
+        public bool Ev5
+        {
+            get
+            {
+                return BitUtility.GetBitValue(mEvSp, 4);
+            }
+            set
+            {
+                mEvSp = BitUtility.SetBitValue(mEvSp, 4, value);
+                Notify("Ev5");
+            }
+        }
+
+        public bool Ev6
+        {
+            get
+            {
+                return BitUtility.GetBitValue(mEvSp, 5);
+            }
+            set
+            {
+                mEvSp = BitUtility.SetBitValue(mEvSp, 5, value);
+                Notify("Ev6");
+            }
+        }
+
+        public bool Ev8
+        {
+            get
+            {
+                return BitUtility.GetBitValue(mEvSp, 7);
+            }
+            set
+            {
+                mEvSp = BitUtility.SetBitValue(mEvSp, 7, value);
+                Notify("Ev8");
+            }
+        }
+
+        public bool Ev10
+        {
+            get
+            {
+                return BitUtility.GetBitValue(mEvSp, 9);
+            }
+            set
+            {
+                mEvSp = BitUtility.SetBitValue(mEvSp, 9, value);
+                Notify("Ev10");
+            }
+        }
+
+        public bool Ev11
+        {
+            get
+            {
+                return BitUtility.GetBitValue(mEvSp, 10);
+            }
+            set
+            {
+                mEvSp = BitUtility.SetBitValue(mEvSp, 10, value);
+                Notify("Ev11");
+            }
+        }
+
+        public bool Ev14
+        {
+            get
+            {
+                return BitUtility.GetBitValue(mEvSp, 13);
+            }
+            set
+            {
+                mEvSp = BitUtility.SetBitValue(mEvSp, 13, value);
+                Notify("Ev14");
             }
         }
 
@@ -286,6 +495,36 @@ namespace Demo.ui.model
         public string StepTimeS
         {
             get { return string.Format("{2}:{1}:{0}", (mStepTime % 3600) % 60, (int)((mStepTime % 3600) / 60), ((int)mStepTime / 3600)); }
+        }
+
+        public string Do1Color
+        {
+            get { return mDoColors[0]; }
+        }
+        public string Do2Color
+        {
+            get { return mDoColors[1]; }
+        }
+        public string Do3Color
+        {
+            get { return mDoColors[2]; }
+        }
+        public string Do4Color
+        {
+            get { return mDoColors[3]; }
+        }
+        public string Do5Color
+        {
+            get { return mDoColors[4]; }
+        }
+        public string Do6Color
+        {
+            get { return mDoColors[5]; }
+        }
+
+        public string Do7Color
+        {
+            get { return mDoColors[6]; }
         }
 
         public string Ev1Color
@@ -506,7 +745,7 @@ namespace Demo.ui.model
             }
         }
 
-        public string Ana1Sp
+        public int Ana1Sp
         {
             get { return mAna1Sp; }
             set
@@ -573,6 +812,16 @@ namespace Demo.ui.model
             {
                 mTemperInt = value;
                 Notify("TemperInt");
+            }
+        }
+
+        public bool TemperIntSp
+        {
+            get { return mTemperIntSp; }
+            set
+            {
+                mTemperIntSp = value;
+                Notify("TemperIntSp");
             }
         }
 
@@ -816,7 +1065,7 @@ namespace Demo.ui.model
             }
         }
 
-        public String PaddlePosAct
+        public string PaddlePosAct
         {
             get { return mPaddlePosAct; }
             set
@@ -826,7 +1075,7 @@ namespace Demo.ui.model
             }
         }
 
-        public String PaddlePosSp
+        public int PaddlePosSp
         {
             get { return mPaddlePosSp; }
             set
@@ -836,7 +1085,17 @@ namespace Demo.ui.model
             }
         }
 
-        public String PaddleSpeedSp
+        public int EditPaddleSpeedSp
+        {
+            get { return mEditPaddleSpeedSp; }
+            set
+            {
+                mEditPaddleSpeedSp = value;
+                Notify("EditPaddleSpeedSp");
+            }
+        }
+
+        public int PaddleSpeedSp
         {
             get { return mPaddleSpeedSp; }
             set
@@ -858,7 +1117,7 @@ namespace Demo.ui.model
 
         public string ProcessRemainingTimeS
         {
-            get { return string.Format("{2}:{1}:{0}", (mProcessRemainingTime%3600)%60, (int)((mProcessRemainingTime % 3600) / 60), ((int)mProcessRemainingTime / 3600)); }
+            get { return string.Format("{2}:{1}:{0}", (mProcessRemainingTime % 3600) % 60, (int)((mProcessRemainingTime % 3600) / 60), ((int)mProcessRemainingTime / 3600)); }
         }
 
         void Notify(string propName)
@@ -870,193 +1129,5 @@ namespace Demo.ui.model
             }
         }
 
-        private void NodeValueUpdate(OpcNode opcNode, Object newValue)
-        {
-            if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[0].CurSp.NodeID)
-            {
-                //Temper1Sp = newValue.ToString();
-            }
-            else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[1].CurSp.NodeID)
-            {
-                //Temper2Sp = newValue.ToString();
-            }
-            else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[2].CurSp.NodeID)
-            {
-                //Temper3Sp = newValue.ToString();
-            }
-            else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[3].CurSp.NodeID)
-            {
-               // Temper4Sp = newValue.ToString();
-            }
-            else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[4].CurSp.NodeID)
-            {
-                //Temper5Sp = newValue.ToString();
-            }
-            else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[5].CurSp.NodeID)
-            {
-                //Temper6Sp = newValue.ToString();
-            }
-            else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[0].IntValue.NodeID)
-            {
-                Temper1IntValue = newValue.ToString();
-            }
-            else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[1].IntValue.NodeID)
-            {
-                Temper2IntValue = newValue.ToString();
-            }
-            else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[2].IntValue.NodeID)
-            {
-                Temper3IntValue = newValue.ToString();
-            }
-            else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[3].IntValue.NodeID)
-            {
-                Temper4IntValue = newValue.ToString();
-            }
-            else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[4].IntValue.NodeID)
-            {
-                Temper5IntValue = newValue.ToString();
-            }
-            else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[5].IntValue.NodeID)
-            {
-                Temper6IntValue = newValue.ToString();
-            }
-            else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[0].ExtValue.NodeID)
-            {
-                Temper1ExtValue = newValue.ToString();
-            }
-            else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[1].ExtValue.NodeID)
-            {
-                Temper2ExtValue = newValue.ToString();
-            }
-            else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[2].ExtValue.NodeID)
-            {
-                Temper3ExtValue = newValue.ToString();
-            }
-            else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[3].ExtValue.NodeID)
-            {
-                Temper4ExtValue = newValue.ToString();
-            }
-            else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[4].ExtValue.NodeID)
-            {
-                Temper5ExtValue = newValue.ToString();
-            }
-            else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[5].ExtValue.NodeID)
-            {
-                Temper6ExtValue = newValue.ToString();
-            }
-            else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[0].HeatPower.NodeID)
-            {
-                Temper1HeatPower = newValue.ToString();
-            }
-            else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[1].HeatPower.NodeID)
-            {
-                Temper2HeatPower = newValue.ToString();
-            }
-            else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[2].HeatPower.NodeID)
-            {
-                Temper3HeatPower = newValue.ToString();
-            }
-            else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[3].HeatPower.NodeID)
-            {
-                Temper4HeatPower = newValue.ToString();
-            }
-            else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[4].HeatPower.NodeID)
-            {
-                Temper5HeatPower = newValue.ToString();
-            }
-            else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].FurnaceNodeComponent.TemperNodeComponents[5].HeatPower.NodeID)
-            {
-                Temper6HeatPower = newValue.ToString();
-            }
-            else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].MfcNodeComponent.GasNodeComponents[0].CurSp.NodeID)
-            {
-                //Gas1Sp = newValue.ToString();
-            }
-            else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].MfcNodeComponent.GasNodeComponents[1].CurSp.NodeID)
-            {
-                //Gas2Sp = newValue.ToString();
-            }
-            else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].MfcNodeComponent.GasNodeComponents[4].CurSp.NodeID)
-            {
-                //Gas5Sp = newValue.ToString();
-            }
-            else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].MfcNodeComponent.GasNodeComponents[5].CurSp.NodeID)
-            {
-                //Gas6Sp = newValue.ToString();
-            }
-            else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].MfcNodeComponent.GasNodeComponents[7].CurSp.NodeID)
-            {
-                //Gas8Sp = newValue.ToString();
-            }
-            else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].MfcNodeComponent.GasNodeComponents[0].CurMeas.NodeID)
-            {
-                Gas1CurMeas = newValue.ToString();
-            }
-            else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].MfcNodeComponent.GasNodeComponents[1].CurMeas.NodeID)
-            {
-                Gas2CurMeas = newValue.ToString();
-            }
-            else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].MfcNodeComponent.GasNodeComponents[4].CurMeas.NodeID)
-            {
-                Gas5CurMeas = newValue.ToString();
-            }
-            else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].MfcNodeComponent.GasNodeComponents[5].CurMeas.NodeID)
-            {
-                Gas6CurMeas = newValue.ToString();
-            }
-            else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].MfcNodeComponent.GasNodeComponents[7].CurMeas.NodeID)
-            {
-                Gas8CurMeas = newValue.ToString();
-            }
-            else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].VacuumNodeComponent.AnalogNodeComponents[0].CurSp.NodeID)
-            {
-                Ana1Sp = newValue.ToString();
-            }
-            else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].VacuumNodeComponent.AnalogNodeComponents[2].CurSp.NodeID)
-            {
-                Ana3Sp = newValue.ToString();
-            }
-            else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].VacuumNodeComponent.AnalogNodeComponents[3].CurSp.NodeID)
-            {
-                Ana4Sp = newValue.ToString();
-            }
-            else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].VacuumNodeComponent.AnalogNodeComponents[0].CurMeas.NodeID)
-            {
-                Ana1CurMeas = newValue.ToString();
-            }
-            else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].VacuumNodeComponent.AnalogNodeComponents[2].CurMeas.NodeID)
-            {
-                Ana3CurMeas = newValue.ToString();
-            }
-            else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].VacuumNodeComponent.AnalogNodeComponents[3].CurMeas.NodeID)
-            {
-                Ana4CurMeas = newValue.ToString();
-            }
-            else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].PaddleNodeComponent.PosAct.NodeID)
-            {
-                if (newValue != null)
-                {
-                    PaddlePosAct = newValue.ToString();
-                }
-            }
-            else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].PaddleNodeComponent.CurPosSp.NodeID)
-            {
-                if (newValue != null)
-                {
-                    PaddlePosSp = newValue.ToString();
-                }
-            }
-            else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].PaddleNodeComponent.CurSpeedSp.NodeID)
-            {
-                if (newValue != null)
-                {
-                    PaddleSpeedSp = newValue.ToString();
-                }
-            }
-            else if (opcNode.NodeID == ComProcessNodeComponent.Instance.TubeNodeComponents[mSelectedTube - 1].DioNodeComponent.Ev.NodeID)
-            {
-                UpdateEv();
-            }
-        }
     }
 }

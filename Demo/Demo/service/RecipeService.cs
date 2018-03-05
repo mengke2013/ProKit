@@ -824,7 +824,12 @@ namespace Demo.service
             Array.Copy(cBytes, 0, recipeBytes, 237, cBytes.Length);
             cBytes = BitConverter.GetBytes(step.Temper6Sp);
             Array.Copy(cBytes, 0, recipeBytes, 253, cBytes.Length);
-            cBytes = BitConverter.GetBytes(step.TemperRegulInt);
+            short iTemperInt = 0;
+            if (step.TemperRegulInt)
+            {
+                iTemperInt = 1;
+            }
+            cBytes = BitConverter.GetBytes(iTemperInt);
             Array.Copy(cBytes, 0, recipeBytes, 301, cBytes.Length);
             cBytes = BitConverter.GetBytes(step.AxisPosSp);
             Array.Copy(cBytes, 0, recipeBytes, 303, cBytes.Length);
@@ -873,8 +878,8 @@ namespace Demo.service
             step.Temper4Sp = BitConverter.ToInt16(recipeBytes, 221);
             step.Temper5Sp = BitConverter.ToInt16(recipeBytes, 237);
             step.Temper6Sp = BitConverter.ToInt16(recipeBytes, 253);
-
-            step.TemperRegulInt = BitConverter.ToInt16(recipeBytes, 301);
+            short iTemperInt = BitConverter.ToInt16(recipeBytes, 301);
+            step.TemperRegulInt = (iTemperInt == 1);
             step.AxisPosSp = BitConverter.ToInt32(recipeBytes, 303);
             step.AxisSpeedSp = BitConverter.ToInt32(recipeBytes, 307);
             step.Ramp = BitConverter.ToInt32(recipeBytes, 311);

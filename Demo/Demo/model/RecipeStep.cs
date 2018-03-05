@@ -77,7 +77,7 @@ namespace Demo.model
         private int mTemper6Alarm;
         private int mTemper6Next;
 
-        private short mTemperRegulInt;
+        private bool mTemperRegulInt;
 
         private int mAxisPosSp;
         private int mAxisSpeedSp;
@@ -483,7 +483,7 @@ namespace Demo.model
             set { mTemper6Next = value; }
         }
 
-        public short TemperRegulInt
+        public bool TemperRegulInt
         {
             get { return mTemperRegulInt; }
             set { mTemperRegulInt = value; }

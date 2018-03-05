@@ -16,6 +16,8 @@ namespace Demo.model
         private int mEditGas6Sp;
         private int mEditGas7Sp;
         private int mEditGas8Sp;
+        private int mEditAna1Sp;
+        private bool mEditTemperIntSp;
         private int mEditTemper1Sp;
         private int mEditTemper2Sp;
         private int mEditTemper3Sp;
@@ -24,6 +26,10 @@ namespace Demo.model
         private int mEditTemper6Sp;
         private int mEditTemper7Sp;
         private int mEditTemper8Sp;
+        private int mEditPaddlePosSp;
+        private int mEditPaddleSpeedSp;
+        private int mEditEvSp;
+        private int mEditDoSp;
 
         public int EditGas1Sp
         {
@@ -65,6 +71,18 @@ namespace Demo.model
         {
             get { return mEditGas8Sp; }
             set { mEditGas8Sp = value; }
+        }
+
+        public int EditAna1Sp
+        {
+            get { return mEditAna1Sp; }
+            set { mEditAna1Sp = value; }
+        }
+
+        public bool EditTemperIntSp
+        {
+            get { return mEditTemperIntSp; }
+            set { mEditTemperIntSp = value; }
         }
 
         public int EditTemper1Sp
@@ -113,6 +131,30 @@ namespace Demo.model
         {
             get { return mEditTemper8Sp; }
             set { mEditTemper8Sp = value; }
+        }
+
+        public int EditPaddlePosSp
+        {
+            get { return mEditPaddlePosSp; }
+            set { mEditPaddlePosSp = value; }
+        }
+
+        public int EditPaddleSpeedSp
+        {
+            get { return mEditPaddleSpeedSp; }
+            set { mEditPaddleSpeedSp = value; }
+        }
+
+        public int EditEvSp
+        {
+            get { return mEditEvSp; }
+            set { mEditEvSp = value; }
+        }
+
+        public int EditDoSp
+        {
+            get { return mEditDoSp; }
+            set { mEditDoSp = value; }
         }
     }
 }

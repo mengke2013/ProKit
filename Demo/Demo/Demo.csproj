@@ -106,6 +106,9 @@
     <Compile Include="service\RecipeService.cs" />
     <Compile Include="ui\ComNodeWraper.cs" />
     <Compile Include="ui\controls\ClickSelectTextBox.cs" />
+    <Compile Include="ui\controls\IntExtTemperSwitcher.xaml.cs">
+      <DependentUpon>IntExtTemperSwitcher.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ui\ITubePage.cs" />
     <Compile Include="ui\model\DioSwitcherModel.cs" />
     <Compile Include="ui\model\DiSelectorModel.cs" />
@@ -190,6 +193,10 @@
     </Compile>
     <Compile Include="utilities\BitUtility.cs" />
     <Compile Include="utilities\Properties.cs" />
+    <Page Include="ui\controls\IntExtTemperSwitcher.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="ui\Home.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

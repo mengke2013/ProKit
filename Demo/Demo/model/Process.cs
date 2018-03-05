@@ -47,6 +47,7 @@ namespace Demo.model
         private int mAna6CurMeas;
         private int mAna7CurMeas;
         private int mAna8CurMeas;
+        private bool mTemperInt;
         private int mTemper1Sp;
         private int mTemper2Sp;
         private int mTemper3Sp;
@@ -82,6 +83,9 @@ namespace Demo.model
         private int mPaddlePosAct;
         private int mPaddlePosSp;
         private int mPaddleSpeedSp;
+        private int mEv;
+        private int mDi;
+        private int mDo;
 
         private int mStatus;
 
@@ -294,6 +298,12 @@ namespace Demo.model
             set { mAna8CurMeas = value; }
         }
 
+        public bool TemperInt
+        {
+            get { return mTemperInt; }
+            set { mTemperInt = value; }
+        }
+
         public int Temper1Sp
         {
             get { return mTemper1Sp; }
@@ -472,6 +482,24 @@ namespace Demo.model
         {
             get { return mPaddleSpeedSp; }
             set { mPaddleSpeedSp = value; }
+        }
+
+        public int Ev
+        {
+            get { return mEv; }
+            set { mEv = value; }
+        }
+
+        public int Di
+        {
+            get { return mDi; }
+            set { mDi = value; }
+        }
+
+        public int Do
+        {
+            get { return mDo; }
+            set { mDo = value; }
         }
     }
 }
