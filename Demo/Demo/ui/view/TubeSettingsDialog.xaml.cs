@@ -14,6 +14,10 @@ using System.Windows.Shapes;
 using log4net;
 using Demo.ui.model;
 using Demo.utilities;
+using Demo.controller;
+using Demo.model;
+using System.Windows.Threading;
+using System.Threading;
 
 namespace Demo.ui.view
 {
@@ -26,6 +30,7 @@ namespace Demo.ui.view
 
         private byte mSelectedTube;
         private TubeSettingsViewModel mSettingsModel;
+        private SettingsController mController;
 
         public TubeSettingsDialog(byte selectedTube)
         {
@@ -33,6 +38,8 @@ namespace Demo.ui.view
 
             mSelectedTube = selectedTube;
             mSettingsModel = new TubeSettingsViewModel();
+            mController = new SettingsController();
+            this.DataContext = mSettingsModel;
         }
 
         private void Load_Click(object sender, RoutedEventArgs e)
@@ -48,84 +55,141 @@ namespace Demo.ui.view
                 log.Debug("load configuration file");
                 //Demo.utilities.Properties config = new Demo.utilities.Properties("configuration.properties");
                 Demo.utilities.Properties config = new Demo.utilities.Properties(openFileDialog.FileName);
-                mSettingsModel.Gas1MaxValue = config.get("Gas1MaxValue");
-                mSettingsModel.Gas2MaxValue = config.get("Gas2MaxValue");
-                mSettingsModel.Gas5MaxValue = config.get("Gas5MaxValue");
-                mSettingsModel.Gas6MaxValue = config.get("Gas6MaxValue");
-                mSettingsModel.Gas8MaxValue = config.get("Gas8MaxValue");
-                mSettingsModel.Ana1MaxValue = config.get("Ana1MaxValue");
-                mSettingsModel.Ana3MaxValue = config.get("Ana3MaxValue");
-                mSettingsModel.Ana4MaxValue = config.get("Ana4MaxValue");
-                mSettingsModel.Ana5MaxValue = config.get("Ana5MaxValue");
-                mSettingsModel.Ana6MaxValue = config.get("Ana6MaxValue");
-                mSettingsModel.VacuumKp = config.get("VacuumKp");
-                mSettingsModel.VacuumTn = config.get("VacuumTn");
-                mSettingsModel.VacuumTd = config.get("VacuumTd");
-                mSettingsModel.Gas1Ev = config.get("Gas1Ev");
-                mSettingsModel.Gas2Ev = config.get("Gas2Ev");
-                mSettingsModel.Gas5Ev = config.get("Gas5Ev");
-                mSettingsModel.Gas6Ev = config.get("Gas6Ev");
-                mSettingsModel.Gas8Ev = config.get("Gas8Ev");
-                mSettingsModel.TemperIntKp1 = config.get("TemperIntKp1");
-                mSettingsModel.TemperIntKp2 = config.get("TemperIntKp2");
-                mSettingsModel.TemperIntKp3 = config.get("TemperIntKp3");
-                mSettingsModel.TemperIntKp4 = config.get("TemperIntKp4");
-                mSettingsModel.TemperIntKp5 = config.get("TemperIntKp5");
-                mSettingsModel.TemperIntKp6 = config.get("TemperIntKp6");
-                mSettingsModel.TemperIntTn1 = config.get("TemperIntTn1");
-                mSettingsModel.TemperIntTn2 = config.get("TemperIntTn2");
-                mSettingsModel.TemperIntTn3 = config.get("TemperIntTn3");
-                mSettingsModel.TemperIntTn4 = config.get("TemperIntTn4");
-                mSettingsModel.TemperIntTn5 = config.get("TemperIntTn5");
-                mSettingsModel.TemperIntTn6 = config.get("TemperIntTn6");
-                mSettingsModel.TemperIntTd1 = config.get("TemperIntTd1");
-                mSettingsModel.TemperIntTd2 = config.get("TemperIntTd2");
-                mSettingsModel.TemperIntTd3 = config.get("TemperIntTd3");
-                mSettingsModel.TemperIntTd4 = config.get("TemperIntTd4");
-                mSettingsModel.TemperIntTd5 = config.get("TemperIntTd5");
-                mSettingsModel.TemperIntTd6 = config.get("TemperIntTd6");
-                mSettingsModel.TemperExtKp1 = config.get("TemperExtKp1");
-                mSettingsModel.TemperExtKp2 = config.get("TemperExtKp2");
-                mSettingsModel.TemperExtKp3 = config.get("TemperExtKp3");
-                mSettingsModel.TemperExtKp4 = config.get("TemperExtKp4");
-                mSettingsModel.TemperExtKp5 = config.get("TemperExtKp5");
-                mSettingsModel.TemperExtKp6 = config.get("TemperExtKp6");
-                mSettingsModel.TemperExtTn1 = config.get("TemperExtTn1");
-                mSettingsModel.TemperExtTn2 = config.get("TemperExtTn2");
-                mSettingsModel.TemperExtTn3 = config.get("TemperExtTn3");
-                mSettingsModel.TemperExtTn4 = config.get("TemperExtTn4");
-                mSettingsModel.TemperExtTn5 = config.get("TemperExtTn5");
-                mSettingsModel.TemperExtTn6 = config.get("TemperExtTn6");
-                mSettingsModel.TemperExtTd1 = config.get("TemperExtTd1");
-                mSettingsModel.TemperExtTd2 = config.get("TemperExtTd2");
-                mSettingsModel.TemperExtTd3 = config.get("TemperExtTd3");
-                mSettingsModel.TemperExtTd4 = config.get("TemperExtTd4");
-                mSettingsModel.TemperExtTd5 = config.get("TemperExtTd5");
-                mSettingsModel.TemperExtTd6 = config.get("TemperExtTd6");
-                mSettingsModel.MaxPressure = config.get("MaxPressure");
-                mSettingsModel.MinPressure = config.get("MinPressure");
-                mSettingsModel.MaxTemper = config.get("MaxTemper");
-                mSettingsModel.MaxTemper5 = config.get("MaxTemper5");
-                mSettingsModel.MinTemper5 = config.get("MinTemper5");
-                mSettingsModel.MaxPump = config.get("MaxPump");
-                mSettingsModel.DI1 = config.get("DI1");
-                mSettingsModel.DI2 = config.get("DI2");
-                mSettingsModel.DI3 = config.get("DI3");
-                mSettingsModel.DI4 = config.get("DI4");
-                mSettingsModel.DI5 = config.get("DI5");
-                mSettingsModel.DI6 = config.get("DI6");
-                mSettingsModel.DI7 = config.get("DI7");
-                mSettingsModel.DI8 = config.get("DI8");
-                mSettingsModel.DI9 = config.get("DI9");
-                mSettingsModel.DI10 = config.get("DI10");
-                mSettingsModel.DI11 = config.get("DI11");
-                mSettingsModel.DI12 = config.get("DI12");
-                mSettingsModel.DI13 = config.get("DI13");
-                mSettingsModel.DI14 = config.get("DI14");
-                mSettingsModel.DI15 = config.get("DI15");
-                mSettingsModel.Offset = config.get("Offset");
-                mSettingsModel.PositionDev = config.get("PositionDev");
-                mSettingsModel.ClosePosition = config.get("ClosePosition");
+                short value;
+                short.TryParse(config.get("Gas1MaxValue"), out value);
+                mSettingsModel.Gas1MaxValue = value;
+                short.TryParse(config.get("Gas2MaxValue"), out value);
+                mSettingsModel.Gas2MaxValue = value;
+                short.TryParse(config.get("Gas5MaxValue"), out value);
+                mSettingsModel.Gas5MaxValue = value;
+                short.TryParse(config.get("Gas6MaxValue"), out value);
+                mSettingsModel.Gas6MaxValue = value;
+                short.TryParse(config.get("Gas8MaxValue"), out value);
+                mSettingsModel.Gas8MaxValue = value;
+                short.TryParse(config.get("Ana1MaxValue"), out value);
+                mSettingsModel.Ana1MaxValue = value;
+                short.TryParse(config.get("Ana3MaxValue"), out value);
+                mSettingsModel.Ana3MaxValue = value;
+                short.TryParse(config.get("Ana4MaxValue"), out value);
+                mSettingsModel.Ana4MaxValue = value;
+                short.TryParse(config.get("Ana5MaxValue"), out value);
+                mSettingsModel.Ana5MaxValue = value;
+                short.TryParse(config.get("Ana6MaxValue"), out value);
+                mSettingsModel.Ana6MaxValue = value;
+
+                short.TryParse(config.get("VacuumKp"), out value);
+                mSettingsModel.VacuumKp = value;
+                short.TryParse(config.get("VacuumTn"), out value);
+                mSettingsModel.VacuumTn = value;
+                short.TryParse(config.get("VacuumTd"), out value);
+                mSettingsModel.VacuumTd = value;
+
+                byte value2;
+                byte.TryParse(config.get("Gas1Ev"), out value2);
+                mSettingsModel.Gas1Ev = value2;
+                byte.TryParse(config.get("Gas2Ev"), out value2);
+                mSettingsModel.Gas2Ev = value2;
+                byte.TryParse(config.get("Gas5Ev"), out value2);
+                mSettingsModel.Gas5Ev = value2;
+                byte.TryParse(config.get("Gas6Ev"), out value2);
+                mSettingsModel.Gas6Ev = value2;
+                byte.TryParse(config.get("Gas8Ev"), out value2);
+                mSettingsModel.Gas8Ev = value2;
+
+                short.TryParse(config.get("TemperIntKp1"), out value);
+                mSettingsModel.TemperIntKp1 = value;
+                short.TryParse(config.get("TemperIntKp2"), out value);
+                mSettingsModel.TemperIntKp2 = value;
+                short.TryParse(config.get("TemperIntKp3"), out value);
+                mSettingsModel.TemperIntKp3 = value;
+                short.TryParse(config.get("TemperIntKp4"), out value);
+                mSettingsModel.TemperIntKp4 = value;
+                short.TryParse(config.get("TemperIntKp5"), out value);
+                mSettingsModel.TemperIntKp5 = value;
+                short.TryParse(config.get("TemperIntKp6"), out value);
+                mSettingsModel.TemperIntKp6 = value;
+                short.TryParse(config.get("TemperIntTn1"), out value);
+                mSettingsModel.TemperIntTn1 = value;
+                short.TryParse(config.get("TemperIntTn2"), out value);
+                mSettingsModel.TemperIntTn2 = value;
+                short.TryParse(config.get("TemperIntTn3"), out value);
+                mSettingsModel.TemperIntTn3 = value;
+                short.TryParse(config.get("TemperIntTn4"), out value);
+                mSettingsModel.TemperIntTn4 = value;
+                short.TryParse(config.get("TemperIntTn5"), out value);
+                mSettingsModel.TemperIntTn5 = value;
+                short.TryParse(config.get("TemperIntTn6"), out value);
+                mSettingsModel.TemperIntTn6 = value;
+                short.TryParse(config.get("TemperIntTd1"), out value);
+                mSettingsModel.TemperIntTd1 = value;
+                short.TryParse(config.get("TemperIntTd2"), out value);
+                mSettingsModel.TemperIntTd2 = value;
+                short.TryParse(config.get("TemperIntTd3"), out value);
+                mSettingsModel.TemperIntTd3 = value;
+                short.TryParse(config.get("TemperIntTd4"), out value);
+                mSettingsModel.TemperIntTd4 = value;
+                short.TryParse(config.get("TemperIntTd5"), out value);
+                mSettingsModel.TemperIntTd5 = value;
+                short.TryParse(config.get("TemperIntTd6"), out value);
+                mSettingsModel.TemperIntTd6 = value;
+                short.TryParse(config.get("TemperExtKp1"), out value);
+                mSettingsModel.TemperExtKp1 = value;
+                short.TryParse(config.get("TemperExtKp2"), out value);
+                mSettingsModel.TemperExtKp2 = value;
+                short.TryParse(config.get("TemperExtKp3"), out value);
+                mSettingsModel.TemperExtKp3 = value;
+                short.TryParse(config.get("TemperExtKp4"), out value);
+                mSettingsModel.TemperExtKp4 = value;
+                short.TryParse(config.get("TemperExtKp5"), out value);
+                mSettingsModel.TemperExtKp5 = value;
+                short.TryParse(config.get("TemperExtKp6"), out value);
+                mSettingsModel.TemperExtKp6 = value;
+                short.TryParse(config.get("TemperExtTn1"), out value);
+                mSettingsModel.TemperExtTn1 = value;
+                short.TryParse(config.get("TemperExtTn2"), out value);
+                mSettingsModel.TemperExtTn2 = value;
+                short.TryParse(config.get("TemperExtTn3"), out value);
+                mSettingsModel.TemperExtTn3 = value;
+                short.TryParse(config.get("TemperExtTn4"), out value);
+                mSettingsModel.TemperExtTn4 = value;
+                short.TryParse(config.get("TemperExtTn5"), out value);
+                mSettingsModel.TemperExtTn5 = value;
+                short.TryParse(config.get("TemperExtTn6"), out value);
+                mSettingsModel.TemperExtTn6 = value;
+                short.TryParse(config.get("TemperExtTd1"), out value);
+                mSettingsModel.TemperExtTd1 = value;
+                short.TryParse(config.get("TemperExtTd2"), out value);
+                mSettingsModel.TemperExtTd2 = value;
+                short.TryParse(config.get("TemperExtTd3"), out value);
+                mSettingsModel.TemperExtTd3 = value;
+                short.TryParse(config.get("TemperExtTd4"), out value);
+                mSettingsModel.TemperExtTd4 = value;
+                short.TryParse(config.get("TemperExtTd5"), out value);
+                mSettingsModel.TemperExtTd5 = value;
+                short.TryParse(config.get("TemperExtTd6"), out value);
+                mSettingsModel.TemperExtTd6 = value;
+                short.TryParse(config.get("MaxPressure"), out value);
+                mSettingsModel.MaxPressure = value;
+                short.TryParse(config.get("MinPressure"), out value);
+                mSettingsModel.MinPressure = value;
+                short.TryParse(config.get("VacuumTd"), out value);
+                mSettingsModel.VacuumTd = value;
+                short.TryParse(config.get("MaxTemper5"), out value);
+                mSettingsModel.MaxTemper5 = value;
+                short.TryParse(config.get("MinTemper5"), out value);
+                mSettingsModel.MinTemper5 = value;
+                short.TryParse(config.get("MaxPump"), out value);
+                mSettingsModel.MaxPump = value;
+
+                int value1;
+                int.TryParse(config.get("Di"), out value1);
+                mSettingsModel.Di = value1;
+                int.TryParse(config.get("Offset"), out value1);
+                mSettingsModel.Offset = value1;
+                int.TryParse(config.get("PositionDev"), out value1);
+                mSettingsModel.PositionDev = value1;
+                int.TryParse(config.get("ClosePosition"), out value1);
+                mSettingsModel.ClosePosition = value1;
                 this.DataContext = mSettingsModel;
             }
         }
@@ -203,21 +267,7 @@ namespace Demo.ui.view
                 config.set("MaxTemper5", mSettingsModel.MaxTemper5);
                 config.set("MinTemper5", mSettingsModel.MinTemper5);
                 config.set("MaxPump", mSettingsModel.MaxPump);
-                config.set("DI1", mSettingsModel.DI1);
-                config.set("DI2", mSettingsModel.DI2);
-                config.set("DI3", mSettingsModel.DI3);
-                config.set("DI4", mSettingsModel.DI4);
-                config.set("DI5", mSettingsModel.DI5);
-                config.set("DI6", mSettingsModel.DI6);
-                config.set("DI7", mSettingsModel.DI7);
-                config.set("DI8", mSettingsModel.DI8);
-                config.set("DI9", mSettingsModel.DI9);
-                config.set("DI10", mSettingsModel.DI10);
-                config.set("DI11", mSettingsModel.DI11);
-                config.set("DI12", mSettingsModel.DI12);
-                config.set("DI13", mSettingsModel.DI13);
-                config.set("DI14", mSettingsModel.DI14);
-                config.set("DI15", mSettingsModel.DI15);
+                config.set("Di", mSettingsModel.Di);
                 config.set("Offset", mSettingsModel.Offset);
                 config.set("PositionDev", mSettingsModel.PositionDev);
                 config.set("ClosePosition", mSettingsModel.ClosePosition);
@@ -229,7 +279,14 @@ namespace Demo.ui.view
         {
             if (MessageBox.Show("Would you want to Read configuration from device?", "Confirm", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
-
+                log.Debug("TubeSettingsDialog:RefreshBtn_Click");
+                bool startSyn = mController.SynSettings(mSelectedTube, OnSynSettingsComplete);
+                if (startSyn)
+                {
+                    //mProgressDlg.ProgressModel.MaxValue = 64;
+                    //mProgressDlg.ProgressModel.Progress = 0;
+                    //mProgressDlg.ShowDialog();
+                }
             }
                 
         }
@@ -238,8 +295,39 @@ namespace Demo.ui.view
         {
             if (MessageBox.Show("Would you want to Write configuration to device?", "Confirm", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
+                Settings settings = mController.GetSettings(mSelectedTube);
+                mController.ConvertSettingsModel(settings, mSettingsModel);
 
+                bool startDownload = mController.CommitSettings( mSelectedTube, OnDownSettingsComplete);
+                if (startDownload)
+                {
+                    //mProgressDlg.ProgressModel.MaxValue = 64;
+                    //mProgressDlg.ProgressModel.Progress = 0;
+                    //mProgressDlg.ShowDialog();
+                }
             }
+        }
+
+        private void OnSynSettingsComplete(Settings settings)
+        {
+            this.Dispatcher.BeginInvoke(DispatcherPriority.Normal, (ThreadStart)delegate ()
+            {
+                //mProgressDlg.Hide();
+                //StepItems[0].Item_Click(null, null);
+                MessageBox.Show("OnSynSettingsComplete");
+                mController.ConvertSettingsPageModel(mSettingsModel, settings);
+                //LoadStep(1);
+            });
+        }
+
+        private void OnDownSettingsComplete(Settings settings)
+        {
+            this.Dispatcher.BeginInvoke(DispatcherPriority.Normal, (ThreadStart)delegate ()
+            {
+               // mProgressDlg.Hide();
+               // StepItems[0].Item_Click(null, null);
+                MessageBox.Show("OnDownSettingsComplete");
+            });
         }
     }
 }

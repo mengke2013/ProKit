@@ -644,19 +644,19 @@
                             <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Critical</TextBlock>
                         </DockPanel>
                         <DockPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="1">
-                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=DI1}"/>
+                            <local:DioSwitcher Margin="5,2" Value="{Binding  Path=Di1}"></local:DioSwitcher>
                         </DockPanel>
                         <DockPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="1">
-                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=DI2}"/>
+                            <local:DioSwitcher Margin="5,2" Value="{Binding  Path=Di2}"></local:DioSwitcher>
                         </DockPanel>
                         <DockPanel Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="1">
-                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=DI3}"/>
+                            <local:DioSwitcher Margin="5,2" Value="{Binding  Path=Di3}"></local:DioSwitcher>
                         </DockPanel>
                         <DockPanel Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="1">
-                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=DI4}"/>
+                            <local:DioSwitcher Margin="5,2" Value="{Binding  Path=Di4}"></local:DioSwitcher>
                         </DockPanel>
                         <DockPanel Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="1">
-                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=DI5}"/>
+                            <local:DioSwitcher Margin="5,2" Value="{Binding  Path=Di5}"></local:DioSwitcher>
                         </DockPanel>
                         <DockPanel Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="1">
                             <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">DI 6</TextBlock>
@@ -677,52 +677,52 @@
                             <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Critical</TextBlock>
                         </DockPanel>
                         <DockPanel Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="1">
-                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=DI6}"/>
+                            <local:DioSwitcher Margin="5,2" Value="{Binding  Path=Di6}"></local:DioSwitcher>
                         </DockPanel>
                         <DockPanel Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="1">
-                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=DI7}"/>
+                            <local:DioSwitcher Margin="5,2" Value="{Binding  Path=Di7}"></local:DioSwitcher>
                         </DockPanel>
                         <DockPanel Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="1">
-                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=DI8}"/>
+                            <local:DioSwitcher Margin="5,2" Value="{Binding  Path=Di8}"></local:DioSwitcher>
                         </DockPanel>
                         <DockPanel Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="1">
-                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=DI9}"/>
+                            <local:DioSwitcher Margin="5,2" Value="{Binding  Path=Di9}"></local:DioSwitcher>
                         </DockPanel>
                         <DockPanel Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="1">
-                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=DI10}"/>
+                            <local:DioSwitcher Margin="5,2" Value="{Binding  Path=Di10}"></local:DioSwitcher>
                         </DockPanel>
                         <DockPanel Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="1">
-                            <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">DI 6</TextBlock>
+                            <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">DI 11</TextBlock>
                         </DockPanel>
                         <DockPanel Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="1">
-                            <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">DI 7</TextBlock>
+                            <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">DI 12</TextBlock>
                         </DockPanel>
                         <DockPanel Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="1">
-                            <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">DI 8</TextBlock>
+                            <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">DI 13</TextBlock>
                         </DockPanel>
                         <DockPanel Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="1">
-                            <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">DI 9</TextBlock>
+                            <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">DI 14</TextBlock>
                         </DockPanel>
                         <DockPanel Grid.Row="5" Grid.Column="4" Grid.ColumnSpan="1">
-                            <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">DI 10</TextBlock>
+                            <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">DI 15</TextBlock>
                         </DockPanel>
                         <DockPanel Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="1">
                             <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Critical</TextBlock>
                         </DockPanel>
                         <DockPanel Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="1">
-                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=DI11}"/>
+                            <local:DioSwitcher Margin="5,2" Value="{Binding  Path=Di11}"></local:DioSwitcher>
                         </DockPanel>
                         <DockPanel Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="1">
-                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=DI12}"/>
+                            <local:DioSwitcher Margin="5,2" Value="{Binding  Path=Di12}"></local:DioSwitcher>
                         </DockPanel>
                         <DockPanel Grid.Row="3" Grid.Column="5" Grid.ColumnSpan="1">
-                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=DI13}"/>
+                            <local:DioSwitcher Margin="5,2" Value="{Binding  Path=Di13}"></local:DioSwitcher>
                         </DockPanel>
                         <DockPanel Grid.Row="4" Grid.Column="5" Grid.ColumnSpan="1">
-                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=DI14}"/>
+                            <local:DioSwitcher Margin="5,2" Value="{Binding  Path=Di14}"></local:DioSwitcher>
                         </DockPanel>
                         <DockPanel Grid.Row="5" Grid.Column="5" Grid.ColumnSpan="1">
-                            <controls:ClickSelectTextBox Margin="5,2" Text="{Binding  Path=DI15}"/>
+                            <local:DioSwitcher Margin="5,2" Value="{Binding  Path=Di15}"></local:DioSwitcher>
                         </DockPanel>
                     </Grid>
                   </Grid>
