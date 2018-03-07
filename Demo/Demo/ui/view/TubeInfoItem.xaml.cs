@@ -43,7 +43,6 @@ namespace Demo.ui.view
 
         public void Item_Click(object sender, MouseButtonEventArgs e)
         {
-            this.Background = new SolidColorBrush(Colors.Green);
             this.ItemClick(sender, e, mItemMode.TubeIndex);
             if (e != null)
             {

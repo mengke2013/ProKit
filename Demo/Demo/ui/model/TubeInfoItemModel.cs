@@ -14,6 +14,7 @@ namespace Demo.ui.model
         public event PropertyChangedEventHandler PropertyChanged;
 
         private int mFurnaceHeight;
+        private string mTabBackground;
 
         private byte mTubeIndex;
         private int mProcessRemainingTime;
@@ -62,6 +63,7 @@ namespace Demo.ui.model
             {
                 mPipeColors[i] = "#FFD3C7C7";
             }
+            mTabBackground = "white";
         }
 
         public int FurnaceHeight
@@ -71,6 +73,16 @@ namespace Demo.ui.model
             {
                 mFurnaceHeight = value;
                 Notify("FurnaceHeight");
+            }
+        }
+
+        public string TabBackground
+        {
+            get { return mTabBackground; }
+            set
+            {
+                mTabBackground = value;
+                Notify("TabBackground");
             }
         }
 

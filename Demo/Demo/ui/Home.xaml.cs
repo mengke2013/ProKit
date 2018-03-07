@@ -111,20 +111,15 @@ namespace Demo.ui
             {
                 if (i != tubeIndex - 1)
                 {
-                    //tubeInfoItems[i].Background = new SolidColorBrush(Colors.White);
-                    tubeInfoItems[i].Background = new SolidColorBrush(Colors.WhiteSmoke);
                     tubeInfoItems[i].ClearValue(EffectProperty);
-                    tubeInfoItems[i].Effect = new BlurEffect
-                    {
-                        Radius = 5
-                    };
+                    tubeInfoItems[i].ItemMode.TabBackground = "#FFD3C7C7";
                 }
             }
 
             bd1.Height = tubeInfoItems[tubeIndex - 1].ActualHeight - 12;
             bd1.Margin = new Thickness(130, 6 + (bd1.Height + 12) * (tubeIndex-1), 0, 0);
             bd1.Visibility = Visibility.Visible;
-            tubeInfoItems[tubeIndex - 1].Background = new SolidColorBrush(Colors.White);
+            tubeInfoItems[tubeIndex - 1].ItemMode.TabBackground = "white";
             tubeInfoItems[tubeIndex - 1].Effect = new DropShadowEffect
             {
                 Color = new Color { A = 255, R = 0, G = 0, B = 0 },
@@ -136,12 +131,10 @@ namespace Demo.ui
             };
             bdMainPanel.Visibility = Visibility.Visible;
 
-//            ComNodeHelper.Instance.ReadOpcNodes(2);
             TubeTabHeader.Visibility = Visibility.Visible;
             bd0.Visibility = Visibility.Visible;
 
             ShowActivedTubePage();
-            // MessageBox.Show("Step" + stepIndex);
         }
 
         protected override void OnClosing(CancelEventArgs e)
@@ -182,9 +175,10 @@ namespace Demo.ui
         {
             bdMainPanel.Visibility = Visibility.Hidden;
 
+            tubeInfoItems[mSelectedTube-1].ClearValue(EffectProperty);
             for (byte i = 0; i < tubeInfoItems.Length; ++i)
             {
-                tubeInfoItems[i].ClearValue(EffectProperty);
+                tubeInfoItems[i].ItemMode.TabBackground = "white";
             }
             
             TubeTabHeader.Visibility = Visibility.Hidden;
