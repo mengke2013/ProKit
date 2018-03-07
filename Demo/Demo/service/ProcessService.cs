@@ -260,6 +260,16 @@ namespace Demo.service
             return mProcesses[tubeIndex - 1].Ana1CurMeas;
         }
 
+        public int GetAna3Value(byte tubeIndex)
+        {
+            return mProcesses[tubeIndex - 1].Ana3CurMeas;
+        }
+
+        public int GetAna4Value(byte tubeIndex)
+        {
+            return mProcesses[tubeIndex - 1].Ana4CurMeas;
+        }
+
         public int GetAna1Sp(byte tubeIndex)
         {
             return mProcesses[tubeIndex - 1].Ana1Sp;

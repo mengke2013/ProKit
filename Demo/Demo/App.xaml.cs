@@ -33,7 +33,6 @@ namespace Demo
 
         public App()
         {
-            SubscriptComNodes();
             ComService.Instance.StartHeartBeatService();
 
             SocketClient.Instance.StartTcpService(new SocketClient.OnConnectEnd(OnConnectEnd));
@@ -54,50 +53,6 @@ namespace Demo
         private void OnConnectEnd()
         {
             ProcessService.Instance.StartPullInfoService();
-        }
-
-        private void SubscriptComNodes()
-        {
-
-            ComTubeNodeComponent[] tubeNodeComponents = ComProcessNodeComponent.Instance.TubeNodeComponents;
-            for (byte tubeIndex = 1; tubeIndex <= tubeNodeComponents.Length; ++tubeIndex)
-            {
-                List<OpcNode> opcSubscriptNodes = new List<OpcNode>();
-                ComTubeNodeComponent tubeNodeComponent = tubeNodeComponents[tubeIndex - 1];
-                ComFurnaceNodeComponent furnaceNodeComponent = tubeNodeComponent.FurnaceNodeComponent;
-                ComTemperNodeComponent[] temperNodeComponents = furnaceNodeComponent.TemperNodeComponents;
-                for (int j = 0; j < temperNodeComponents.Length; ++j)
-                {
-                    ComTemperNodeComponent temperNodeComponent = temperNodeComponents[j];
-                    //opcSubscriptNodes.Add(temperNodeComponent.CurSp);
-                    opcSubscriptNodes.Add(temperNodeComponent.IntValue);
-                    opcSubscriptNodes.Add(temperNodeComponent.ExtValue);
-                    opcSubscriptNodes.Add(temperNodeComponent.HeatPower);
-                }
-                ComMfcNodeComponent mfcNodeComponent = tubeNodeComponent.MfcNodeComponent;
-                ComGasNodeComponent[] gasNodeComponents = mfcNodeComponent.GasNodeComponents;
-                for (int j = 0; j < gasNodeComponents.Length; ++j)
-                {
-                    ComGasNodeComponent gasNodeComponent = gasNodeComponents[j];
-                    opcSubscriptNodes.Add(gasNodeComponent.CurMeas);
-                }
-                ComVacuumNodeComponent vacuumNodeComponent = tubeNodeComponent.VacuumNodeComponent;
-                ComAnalogNodeComponent[] analogNodeComponents = vacuumNodeComponent.AnalogNodeComponents;
-                for (int j = 0; j < analogNodeComponents.Length; ++j)
-                {
-                    ComAnalogNodeComponent analogNodeComponent = analogNodeComponents[j];
-                    opcSubscriptNodes.Add(analogNodeComponent.CurMeas);
-                }
-                ComPaddleNodeComponent paddleNodeComponent = tubeNodeComponent.PaddleNodeComponent;
-                opcSubscriptNodes.Add(paddleNodeComponent.PosAct);
-                ComDioNodeComponent dioNodeComponent = tubeNodeComponent.DioNodeComponent;
-                opcSubscriptNodes.Add(dioNodeComponent.DigInput);
-                opcSubscriptNodes.Add(dioNodeComponent.DigOutput);
-                opcSubscriptNodes.Add(dioNodeComponent.Ev);
-
-                opcSubscriptNodes.Add(ComProcessNodeComponent.Instance.Test);
-                ComNodeService.Instance.SubscriptComNodes(tubeIndex, opcSubscriptNodes);
-            }
         }
     }
 }

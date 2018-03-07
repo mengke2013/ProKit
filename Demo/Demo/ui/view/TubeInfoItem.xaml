@@ -1,0 +1,267 @@
+﻿<UserControl x:Class="Demo.ui.view.TubeInfoItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:controls="clr-namespace:Demo.ui.controls"
+             xmlns:local="clr-namespace:Demo.ui.view"
+             mc:Ignorable="d" 
+             d:DesignHeight="150" d:DesignWidth="1300">
+    <Border Name="borderTube1" BorderBrush="Black" BorderThickness="1" MouseDown="Item_Click" Padding="10, 5" Margin="0,5,0,5" Background="White">
+        <DockPanel>
+            <Grid DockPanel.Dock="Left">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <TextBlock  Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2" Text="{Binding Path=TubeIndexS}" HorizontalAlignment="Center" Margin="5,5,5,5" VerticalAlignment="Center" Width="100" Height="35" FontSize="24" FontWeight="Bold" Foreground="#FF236EC9" />
+                <TextBlock Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1" VerticalAlignment="Bottom" Margin="0,0,0,0">Recipe:</TextBlock>
+                <TextBlock Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="1" VerticalAlignment="Bottom" Margin="0,0,0,0">Demo</TextBlock>
+                <TextBlock Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="1" HorizontalAlignment="left" VerticalAlignment="Bottom" Foreground="#FF236EC9" FontWeight="Bold">Init</TextBlock>
+                <TextBlock Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="12" Foreground="#FF236EC9">00:00:00</TextBlock>
+                <ProgressBar Name="pgbProcess" Grid.Row="4" Grid.Column ="0" Grid.RowSpan="2" Grid.ColumnSpan="2" Height="10" VerticalAlignment="Top" Value="{Binding Path=Progress}"/>
+            </Grid>
+            <DockPanel Visibility="Visible"  Margin="20,0,10,0" >
+                <StackPanel DockPanel.Dock="Right" HorizontalAlignment="Right">
+                    <Button Content="Lock" Padding="5,2" Margin="2"/>
+                    <Button Content="History" Padding="5,2" Margin="2"/>
+                </StackPanel>
+                <Grid Margin="5,5,5,5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="15"/>
+                        <ColumnDefinition Width="15"/>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="15"/>
+                        <ColumnDefinition Width="15"/>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="15"/>
+                        <ColumnDefinition Width="15"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Border  Grid.Row="0" Grid.Column="0" Grid.RowSpan="5" Grid.ColumnSpan="2"  Width="10" BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="1"></Border>
+                    <Rectangle Margin="3,3" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Width="20" Stroke="#FF301313" Fill="{Binding Path=Ev14Color}" StrokeThickness="1"></Rectangle>
+
+
+                    <Border  Grid.Row="0" Grid.Column="2" Grid.RowSpan="5" Grid.ColumnSpan="2" Width="10" BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="1"></Border>
+                    <Border Margin="3,3" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Width="40"  BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="2">
+                        <TextBlock Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">H2</TextBlock>
+                    </Border>
+                    <Label Margin="3,3" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Content="{Binding  Path=Gas2CurMeas}" HorizontalContentAlignment="Center" Background="White" BorderBrush="Black" BorderThickness="1"></Label>
+                    <Rectangle Margin="3,3" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Width="20" Stroke="#FF301313" Fill="{Binding Path=Ev2Color}" StrokeThickness="1"></Rectangle>
+
+
+                    <Border  Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="2" Grid.RowSpan="5"  Width="10" BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="1"></Border>
+                    <Border Margin="3,3" Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2" Width="40"  BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="2">
+                        <TextBlock Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">N2</TextBlock>
+                    </Border>
+                    <Label Margin="3,3" Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="2" Content="{Binding  Path=Gas1CurMeas}" HorizontalContentAlignment="Center" Background="White" BorderBrush="Black" BorderThickness="1"></Label>
+                    <Rectangle Margin="3,3" Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="2" Width="20" Stroke="#FF301313" Fill="{Binding Path=Ev1Color}" StrokeThickness="1"></Rectangle>
+
+                    <Border  Grid.Row="0" Grid.Column="10" Grid.ColumnSpan="2" Grid.RowSpan="5"  Width="10" BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="1"></Border>
+                    <Border Margin="3,3" Grid.Row="2" Grid.Column="10" Grid.ColumnSpan="2" Width="40"  BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="2">
+                        <TextBlock Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">BCl3</TextBlock>
+                    </Border>
+                    <Label Margin="3,3" Grid.Row="3" Grid.Column="10" Grid.ColumnSpan="2" Content="{Binding  Path=Gas6CurMeas}" HorizontalContentAlignment="Center" Background="White" BorderBrush="Black" BorderThickness="1"></Label>
+                    <Rectangle Margin="3,3" Grid.Row="0" Grid.Column="10" Grid.ColumnSpan="2" Width="20" Stroke="#FF301313" Fill="{Binding Path=Ev10Color}" StrokeThickness="1"></Rectangle>
+                    <Rectangle Margin="3,3" Grid.Row="4" Grid.Column="10" Grid.ColumnSpan="2" Width="20" Stroke="#FF301313" Fill="{Binding Path=Ev6Color}" StrokeThickness="1"></Rectangle>
+
+                    <Border Margin="4,0,4,0" Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="6"  Height="10" VerticalAlignment="Top" BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="0,1,0,1"></Border>
+                    <Border  Grid.Row="0" Grid.Column="12" Grid.RowSpan="5" Grid.ColumnSpan="2" Width="10" BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="1"></Border>
+                    <Border Margin="3,3" Grid.Row="1" Grid.Column="12" Grid.ColumnSpan="2" Width="40"  BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="2">
+                        <TextBlock Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">O2</TextBlock>
+                    </Border>
+                    <Label Margin="3,3" Grid.Row="2" Grid.Column="12" Grid.ColumnSpan="2" Content="{Binding  Path=Gas5CurMeas}" HorizontalContentAlignment="Center" Background="White" BorderBrush="Black" BorderThickness="1"></Label>
+                    <Rectangle Margin="3,3" Grid.Row="4" Grid.Column="12" Grid.ColumnSpan="2" Width="20" Stroke="#FF301313" Fill="{Binding Path=Ev3Color}" StrokeThickness="1"></Rectangle>
+
+                    <Border  Margin="0,9,0,0" Grid.Row="1" Grid.Column="6" Grid.RowSpan="5" Grid.ColumnSpan="2" Width="10" BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="1,0,1,1"></Border>
+                    <Border Margin="3,3" Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="2" Width="40"  BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="2">
+                        <TextBlock Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">PC8</TextBlock>
+                    </Border>
+                    <Label Margin="3,3" Grid.Row="3" Grid.Column="6" Grid.ColumnSpan="2" Content="{Binding  Path=Gas8CurMeas}" HorizontalContentAlignment="Center" Background="White" BorderBrush="Black" BorderThickness="1"></Label>
+                    <Rectangle Margin="3,3" Grid.Row="4" Grid.Column="6" Grid.ColumnSpan="2" Width="20" Stroke="#FF301313" Fill="{Binding Path=Ev8Color}" StrokeThickness="1"></Rectangle>
+
+
+                    <Border Margin="4,0,-5,0" Grid.Row="3" Grid.Column="13" Grid.ColumnSpan="2" Height="10" VerticalAlignment="Bottom" BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="0,1,1,1"></Border>
+                    <Border Margin="0,-1,0,0" Grid.Row="4" Grid.Column="14" Grid.RowSpan="5" Grid.ColumnSpan="2" Width="10"  BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="1,0,1,1"></Border>
+                    <Rectangle Margin="3,3" Grid.Row="4" Grid.Column="14" Grid.ColumnSpan="2" Width="20" Stroke="#FF301313" Fill="{Binding Path=Ev5Color}" StrokeThickness="1"></Rectangle>
+
+                    <Rectangle Margin="3,-5, 3, 0" Grid.Row="1" Grid.Column="8" Grid.ColumnSpan="2" Height="20" Width="20" VerticalAlignment="Top" Stroke="#FF301313" Fill="{Binding Path=Ev11Color}" StrokeThickness="1"></Rectangle>
+
+
+
+                    <Rectangle Margin="0,-1,0,-1" Grid.Column="17"  Grid.Row="2" Grid.RowSpan="3" Grid.ColumnSpan="7"  RadiusX="{Binding Path=FurnaceHeight}" RadiusY="{Binding Path=FurnaceHeight}" Stroke="#FF301313" StrokeThickness="1">
+                        <Rectangle.Fill>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FFD3C7C7" Offset="0"/>
+                                <GradientStop Color="White" Offset="0.5"/>
+                                <GradientStop Color="#FFD3C7C7" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <Border  Margin="1,-1" Grid.Column="18" Grid.Row="2" Grid.RowSpan="3" Grid.ColumnSpan="6" Background="#FFD3C7C7"  BorderBrush="#FF301313" BorderThickness="1,1,1,1"></Border>
+                    <Border  Margin="1,-1" Grid.Column="18" Grid.Row="2" Grid.RowSpan="3" Grid.ColumnSpan="1"  BorderBrush="#FF301313" BorderThickness="1,1,1,1">
+                        <Border.Background>
+                            <RadialGradientBrush>
+                                <GradientStop Color="#FFD3C7C7" Offset="1.8"/>
+                                <GradientStop Color="#77F31A1A"/>
+                            </RadialGradientBrush>
+                        </Border.Background>
+                    </Border>
+                    <Border  Margin="0,-1" Grid.Column="19" Grid.Row="2" Grid.RowSpan="3" Grid.ColumnSpan="1"  BorderBrush="#FF301313" BorderThickness="0,1,1,1">
+                        <Border.Background>
+                            <RadialGradientBrush>
+                                <GradientStop Color="#FFD3C7C7" Offset="1.8"/>
+                                <GradientStop Color="#FFF31A1A"/>
+                            </RadialGradientBrush>
+                        </Border.Background>
+                    </Border>
+                    <Border  Margin="0,-1" Grid.Column="20" Grid.Row="2" Grid.RowSpan="3" Grid.ColumnSpan="1"  BorderBrush="#FF301313" BorderThickness="0,1,1,1">
+                        <Border.Background>
+                            <RadialGradientBrush>
+                                <GradientStop Color="#FFD3C7C7" Offset="1.8"/>
+                                <GradientStop Color="#FF131DF1"/>
+                            </RadialGradientBrush>
+                        </Border.Background>
+                    </Border>
+                    <Border  Margin="0,-1" Grid.Column="21" Grid.Row="2" Grid.RowSpan="3" Grid.ColumnSpan="1"  BorderBrush="#FF301313" BorderThickness="0,1,1,1">
+                        <Border.Background>
+                            <RadialGradientBrush>
+                                <GradientStop Color="#FFD3C7C7" Offset="1.8"/>
+                                <GradientStop Color="#77131DF1"/>
+                            </RadialGradientBrush>
+                        </Border.Background>
+                    </Border>
+                    <Border  Margin="0,-1" Grid.Column="22" Grid.Row="2" Grid.RowSpan="3" Grid.ColumnSpan="1"  BorderBrush="#FF301313" BorderThickness="0,1,1,1">
+                        <Border.Background>
+                            <RadialGradientBrush>
+                                <GradientStop Color="#77131DF1" Offset="1.8"/>
+                                <GradientStop Color="#77F31A1A"/>
+                            </RadialGradientBrush>
+                        </Border.Background>
+                    </Border>
+                    <Border  Margin="0,-1" Grid.Column="23" Grid.Row="2" Grid.RowSpan="3" Grid.ColumnSpan="1"  BorderBrush="#FF301313" BorderThickness="0,1,1,1">
+                        <Border.Background>
+                            <RadialGradientBrush>
+                                <GradientStop Color="#77131DF1" Offset="1.8"/>
+                                <GradientStop Color="#77F31A1A"/>
+                            </RadialGradientBrush>
+                        </Border.Background>
+                    </Border>
+                    <Border  Margin="0,-1" Grid.Column="24" Grid.Row="2" Grid.RowSpan="3" Grid.ColumnSpan="1" BorderBrush="#FF301313" BorderThickness="0,1,1,1">
+                        <Border.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FFD3C7C7" Offset="0"/>
+                                <GradientStop Color="White" Offset="0.5"/>
+                                <GradientStop Color="#FFD3C7C7" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+                    </Border>
+                    <Rectangle Margin="-40,0,0,-3" Grid.Column="18"  Grid.Row="2" Grid.RowSpan="3" Grid.ColumnSpan="7" VerticalAlignment="Bottom" Height="5" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="1"></Rectangle>
+
+                    <Rectangle Margin="5,10,0,10" Grid.Column="24"  Grid.Row="2" Grid.RowSpan="3" Grid.ColumnSpan="1" HorizontalAlignment="Left" Width="20" Stroke="#FF301313" StrokeThickness="1">
+                        <Rectangle.Fill>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FFDDF5E0" Offset="0"/>
+                                <GradientStop Color="White" Offset="0.5"/>
+                                <GradientStop Color="#FFDCF9E0" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <Rectangle Margin="24,5,0,5" Grid.Column="24"  Grid.Row="2" Grid.RowSpan="3" Grid.ColumnSpan="1" Stroke="#FF301313" StrokeThickness="1">
+                        <Rectangle.Fill>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FFDDF5E0" Offset="0"/>
+                                <GradientStop Color="White" Offset="0.5"/>
+                                <GradientStop Color="#FFDCF9E0" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <Rectangle Margin="0,0, -8,0" Grid.Column="24"  Grid.Row="2" Grid.RowSpan="3" Grid.ColumnSpan="1" HorizontalAlignment="Right" Width="8" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="1"></Rectangle>
+                    <Rectangle Margin="0,-5, -2,-5" Grid.Column="24"  Grid.Row="2" Grid.RowSpan="3" Grid.ColumnSpan="1" HorizontalAlignment="Right" Width="5" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="1"></Rectangle>
+
+
+                    <Rectangle Margin="0,0,40,-2" Grid.Column="1"  Grid.Row="4" Grid.RowSpan="1" Grid.ColumnSpan="17" VerticalAlignment="Bottom" Height="2" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="1"></Rectangle>
+                    <Rectangle Margin="0,0,0,-2" Grid.Column="25"  Grid.Row="4" Grid.RowSpan="1" Grid.ColumnSpan="4" VerticalAlignment="Bottom" Height="2" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="1"></Rectangle>
+
+
+                    <Rectangle Margin="0,0,0,0" Grid.Row="2" Grid.Column="26" Grid.RowSpan="3" Width="2"  Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                    <Rectangle Margin="0,0,0,0" Grid.Row="3" Grid.Column="26" Grid.RowSpan="1" Width="10"  Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                    <TextBlock Margin="0,0,0,0" Grid.Row="0" Grid.Column="26" Grid.RowSpan="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Tube Presure</TextBlock>
+                    <Label Margin="5,2" Grid.Row="1" Grid.Column="26" Grid.RowSpan="1" Content="{Binding  Path=Ana1CurMeas}" HorizontalContentAlignment="Center" Background="White" BorderBrush="Black" BorderThickness="1"></Label>
+
+                    <Rectangle Margin="0,0,0,0" Grid.Row="2" Grid.Column="27" Grid.RowSpan="3" Width="2"  Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                    <Border Margin="0,0,0,0" Grid.Row="3" Grid.Column="27" Grid.RowSpan="2"  VerticalAlignment="Top" BorderBrush="#FF301313" Background="#FF00ff00" BorderThickness="2">
+                        <WrapPanel Margin="0,5" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Rectangle Margin="2,0,5,0"  Width="5" Height="5"  Stroke="#FF301313" Fill="{Binding Path=Do6Color}" StrokeThickness="1"></Rectangle>
+                            <TextBlock Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Gate</TextBlock>
+                        </WrapPanel>
+                    </Border>
+                    <Label Margin="5,2" Grid.Row="1" Grid.Column="27" Grid.RowSpan="1" Content="{Binding  Path=Ana4CurMeas}" HorizontalContentAlignment="Center" Background="White" BorderBrush="Black" BorderThickness="1"></Label>
+
+                    <Rectangle Margin="0,0,0,0" Grid.Row="2" Grid.Column="28" Grid.RowSpan="3" Width="2"  Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                    <Rectangle Margin="0,0,0,0" Grid.Row="3" Grid.Column="28" Grid.RowSpan="1" Width="10" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
+                    <TextBlock Margin="0,0,0,0" Grid.Row="0" Grid.Column="28" Grid.RowSpan="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Ballast Presure</TextBlock>
+                    <Label Margin="5,2" Grid.Row="1" Grid.Column="28" Grid.RowSpan="1" Content="{Binding  Path=Ana3CurMeas}" HorizontalContentAlignment="Center" Background="White" BorderBrush="Black" BorderThickness="1"></Label>
+
+
+                    <TextBlock Grid.Row="0" Grid.Column="18" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Zone1</TextBlock>
+                    <TextBlock Grid.Row="0" Grid.Column="19" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Zone2</TextBlock>
+                    <TextBlock Grid.Row="0" Grid.Column="20" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Zone3</TextBlock>
+                    <TextBlock Grid.Row="0" Grid.Column="21" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Zone4</TextBlock>
+                    <TextBlock Grid.Row="0" Grid.Column="22" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Zone5</TextBlock>
+                    <TextBlock Grid.Row="0" Grid.Column="23" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Zone6</TextBlock>
+
+                    <Label Grid.Row="1" Grid.Column="18" Margin="5,0,5,3" Content="{Binding  Path=Temper1ExtValue}" HorizontalContentAlignment="Center" Background="White" BorderBrush="Black" BorderThickness="1"></Label>
+                    <Label Grid.Row="1" Grid.Column="19" Margin="5,0,5,3" Content="{Binding  Path=Temper2ExtValue}" HorizontalContentAlignment="Center" Background="White" BorderBrush="Black" BorderThickness="1"></Label>
+                    <Label Grid.Row="1" Grid.Column="20" Margin="5,0,5,3" Content="{Binding  Path=Temper3ExtValue}" HorizontalContentAlignment="Center" Background="White" BorderBrush="Black" BorderThickness="1"></Label>
+                    <Label Grid.Row="1" Grid.Column="21" Margin="5,0,5,3" Content="{Binding  Path=Temper4ExtValue}" HorizontalContentAlignment="Center" Background="White" BorderBrush="Black" BorderThickness="1"></Label>
+                    <Label Grid.Row="1" Grid.Column="22" Margin="5,0,5,3" Content="{Binding  Path=Temper5ExtValue}" HorizontalContentAlignment="Center" Background="White" BorderBrush="Black" BorderThickness="1"></Label>
+                    <Label Grid.Row="1" Grid.Column="23" Margin="5,0,5,3" Content="{Binding  Path=Temper6ExtValue}" HorizontalContentAlignment="Center" Background="White" BorderBrush="Black" BorderThickness="1"></Label>
+                    <Label Grid.Row="2" Grid.Column="18" Margin="5,3,5,0" Content="{Binding  Path=Temper1IntValue}" HorizontalContentAlignment="Center" Background="White" BorderBrush="Black" BorderThickness="1"></Label>
+                    <Label Grid.Row="2" Grid.Column="19" Margin="5,3,5,0" Content="{Binding  Path=Temper2IntValue}" HorizontalContentAlignment="Center" Background="White" BorderBrush="Black" BorderThickness="1"></Label>
+                    <Label Grid.Row="2" Grid.Column="20" Margin="5,3,5,0" Content="{Binding  Path=Temper3IntValue}" HorizontalContentAlignment="Center" Background="White" BorderBrush="Black" BorderThickness="1"></Label>
+                    <Label Grid.Row="2" Grid.Column="21" Margin="5,3,5,0" Content="{Binding  Path=Temper4IntValue}" HorizontalContentAlignment="Center" Background="White" BorderBrush="Black" BorderThickness="1"></Label>
+                    <Label Grid.Row="2" Grid.Column="22" Margin="5,3,5,0" Content="{Binding  Path=Temper5IntValue}" HorizontalContentAlignment="Center" Background="White" BorderBrush="Black" BorderThickness="1"></Label>
+                    <Label Grid.Row="2" Grid.Column="23" Margin="5,3,5,0" Content="{Binding  Path=Temper6IntValue}" HorizontalContentAlignment="Center" Background="White" BorderBrush="Black" BorderThickness="1"></Label>
+                </Grid>
+
+            </DockPanel>
+        </DockPanel>
+    </Border>
+
+</UserControl>

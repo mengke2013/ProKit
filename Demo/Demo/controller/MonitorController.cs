@@ -43,6 +43,9 @@ namespace Demo.controller
             uiModel.Gas6CurMeas = ProcessService.Instance.GetGas6Sp(uiModel.SelectedTube) + "/" + ProcessService.Instance.GetGas6Value(uiModel.SelectedTube);
             uiModel.Gas8CurMeas = ProcessService.Instance.GetGas8Sp(uiModel.SelectedTube) + "/" + ProcessService.Instance.GetGas8Value(uiModel.SelectedTube);
             uiModel.Ana1CurMeas = ProcessService.Instance.GetAna1Sp(uiModel.SelectedTube) + "/" + ProcessService.Instance.GetAna1Value(uiModel.SelectedTube);
+            uiModel.Ana3CurMeas = ProcessService.Instance.GetAna1Value(uiModel.SelectedTube).ToString();
+            uiModel.Ana4CurMeas = ProcessService.Instance.GetAna1Value(uiModel.SelectedTube).ToString();
+
             if (ProcessService.Instance.GetTemperInt(uiModel.SelectedTube))
             {
                 uiModel.Temper1IntValue = ProcessService.Instance.GetTemper1Sp(uiModel.SelectedTube) + "/" + ProcessService.Instance.GetTemper1IntValue(uiModel.SelectedTube);
