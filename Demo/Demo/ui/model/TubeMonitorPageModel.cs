@@ -59,6 +59,7 @@ namespace Demo.ui.model
         private string mTemper4ExtValue;
         private string mTemper5ExtValue;
         private string mTemper6ExtValue;
+        private string mTemper7ExtValue;
         private string mTemper1HeatPower;
         private string mTemper2HeatPower;
         private string mTemper3HeatPower;
@@ -1002,6 +1003,16 @@ namespace Demo.ui.model
             {
                 mTemper6ExtValue = value;
                 Notify("Temper6ExtValue");
+            }
+        }
+
+        public String Temper7ExtValue
+        {
+            get { return mTemper6ExtValue; }
+            set
+            {
+                mTemper7ExtValue = value;
+                Notify("Temper7ExtValue");
             }
         }
 

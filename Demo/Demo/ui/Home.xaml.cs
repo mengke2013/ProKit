@@ -33,7 +33,7 @@ namespace Demo.ui
         private byte mSelectedTube = 0;
 
         private byte[] tubePageIndexes = { 1, 1, 1, 1, 1, 1 };
-        private string[] tubePageTitleLabels = { "Monitor", "Trend", "Recipe", "Report", "Events" };
+        private string[] tubePageTitleLabels = { "Monitor", "Trend", "Recipe", "Config", "Events" };
         private ITubePage[] tubePages = new ITubePage[5];
         private Button[] TubeTabHeaders = new Button[5];
 
@@ -63,6 +63,7 @@ namespace Demo.ui
             tubeMonitorPage.CloseClick += new TubeControlBar.ClickHandler(bdMainClose_Click);
             tubeMonitorPage.SettingsClick += new TubeControlBar.ClickHandler(bdMainSettings_Click);
             tubeRecipePage.CloseClick += new TubeControlBar.ClickHandler(bdMainClose_Click);
+            tubeSettingsPage.CloseClick += new TubeControlBar.ClickHandler(bdMainClose_Click);
             this.DataContext = this;
 
             mViewModel = new HomePageModel();

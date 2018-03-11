@@ -370,6 +370,41 @@ namespace Demo.service
             return mProcesses[tubeIndex - 1].Temper6ExtValue;
         }
 
+        public int GetTemper7ExtValue(byte tubeIndex)
+        {
+            return mProcesses[tubeIndex - 1].Temper7ExtValue;
+        }
+
+        public int GetTemper1HeatPower(byte tubeIndex)
+        {
+            return mProcesses[tubeIndex - 1].Temper1HeatPower;
+        }
+
+        public int GetTemper2HeatPower(byte tubeIndex)
+        {
+            return mProcesses[tubeIndex - 1].Temper2HeatPower;
+        }
+
+        public int GetTemper3HeatPower(byte tubeIndex)
+        {
+            return mProcesses[tubeIndex - 1].Temper3HeatPower;
+        }
+
+        public int GetTemper4HeatPower(byte tubeIndex)
+        {
+            return mProcesses[tubeIndex - 1].Temper4HeatPower;
+        }
+
+        public int GetTemper5HeatPower(byte tubeIndex)
+        {
+            return mProcesses[tubeIndex - 1].Temper5HeatPower;
+        }
+
+        public int GetTemper6HeatPower(byte tubeIndex)
+        {
+            return mProcesses[tubeIndex - 1].Temper6HeatPower;
+        }
+
         public int GetPaddleSpeedSp(byte tubeIndex)
         {
             return mProcesses[tubeIndex - 1].PaddleSpeedSp;
@@ -812,6 +847,28 @@ namespace Demo.service
                     mProcesses[index].Temper4Sp = BitConverter.ToInt16(processBytes, 300 * i + 127);
                     mProcesses[index].Temper5Sp = BitConverter.ToInt16(processBytes, 300 * i + 129);
                     mProcesses[index].Temper6Sp = BitConverter.ToInt16(processBytes, 300 * i + 131);
+
+                    mProcesses[index].Temper1IntValue = BitConverter.ToInt16(processBytes, 300 * i + 137);
+                    mProcesses[index].Temper2IntValue = BitConverter.ToInt16(processBytes, 300 * i + 139);
+                    mProcesses[index].Temper3IntValue = BitConverter.ToInt16(processBytes, 300 * i + 141);
+                    mProcesses[index].Temper4IntValue = BitConverter.ToInt16(processBytes, 300 * i + 143);
+                    mProcesses[index].Temper5IntValue = BitConverter.ToInt16(processBytes, 300 * i + 145);
+                    mProcesses[index].Temper6IntValue = BitConverter.ToInt16(processBytes, 300 * i + 147);
+
+                    mProcesses[index].Temper1ExtValue = BitConverter.ToInt16(processBytes, 300 * i + 153);
+                    mProcesses[index].Temper2ExtValue = BitConverter.ToInt16(processBytes, 300 * i + 155);
+                    mProcesses[index].Temper3ExtValue = BitConverter.ToInt16(processBytes, 300 * i + 157);
+                    mProcesses[index].Temper4ExtValue = BitConverter.ToInt16(processBytes, 300 * i + 159);
+                    mProcesses[index].Temper5ExtValue = BitConverter.ToInt16(processBytes, 300 * i + 161);
+                    mProcesses[index].Temper6ExtValue = BitConverter.ToInt16(processBytes, 300 * i + 163);
+                    mProcesses[index].Temper7ExtValue = BitConverter.ToInt16(processBytes, 300 * i + 165);
+
+                    mProcesses[index].Temper1HeatPower = BitConverter.ToInt16(processBytes, 300 * i + 169);
+                    mProcesses[index].Temper2HeatPower = BitConverter.ToInt16(processBytes, 300 * i + 171);
+                    mProcesses[index].Temper3HeatPower = BitConverter.ToInt16(processBytes, 300 * i + 173);
+                    mProcesses[index].Temper4HeatPower = BitConverter.ToInt16(processBytes, 300 * i + 175);
+                    mProcesses[index].Temper5HeatPower = BitConverter.ToInt16(processBytes, 300 * i + 177);
+                    mProcesses[index].Temper6HeatPower = BitConverter.ToInt16(processBytes, 300 * i + 179);
 
                     mProcesses[index].PaddlePosSp = BitConverter.ToInt32(processBytes, 300 * i + 201);
                     mProcesses[index].PaddlePosAct = BitConverter.ToInt32(processBytes, 300 * i + 205);

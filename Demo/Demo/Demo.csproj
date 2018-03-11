@@ -161,6 +161,9 @@
     <Compile Include="ui\view\TubeInfoItem.xaml.cs">
       <DependentUpon>TubeInfoItem.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ui\view\TubeSettingsPage.xaml.cs">
+      <DependentUpon>TubeSettingsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ui\view\TubeRecipePage.xaml.cs">
       <DependentUpon>TubeRecipePage.xaml</DependentUpon>
     </Compile>
@@ -173,8 +176,8 @@
     <Compile Include="ui\view\TubeTrendPage.xaml.cs">
       <DependentUpon>TubeTrendPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ui\view\TubeSettingsPage.xaml.cs">
-      <DependentUpon>TubeSettingsPage.xaml</DependentUpon>
+    <Compile Include="ui\view\TubeSettingsView.xaml.cs">
+      <DependentUpon>TubeSettingsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="utilities\BitUtility.cs" />
     <Compile Include="utilities\Properties.cs" />
@@ -226,6 +229,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ui\view\TubeSettingsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="ui\view\TubeRecipePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -273,7 +280,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ui\view\TubeSettingsPage.xaml">
+    <Page Include="ui\view\TubeSettingsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

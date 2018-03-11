@@ -25,7 +25,7 @@ namespace Demo.controller
             uiModel.TemperIntSp = uiModel.TemperInt;
             uiModel.PaddlePosSp = ProcessService.Instance.GetPaddlePosSp(uiModel.SelectedTube);
             uiModel.EditPaddleSpeedSp = uiModel.PaddleSpeedSp;
-            uiModel.EvSp = uiModel.EvValue;
+            uiModel.EvSp = ProcessService.Instance.GetEv(uiModel.SelectedTube);
             uiModel.DoSp = uiModel.DoValue;
 
         }
@@ -77,8 +77,17 @@ namespace Demo.controller
                 uiModel.Temper3IntValue = ProcessService.Instance.GetTemper3IntValue(uiModel.SelectedTube).ToString();
                 uiModel.Temper4IntValue = ProcessService.Instance.GetTemper4IntValue(uiModel.SelectedTube).ToString();
                 uiModel.Temper5IntValue = ProcessService.Instance.GetTemper5IntValue(uiModel.SelectedTube).ToString();
-                uiModel.Temper6IntValue = ProcessService.Instance.GetTemper6IntValue(uiModel.SelectedTube).ToString();
+                //uiModel.Temper6IntValue = ProcessService.Instance.GetTemper6IntValue(uiModel.SelectedTube).ToString();
+                uiModel.Temper6IntValue = ProcessService.Instance.GetTemper6ExtValue(uiModel.SelectedTube).ToString();
             }
+            uiModel.Temper7ExtValue = ProcessService.Instance.GetTemper6ExtValue(uiModel.SelectedTube).ToString();
+            uiModel.Temper1HeatPower = ProcessService.Instance.GetTemper1HeatPower(uiModel.SelectedTube).ToString();
+            uiModel.Temper2HeatPower = ProcessService.Instance.GetTemper2HeatPower(uiModel.SelectedTube).ToString();
+            uiModel.Temper3HeatPower = ProcessService.Instance.GetTemper3HeatPower(uiModel.SelectedTube).ToString();
+            uiModel.Temper4HeatPower = ProcessService.Instance.GetTemper4HeatPower(uiModel.SelectedTube).ToString();
+            uiModel.Temper5HeatPower = ProcessService.Instance.GetTemper5HeatPower(uiModel.SelectedTube).ToString();
+            uiModel.Temper6HeatPower = ProcessService.Instance.GetTemper6HeatPower(uiModel.SelectedTube).ToString();
+
             uiModel.PaddleSpeedSp = ProcessService.Instance.GetPaddleSpeedSp(uiModel.SelectedTube);
             uiModel.PaddlePosAct = ProcessService.Instance.GetPaddlePosSp(uiModel.SelectedTube) + "/" + ProcessService.Instance.GetPaddlePosAct(uiModel.SelectedTube);
             uiModel.EvValue = ProcessService.Instance.GetEv(uiModel.SelectedTube);

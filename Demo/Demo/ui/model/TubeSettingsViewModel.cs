@@ -12,6 +12,7 @@ namespace Demo.ui.model
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+        private TubePageStyle mTubePageStyle;
         private short mGas1MaxValue = 0;
         private short mGas2MaxValue = 0;
         private short mGas5MaxValue = 0;
@@ -85,6 +86,12 @@ namespace Demo.ui.model
         public TubeSettingsViewModel()
         {
 
+        }
+
+        public TubePageStyle TubePageStyle
+        {
+            get { return mTubePageStyle; }
+            set { mTubePageStyle = value; }
         }
 
         public int Di

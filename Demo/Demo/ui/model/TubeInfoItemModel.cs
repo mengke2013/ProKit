@@ -107,6 +107,11 @@ namespace Demo.ui.model
             }
         }
 
+        public string ProcessRemainingTimeS
+        {
+            get { return string.Format("{2}:{1}:{0}", (mProcessRemainingTime % 3600) % 60, (int)((mProcessRemainingTime % 3600) / 60), ((int)mProcessRemainingTime / 3600)); }
+        }
+
         public string ProcessName
         {
             get { return mProcessName; }
@@ -345,8 +350,8 @@ namespace Demo.ui.model
                     }
                     else
                     {
-                        mEvColors[i] = "Red";
-                        mPipeColors[i] = "#FFD3C7C7";
+                        mEvColors[i] = "#FFD3C7C7";// "#FF18A6AD";
+                        mPipeColors[i] = "#FFD3C7C7";// "#FFBDB7FB";// "#FFBFF3F7";
                     }
                     Notify("Ev" + (i + 1) + "Color");
                     Notify("Pipe" + (i + 1) + "Color");

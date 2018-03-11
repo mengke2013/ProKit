@@ -152,6 +152,16 @@ namespace Demo.ui
                 StepItems[0].Item_Click(null, null);
             }
             mTubeRecipePageModel.TubeRecipeViewModel.ProcessName = mController.GetRecipeName(mSelectedTube);
+
+            /*
+            bool startSyn = mController.SynStep(mSelectedTube, 1, null, OnSynStepComplete1);
+            if (startSyn)
+            {
+                mProgressDlg.ProgressModel.MaxValue = 64;
+                mProgressDlg.ProgressModel.Progress = 0;
+                mProgressDlg.ShowDialog();
+            }
+            */
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
@@ -173,7 +183,14 @@ namespace Demo.ui
                 }
             }
 
-            LoadStep(stepIndex);
+            //LoadStep(stepIndex);
+            bool startSyn = mController.SynStep(mSelectedTube, (byte)stepIndex, null, OnSynStepComplete1);
+            if (startSyn)
+            {
+                mProgressDlg.ProgressModel.MaxValue = 64;
+                mProgressDlg.ProgressModel.Progress = 0;
+                mProgressDlg.ShowDialog();
+            }
         }
 
         private void Step_Commit_Click(object sender, RoutedEventArgs e, int stepIndex)
@@ -262,6 +279,17 @@ namespace Demo.ui
         private void OnSynStepComplete(RecipeStep step)
         {
             mProgressDlg.ProgressModel.Progress = step.StepIndex;
+        }
+
+        private void OnSynStepComplete1(RecipeStep step)
+        {
+            this.Dispatcher.BeginInvoke(DispatcherPriority.Normal, (ThreadStart)delegate ()
+            {
+                mProgressDlg.Hide();
+                mController.ConvertRecipePageModel(mTubeRecipePageModel, step);
+                //StepItems[0].Item_Click(null, null);
+                //MessageBox.Show("OnDownloadRecipeComplete");
+            });
         }
 
         private void OnDownRecipeComplete(Recipe recipe)

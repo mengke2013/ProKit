@@ -18,7 +18,7 @@ namespace Demo.ui
 
         public void LoadPage(byte selectedTube)
         {
-            
+            mTubeSettingsPage.LoadPage(selectedTube);
         }
 
         public UserControl UI()

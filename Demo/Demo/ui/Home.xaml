@@ -32,7 +32,7 @@
                 </Button>
                 <Button Name="TubeTabHeaderTrend" Width="80" Height="30" Margin="5,0,0,0" BorderThickness="1,1,1,0" Click="btnTrendClick">Trend</Button>
                 <Button Name="TubeTabHeaderRecipe" Width="80" Height="30" Margin="5,0,0,0" BorderThickness="1,1,1,0" Click="btnRecipeClick">Recipe</Button>
-                <Button Name="TubeTabHeaderSettings" Width="80" Height="30" Margin="5,0,0,0" BorderThickness="1,1,1,0" Click="btnSettingsClick">Report</Button>
+                <Button Name="TubeTabHeaderSettings" Width="80" Height="30" Margin="5,0,0,0" BorderThickness="1,1,1,0" Click="btnSettingsClick">Config</Button>
                 <Button Name="TubeTabHeaderEvents" Width="80" Height="30" Margin="5,0,0,0" BorderThickness="1,1,1,0" Click="btnEventsClick">Events</Button>
             </WrapPanel>
             <WrapPanel Margin="5,2,50,2" DockPanel.Dock="Right" HorizontalAlignment="Right" VerticalAlignment="Bottom">

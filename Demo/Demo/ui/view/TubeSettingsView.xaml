@@ -1,0 +1,932 @@
+﻿<UserControl x:Class="Demo.ui.TubeSettingsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Demo.ui"
+             xmlns:view="clr-namespace:Demo.ui.view"
+             xmlns:controls="clr-namespace:Demo.ui.controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="1000">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <!--<Grid Margin="0,0,0,0" Grid.Row="1" Grid.Column="1" Grid.RowSpan="6" Grid.ColumnSpan="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <DockPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">N2</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">H2</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">BCl3</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">O2</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">PC8</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Max Value</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="1">
+                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper1Sp}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="1">
+                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper1Sp}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="1">
+                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper1Sp}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="1">
+                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper1Sp}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="1">
+                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper1Sp}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Ev Index</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="1">
+                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper2Sp}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="1">
+                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper2Sp}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="1">
+                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper2Sp}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="1">
+                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper2Sp}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="1">
+                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper2Sp}"/>
+            </DockPanel>
+        </Grid>
+        <Grid Margin="0,0,0,0" Grid.Row="1" Grid.Column="5" Grid.RowSpan="6" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <DockPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Ana1</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Ana3</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Gate</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Ana5</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Ana6</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Max Value</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="1">
+                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper1Sp}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="1">
+                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper1Sp}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="1">
+                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper1Sp}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="1">
+                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper1Sp}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="1">
+                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper1Sp}"/>
+            </DockPanel>
+        </Grid>-->
+        <!--<Grid Margin="0,0,0,0" Grid.Row="1" Grid.Column="10" Grid.RowSpan="6" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <DockPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">DI 1</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">DI 2</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">DI 3</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">DI 4</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">DI 5</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Critical</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="1">
+                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper1Sp}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="1">
+                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper1Sp}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="1">
+                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper1Sp}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="1">
+                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper1Sp}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="1">
+                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper1Sp}"/>
+            </DockPanel>
+        </Grid>-->
+        <Grid Margin="0,0,0,0" Grid.Row="1" Grid.Column="1" Grid.RowSpan="6" Grid.ColumnSpan="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <DockPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">N2</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">H2</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">BCl3</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">O2</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">PC8</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Max Value</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=Gas1MaxValue}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=Gas2MaxValue}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=Gas5MaxValue}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=Gas6MaxValue}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=Gas8MaxValue}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Ev Index</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="1">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=Gas1Ev}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="1">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=Gas2Ev}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="1">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=Gas5Ev}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="1">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=Gas6Ev}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="1">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=Gas8Ev}"/>
+            </DockPanel>
+        </Grid>
+        <Grid Margin="0,0,0,0" Grid.Row="1" Grid.Column="5" Grid.RowSpan="6" Grid.ColumnSpan="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <DockPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Ana1</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Ana3</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Gate</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Ana5</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Ana6</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Max Value</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=Ana1MaxValue}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=Ana3MaxValue}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=Ana4MaxValue}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=Ana5MaxValue}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=Ana6MaxValue}"/>
+            </DockPanel>
+        </Grid>
+        <Grid Margin="0,0,0,0" Grid.Row="12" Grid.Column="9" Grid.RowSpan="4" Grid.ColumnSpan="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <DockPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Kp(P)</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Tn(I)</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Td(D)</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Vacuum</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=VacuumKp}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=VacuumTn}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=VacuumTd}"/>
+            </DockPanel>
+        </Grid>
+        <Grid Margin="0,0,0,0" Grid.Row="1" Grid.Column="13" Grid.RowSpan="6" Grid.ColumnSpan="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <DockPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">DI 1</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">DI 2</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">DI 3</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">DI 4</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">DI 5</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Critical</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="1">
+                <view:DioSwitcher Margin="5,2" Value="{Binding  Path=Di1}"></view:DioSwitcher>
+            </DockPanel>
+            <DockPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="1">
+                <view:DioSwitcher Margin="5,2" Value="{Binding  Path=Di2}"></view:DioSwitcher>
+            </DockPanel>
+            <DockPanel Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="1">
+                <view:DioSwitcher Margin="5,2" Value="{Binding  Path=Di3}"></view:DioSwitcher>
+            </DockPanel>
+            <DockPanel Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="1">
+                <view:DioSwitcher Margin="5,2" Value="{Binding  Path=Di4}"></view:DioSwitcher>
+            </DockPanel>
+            <DockPanel Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="1">
+                <view:DioSwitcher Margin="5,2" Value="{Binding  Path=Di5}"></view:DioSwitcher>
+            </DockPanel>
+            <DockPanel Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">DI 6</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">DI 7</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">DI 8</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">DI 9</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">DI 10</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Critical</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="1">
+                <view:DioSwitcher Margin="5,2" Value="{Binding  Path=Di6}"></view:DioSwitcher>
+            </DockPanel>
+            <DockPanel Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="1">
+                <view:DioSwitcher Margin="5,2" Value="{Binding  Path=Di7}"></view:DioSwitcher>
+            </DockPanel>
+            <DockPanel Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="1">
+                <view:DioSwitcher Margin="5,2" Value="{Binding  Path=Di8}"></view:DioSwitcher>
+            </DockPanel>
+            <DockPanel Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="1">
+                <view:DioSwitcher Margin="5,2" Value="{Binding  Path=Di9}"></view:DioSwitcher>
+            </DockPanel>
+            <DockPanel Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="1">
+                <view:DioSwitcher Margin="5,2" Value="{Binding  Path=Di10}"></view:DioSwitcher>
+            </DockPanel>
+            <DockPanel Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">DI 11</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">DI 12</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">DI 13</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">DI 14</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="5" Grid.Column="4" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">DI 15</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Critical</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="1">
+                <view:DioSwitcher Margin="5,2" Value="{Binding  Path=Di11}"></view:DioSwitcher>
+            </DockPanel>
+            <DockPanel Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="1">
+                <view:DioSwitcher Margin="5,2" Value="{Binding  Path=Di12}"></view:DioSwitcher>
+            </DockPanel>
+            <DockPanel Grid.Row="3" Grid.Column="5" Grid.ColumnSpan="1">
+                <view:DioSwitcher Margin="5,2" Value="{Binding  Path=Di13}"></view:DioSwitcher>
+            </DockPanel>
+            <DockPanel Grid.Row="4" Grid.Column="5" Grid.ColumnSpan="1">
+                <view:DioSwitcher Margin="5,2" Value="{Binding  Path=Di14}"></view:DioSwitcher>
+            </DockPanel>
+            <DockPanel Grid.Row="5" Grid.Column="5" Grid.ColumnSpan="1">
+                <view:DioSwitcher Margin="5,2" Value="{Binding  Path=Di15}"></view:DioSwitcher>
+            </DockPanel>
+        </Grid>
+        <Grid Margin="0,0,0,0" Grid.Row="1" Grid.Column="9" Grid.RowSpan="9" Grid.ColumnSpan="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <DockPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Presure</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Max Value</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Min Value</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Temperature</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Max Temper Value</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Max Temper Zone5</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Min Temper Zone5</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Pump</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Max Value</TextBlock>
+            </DockPanel>
+
+            <DockPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=MaxPressure}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=MinPressure}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=MaxTemper}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=MaxTemper5}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=MinTemper5}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="2">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=MaxPump}"/>
+            </DockPanel>
+        </Grid>
+        <Grid Margin="0,0,0,0" Grid.Row="13" Grid.Column="13" Grid.RowSpan="3" Grid.ColumnSpan="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <DockPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Origin Offset</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Position Dev</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Closed Position</TextBlock>
+            </DockPanel>
+
+            <DockPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}"  Text="{Binding  Path=Offset}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}"  Text="{Binding  Path=PositionDev}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}"  Text="{Binding  Path=ClosePosition}"/>
+            </DockPanel>
+        </Grid>
+        <!--<Grid Margin="0,0,0,0" Grid.Row="10" Grid.Column="1" Grid.RowSpan="7" Grid.ColumnSpan="7">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <DockPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Kp(P)</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Tn(I)</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Td(D)</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Kp(P)</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Tn(I)</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Td(D)</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Zone1</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="1">
+                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper1Sp}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="1">
+                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper1Sp}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="1">
+                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper1Sp}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="1">
+                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper1Sp}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="1">
+                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper1Sp}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="1">
+                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper1Sp}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Zone2</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="1">
+                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper2Sp}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="1">
+                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper2Sp}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="1">
+                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper2Sp}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="1">
+                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper2Sp}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="1">
+                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper2Sp}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="1">
+                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper2Sp}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Zone3</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="1">
+                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper2Sp}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="1">
+                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper2Sp}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="1">
+                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper2Sp}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="1">
+                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper2Sp}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="1">
+                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper2Sp}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="6" Grid.Column="3" Grid.ColumnSpan="1">
+                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper2Sp}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Zone4</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="1">
+                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper2Sp}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="1">
+                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper2Sp}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="1">
+                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper2Sp}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="1">
+                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper2Sp}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="5" Grid.Column="4" Grid.ColumnSpan="1">
+                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper2Sp}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="6" Grid.Column="4" Grid.ColumnSpan="1">
+                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper2Sp}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Zone5</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="1">
+                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper2Sp}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="1">
+                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper2Sp}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="3" Grid.Column="5" Grid.ColumnSpan="1">
+                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper2Sp}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="4" Grid.Column="5" Grid.ColumnSpan="1">
+                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper2Sp}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="5" Grid.Column="5" Grid.ColumnSpan="1">
+                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper2Sp}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="6" Grid.Column="5" Grid.ColumnSpan="1">
+                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper2Sp}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Zone6</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="1">
+                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper2Sp}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="1">
+                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper2Sp}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="3" Grid.Column="6" Grid.ColumnSpan="1">
+                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper2Sp}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="4" Grid.Column="6" Grid.ColumnSpan="1">
+                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper2Sp}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="5" Grid.Column="6" Grid.ColumnSpan="1">
+                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper2Sp}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="6" Grid.Column="6" Grid.ColumnSpan="1">
+                <TextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper2Sp}"/>
+            </DockPanel>
+        </Grid>-->
+        <Grid Margin="0,0,0,0" Grid.Row="8" Grid.Column="1" Grid.RowSpan="8" Grid.ColumnSpan="7">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <DockPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Internal</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Kp(P)</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Tn(I)</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Td(D)</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">External</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Kp(P)</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Tn(I)</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Td(D)</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Zone1</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="1">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=TemperIntKp1}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="1">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=TemperIntTn1}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="1">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=TemperIntTd1}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Zone1</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="1">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=TemperExtKp1}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="1">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=TemperExtTn1}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="1">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=TemperExtTd1}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Zone2</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="1">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=TemperIntKp2}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="1">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=TemperIntTn2}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="1">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=TemperIntTd2}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Zone2</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="1">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=TemperExtKp2}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="1">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=TemperExtTn2}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="1">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=TemperExtTd2}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Zone3</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="1">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=TemperIntKp3}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="1">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=TemperIntTn3}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="1">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=TemperIntTd3}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Zone3</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="1">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=TemperExtKp3}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="6" Grid.Column="3" Grid.ColumnSpan="1">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=TemperExtTn3}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="7" Grid.Column="3" Grid.ColumnSpan="1">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=TemperExtTd3}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Zone4</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="1">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=TemperIntKp4}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="1">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=TemperIntTn4}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="1">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=TemperIntTd4}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Zone4</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="5" Grid.Column="4" Grid.ColumnSpan="1">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=TemperExtKp4}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="6" Grid.Column="4" Grid.ColumnSpan="1">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=TemperExtTn4}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="7" Grid.Column="4" Grid.ColumnSpan="1">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=TemperExtTd4}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Zone5</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="1">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=TemperIntKp5}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="1">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=TemperIntTn5}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="3" Grid.Column="5" Grid.ColumnSpan="1">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=TemperIntTd5}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="4" Grid.Column="5" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Zone5</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="5" Grid.Column="5" Grid.ColumnSpan="1">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=TemperExtKp5}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="6" Grid.Column="5" Grid.ColumnSpan="1">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=TemperExtTn5}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="7" Grid.Column="5" Grid.ColumnSpan="1">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=TemperExtTd5}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Zone6</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="1">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=TemperIntKp6}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="1">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=TemperIntTn6}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="3" Grid.Column="6" Grid.ColumnSpan="1">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=TemperIntTd6}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="4" Grid.Column="6" Grid.ColumnSpan="1">
+                <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Zone6</TextBlock>
+            </DockPanel>
+            <DockPanel Grid.Row="5" Grid.Column="6" Grid.ColumnSpan="1">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=TemperExtKp6}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="6" Grid.Column="6" Grid.ColumnSpan="1">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=TemperExtTn6}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="7" Grid.Column="6" Grid.ColumnSpan="1">
+                <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=TemperExtTd6}"/>
+            </DockPanel>
+
+        </Grid>
+    </Grid>
+</UserControl>

@@ -63,7 +63,14 @@ namespace Demo.service
                 mTubeIndex = tubeIndex;
                 if (!ComNodeService.Instance.IsConnected())
                 {
-                    return null;
+                    //return null;
+                    mRecipe = new Recipe();
+                    for (int i = 0; i < mRecipe.Steps.Length - 1; ++i)
+                    {
+                        mRecipe.Steps[i] = new RecipeStep();
+                        mRecipe.Steps[i].StepIndex = i + 1;
+                    }
+                    return mRecipe;
                 }
 
                 if (mRecipe == null)
@@ -85,7 +92,14 @@ namespace Demo.service
             }
             else
             {
-                return null;
+                //return null;
+                mRecipe = new Recipe();
+                for (int i = 0; i < mRecipe.Steps.Length - 1; ++i)
+                {
+                    mRecipe.Steps[i] = new RecipeStep();
+                    mRecipe.Steps[i].StepIndex = i + 1;
+                }
+                return mRecipe;
             }
         }
 
@@ -99,6 +113,19 @@ namespace Demo.service
             }
 
             ReciveRecipeData(tubeIndex, 0, rCallback, sCallback);
+            return true;
+        }
+
+        public bool SynStep(byte tubeIndex, byte stepIndex, OnSynRecipeComplete rCallback, OnSynStepComplete sCallback)
+        {
+            //read recipe from device
+            mTubeIndex = tubeIndex;
+            if (!ComNodeService.Instance.IsConnected())
+            {
+                return false;
+            }
+
+            ReciveRecipeData(tubeIndex, stepIndex, rCallback, sCallback);
             return true;
         }
 

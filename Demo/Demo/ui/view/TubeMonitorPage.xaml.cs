@@ -158,11 +158,19 @@ namespace Demo.ui
 
             mTubePageStyle.TextBoxWidth = this.ActualWidth / 20;
             mTubePageStyle.TextBoxHeight = this.ActualHeight / 25;
+            mTubePageStyle.LabelWidth = this.ActualWidth / 20;
+            mTubePageStyle.LabelHeight = this.ActualHeight / 25;
 
             mTubeMonitorPageModel.TubePageStyle = mTubePageStyle;
 
+
             DataContext = mTubeMonitorPageModel;
             mTubeMonitorPageModel.EditVisible = mManual ? Visibility.Visible : Visibility.Hidden;
+            if (mManual)
+            {
+                mController.LoadMonitorSetpoints(mTubeMonitorPageModel);
+            }
+            
         }
 
         public TubeMonitorPageModel GetPageModel()

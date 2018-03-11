@@ -25,6 +25,13 @@ namespace Demo.controller
             return startSyn;
         }
 
+        public bool SynStep(byte tubeIndex, byte stepIndex, RecipeService.OnSynRecipeComplete rCallback, RecipeService.OnSynStepComplete sCallback)
+        {
+            //add validation
+            bool startSyn = RecipeService.Instance.SynStep(tubeIndex, stepIndex, rCallback, sCallback);
+            return startSyn;
+        }
+
         public bool DownloadRecipe(string fileName, byte tubeIndex, RecipeService.OnDownloadRecipeComplete rCallback, RecipeService.OnDownloadStepComplete sCallback)
         {
             //add validation

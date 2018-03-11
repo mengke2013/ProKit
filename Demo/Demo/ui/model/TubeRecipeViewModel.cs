@@ -1255,14 +1255,18 @@ namespace Demo.ui.model
             }
             set
             {
-                mAlrmDigIns = value;
-
-                for (byte i = 0; i < mAlrmDigIns.Length; ++i)
+                if (value != null)
                 {
-                    mDiSelectorModels[i].DiTypeId = mAlrmDigIns[i];
-                }
+                    mAlrmDigIns = value;
 
-                Notify("AlrmDigIns");
+                    for (byte i = 0; i < mAlrmDigIns.Length; ++i)
+                    {
+                        mDiSelectorModels[i].DiTypeId = mAlrmDigIns[i];
+                    }
+
+                    Notify("AlrmDigIns");
+                }
+                
             }
         }
 
