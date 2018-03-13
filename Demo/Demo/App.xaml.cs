@@ -24,6 +24,14 @@ namespace Demo
         INIT = 20
     }
 
+    public enum TrendPlotType
+    {
+        UNKNOWN = 0,
+        Temperature = 1,
+        Gas = 2,
+        Vacuum = 3
+    }
+
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
@@ -36,6 +44,7 @@ namespace Demo
             ComService.Instance.StartHeartBeatService();
 
             SocketClient.Instance.StartTcpService(new SocketClient.OnConnectEnd(OnConnectEnd));
+            TrendService.Instance.StartPullTrendDataService();
         }
 
         protected override void OnStartup(StartupEventArgs e)

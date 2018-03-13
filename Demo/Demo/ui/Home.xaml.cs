@@ -60,8 +60,9 @@ namespace Demo.ui
 
             //tubeControlBar.CloseClick += new TubeControlBar.ClickHandler(bdMainClose_Click);
             //tubeControlBar.SettingsClick += new TubeControlBar.ClickHandler(bdMainSettings_Click);
+            //tubeMonitorPage.SettingsClick += new TubeControlBar.ClickHandler(bdMainSettings_Click);
             tubeMonitorPage.CloseClick += new TubeControlBar.ClickHandler(bdMainClose_Click);
-            tubeMonitorPage.SettingsClick += new TubeControlBar.ClickHandler(bdMainSettings_Click);
+            tubeTrendPage.CloseClick += new TubeControlBar.ClickHandler(bdMainClose_Click);
             tubeRecipePage.CloseClick += new TubeControlBar.ClickHandler(bdMainClose_Click);
             tubeSettingsPage.CloseClick += new TubeControlBar.ClickHandler(bdMainClose_Click);
             this.DataContext = this;

@@ -5,13 +5,79 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:oxy="clr-namespace:OxyPlot.Wpf;assembly=OxyPlot.Wpf" 
              xmlns:local="clr-namespace:Demo.ui"
+             xmlns:view="clr-namespace:Demo.ui.view"
              xmlns:uiModelUrl="clr-namespace:Demo.ui.model"
              mc:Ignorable="d" 
              d:DesignHeight="800" d:DesignWidth="600">
+    <!--
     <UserControl.DataContext>
         <uiModelUrl:TubeTrendPageModel/>
     </UserControl.DataContext>
+    
     <Grid>
         <oxy:PlotView Model="{Binding Model}" />
-    </Grid>
+
+    </Grid>-->
+    <DockPanel>
+        <Grid DockPanel.Dock="Top">
+            <DockPanel >
+                <Border DockPanel.Dock="Left" Height="30" Width="25">
+                    <!--<TextBlock Margin="30,0,15,0" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="16" Foreground="#FF236EC9" FontWeight="Bold">Recipe Demo</TextBlock>-->
+                </Border>
+                <Button DockPanel.Dock="Right" Margin="5" VerticalAlignment="Top" Click="CloseButton_Click" >
+                    <Image Source="/Demo;component/images/close.PNG"  Width="20" Height="20"></Image>
+                </Button>
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <WrapPanel Margin="5,8,5,2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="3" Grid.ColumnSpan="2">
+                        <Button Margin="5,0,5,0" Click="Temper_Click">
+                            <StackPanel Width="40" Height="40">
+                                <Image Source="/Demo;component/images/down.png" Width="25" Height="25"></Image>
+                                <TextBlock>Temperature</TextBlock>
+                            </StackPanel>
+                        </Button>
+                        <Button Margin="0,0,5,0" Click="Gas_Click">
+                            <StackPanel Width="40" Height="40">
+                                <Image Source="/Demo;component/images/up.png" Width="25" Height="25"></Image>
+                                <TextBlock>Gas</TextBlock>
+                            </StackPanel>
+                        </Button>
+                        <Button Margin="0,0,5,0" Click="Vacuum_Click">
+                            <StackPanel Width="40" Height="40">
+                                <Image Source="/Demo;component/images/up.png" Width="25" Height="25"></Image>
+                                <TextBlock>Vacuum</TextBlock>
+                            </StackPanel>
+                        </Button>
+                    </WrapPanel>
+                    <TextBlock Margin="15,0,15,3" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="16" Foreground="#FF236EC9" FontWeight="Bold" Text="{Binding Path=ProcessName}"></TextBlock>
+                </Grid>
+            </DockPanel>
+        </Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition MaxHeight="5" />
+                <RowDefinition />
+                <RowDefinition MaxHeight="10" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition MaxWidth="10"/>
+                <ColumnDefinition/>
+                <ColumnDefinition MaxWidth="10"/>
+            </Grid.ColumnDefinitions>
+            <Rectangle Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Margin="30,0,30,2" Height="1" Fill="#FFAAA5A5" />
+
+
+            <Grid Name="gridRecipePanel" Margin="5,0" Grid.Row="1" Grid.Column="1">
+                <view:TubeTrendView x:Name="TrendView" Grid.Row="1" Grid.Column="1" ></view:TubeTrendView >
+            </Grid>
+        </Grid>
+    </DockPanel>
 </UserControl>

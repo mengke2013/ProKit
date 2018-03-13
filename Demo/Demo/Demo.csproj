@@ -98,16 +98,19 @@
     <Compile Include="controller\MonitorController.cs" />
     <Compile Include="controller\SettingsController.cs" />
     <Compile Include="controller\RecipeController.cs" />
+    <Compile Include="controller\TrendController.cs" />
     <Compile Include="controller\TubeInfoItemController.cs" />
     <Compile Include="model\EditProcess.cs" />
     <Compile Include="model\Process.cs" />
     <Compile Include="model\Recipe.cs" />
     <Compile Include="model\RecipeStep.cs" />
     <Compile Include="model\Settings.cs" />
+    <Compile Include="model\Trend.cs" />
     <Compile Include="service\ComService.cs" />
     <Compile Include="service\ProcessService.cs" />
     <Compile Include="service\SettingsService.cs" />
     <Compile Include="service\RecipeService.cs" />
+    <Compile Include="service\TrendService.cs" />
     <Compile Include="ui\ComNodeWraper.cs" />
     <Compile Include="ui\controls\ClickSelectTextBox.cs" />
     <Compile Include="ui\controls\IntExtTemperSwitcher.xaml.cs">
@@ -125,7 +128,8 @@
     <Compile Include="ui\model\TubeEventsPageModel.cs" />
     <Compile Include="ui\model\TubeRecipeViewModel.cs" />
     <Compile Include="ui\model\TubeSettingsViewModel.cs" />
-    <Compile Include="ui\model\TubeTrendPageModel.cs" />
+    <Compile Include="ui\model\TubeTrendLineModel.cs" />
+    <Compile Include="ui\model\TubeTrendViewModel.cs" />
     <Compile Include="ui\TubePageStyle.cs" />
     <Compile Include="ui\UIConstants.cs" />
     <Compile Include="ui\view\DioSwitcher.xaml.cs">
@@ -178,6 +182,9 @@
     </Compile>
     <Compile Include="ui\view\TubeSettingsView.xaml.cs">
       <DependentUpon>TubeSettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ui\view\TubeTrendView.xaml.cs">
+      <DependentUpon>TubeTrendView.xaml</DependentUpon>
     </Compile>
     <Compile Include="utilities\BitUtility.cs" />
     <Compile Include="utilities\Properties.cs" />
@@ -281,6 +288,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ui\view\TubeSettingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ui\view\TubeTrendView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
