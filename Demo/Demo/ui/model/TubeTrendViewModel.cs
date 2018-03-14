@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
 namespace Demo.ui.model
 {
-    public class TubeTrendViewModel
+    public class TubeTrendViewModel : INotifyPropertyChanged
     {
-        private List<double> mDataPoints;
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private List<double[]> mDataPoints;
 
         private byte mTubeIndex;
         private TrendPlotType mPlotType; 
@@ -18,7 +21,7 @@ namespace Demo.ui.model
             
         }
 
-        public List<double> DataPoints
+        public List<double[]> DataPoints
         {
             get { return mDataPoints; }
             set { mDataPoints = value; }
@@ -33,7 +36,20 @@ namespace Demo.ui.model
         public TrendPlotType PlotType
         {
             get { return mPlotType; }
-            set { mPlotType = value; }
+            set
+            {
+                mPlotType = value;
+                Notify("PlotType");
+            }
+        }
+
+        void Notify(string propName)
+        {
+
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propName));
+            }
         }
     }
 }

@@ -55,6 +55,10 @@ namespace Demo.ui
             mTrendModel.TubeIndex = selectedTube;
             mTrendModel.PlotType = TrendPlotType.Temperature;
 
+            TrendView.LoadView();
+            mController.ConvertTrendPageModel();
+            TrendView.UpdatePlot();
+
             ContinueUpdatePlot();
         }
 
@@ -77,17 +81,25 @@ namespace Demo.ui
         private void Temper_Click(object sender, RoutedEventArgs e)
         {
             mTrendModel.PlotType = TrendPlotType.Temperature;
+            TrendView.LoadView();
+            mController.ConvertTrendPageModel();
+            TrendView.UpdatePlot();
         }
 
         private void Gas_Click(object sender, RoutedEventArgs e)
         {
             mTrendModel.PlotType = TrendPlotType.Gas;
+            TrendView.LoadView();
+            mController.ConvertTrendPageModel();
+            TrendView.UpdatePlot();
         }
 
         private void Vacuum_Click(object sender, RoutedEventArgs e)
         {
             mTrendModel.PlotType = TrendPlotType.Vacuum;
-
+            TrendView.LoadView();
+            mController.ConvertTrendPageModel();
+            TrendView.UpdatePlot();
         }
 
         public void StartUpdatePlotServer()

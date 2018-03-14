@@ -37,6 +37,7 @@
                     <Grid.RowDefinitions>
                         <RowDefinition />
                     </Grid.RowDefinitions>
+                    <TextBlock Margin="10,0,0,5" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Bottom"  Text="{Binding Path=PlotType}" FontSize="16" Foreground="#FF236EC9" FontWeight="Bold"></TextBlock>
                     <WrapPanel Margin="5,8,5,2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="3" Grid.ColumnSpan="2">
                         <Button Margin="5,0,5,0" Click="Temper_Click">
                             <StackPanel Width="40" Height="40">
@@ -75,7 +76,7 @@
             <Rectangle Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Margin="30,0,30,2" Height="1" Fill="#FFAAA5A5" />
 
 
-            <Grid Name="gridRecipePanel" Margin="5,0" Grid.Row="1" Grid.Column="1">
+            <Grid Name="gridRecipePanel" Margin="10,10" Grid.Row="1" Grid.Column="1">
                 <view:TubeTrendView x:Name="TrendView" Grid.Row="1" Grid.Column="1" ></view:TubeTrendView >
             </Grid>
         </Grid>
