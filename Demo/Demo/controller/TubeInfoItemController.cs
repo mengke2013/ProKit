@@ -85,6 +85,9 @@ namespace Demo.controller
             uiModel.EvValue = ProcessService.Instance.GetEv(uiModel.TubeIndex);
             //uiModel.DiValue = ProcessService.Instance.GetDi(uiModel.TubeIndex);
             //uiModel.DoValue = ProcessService.Instance.GetDo(uiModel.TubeIndex);
+
+            uiModel.Alarm = AlarmService.Instance.GetAlarms(uiModel.TubeIndex).Count > 0;
+            uiModel.Locked = ProcessService.Instance.IsTubeLocked(uiModel.TubeIndex);
         }
     }
 }

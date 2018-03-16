@@ -26,6 +26,7 @@ namespace Demo.ui.view
     {
         public delegate void ClickHandler(object sender, RoutedEventArgs e, byte tubeIndex);
         public event ClickHandler ItemClick;
+        public event ClickHandler WarningClick;
 
         private ProgressDlgModel mPgbProcessModel;
         private TubeInfoItemController mController;
@@ -44,6 +45,15 @@ namespace Demo.ui.view
         public void Item_Click(object sender, MouseButtonEventArgs e)
         {
             this.ItemClick(sender, e, mItemMode.TubeIndex);
+            if (e != null)
+            {
+                e.Handled = false;
+            }
+        }
+
+        public void Warning_Click(object sender, MouseButtonEventArgs e)
+        {
+            this.WarningClick(sender, e, mItemMode.TubeIndex);
             if (e != null)
             {
                 e.Handled = false;

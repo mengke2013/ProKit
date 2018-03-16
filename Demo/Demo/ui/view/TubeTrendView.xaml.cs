@@ -30,7 +30,7 @@ namespace Demo.ui.view
         private double mMarginX1 = 50;
         private double mMarginX2 = 20;
         private double mMarginY = 20;
-        private double mLegentHeight = 40;
+        private double mLegentHeight = 50;
 
         private string[] mTemperLegentLabel = { "Zone 1", "Zone 2", "Zone 3", "Zone 4", "Zone 5", "Zone 6" };
         private string[] mGasLegentLabel = { "N2", "H2", "O2", "BCl3", "PC8" };

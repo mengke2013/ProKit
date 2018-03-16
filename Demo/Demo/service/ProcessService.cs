@@ -435,6 +435,17 @@ namespace Demo.service
             return mProcesses[tubeIndex - 1].Do;
         }
 
+        public bool IsTubeLocked(byte tubeIndex)
+        {
+            Random r = new Random();
+            int v = r.Next(0, 10);
+            if (v == tubeIndex)
+            {
+                return true;
+            }
+            return false;
+        }
+
         public EditProcess GetEditProcess()
         {
             return mEditProcess; 

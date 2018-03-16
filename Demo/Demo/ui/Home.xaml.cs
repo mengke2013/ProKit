@@ -33,9 +33,9 @@ namespace Demo.ui
         private byte mSelectedTube = 0;
 
         private byte[] tubePageIndexes = { 1, 1, 1, 1, 1, 1 };
-        private string[] tubePageTitleLabels = { "Monitor", "Trend", "Recipe", "Config", "Events" };
-        private ITubePage[] tubePages = new ITubePage[5];
-        private Button[] TubeTabHeaders = new Button[5];
+        private string[] tubePageTitleLabels = { "Monitor", "Trend", "Recipe", "Config", "Alarm", "Events" };
+        private ITubePage[] tubePages = new ITubePage[6];
+        private Button[] TubeTabHeaders = new Button[6];
 
         private HomePageModel mViewModel;
         private TubeInfoItem[] tubeInfoItems;
@@ -51,12 +51,14 @@ namespace Demo.ui
             tubePages[1] = new TubeTrendPageAdapter(tubeTrendPage);
             tubePages[2] = new TubeRecipePageAdapter(tubeRecipePage);
             tubePages[3] = new TubeSettingsPageAdapter(tubeSettingsPage);
-            tubePages[4] = new TubeEventsPageAdapter(tubeEventsPage);
+            tubePages[4] = new TubeAlarmPageAdapter(tubeAlarmPage);
+            tubePages[5] = new TubeEventsPageAdapter(tubeEventsPage);
             TubeTabHeaders[0] = TubeTabHeaderMonitor;
             TubeTabHeaders[1] = TubeTabHeaderTrend;
             TubeTabHeaders[2] = TubeTabHeaderRecipe;
             TubeTabHeaders[3] = TubeTabHeaderSettings;
-            TubeTabHeaders[4] = TubeTabHeaderEvents;
+            TubeTabHeaders[4] = TubeTabHeaderAlarm;
+            TubeTabHeaders[5] = TubeTabHeaderEvents;
 
             //tubeControlBar.CloseClick += new TubeControlBar.ClickHandler(bdMainClose_Click);
             //tubeControlBar.SettingsClick += new TubeControlBar.ClickHandler(bdMainSettings_Click);
@@ -65,6 +67,7 @@ namespace Demo.ui
             tubeTrendPage.CloseClick += new TubeControlBar.ClickHandler(bdMainClose_Click);
             tubeRecipePage.CloseClick += new TubeControlBar.ClickHandler(bdMainClose_Click);
             tubeSettingsPage.CloseClick += new TubeControlBar.ClickHandler(bdMainClose_Click);
+            tubeAlarmPage.CloseClick += new TubeControlBar.ClickHandler(bdMainClose_Click);
             this.DataContext = this;
 
             mViewModel = new HomePageModel();
@@ -80,6 +83,7 @@ namespace Demo.ui
             {
                 tubeInfoItems[i].ItemMode = mViewModel.TubeInfoItems[i];
                 tubeInfoItems[i].ItemClick += new TubeInfoItem.ClickHandler(Item_Select_Click);
+                tubeInfoItems[i].WarningClick += new TubeInfoItem.ClickHandler(Item_Warning_Click);
                 tubeInfoItems[i].StartUpdateUIServer();
                 tubeInfoItems[i].ItemMode.FurnaceHeight = (int)(tubeInfoItems[i].ActualHeight - 10) / 5 * 3;
             }
@@ -137,6 +141,16 @@ namespace Demo.ui
             bd0.Visibility = Visibility.Visible;
 
             ShowActivedTubePage();
+        }
+
+        private void Item_Warning_Click(object sender, RoutedEventArgs e, byte tubeIndex)
+        {
+            log.Debug("Tube Index " + tubeIndex);
+            //TubeWindow tubeWindow = new TubeWindow(2);
+            //tubeWindow.Show();
+            //MessageBox.Show("Warning popup");
+            tubePageIndexes[tubeIndex - 1] = 5;
+
         }
 
         protected override void OnClosing(CancelEventArgs e)
@@ -223,9 +237,15 @@ namespace Demo.ui
             ShowActivedTubePage();
         }
 
-        private void btnEventsClick(object sender, RoutedEventArgs e)
+        private void btnAlarmClick(object sender, RoutedEventArgs e)
         {
             tubePageIndexes[mSelectedTube - 1] = 5;
+            ShowActivedTubePage();
+        }
+
+        private void btnEventsClick(object sender, RoutedEventArgs e)
+        {
+            tubePageIndexes[mSelectedTube - 1] = 6;
             ShowActivedTubePage();
         }
 
@@ -253,11 +273,13 @@ namespace Demo.ui
             tubeTrendPage.Visibility = Visibility.Hidden;
             tubeRecipePage.Visibility = Visibility.Hidden;
             tubeSettingsPage.Visibility = Visibility.Hidden;
+            tubeAlarmPage.Visibility = Visibility.Hidden;
             tubeEventsPage.Visibility = Visibility.Hidden;
             TubeTabHeaderMonitor.ClearValue(EffectProperty);
             TubeTabHeaderTrend.ClearValue(EffectProperty);
             TubeTabHeaderRecipe.ClearValue(EffectProperty);
             TubeTabHeaderSettings.ClearValue(EffectProperty);
+            TubeTabHeaderAlarm.ClearValue(EffectProperty);
             TubeTabHeaderEvents.ClearValue(EffectProperty);
         }
 

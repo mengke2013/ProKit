@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using Demo.utilities;
 using System.Collections;
+using System.Windows;
 
 namespace Demo.ui.model
 {
@@ -47,6 +48,9 @@ namespace Demo.ui.model
         private int mEvValue;
         private string[] mEvColors;
         private string[] mPipeColors;
+
+        private bool mAlarm;
+        private bool mLocked;
 
         public TubeInfoItemModel(byte tubeIndex)
         {
@@ -358,6 +362,43 @@ namespace Demo.ui.model
                 }
             }
         }
+
+        public bool Alarm
+        {
+            get { return mAlarm; }
+            set
+            {
+                mAlarm = value;
+                Notify("AlarmV");
+            }
+        }
+
+        public bool Locked
+        {
+            get { return mLocked; }
+            set
+            {
+                mLocked = value;
+                Notify("LabelColor");
+                Notify("LockedT");
+            }
+        }
+
+        public Visibility AlarmV
+        {
+            get { return mAlarm ? Visibility.Visible : Visibility.Hidden; }
+        }
+
+        public string LabelColor
+        {
+            get { return mLocked ? "gray" : "#FF236EC9"; }
+        }
+
+        public string LockedT
+        {
+            get { return mLocked ? "UnLock":"Lock"; }
+        }
+
 
         public string Ev1Color
         {

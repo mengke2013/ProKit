@@ -45,6 +45,7 @@ namespace Demo
 
             SocketClient.Instance.StartTcpService(new SocketClient.OnConnectEnd(OnConnectEnd));
             TrendService.Instance.StartPullTrendDataService();
+            AlarmService.Instance.StartPullAlarmService();
         }
 
         protected override void OnStartup(StartupEventArgs e)

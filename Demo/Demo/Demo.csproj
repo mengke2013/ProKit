@@ -98,8 +98,10 @@
     <Compile Include="controller\MonitorController.cs" />
     <Compile Include="controller\SettingsController.cs" />
     <Compile Include="controller\RecipeController.cs" />
+    <Compile Include="controller\AlarmController.cs" />
     <Compile Include="controller\TrendController.cs" />
     <Compile Include="controller\TubeInfoItemController.cs" />
+    <Compile Include="model\Alarm.cs" />
     <Compile Include="model\EditProcess.cs" />
     <Compile Include="model\Process.cs" />
     <Compile Include="model\Recipe.cs" />
@@ -110,7 +112,9 @@
     <Compile Include="service\ProcessService.cs" />
     <Compile Include="service\SettingsService.cs" />
     <Compile Include="service\RecipeService.cs" />
+    <Compile Include="service\AlarmService.cs" />
     <Compile Include="service\TrendService.cs" />
+    <Compile Include="ui\adapter\TubeAlarmPageAdapter.cs" />
     <Compile Include="ui\ComNodeWraper.cs" />
     <Compile Include="ui\controls\ClickSelectTextBox.cs" />
     <Compile Include="ui\controls\IntExtTemperSwitcher.xaml.cs">
@@ -123,12 +127,14 @@
     <Compile Include="ui\model\StepDetailModel.cs" />
     <Compile Include="ui\model\RecipeStepDetailItemModel.cs" />
     <Compile Include="ui\model\StepListItemModel.cs" />
+    <Compile Include="ui\model\TubeAlarmViewModel.cs" />
     <Compile Include="ui\model\TubeInfoItemModel.cs" />
     <Compile Include="ui\model\TubeRecipePageModel.cs" />
     <Compile Include="ui\model\TubeEventsPageModel.cs" />
     <Compile Include="ui\model\TubeRecipeViewModel.cs" />
     <Compile Include="ui\model\TubeSettingsViewModel.cs" />
     <Compile Include="ui\model\TubeTrendLineModel.cs" />
+    <Compile Include="ui\model\TubeAlarmItemModel.cs" />
     <Compile Include="ui\model\TubeTrendViewModel.cs" />
     <Compile Include="ui\TubePageStyle.cs" />
     <Compile Include="ui\UIConstants.cs" />
@@ -154,6 +160,9 @@
     <Compile Include="ui\view\TubeControlBar.xaml.cs">
       <DependentUpon>TubeControlBar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ui\view\TubeAlarmPage.xaml.cs">
+      <DependentUpon>TubeAlarmPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ui\view\TubeEventsPage.xaml.cs">
       <DependentUpon>TubeEventsPage.xaml</DependentUpon>
     </Compile>
@@ -176,6 +185,9 @@
     </Compile>
     <Compile Include="ui\view\TubeSettingsDialog.xaml.cs">
       <DependentUpon>TubeSettingsDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ui\view\TubeAlarmView.xaml.cs">
+      <DependentUpon>TubeAlarmView.xaml</DependentUpon>
     </Compile>
     <Compile Include="ui\view\TubeTrendPage.xaml.cs">
       <DependentUpon>TubeTrendPage.xaml</DependentUpon>
@@ -223,6 +235,10 @@
     <Page Include="ui\view\TubeControlBar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ui\view\TubeAlarmPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="ui\view\TubeEventsPage.xaml">
       <SubType>Designer</SubType>
@@ -283,6 +299,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ui\view\TubeAlarmView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="ui\view\TubeTrendPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -323,7 +343,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="images\warning.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="images\alarm.png" />
   </ItemGroup>
@@ -374,6 +396,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\disabled.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
