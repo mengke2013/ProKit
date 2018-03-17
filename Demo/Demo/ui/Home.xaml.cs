@@ -1,25 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using log4net;
-using Rocky.Core.Opc.Ua;
-using Demo.com;
-using System.Threading;
 using System.Windows.Media.Effects;
+using System.ComponentModel;
+
+using log4net;
+
 using Demo.ui.model;
 using Demo.ui.view;
-using System.ComponentModel;
-using Demo.service;
+using Demo.com;
 
 namespace Demo.ui
 {
@@ -29,6 +19,8 @@ namespace Demo.ui
     public partial class Home : Window
     {
         public static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
+        public delegate void ClickHandler(object sender, RoutedEventArgs e);
 
         private byte mSelectedTube = 0;
 
@@ -63,11 +55,11 @@ namespace Demo.ui
             //tubeControlBar.CloseClick += new TubeControlBar.ClickHandler(bdMainClose_Click);
             //tubeControlBar.SettingsClick += new TubeControlBar.ClickHandler(bdMainSettings_Click);
             //tubeMonitorPage.SettingsClick += new TubeControlBar.ClickHandler(bdMainSettings_Click);
-            tubeMonitorPage.CloseClick += new TubeControlBar.ClickHandler(bdMainClose_Click);
-            tubeTrendPage.CloseClick += new TubeControlBar.ClickHandler(bdMainClose_Click);
-            tubeRecipePage.CloseClick += new TubeControlBar.ClickHandler(bdMainClose_Click);
-            tubeSettingsPage.CloseClick += new TubeControlBar.ClickHandler(bdMainClose_Click);
-            tubeAlarmPage.CloseClick += new TubeControlBar.ClickHandler(bdMainClose_Click);
+            tubeMonitorPage.CloseClick += new ClickHandler(bdMainClose_Click);
+            tubeTrendPage.CloseClick += new ClickHandler(bdMainClose_Click);
+            tubeRecipePage.CloseClick += new ClickHandler(bdMainClose_Click);
+            tubeSettingsPage.CloseClick += new ClickHandler(bdMainClose_Click);
+            tubeAlarmPage.CloseClick += new ClickHandler(bdMainClose_Click);
             this.DataContext = this;
 
             mViewModel = new HomePageModel();
@@ -85,7 +77,6 @@ namespace Demo.ui
                 tubeInfoItems[i].ItemClick += new TubeInfoItem.ClickHandler(Item_Select_Click);
                 tubeInfoItems[i].WarningClick += new TubeInfoItem.ClickHandler(Item_Warning_Click);
                 tubeInfoItems[i].StartUpdateUIServer();
-                tubeInfoItems[i].ItemMode.FurnaceHeight = (int)(tubeInfoItems[i].ActualHeight - 10) / 5 * 3;
             }
         }
 
@@ -100,6 +91,7 @@ namespace Demo.ui
             base.OnActivated(e);
             for (byte i = 0; i < tubeInfoItems.Length; ++i)
             {
+                tubeInfoItems[i].SetViewVisible(true);
                 tubeInfoItems[i].ItemMode.FurnaceHeight = (int)(tubeInfoItems[i].ActualHeight - 10) / 10 * 3;
             }
         }
@@ -115,6 +107,7 @@ namespace Demo.ui
             mSelectedTube = tubeIndex;
             for (byte i = 0; i < tubeInfoItems.Length; ++i)
             {
+                tubeInfoItems[i].SetViewVisible(false);
                 if (i != tubeIndex - 1)
                 {
                     tubeInfoItems[i].ClearValue(EffectProperty);
@@ -194,6 +187,7 @@ namespace Demo.ui
             tubeInfoItems[mSelectedTube-1].ClearValue(EffectProperty);
             for (byte i = 0; i < tubeInfoItems.Length; ++i)
             {
+                tubeInfoItems[i].SetViewVisible(true);
                 tubeInfoItems[i].ItemMode.TabBackground = "white";
             }
             
@@ -252,8 +246,15 @@ namespace Demo.ui
         private void ShowActivedTubePage()
         {
             bd0.Margin = new Thickness(381 + (tubePageIndexes[mSelectedTube - 1] - 1) * 85, 42, 0, 0);
-            DisableAllTubePages();
-            tubePages[tubePageIndexes[mSelectedTube - 1] - 1].UI().Visibility = Visibility.Visible;
+
+            for (int i = 0; i < tubePages.Length; ++i)
+            {
+                if (tubePageIndexes[mSelectedTube - 1] != i + 1)
+                {
+                    tubePages[i].UnloadPage((byte)(i+1));
+                }
+            }
+
             tubePageTitle.Text = tubePageTitleLabels[tubePageIndexes[mSelectedTube - 1] - 1];
             TubeTabHeaders[tubePageIndexes[mSelectedTube - 1] - 1].Effect = new DropShadowEffect
             {
@@ -265,22 +266,6 @@ namespace Demo.ui
                 Opacity = 100
             };
             tubePages[tubePageIndexes[mSelectedTube - 1] - 1].LoadPage(mSelectedTube);
-        }
-
-        private void DisableAllTubePages()
-        {
-            tubeMonitorPage.Visibility = Visibility.Hidden;
-            tubeTrendPage.Visibility = Visibility.Hidden;
-            tubeRecipePage.Visibility = Visibility.Hidden;
-            tubeSettingsPage.Visibility = Visibility.Hidden;
-            tubeAlarmPage.Visibility = Visibility.Hidden;
-            tubeEventsPage.Visibility = Visibility.Hidden;
-            TubeTabHeaderMonitor.ClearValue(EffectProperty);
-            TubeTabHeaderTrend.ClearValue(EffectProperty);
-            TubeTabHeaderRecipe.ClearValue(EffectProperty);
-            TubeTabHeaderSettings.ClearValue(EffectProperty);
-            TubeTabHeaderAlarm.ClearValue(EffectProperty);
-            TubeTabHeaderEvents.ClearValue(EffectProperty);
         }
 
         private void btnConnect_Click(object sender, RoutedEventArgs e)

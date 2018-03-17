@@ -39,7 +39,7 @@ namespace Demo.ui
         private SettingsController mController;
         private TubePageStyle mTubePageStyle;
 
-        public event TubeControlBar.ClickHandler CloseClick;
+        public event Home.ClickHandler CloseClick;
         private ProgressDlg mProgressDlg;
 
         public TubeSettingsPage()
@@ -58,7 +58,9 @@ namespace Demo.ui
             log.Debug("TubeRecipePage:LoadTubePage");
             mSelectedTube = selectedTube;
 
-           // mTubePageStyle.TextBoxWidth = this.ActualWidth / 15;
+            Visibility = Visibility.Visible;
+
+            // mTubePageStyle.TextBoxWidth = this.ActualWidth / 15;
             mTubePageStyle.TextBoxHeight = this.ActualHeight / 25;
 
             mSettingsModel.TubePageStyle = mTubePageStyle;
@@ -73,8 +75,12 @@ namespace Demo.ui
                 mProgressDlg.ProgressModel.Progress = 0;
                 mProgressDlg.ShowDialog();
             }
+        }
 
-
+        public void UnloadPage(byte selectedTube)
+        {
+            Visibility = Visibility.Hidden;
+            //            ClearValue(EffectProperty);
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)

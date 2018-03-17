@@ -21,9 +21,9 @@ namespace Demo.ui
             mTubeTrendPage.LoadPage(selectedTube);
         }
 
-        public UserControl UI()
+        public void UnloadPage(byte selectedTube)
         {
-            return mTubeTrendPage;
+            mTubeTrendPage.UnloadPage(selectedTube);
         }
     }
 }

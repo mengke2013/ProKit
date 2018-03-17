@@ -39,7 +39,7 @@ namespace Demo.ui
         private TubePageStyle mTubePageStyle;
         private StepListItem[] StepItems;
 
-        public event TubeControlBar.ClickHandler CloseClick;
+        public event Home.ClickHandler CloseClick;
         private ProgressDlg mProgressDlg;
         private RecipeController mController;
 
@@ -131,10 +131,12 @@ namespace Demo.ui
             RecipeView.CommitClick += new TubeRecipeView.ClickHandler(Step_Commit_Click);
         }
 
-        public void LoadTubePage(byte selectedTube)
+        public void LoadPage(byte selectedTube)
         {
             log.Debug("TubeRecipePage:LoadTubePage");
             mSelectedTube = selectedTube;
+
+            Visibility = Visibility.Visible;
 
             Recipe recipe = mController.LoadRecipe(mSelectedTube);
             if (recipe == null)
@@ -162,6 +164,12 @@ namespace Demo.ui
                 mProgressDlg.ShowDialog();
             }
             */
+        }
+
+        public void UnloadPage(byte selectedTube)
+        {
+            Visibility = Visibility.Hidden;
+            //            ClearValue(EffectProperty);
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)

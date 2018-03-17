@@ -41,11 +41,7 @@ namespace Demo
 
         public App()
         {
-            ComService.Instance.StartHeartBeatService();
-
-            SocketClient.Instance.StartTcpService(new SocketClient.OnConnectEnd(OnConnectEnd));
-            TrendService.Instance.StartPullTrendDataService();
-            AlarmService.Instance.StartPullAlarmService();
+            StartServices();
         }
 
         protected override void OnStartup(StartupEventArgs e)
@@ -58,6 +54,17 @@ namespace Demo
         {
             log.Info("<<<========================End==");
             base.OnExit(e);
+        }
+
+        
+
+        private void StartServices()
+        {
+            ComService.Instance.StartHeartBeatService();
+
+            SocketClient.Instance.StartTcpService(new SocketClient.OnConnectEnd(OnConnectEnd));
+            TrendService.Instance.StartPullTrendDataService();
+            AlarmService.Instance.StartPullAlarmService();
         }
 
         private void OnConnectEnd()

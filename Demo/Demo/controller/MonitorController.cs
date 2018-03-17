@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Demo.ui;
+﻿using Demo.ui.view;
 using Demo.ui.model;
 using Demo.service;
 using Demo.model;
@@ -19,8 +14,9 @@ namespace Demo.controller
             mPage = page;
         }
 
-        public void LoadMonitorSetpoints(TubeMonitorPageModel uiModel)
+        public void LoadMonitorSetpoints()
         {
+            TubeMonitorViewModel uiModel = mPage.PageModel;
             uiModel.Ana1Sp = ProcessService.Instance.GetAna1Sp(uiModel.SelectedTube);
             uiModel.TemperIntSp = uiModel.TemperInt;
             uiModel.PaddlePosSp = ProcessService.Instance.GetPaddlePosSp(uiModel.SelectedTube);
@@ -30,8 +26,9 @@ namespace Demo.controller
 
         }
 
-        public void UpdateMonitorModel(TubeMonitorPageModel uiModel)
+        public void UpdateMonitorModel()
         {
+            TubeMonitorViewModel uiModel = mPage.PageModel;
             uiModel.ProcessStatus = ProcessService.Instance.GetProcessStatus(uiModel.SelectedTube);
             uiModel.ProcessName = ProcessService.Instance.GetProcessName(uiModel.SelectedTube);
             uiModel.StepName = ProcessService.Instance.GetStepName(uiModel.SelectedTube); 
@@ -98,7 +95,7 @@ namespace Demo.controller
         public void CommitChanges(byte tubeIndex, ProcessService.OnCommitEditSetpointComplete callback)
         {
             //add validation
-            ConvertEditProcessModel(ProcessService.Instance.GetEditProcess(), mPage.GetPageModel());
+            ConvertEditProcessModel();
             ProcessService.Instance.CommitChanges(tubeIndex, callback);
         }
 
@@ -180,8 +177,10 @@ namespace Demo.controller
             return ProcessService.Instance.GetRemainingTime(tubeIndex);
         }
 
-        private void ConvertEditProcessModel(EditProcess process, TubeMonitorPageModel monitorPageModel)
+        private void ConvertEditProcessModel()
         {
+            TubeMonitorViewModel monitorPageModel = mPage.PageModel;
+            EditProcess process = ProcessService.Instance.GetEditProcess();
             process.EditGas1Sp = monitorPageModel.Gas1Sp;
             process.EditGas2Sp = monitorPageModel.Gas2Sp;
             process.EditGas5Sp = monitorPageModel.Gas5Sp;

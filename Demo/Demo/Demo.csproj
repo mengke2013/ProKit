@@ -157,9 +157,6 @@
     <Compile Include="ui\view\StepListItem.xaml.cs">
       <DependentUpon>StepListItem.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ui\view\TubeControlBar.xaml.cs">
-      <DependentUpon>TubeControlBar.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ui\view\TubeAlarmPage.xaml.cs">
       <DependentUpon>TubeAlarmPage.xaml</DependentUpon>
     </Compile>
@@ -173,6 +170,9 @@
     <Compile Include="ui\adapter\TubeMonitorPageAdapter.cs" />
     <Compile Include="ui\view\TubeInfoItem.xaml.cs">
       <DependentUpon>TubeInfoItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ui\view\TubeMonitorView.xaml.cs">
+      <DependentUpon>TubeMonitorView.xaml</DependentUpon>
     </Compile>
     <Compile Include="ui\view\TubeSettingsPage.xaml.cs">
       <DependentUpon>TubeSettingsPage.xaml</DependentUpon>
@@ -232,10 +232,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ui\view\TubeControlBar.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="ui\view\TubeAlarmPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -247,6 +243,10 @@
     <Page Include="ui\view\TubeInfoItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ui\view\TubeMonitorView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="ui\view\TubeMonitorPage.xaml">
       <SubType>Designer</SubType>
@@ -287,7 +287,7 @@
     <Compile Include="ui\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ui\model\TubeMonitorPageModel.cs" />
+    <Compile Include="ui\model\TubeMonitorViewModel.cs" />
     <Compile Include="ui\view\TubeMonitorPage.xaml.cs">
       <DependentUpon>TubeMonitorPage.xaml</DependentUpon>
     </Compile>
@@ -398,7 +398,13 @@
     <Resource Include="images\up.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="images\enabled.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="images\disabled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\submit.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

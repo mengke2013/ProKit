@@ -32,10 +32,18 @@ namespace Demo.ui
             
         }
 
-        public void LoadTubePage(byte selectedTube)
+        public void LoadPage(byte selectedTube)
         {
             mTubeEventspageModel.LoadData(selectedTube);
             this.DataContext = mTubeEventspageModel.Model;
+
+            Visibility = Visibility.Visible;
+        }
+
+        public void UnloadPage(byte selectedTube)
+        {
+            Visibility = Visibility.Hidden;
+            //            ClearValue(EffectProperty);
         }
     }
 }

@@ -12,12 +12,13 @@ using Demo.utilities;
 
 namespace Demo.ui.model
 {
-    public class TubeMonitorPageModel : INotifyPropertyChanged
+    public class TubeMonitorViewModel : INotifyPropertyChanged
     {
         private byte mSelectedTube = 1;
         private byte mPreSelectedTube = 1;
 
         private Visibility mEditVisible;
+        private int mFurnaceHeight;
 
         private string mProcessName;
         private string mStepName;
@@ -86,7 +87,7 @@ namespace Demo.ui.model
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public TubeMonitorPageModel()
+        public TubeMonitorViewModel()
         {
             mEvColors = new string[32];
             for (int i = 0; i < 32; ++i)
@@ -1129,6 +1130,16 @@ namespace Demo.ui.model
         public string ProcessRemainingTimeS
         {
             get { return string.Format("{2}:{1}:{0}", (mProcessRemainingTime % 3600) % 60, (int)((mProcessRemainingTime % 3600) / 60), ((int)mProcessRemainingTime / 3600)); }
+        }
+
+        public int FurnaceHeight
+        {
+            get { return mFurnaceHeight; }
+            set
+            {
+                mFurnaceHeight = value;
+                //Notify("FurnaceHeight");
+            }
         }
 
         void Notify(string propName)

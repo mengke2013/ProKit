@@ -18,13 +18,13 @@ namespace Demo.ui
 
         public void LoadPage(byte selectedTube)
         {
-            mTubeEventsPage.LoadTubePage(selectedTube);
+            mTubeEventsPage.LoadPage(selectedTube);
             mTubeEventsPage.DescriptionColumn.Width = mTubeEventsPage.dataGrid.ActualWidth - 890;
         }
 
-        public UserControl UI()
+        public void UnloadPage(byte selectedTube)
         {
-            return mTubeEventsPage;
+            mTubeEventsPage.UnloadPage(selectedTube);
         }
     }
 }

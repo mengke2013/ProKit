@@ -1,27 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Demo.ui.model;
-using Rocky.Core.Opc.Ua;
-using Demo.com;
-using log4net;
-using Demo.ui.view;
 using System.Threading;
 using System.Windows.Threading;
-using Demo.controller;
 
-namespace Demo.ui
+using log4net;
+
+using Demo.ui.model;
+using Demo.controller;
+using System;
+using System.Windows.Media.Imaging;
+
+namespace Demo.ui.view
 {
     /// <summary>
     /// Interaction logic for TubeMonitorPage.xaml
@@ -30,24 +19,25 @@ namespace Demo.ui
     {
         public static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-        //public delegate void ClickHandler(object sender, RoutedEventArgs e);
-        public event TubeControlBar.ClickHandler CloseClick;
-        public event TubeControlBar.ClickHandler SettingsClick;
+        public event Home.ClickHandler CloseClick;
+        public event Home.ClickHandler SettingsClick;
 
-        private TubeMonitorPageModel mTubeMonitorPageModel;
+        private TubeMonitorViewModel mTubeMonitorPageModel;
         private TubePageStyle mTubePageStyle;
         private ProgressDlgModel mPgbProcessModel;
         private MonitorController mController;
 
         Thread mUpdateUIRunThread;
-        bool mUpdateUI;
         bool mManual;
+
+        private bool mUpdateUI;
+        private bool mHoldingUpdate;
 
         public TubeMonitorPage()
         {
             InitializeComponent();
 
-            mTubeMonitorPageModel = new TubeMonitorPageModel();
+            mTubeMonitorPageModel = new TubeMonitorViewModel();
             mTubePageStyle = new TubePageStyle();
             mPgbProcessModel = new ProgressDlgModel();
             mPgbProcessModel.MaxValue = 100;
@@ -73,12 +63,12 @@ namespace Demo.ui
         {
             mManual = !mManual;
             mTubeMonitorPageModel.EditVisible = mManual ? Visibility.Visible : Visibility.Hidden;
-            btnManual.Content = mManual ? "Auto" : "Manual";
+            btnManualImage.Source = mManual ? new BitmapImage(new Uri(@System.Environment.CurrentDirectory+"/../../images/auto.png")) : new BitmapImage(new Uri(@System.Environment.CurrentDirectory + "/../../images/maintenance.png"));
             btnCommit.Visibility = mManual ? Visibility.Visible : Visibility.Hidden;
 
             if (mManual)
             {
-                mController.LoadMonitorSetpoints(mTubeMonitorPageModel);
+                mController.LoadMonitorSetpoints();
             }
         }
 
@@ -156,10 +146,13 @@ namespace Demo.ui
             log.Info("TubeMonitorPage");
             mTubeMonitorPageModel.SelectedTube = selectedTube;
 
+            Visibility = Visibility.Visible;
+
             mTubePageStyle.TextBoxWidth = this.ActualWidth / 20;
             mTubePageStyle.TextBoxHeight = this.ActualHeight / 25;
             mTubePageStyle.LabelWidth = this.ActualWidth / 20;
             mTubePageStyle.LabelHeight = this.ActualHeight / 25;
+            mTubeMonitorPageModel.FurnaceHeight = (int)(MonitorView.FurnaceControl.ActualHeight - 10);
 
             mTubeMonitorPageModel.TubePageStyle = mTubePageStyle;
 
@@ -168,14 +161,23 @@ namespace Demo.ui
             mTubeMonitorPageModel.EditVisible = mManual ? Visibility.Visible : Visibility.Hidden;
             if (mManual)
             {
-                mController.LoadMonitorSetpoints(mTubeMonitorPageModel);
+                mController.LoadMonitorSetpoints();
             }
-            
+
+            mHoldingUpdate = false;
         }
 
-        public TubeMonitorPageModel GetPageModel()
+        public void UnloadPage(byte selectedTube)
         {
-            return mTubeMonitorPageModel;
+            Visibility = Visibility.Hidden;
+            //            ClearValue(EffectProperty);
+
+            mHoldingUpdate = true;
+        }
+
+        public TubeMonitorViewModel PageModel
+        {
+            get { return mTubeMonitorPageModel; }
         }
 
         private void StartUpdateUIServer()
@@ -185,7 +187,7 @@ namespace Demo.ui
                 ProcessStatus status = ProcessStatus.UNKNOWN;
                 while (mUpdateUI)
                 {
-                    if (mTubeMonitorPageModel.SelectedTube != 0)
+                    if (mTubeMonitorPageModel.SelectedTube != 0 && !mHoldingUpdate)
                     {
                         status = mController.GetStatus(mTubeMonitorPageModel.SelectedTube);
                         this.Dispatcher.BeginInvoke(DispatcherPriority.Normal, (ThreadStart)delegate ()
@@ -194,7 +196,7 @@ namespace Demo.ui
                             btnStart.IsEnabled = (status == ProcessStatus.INIT || status == ProcessStatus.END || status == ProcessStatus.IDLE || status == ProcessStatus.HOLDING);
                         });
 
-                        mController.UpdateMonitorModel(mTubeMonitorPageModel);
+                        mController.UpdateMonitorModel();
 
                         int processTotalTime = mController.GetProcessEscapedTime(mTubeMonitorPageModel.SelectedTube) + mController.GetRemainingTime(mTubeMonitorPageModel.SelectedTube);
                         //if ((status == ProcessStatus.RUNNING || status == ProcessStatus.HOLDING || status == ProcessStatus.ABORT) && processTotalTime > 0)
@@ -209,6 +211,7 @@ namespace Demo.ui
                 }
             });
             mUpdateUI = true;
+            mHoldingUpdate = true;
             mUpdateUIRunThread.IsBackground = true;
             mUpdateUIRunThread.Start();
         }

@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using Demo.ui.model;
 using Demo.ui.view;
 using Demo.controller;
+using log4net;
 
 namespace Demo.ui
 {
@@ -23,20 +24,28 @@ namespace Demo.ui
     /// </summary>
     public partial class TubeAlarmPage : UserControl
     {
+        public static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-        public event TubeControlBar.ClickHandler CloseClick;
+        public event Home.ClickHandler CloseClick;
+        private byte mSelectedTube;
 
         public TubeAlarmPage()
         {
             InitializeComponent();
-
-    
-            
         }
 
-        public void LoadTubePage(byte selectedTube)
+        public void LoadPage(byte selectedTube)
         {
-            
+            log.Debug("TubeAlarmPage:LoadTubePage");
+            mSelectedTube = selectedTube;
+
+            Visibility = Visibility.Visible;
+        }
+
+        public void UnloadPage(byte selectedTube)
+        {
+            Visibility = Visibility.Hidden;
+            //            ClearValue(EffectProperty);
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)

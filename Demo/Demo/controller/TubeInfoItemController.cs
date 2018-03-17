@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Demo.ui.view;
+﻿using Demo.ui.view;
 using Demo.service;
 using Demo.ui.model;
 
@@ -12,6 +7,7 @@ namespace Demo.controller
     class TubeInfoItemController
     {
         private TubeInfoItem mPage;
+
         public TubeInfoItemController(TubeInfoItem page)
         {
             mPage = page;
@@ -35,10 +31,9 @@ namespace Demo.controller
             return ProcessService.Instance.GetRemainingTime(tubeIndex);
         }
 
-        public void UpdateTubeInfoItemModel(TubeInfoItemModel uiModel)
+        public void UpdateTubeInfoItemModel()
         {
-            uiModel.ProcessStatus = ProcessService.Instance.GetProcessStatus(uiModel.TubeIndex);
-            uiModel.ProcessName = ProcessService.Instance.GetProcessName(uiModel.TubeIndex);
+            TubeInfoItemModel uiModel = mPage.ItemMode;
             uiModel.Gas1CurMeas = ProcessService.Instance.GetGas1Sp(uiModel.TubeIndex) + "/" + ProcessService.Instance.GetGas1Value(uiModel.TubeIndex);
             uiModel.Gas2CurMeas = ProcessService.Instance.GetGas2Sp(uiModel.TubeIndex) + "/" + ProcessService.Instance.GetGas2Value(uiModel.TubeIndex);
             uiModel.Gas5CurMeas = ProcessService.Instance.GetGas5Sp(uiModel.TubeIndex) + "/" + ProcessService.Instance.GetGas5Value(uiModel.TubeIndex);
@@ -86,6 +81,14 @@ namespace Demo.controller
             //uiModel.DiValue = ProcessService.Instance.GetDi(uiModel.TubeIndex);
             //uiModel.DoValue = ProcessService.Instance.GetDo(uiModel.TubeIndex);
 
+           
+        }
+
+        public void UpdateTubeStatus()
+        {
+            TubeInfoItemModel uiModel = mPage.ItemMode;
+            uiModel.ProcessName = ProcessService.Instance.GetProcessName(uiModel.TubeIndex);
+            uiModel.ProcessStatus = ProcessService.Instance.GetProcessStatus(uiModel.TubeIndex);
             uiModel.Alarm = AlarmService.Instance.GetAlarms(uiModel.TubeIndex).Count > 0;
             uiModel.Locked = ProcessService.Instance.IsTubeLocked(uiModel.TubeIndex);
         }

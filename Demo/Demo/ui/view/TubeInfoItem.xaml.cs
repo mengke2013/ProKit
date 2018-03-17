@@ -1,21 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Demo.ui.model;
 using System.Threading;
-using Demo.controller;
 using System.Windows.Threading;
+
+using Demo.ui.model;
+using Demo.controller;
 
 namespace Demo.ui.view
 {
@@ -31,7 +21,8 @@ namespace Demo.ui.view
         private ProgressDlgModel mPgbProcessModel;
         private TubeInfoItemController mController;
         private TubeInfoItemModel mItemMode;
-        bool mUpdateUI;
+        private bool mUpdateUI;
+        private bool mHoldingUpdate;
 
         public TubeInfoItem()
         {
@@ -70,6 +61,12 @@ namespace Demo.ui.view
             }
         }
 
+        public void SetViewVisible(bool value)
+        {
+            mItemMode.ViewVisible = value;
+            mHoldingUpdate = !value;
+        }
+
         public void StartUpdateUIServer()
         {
             Thread mUpdateUIRunThread = new Thread(() =>
@@ -86,8 +83,12 @@ namespace Demo.ui.view
                             //btnStart.IsEnabled = (status == ProcessStatus.INIT || status == ProcessStatus.END || status == ProcessStatus.IDLE || status == ProcessStatus.HOLDING);
                         });
 
-                        mController.UpdateTubeInfoItemModel(mItemMode);
+                        if (!mHoldingUpdate)
+                        {
+                            mController.UpdateTubeInfoItemModel();
+                        }
 
+                        mController.UpdateTubeStatus();
                         int processTotalTime = mController.GetProcessEscapedTime(mItemMode.TubeIndex) + mController.GetRemainingTime(mItemMode.TubeIndex);
                         //if ((status == ProcessStatus.RUNNING || status == ProcessStatus.HOLDING || status == ProcessStatus.ABORT) && processTotalTime > 0)
                         if (processTotalTime > 0)
@@ -95,19 +96,14 @@ namespace Demo.ui.view
                             mPgbProcessModel.Progress = 100 * (processTotalTime - mController.GetRemainingTime(mItemMode.TubeIndex)) / processTotalTime;
                             mItemMode.ProcessRemainingTime = mController.GetRemainingTime(mItemMode.TubeIndex);
                         }
-
                     }
                     Thread.Sleep(1000);
                 }
             });
             mUpdateUI = true;
+            mHoldingUpdate = true;
             mUpdateUIRunThread.IsBackground = true;
             mUpdateUIRunThread.Start();
-        }
-
-        public void EndUpdateUIServer()
-        {
-            mUpdateUI = false;
         }
     }
 }

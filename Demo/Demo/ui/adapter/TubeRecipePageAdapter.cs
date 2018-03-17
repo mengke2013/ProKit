@@ -18,12 +18,12 @@ namespace Demo.ui
 
         public void LoadPage(byte selectedTube)
         {
-            mTubeRecipePage.LoadTubePage(selectedTube);
+            mTubeRecipePage.LoadPage(selectedTube);
         }
 
-        public UserControl UI()
+        public void UnloadPage(byte selectedTube)
         {
-            return mTubeRecipePage;
+            mTubeRecipePage.UnloadPage(selectedTube);
         }
     }
 }

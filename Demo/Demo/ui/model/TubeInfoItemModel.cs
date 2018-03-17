@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.ComponentModel;
-using Demo.utilities;
 using System.Collections;
 using System.Windows;
 
@@ -14,6 +9,7 @@ namespace Demo.ui.model
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+        private bool mViewVisible;
         private int mFurnaceHeight;
         private string mTabBackground;
 
@@ -380,6 +376,7 @@ namespace Demo.ui.model
             {
                 mLocked = value;
                 Notify("LabelColor");
+                Notify("ProcessColor");
                 Notify("LockedT");
             }
         }
@@ -516,6 +513,26 @@ namespace Demo.ui.model
         public string Pipe14Color
         {
             get { return mPipeColors[13]; }
+        }
+
+        public bool ViewVisible
+        {
+            get { return mViewVisible; }
+            set
+            {
+                mViewVisible = value;
+                Notify("ViewVisibleV");
+            }
+        }
+
+        public string ProcessColor
+        {
+            get { return mLocked ? "gray" : "green"; }
+        }
+
+        public Visibility ViewVisibleV
+        {
+            get { return mViewVisible?Visibility.Visible:Visibility.Hidden; }
         }
 
         void Notify(string propName)

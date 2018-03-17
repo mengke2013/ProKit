@@ -9,7 +9,8 @@ namespace Demo.ui
 {
     class TubeAlarmPageAdapter : ITubePage
     {
-        TubeAlarmPage mTubeAlarmPage;
+
+        TubeAlarmPage mTubeAlarmPage;       
 
         public TubeAlarmPageAdapter(TubeAlarmPage tubeAlarmPage)
         {
@@ -18,12 +19,12 @@ namespace Demo.ui
 
         public void LoadPage(byte selectedTube)
         {
-            mTubeAlarmPage.LoadTubePage(selectedTube);
+            mTubeAlarmPage.LoadPage(selectedTube);
         }
 
-        public UserControl UI()
+        public void UnloadPage(byte selectedTube)
         {
-            return mTubeAlarmPage;
+            mTubeAlarmPage.UnloadPage(selectedTube);
         }
     }
 }

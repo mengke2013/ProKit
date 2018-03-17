@@ -21,9 +21,9 @@ namespace Demo.ui
             mTubeSettingsPage.LoadPage(selectedTube);
         }
 
-        public UserControl UI()
+        public void UnloadPage(byte selectedTube)
         {
-            return mTubeSettingsPage;
+            mTubeSettingsPage.UnloadPage(selectedTube);
         }
     }
 }

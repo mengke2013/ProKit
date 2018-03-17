@@ -11,6 +11,6 @@ namespace Demo.ui
     {
         void LoadPage(byte selectedTube);
 
-        UserControl UI();
+        void UnloadPage(byte selectedTube);
     }
 }

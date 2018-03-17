@@ -5,19 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using log4net;
-using Demo.ui.view;
-using Demo.controller;
-using Demo.ui.model;
 using System.Threading;
 using System.Windows.Threading;
+
+using log4net;
+
+using Demo.controller;
+using Demo.ui.model;
+
 
 namespace Demo.ui
 {
@@ -28,7 +23,7 @@ namespace Demo.ui
     {
         public static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-        public event TubeControlBar.ClickHandler CloseClick;
+        public event Home.ClickHandler CloseClick;
 
         private TubeTrendViewModel mTrendModel;
         private TrendController mController;
@@ -55,11 +50,19 @@ namespace Demo.ui
             mTrendModel.TubeIndex = selectedTube;
             mTrendModel.PlotType = TrendPlotType.Temperature;
 
+            Visibility = Visibility.Visible;
+
             TrendView.LoadView();
             mController.ConvertTrendPageModel();
             TrendView.UpdatePlot();
 
             ContinueUpdatePlot();
+        }
+
+        public void UnloadPage(byte selectedTube)
+        {
+            Visibility = Visibility.Hidden;
+            //            ClearValue(EffectProperty);
         }
 
         private void HoldUpdatePlot()

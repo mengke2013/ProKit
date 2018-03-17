@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
+﻿using Demo.ui.view;
 
 namespace Demo.ui
 {
@@ -21,9 +16,9 @@ namespace Demo.ui
             mTubeMonitorPage.LoadPage(selectedTube);
         }
 
-        public UserControl UI()
+        public void UnloadPage(byte selectedTube)
         {
-            return mTubeMonitorPage;
+            mTubeMonitorPage.UnloadPage(selectedTube);
         }
     }
 }
