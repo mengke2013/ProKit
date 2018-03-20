@@ -4,7 +4,6 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Demo.ui.view"
-             xmlns:controls="clr-namespace:Demo.ui.controls"
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="1250">
     <DockPanel>
@@ -18,15 +17,18 @@
                 </Button>
                 <Grid >
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="210"/>
+                        <ColumnDefinition Width="250"/>
                         <ColumnDefinition />
                         <ColumnDefinition />
-                        <ColumnDefinition Width="160"/>
+                        <ColumnDefinition Width="110"/>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition />
                     </Grid.RowDefinitions>
                     <WrapPanel Margin="5,8,5,2" VerticalAlignment="Bottom" Grid.Column="0" Grid.ColumnSpan="1">
+                        <Button Name="btnDisable" Click="DisableButton_Click" Width="40" Height="40">
+                            <Image Source="/Demo;component/images/disabled.png"></Image>
+                        </Button>
                         <Button Name="btnStart" Click="StartButton_Click" Width="40" Height="40">
                             <Image Source="/Demo;component/images/play.png" ></Image>
                         </Button>
@@ -58,12 +60,7 @@
                         <!--<Button  Margin="0,0,5,0" Click="SettingsButton_Click" Width="40" Height="40">
                             <Image Source="/Demo;component/images/configuration.png"></Image>
                         </Button>-->
-                        <Button Margin="0,0,5,0">
-                            <StackPanel Width="40" Height="40">
-                                <Image Source="/Demo;component/images/disabled.png"></Image>
-                                <TextBlock>Lock</TextBlock>
-                            </StackPanel>
-                        </Button>
+
                         <Button Name="btnManual" Margin="0,0,5,0" Click="ManualButton_Click">
                             <StackPanel Width="40" Height="40">
                                 <Image Name="btnManualImage" Source="/Demo;component/images/maintenance.png"></Image>

@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Demo.ui.model;
+﻿using Demo.ui.model;
+using Demo.ui.view;
 using Demo.model;
 using Demo.service;
 
@@ -11,11 +7,17 @@ namespace Demo.controller
 {
     public class RecipeController
     {
-        public Recipe LoadRecipe(byte tubeIndex)
+        private TubeRecipePage mPage;
+
+        public RecipeController(TubeRecipePage page)
+        {
+            mPage = page;
+        }
+
+        public void LoadRecipe(byte tubeIndex)
         {
             //add validation
-            Recipe recipe = RecipeService.Instance.LoadRecipe(tubeIndex);
-            return recipe;
+            RecipeService.Instance.LoadRecipe(tubeIndex);
         }
 
         public bool SynRecipe(byte tubeIndex, RecipeService.OnSynRecipeComplete rCallback, RecipeService.OnSynStepComplete sCallback)
@@ -67,84 +69,189 @@ namespace Demo.controller
             return recipeName;
         }
 
-        public void ConvertRecipePageModel(TubeRecipePageModel recipePage, RecipeStep step)
+        public void ConvertRecipePageModel(byte stepIndex)
         {
-            recipePage.TubeRecipeViewModel.UpdateView = true;
-            recipePage.TubeRecipeViewModel.StepIndex = step.StepIndex;
-            recipePage.TubeRecipeViewModel.StepName = step.StepName;
-            recipePage.TubeRecipeViewModel.StepType = step.StepType;
-            recipePage.TubeRecipeViewModel.StepTime = step.StepTime;
+            TubeRecipeViewModel viewModel = mPage.ViewModel;
+            RecipeStep step = RecipeService.Instance.GetRecipeStep(stepIndex);
+            viewModel.UpdateView = true;
+            viewModel.StepIndex = step.StepIndex;
+            viewModel.StepName = step.StepName;
+            viewModel.StepType = step.StepType;
+            viewModel.StepTime = step.StepTime;
 
-            recipePage.TubeRecipeViewModel.Gas1Sp = step.Gas1Sp;
-            recipePage.TubeRecipeViewModel.Gas2Sp = step.Gas2Sp;
-            recipePage.TubeRecipeViewModel.Gas5Sp = step.Gas5Sp;
-            recipePage.TubeRecipeViewModel.Gas6Sp = step.Gas6Sp;
-            recipePage.TubeRecipeViewModel.Gas8Sp = step.Gas8Sp;
-            recipePage.TubeRecipeViewModel.Ana1Sp = step.Ana1Sp;
-            recipePage.TubeRecipeViewModel.Temper1Sp = step.Temper1Sp;
-            recipePage.TubeRecipeViewModel.Temper2Sp = step.Temper2Sp;
-            recipePage.TubeRecipeViewModel.Temper3Sp = step.Temper3Sp;
-            recipePage.TubeRecipeViewModel.Temper4Sp = step.Temper4Sp;
-            recipePage.TubeRecipeViewModel.Temper5Sp = step.Temper5Sp;
-            recipePage.TubeRecipeViewModel.Temper6Sp = step.Temper6Sp;
+            viewModel.Gas1Sp = step.Gas1Sp;
+            viewModel.Gas2Sp = step.Gas2Sp;
+            viewModel.Gas5Sp = step.Gas5Sp;
+            viewModel.Gas6Sp = step.Gas6Sp;
+            viewModel.Gas8Sp = step.Gas8Sp;
+            viewModel.Ana1Sp = step.Ana1Sp;
+            viewModel.Temper1Sp = step.Temper1Sp;
+            viewModel.Temper2Sp = step.Temper2Sp;
+            viewModel.Temper3Sp = step.Temper3Sp;
+            viewModel.Temper4Sp = step.Temper4Sp;
+            viewModel.Temper5Sp = step.Temper5Sp;
+            viewModel.Temper6Sp = step.Temper6Sp;
 
-            recipePage.TubeRecipeViewModel.TemperRegulInt = step.TemperRegulInt;
-            recipePage.TubeRecipeViewModel.AxisPosSp = step.AxisPosSp;
-            recipePage.TubeRecipeViewModel.AxisSpeedSp = step.AxisSpeedSp;
-            recipePage.TubeRecipeViewModel.Ramp = step.Ramp;
-            recipePage.TubeRecipeViewModel.DigOutput = step.DigOutput;
-            recipePage.TubeRecipeViewModel.Ev = step.Ev;
-            recipePage.TubeRecipeViewModel.Num = step.Num;
-            recipePage.TubeRecipeViewModel.CheckSum = step.CheckSum;
+            viewModel.TemperRegulInt = step.TemperRegulInt;
+            viewModel.AxisPosSp = step.AxisPosSp;
+            viewModel.AxisSpeedSp = step.AxisSpeedSp;
+            viewModel.Ramp = step.Ramp;
+            viewModel.DigOutput = step.DigOutput;
+            viewModel.Ev = step.Ev;
+            viewModel.Num = step.Num;
+            viewModel.CheckSum = step.CheckSum;
 
-            recipePage.TubeRecipeViewModel.AnalogAbort = step.AnalogAbort;
-            recipePage.TubeRecipeViewModel.DigitalAbort = step.DigitalAbort;
-            recipePage.TubeRecipeViewModel.TemperAbort = step.TemperAbort;
-            recipePage.TubeRecipeViewModel.ManualAbort = step.ManualAbort;
-            recipePage.TubeRecipeViewModel.PowerAbort = step.PowerAbort;
-            recipePage.TubeRecipeViewModel.AnalogDelay = step.AnalogDelay;
-            recipePage.TubeRecipeViewModel.MfcDelay = step.MfcDelay;
-            recipePage.TubeRecipeViewModel.AlrmDigIns = step.AlrmDigIns;
-            recipePage.TubeRecipeViewModel.UpdateView = false;
+            viewModel.AnalogAbort = step.AnalogAbort;
+            viewModel.DigitalAbort = step.DigitalAbort;
+            viewModel.TemperAbort = step.TemperAbort;
+            viewModel.ManualAbort = step.ManualAbort;
+            viewModel.PowerAbort = step.PowerAbort;
+            viewModel.AnalogDelay = step.AnalogDelay;
+            viewModel.MfcDelay = step.MfcDelay;
+            viewModel.AlrmDigIns = step.AlrmDigIns;
+
+            viewModel.Gas1Abort = step.Gas1Abort;
+            viewModel.Gas2Abort = step.Gas2Abort;
+            viewModel.Gas5Abort = step.Gas5Abort;
+            viewModel.Gas6Abort = step.Gas6Abort;
+            viewModel.Gas8Abort = step.Gas8Abort;
+            viewModel.Ana1Abort = step.Ana1Abort;
+            viewModel.Gas1Hold = step.Gas1Hold;
+            viewModel.Gas1Hold = step.Gas2Hold;
+            viewModel.Gas1Hold = step.Gas5Hold;
+            viewModel.Gas1Hold = step.Gas6Hold;
+            viewModel.Gas1Hold = step.Gas8Hold;
+            viewModel.Ana1Hold = step.Ana1Hold;
+            viewModel.Gas1Alarm = step.Gas1Alarm;
+            viewModel.Gas2Alarm = step.Gas2Alarm;
+            viewModel.Gas5Alarm = step.Gas5Alarm;
+            viewModel.Gas6Alarm = step.Gas6Alarm;
+            viewModel.Gas8Alarm = step.Gas8Alarm;
+            viewModel.Ana1Alarm = step.Ana1Alarm;
+            viewModel.Gas1Next = step.Gas1Next;
+            viewModel.Gas2Next = step.Gas2Alarm;
+            viewModel.Gas5Next = step.Gas5Next;
+            viewModel.Gas6Next = step.Gas6Next;
+            viewModel.Gas8Next = step.Gas8Next;
+            viewModel.Ana1Next = step.Ana1Next;
+            viewModel.Temper1Abort = step.Temper1Abort;
+            viewModel.Temper2Abort = step.Temper2Abort;
+            viewModel.Temper3Abort = step.Temper3Abort;
+            viewModel.Temper4Abort = step.Temper4Abort;
+            viewModel.Temper5Abort = step.Temper5Abort;
+            viewModel.Temper6Abort = step.Temper6Abort;
+            viewModel.Temper1Hold = step.Temper1Hold;
+            viewModel.Temper2Hold = step.Temper2Hold;
+            viewModel.Temper3Hold = step.Temper3Hold;
+            viewModel.Temper4Hold = step.Temper4Hold;
+            viewModel.Temper5Hold = step.Temper5Hold;
+            viewModel.Temper6Hold = step.Temper6Hold;
+            viewModel.Temper1Alarm = step.Temper1Alarm;
+            viewModel.Temper2Alarm = step.Temper2Alarm;
+            viewModel.Temper3Alarm = step.Temper3Alarm;
+            viewModel.Temper4Alarm = step.Temper4Alarm;
+            viewModel.Temper5Alarm = step.Temper5Alarm;
+            viewModel.Temper6Alarm = step.Temper6Alarm;
+            viewModel.Temper1Next = step.Temper1Next;
+            viewModel.Temper2Next = step.Temper2Next;
+            viewModel.Temper3Next = step.Temper3Next;
+            viewModel.Temper4Next = step.Temper4Next;
+            viewModel.Temper5Next = step.Temper5Next;
+            viewModel.Temper6Next = step.Temper6Next;
+
+
+            viewModel.UpdateView = false;
         }
 
-        public void ConvertRecipeModel(RecipeStep step, TubeRecipePageModel recipePage)
+        public void ConvertRecipeModel(byte stepIndex)
         {
-            step.StepIndex = recipePage.TubeRecipeViewModel.StepIndex;
-            step.StepName = recipePage.TubeRecipeViewModel.StepName;
-            step.StepType = recipePage.TubeRecipeViewModel.StepType;
-            step.StepTime = recipePage.TubeRecipeViewModel.StepTime;
+            //add validation
+            TubeRecipeViewModel viewModel = mPage.ViewModel;
+            RecipeStep step = RecipeService.Instance.GetRecipeStep(stepIndex);
+            step.StepIndex = viewModel.StepIndex;
+            step.StepName = viewModel.StepName;
+            step.StepType = viewModel.StepType;
+            step.StepTime = viewModel.StepTime;
 
-            step.Gas1Sp = recipePage.TubeRecipeViewModel.Gas1Sp;
-            step.Gas2Sp = recipePage.TubeRecipeViewModel.Gas2Sp;
-            step.Gas5Sp = recipePage.TubeRecipeViewModel.Gas5Sp;
-            step.Gas6Sp = recipePage.TubeRecipeViewModel.Gas6Sp;
-            step.Gas8Sp = recipePage.TubeRecipeViewModel.Gas8Sp;
-            step.Ana1Sp = recipePage.TubeRecipeViewModel.Ana1Sp;
-            step.Temper1Sp = recipePage.TubeRecipeViewModel.Temper1Sp;
-            step.Temper2Sp = recipePage.TubeRecipeViewModel.Temper2Sp;
-            step.Temper3Sp = recipePage.TubeRecipeViewModel.Temper3Sp;
-            step.Temper4Sp = recipePage.TubeRecipeViewModel.Temper4Sp;
-            step.Temper5Sp = recipePage.TubeRecipeViewModel.Temper5Sp;
-            step.Temper6Sp = recipePage.TubeRecipeViewModel.Temper6Sp;
+            step.Gas1Sp = viewModel.Gas1Sp;
+            step.Gas2Sp = viewModel.Gas2Sp;
+            step.Gas5Sp = viewModel.Gas5Sp;
+            step.Gas6Sp = viewModel.Gas6Sp;
+            step.Gas8Sp = viewModel.Gas8Sp;
+            step.Ana1Sp = viewModel.Ana1Sp;
+            step.Temper1Sp = viewModel.Temper1Sp;
+            step.Temper2Sp = viewModel.Temper2Sp;
+            step.Temper3Sp = viewModel.Temper3Sp;
+            step.Temper4Sp = viewModel.Temper4Sp;
+            step.Temper5Sp = viewModel.Temper5Sp;
+            step.Temper6Sp = viewModel.Temper6Sp;
 
-            step.TemperRegulInt = recipePage.TubeRecipeViewModel.TemperRegulInt;
-            step.AxisPosSp = recipePage.TubeRecipeViewModel.AxisPosSp;
-            step.AxisSpeedSp = recipePage.TubeRecipeViewModel.AxisSpeedSp;
-            step.Ramp = recipePage.TubeRecipeViewModel.Ramp;
-            step.DigOutput = recipePage.TubeRecipeViewModel.DigOutput;
-            step.Ev = recipePage.TubeRecipeViewModel.Ev;
-            step.Num = recipePage.TubeRecipeViewModel.Num;
-            step.CheckSum = recipePage.TubeRecipeViewModel.CheckSum;
+            step.TemperRegulInt = viewModel.TemperRegulInt;
+            step.AxisPosSp = viewModel.AxisPosSp;
+            step.AxisSpeedSp = viewModel.AxisSpeedSp;
+            step.Ramp = viewModel.Ramp;
+            step.DigOutput = viewModel.DigOutput;
+            step.Ev = viewModel.Ev;
+            step.Num = viewModel.Num;
+            step.CheckSum = viewModel.CheckSum;
 
-            step.AnalogAbort = recipePage.TubeRecipeViewModel.AnalogAbort;
-            step.DigitalAbort = recipePage.TubeRecipeViewModel.DigitalAbort;
-            step.TemperAbort = recipePage.TubeRecipeViewModel.TemperAbort;
-            step.ManualAbort = recipePage.TubeRecipeViewModel.ManualAbort;
-            step.PowerAbort = recipePage.TubeRecipeViewModel.PowerAbort;
-            step.AnalogDelay = recipePage.TubeRecipeViewModel.AnalogDelay;
-            step.MfcDelay = recipePage.TubeRecipeViewModel.MfcDelay;
-            step.AlrmDigIns = recipePage.TubeRecipeViewModel.AlrmDigIns;
+            step.AnalogAbort = viewModel.AnalogAbort;
+            step.DigitalAbort = viewModel.DigitalAbort;
+            step.TemperAbort = viewModel.TemperAbort;
+            step.ManualAbort = viewModel.ManualAbort;
+            step.PowerAbort = viewModel.PowerAbort;
+            step.AnalogDelay = viewModel.AnalogDelay;
+            step.MfcDelay = viewModel.MfcDelay;
+            step.AlrmDigIns = viewModel.AlrmDigIns;
+
+            step.Gas1Abort = viewModel.Gas1Abort;
+            step.Gas2Abort = viewModel.Gas2Abort;
+            step.Gas5Abort = viewModel.Gas5Abort;
+            step.Gas6Abort = viewModel.Gas6Abort;
+            step.Gas8Abort = viewModel.Gas8Abort;
+            step.Ana1Abort = viewModel.Ana1Abort;
+            step.Gas1Hold = viewModel.Gas1Hold;
+            step.Gas2Hold = viewModel.Gas2Hold;
+            step.Gas5Hold = viewModel.Gas5Hold;
+            step.Gas6Hold = viewModel.Gas6Hold;
+            step.Gas8Hold = viewModel.Gas8Hold;
+            step.Ana1Hold = viewModel.Ana1Hold;
+            step.Gas1Alarm = viewModel.Gas1Alarm;
+            step.Gas2Alarm = viewModel.Gas2Alarm;
+            step.Gas5Alarm = viewModel.Gas5Alarm;
+            step.Gas6Alarm = viewModel.Gas6Alarm;
+            step.Gas8Alarm = viewModel.Gas8Alarm;
+            step.Ana1Alarm = viewModel.Ana1Alarm;
+            step.Gas1Next = viewModel.Gas1Next;
+            step.Gas2Next = viewModel.Gas2Next;
+            step.Gas5Next = viewModel.Gas5Next;
+            step.Gas6Next = viewModel.Gas6Next;
+            step.Gas8Next = viewModel.Gas8Next;
+            step.Ana1Next = viewModel.Ana1Next;
+            step.Temper1Abort = viewModel.Temper1Abort;
+            step.Temper2Abort = viewModel.Temper2Abort;
+            step.Temper3Abort = viewModel.Temper3Abort;
+            step.Temper4Abort = viewModel.Temper4Abort;
+            step.Temper5Abort = viewModel.Temper5Abort;
+            step.Temper6Abort = viewModel.Temper6Abort;
+            step.Temper1Hold = viewModel.Temper1Hold;
+            step.Temper2Hold = viewModel.Temper2Hold;
+            step.Temper3Hold = viewModel.Temper3Hold;
+            step.Temper4Hold = viewModel.Temper4Hold;
+            step.Temper5Hold = viewModel.Temper5Hold;
+            step.Temper6Hold = viewModel.Temper6Hold;
+            step.Temper1Alarm = viewModel.Temper1Alarm;
+            step.Temper2Alarm = viewModel.Temper2Alarm;
+            step.Temper3Alarm = viewModel.Temper3Alarm;
+            step.Temper4Alarm = viewModel.Temper4Alarm;
+            step.Temper5Alarm = viewModel.Temper5Alarm;
+            step.Temper6Alarm = viewModel.Temper6Alarm;
+            step.Temper1Next = viewModel.Temper1Next;
+            step.Temper2Next = viewModel.Temper2Next;
+            step.Temper3Next = viewModel.Temper3Next;
+            step.Temper4Next = viewModel.Temper4Next;
+            step.Temper5Next = viewModel.Temper5Next;
+            step.Temper6Next = viewModel.Temper6Next;
         }
     }
 }

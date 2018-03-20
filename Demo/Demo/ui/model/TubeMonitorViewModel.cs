@@ -67,6 +67,7 @@ namespace Demo.ui.model
         private string mTemper4HeatPower;
         private string mTemper5HeatPower;
         private string mTemper6HeatPower;
+        private int mPaddlePosActInt;
         private string mPaddlePosAct;
         private int mPaddlePosSp;
         private int mPaddleSpeedSp;
@@ -1077,13 +1078,13 @@ namespace Demo.ui.model
             }
         }
 
-        public string PaddlePosAct
+        public int PaddlePosActI
         {
-            get { return mPaddlePosAct; }
+            get { return mPaddlePosActInt; }
             set
             {
-                mPaddlePosAct = value;
-                Notify("PaddlePosAct");
+                mPaddlePosActInt = value;
+                Notify("PaddleControlM");
             }
         }
 
@@ -1096,6 +1097,22 @@ namespace Demo.ui.model
                 Notify("PaddlePosSp");
             }
         }
+
+        public string PaddlePosAct
+        {
+            get { return mPaddlePosAct; }
+            set
+            {
+                mPaddlePosAct = value;
+                Notify("PaddlePosAct");
+            }
+        }
+
+        public Thickness PaddleControlM
+        {
+            get {return new Thickness(mPaddlePosActInt, 0, -mPaddlePosActInt, 0); }
+        }
+       
 
         public int EditPaddleSpeedSp
         {

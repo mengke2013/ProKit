@@ -9,6 +9,7 @@ using Demo.ui.model;
 using Demo.controller;
 using System;
 using System.Windows.Media.Imaging;
+using System.Windows.Media;
 
 namespace Demo.ui.view
 {
@@ -83,6 +84,11 @@ namespace Demo.ui.view
             MessageBox.Show("Done");
         }
 
+        public void DisableButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         public void StartButton_Click(object sender, RoutedEventArgs e)
         {
             mController.StartProcess(mTubeMonitorPageModel.SelectedTube, OnStartProcessComplete);
@@ -148,11 +154,16 @@ namespace Demo.ui.view
 
             Visibility = Visibility.Visible;
 
-            mTubePageStyle.TextBoxWidth = this.ActualWidth / 20;
-            mTubePageStyle.TextBoxHeight = this.ActualHeight / 25;
-            mTubePageStyle.LabelWidth = this.ActualWidth / 20;
-            mTubePageStyle.LabelHeight = this.ActualHeight / 25;
-            mTubeMonitorPageModel.FurnaceHeight = (int)(MonitorView.FurnaceControl.ActualHeight - 10);
+            mTubePageStyle.TextBoxWidth = this.ActualWidth / 25;
+            mTubePageStyle.TextBoxHeight = this.ActualHeight / 35;
+            mTubePageStyle.LabelWidth = this.ActualWidth / 25;
+            mTubePageStyle.LabelHeight = this.ActualHeight / 35;
+            mTubeMonitorPageModel.FurnaceHeight = (int)(MonitorView.FurnaceControl.ActualWidth/8)-10;
+            var visibleArea = new RectangleGeometry();
+            visibleArea.Rect = new Rect(0, 0,
+            MonitorView.MainGrid.ActualWidth, MonitorView.MainGrid.ActualHeight);
+            MonitorView.MainGrid.Clip = visibleArea;
+
 
             mTubeMonitorPageModel.TubePageStyle = mTubePageStyle;
 

@@ -1,14 +1,14 @@
-﻿<UserControl x:Class="Demo.ui.TubeTrendPage"
+﻿<UserControl x:Class="Demo.ui.view.TubeTrendPage"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:oxy="clr-namespace:OxyPlot.Wpf;assembly=OxyPlot.Wpf" 
-             xmlns:local="clr-namespace:Demo.ui"
+             xmlns:local="clr-namespace:Demo.ui.view"
              xmlns:view="clr-namespace:Demo.ui.view"
              xmlns:uiModelUrl="clr-namespace:Demo.ui.model"
              mc:Ignorable="d" 
-             d:DesignHeight="800" d:DesignWidth="600">
+             d:DesignHeight="800" d:DesignWidth="1000">
     <!--
     <UserControl.DataContext>
         <uiModelUrl:TubeTrendPageModel/>
@@ -41,20 +41,17 @@
                     <WrapPanel Margin="5,8,5,2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="3" Grid.ColumnSpan="2">
                         <Button Margin="5,0,5,0" Click="Temper_Click">
                             <StackPanel Width="40" Height="40">
-                                <Image Source="/Demo;component/images/down.png" Width="25" Height="25"></Image>
-                                <TextBlock>Temperature</TextBlock>
+                                <Image Source="/Demo;component/images/temperature.png" ></Image>
                             </StackPanel>
                         </Button>
                         <Button Margin="0,0,5,0" Click="Gas_Click">
                             <StackPanel Width="40" Height="40">
-                                <Image Source="/Demo;component/images/up.png" Width="25" Height="25"></Image>
-                                <TextBlock>Gas</TextBlock>
+                                <Image Source="/Demo;component/images/gas.png"></Image>
                             </StackPanel>
                         </Button>
                         <Button Margin="0,0,5,0" Click="Vacuum_Click">
                             <StackPanel Width="40" Height="40">
-                                <Image Source="/Demo;component/images/up.png" Width="25" Height="25"></Image>
-                                <TextBlock>Vacuum</TextBlock>
+                                <Image Source="/Demo;component/images/vacuum.png" Height="40"></Image>
                             </StackPanel>
                         </Button>
                     </WrapPanel>

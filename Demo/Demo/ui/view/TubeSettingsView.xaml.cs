@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 using log4net;
 
 
-namespace Demo.ui
+namespace Demo.ui.view
 {
     /// <summary>
     /// Interaction logic for UserControl1.xaml

@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Demo.ui.view.DioSwitcher"
+﻿<UserControl x:Class="Demo.ui.view.DiTypeSwitcher"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -8,10 +8,10 @@
              d:DesignHeight="200" d:DesignWidth="200">
     <Grid>
         <Button Name="BtnOff" Background="White" Click="Btn_Switch_Click" Padding="0" BorderThickness="0">
-            <Image Source="/Demo;component/images/switch_off.bmp" ></Image>
+            <Image Source="/Demo;component/images/switch_off.jpg" ></Image>
         </Button>
         <Button Name="BtnOn" Background="White" Click="Btn_Switch_Click" BorderThickness="0">
-            <Image Source="/Demo;component/images/switch_on.bmp"  ></Image>
+            <Image Source="/Demo;component/images/switch_on.jpg"  ></Image>
         </Button>
     </Grid>
 </UserControl>

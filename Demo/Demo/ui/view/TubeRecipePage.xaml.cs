@@ -1,31 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using log4net;
-using Demo.ui.model;
-using Demo.ui.view;
-using Demo.com;
-using Rocky.Core.Opc.Ua;
-using Demo.com.entity;
 using System.Windows.Threading;
 using System.Threading;
-using System.Net;
-using System.Net.Sockets;
-using Demo.model;
-using Demo.controller;
 
-namespace Demo.ui
+using log4net;
+
+using Demo.ui.model;
+using Demo.controller;
+using System;
+using System.Reflection;
+
+namespace Demo.ui.view
 {
     /// <summary>
     /// Interaction logic for TubeRecipePage.xaml
@@ -35,13 +21,16 @@ namespace Demo.ui
         public static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         private byte mSelectedTube;
-        TubeRecipePageModel mTubeRecipePageModel;
-        private TubePageStyle mTubePageStyle;
-        private StepListItem[] StepItems;
+        private byte mSelectedStep;
 
+        private RecipeController mController;
+        TubeRecipeViewModel mViewModel;
+        StepItemListModel mStepListModel;
+
+        private StepListItem[] StepItems;
         public event Home.ClickHandler CloseClick;
         private ProgressDlg mProgressDlg;
-        private RecipeController mController;
+
 
         public TubeRecipePage()
         {
@@ -51,84 +40,21 @@ namespace Demo.ui
             // mProgressDlg.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             // mProgressDlg.VerticalAlignment = VerticalAlignment.Center;
 
-            mTubeRecipePageModel = new TubeRecipePageModel();
-            mTubePageStyle = new TubePageStyle();
-            mTubeRecipePageModel.TubeRecipeViewModel.TubePageStyle = mTubePageStyle;
-            this.DataContext = mTubeRecipePageModel.TubeRecipeViewModel;
-            mController = new RecipeController();
+            mViewModel = new TubeRecipeViewModel(1);
+            mViewModel.TubePageStyle = new TubePageStyle();
+            this.DataContext = mViewModel;
+            mStepListModel = new StepItemListModel();
+            mController = new RecipeController(this);
+            RecipeView.RecipeViewMode = mViewModel;
+            RecipeView.CommitClick += new TubeRecipeView.ClickHandler(Step_Commit_Click);
 
             StepItems = new StepListItem[63];
-            StepItems[0] = StepItem1;
-            StepItems[1] = StepItem2;
-            StepItems[2] = StepItem3;
-            StepItems[3] = StepItem4;
-            StepItems[4] = StepItem5;
-            StepItems[5] = StepItem6;
-            StepItems[6] = StepItem7;
-            StepItems[7] = StepItem8;
-            StepItems[8] = StepItem9;
-            StepItems[9] = StepItem10;
-            StepItems[10] = StepItem11;
-            StepItems[11] = StepItem12;
-            StepItems[12] = StepItem13;
-            StepItems[13] = StepItem14;
-            StepItems[14] = StepItem15;
-            StepItems[15] = StepItem16;
-            StepItems[16] = StepItem17;
-            StepItems[17] = StepItem18;
-            StepItems[18] = StepItem19;
-            StepItems[19] = StepItem20;
-            StepItems[20] = StepItem21;
-            StepItems[21] = StepItem22;
-            StepItems[22] = StepItem23;
-            StepItems[23] = StepItem24;
-            StepItems[24] = StepItem25;
-            StepItems[25] = StepItem26;
-            StepItems[26] = StepItem27;
-            StepItems[27] = StepItem28;
-            StepItems[28] = StepItem29;
-            StepItems[29] = StepItem30;
-            StepItems[30] = StepItem31;
-            StepItems[31] = StepItem32;
-            StepItems[32] = StepItem33;
-            StepItems[33] = StepItem34;
-            StepItems[34] = StepItem35;
-            StepItems[35] = StepItem36;
-            StepItems[36] = StepItem37;
-            StepItems[37] = StepItem38;
-            StepItems[38] = StepItem39;
-            StepItems[39] = StepItem40;
-            StepItems[40] = StepItem41;
-            StepItems[41] = StepItem42;
-            StepItems[42] = StepItem43;
-            StepItems[43] = StepItem44;
-            StepItems[44] = StepItem45;
-            StepItems[45] = StepItem46;
-            StepItems[46] = StepItem47;
-            StepItems[47] = StepItem48;
-            StepItems[48] = StepItem49;
-            StepItems[49] = StepItem50;
-            StepItems[50] = StepItem51;
-            StepItems[51] = StepItem52;
-            StepItems[52] = StepItem53;
-            StepItems[53] = StepItem54;
-            StepItems[54] = StepItem55;
-            StepItems[55] = StepItem56;
-            StepItems[56] = StepItem57;
-            StepItems[57] = StepItem58;
-            StepItems[58] = StepItem59;
-            StepItems[59] = StepItem60;
-            StepItems[60] = StepItem61;
-            StepItems[61] = StepItem62;
-            StepItems[62] = StepItem63;
-
             for (byte i = 0; i < StepItems.Length; ++i)
             {
-                StepItems[i].ItemMode = mTubeRecipePageModel.StepListItems[i];
+                StepItems[i] = (StepListItem)this.FindName("StepItem" + (i + 1));
+                StepItems[i].ItemMode = mStepListModel.StepListItems[i];
                 StepItems[i].ItemClick += new StepListItem.ClickHandler(Item_Select_Click);
             }
-            RecipeView.RecipeViewMode = mTubeRecipePageModel.TubeRecipeViewModel;
-            RecipeView.CommitClick += new TubeRecipeView.ClickHandler(Step_Commit_Click);
         }
 
         public void LoadPage(byte selectedTube)
@@ -138,22 +64,14 @@ namespace Demo.ui
 
             Visibility = Visibility.Visible;
 
-            Recipe recipe = mController.LoadRecipe(mSelectedTube);
-            if (recipe == null)
-            {
-                txtBlockRecipeInfo.Visibility = Visibility.Visible;
-                gridRecipePanel.Visibility = Visibility.Hidden;
-            }
-            else
-            {
-                txtBlockRecipeInfo.Visibility = Visibility.Hidden;
-                gridRecipePanel.Visibility = Visibility.Visible;
+            mController.LoadRecipe(mSelectedTube);
 
-                //synchronize recipe step data
-                //mTubeRecipePageModel.LoadData(mSelectedTube);
-                StepItems[0].Item_Click(null, null);
-            }
-            mTubeRecipePageModel.TubeRecipeViewModel.ProcessName = mController.GetRecipeName(mSelectedTube);
+            //synchronize recipe step data
+            //mTubeRecipePageModel.LoadData(mSelectedTube);
+            mSelectedStep = 1;
+            StepItems[0].Item_Click(null, null);
+
+            mViewModel.ProcessName = mController.GetRecipeName(mSelectedTube);
 
             /*
             bool startSyn = mController.SynStep(mSelectedTube, 1, null, OnSynStepComplete1);
@@ -172,6 +90,11 @@ namespace Demo.ui
             //            ClearValue(EffectProperty);
         }
 
+        public TubeRecipeViewModel ViewModel
+        {
+            get { return mViewModel; }
+        }
+
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             this.CloseClick(sender, e);
@@ -182,7 +105,7 @@ namespace Demo.ui
         {
             log.Debug("Step " + stepIndex);
             // MessageBox.Show("Step" + stepIndex);
-
+            mSelectedStep = (byte)stepIndex;
             for (byte i = 0; i < StepItems.Length; ++i)
             {
                 if (i != stepIndex - 1)
@@ -204,8 +127,7 @@ namespace Demo.ui
         private void Step_Commit_Click(object sender, RoutedEventArgs e, int stepIndex)
         {
             log.Debug("Commit Step " + stepIndex);
-            RecipeStep step = mController.GetRecipeStep(mSelectedTube, stepIndex);
-            mController.ConvertRecipeModel(step, mTubeRecipePageModel); 
+            mController.ConvertRecipeModel((byte)stepIndex);
             bool startCommit = mController.CommitStep(mSelectedTube, stepIndex, null, OnCommitStepComplete);
             if (startCommit)
             {
@@ -267,13 +189,12 @@ namespace Demo.ui
             }
         }
 
-        private void LoadStep(int stepIndex)
+        private void LoadStep(byte stepIndex)
         {
-            RecipeStep step = mController.GetRecipeStep(mSelectedTube,stepIndex);
-            mController.ConvertRecipePageModel(mTubeRecipePageModel, step);
+            mController.ConvertRecipePageModel(stepIndex);
         }
 
-        private void OnSynRecipeComplete(Recipe recipe)
+        private void OnSynRecipeComplete()
         {
             this.Dispatcher.BeginInvoke(DispatcherPriority.Normal, (ThreadStart)delegate ()
             {
@@ -284,23 +205,23 @@ namespace Demo.ui
             });
         }
 
-        private void OnSynStepComplete(RecipeStep step)
+        private void OnSynStepComplete(byte stepIndex)
         {
-            mProgressDlg.ProgressModel.Progress = step.StepIndex;
+            mProgressDlg.ProgressModel.Progress = stepIndex;
         }
 
-        private void OnSynStepComplete1(RecipeStep step)
+        private void OnSynStepComplete1(byte stepIndex)
         {
             this.Dispatcher.BeginInvoke(DispatcherPriority.Normal, (ThreadStart)delegate ()
             {
                 mProgressDlg.Hide();
-                mController.ConvertRecipePageModel(mTubeRecipePageModel, step);
+                mController.ConvertRecipePageModel(stepIndex);
                 //StepItems[0].Item_Click(null, null);
                 //MessageBox.Show("OnDownloadRecipeComplete");
             });
         }
 
-        private void OnDownRecipeComplete(Recipe recipe)
+        private void OnDownRecipeComplete()
         {
             this.Dispatcher.BeginInvoke(DispatcherPriority.Normal, (ThreadStart)delegate ()
             {
@@ -310,9 +231,9 @@ namespace Demo.ui
             });
         }
 
-        private void OnDownloadStepComplete(RecipeStep step)
+        private void OnDownloadStepComplete(byte stepIndex)
         {
-            mProgressDlg.ProgressModel.Progress = step.StepIndex;
+            mProgressDlg.ProgressModel.Progress = stepIndex;
         }
 
         private void OnBackupRecipeComplete()
@@ -324,7 +245,7 @@ namespace Demo.ui
             });
         }
 
-        private void OnCommitStepComplete(RecipeStep step)
+        private void OnCommitStepComplete(byte stepIndex)
         {
             this.Dispatcher.BeginInvoke(DispatcherPriority.Normal, (ThreadStart)delegate ()
             {

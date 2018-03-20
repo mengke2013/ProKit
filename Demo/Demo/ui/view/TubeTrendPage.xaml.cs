@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Threading;
 using System.Windows.Threading;
@@ -14,7 +9,7 @@ using Demo.controller;
 using Demo.ui.model;
 
 
-namespace Demo.ui
+namespace Demo.ui.view
 {
     /// <summary>
     /// Interaction logic for UserControl1.xaml
@@ -27,7 +22,6 @@ namespace Demo.ui
 
         private TubeTrendViewModel mTrendModel;
         private TrendController mController;
-
 
         bool mUpdatePlot;
         bool mHoldUpdatePlot;

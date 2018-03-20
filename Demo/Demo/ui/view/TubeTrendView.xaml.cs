@@ -55,8 +55,6 @@ namespace Demo.ui.view
 
         protected override void OnRender(DrawingContext drawingContext)
         {
-            
-
             var axisPen = new Pen(Brushes.Black, 1);
             //draw x axis
             Point xAxisP1 = new Point(mMarginX1, mMarginY + mPlotHeight);

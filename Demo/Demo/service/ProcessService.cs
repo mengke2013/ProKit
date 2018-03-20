@@ -417,6 +417,28 @@ namespace Demo.service
 
         public int GetPaddlePosAct(byte tubeIndex)
         {
+            //return mProcesses[tubeIndex - 1].PaddlePosAct;
+
+            if (mProcesses[tubeIndex - 1].PaddlePosAct == 0)
+            {
+                mProcesses[tubeIndex - 1].PaddlePosAct = 1;
+            }
+            else if (mProcesses[tubeIndex - 1].PaddlePosAct == 301)
+            {
+                mProcesses[tubeIndex - 1].PaddlePosAct = 300;
+            }
+            else
+            {
+                if (mProcesses[tubeIndex - 1].PaddlePosAct % 10 == 0)
+                {
+                    mProcesses[tubeIndex - 1].PaddlePosAct -= 10;
+                }
+                else if (mProcesses[tubeIndex - 1].PaddlePosAct % 10 == 1)
+                {
+                    mProcesses[tubeIndex - 1].PaddlePosAct += 10;
+                }
+            }
+
             return mProcesses[tubeIndex - 1].PaddlePosAct;
         }
 

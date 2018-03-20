@@ -87,6 +87,7 @@ namespace Demo.controller
 
             uiModel.PaddleSpeedSp = ProcessService.Instance.GetPaddleSpeedSp(uiModel.SelectedTube);
             uiModel.PaddlePosAct = ProcessService.Instance.GetPaddlePosSp(uiModel.SelectedTube) + "/" + ProcessService.Instance.GetPaddlePosAct(uiModel.SelectedTube);
+            uiModel.PaddlePosActI = ProcessService.Instance.GetPaddlePosAct(uiModel.SelectedTube); 
             uiModel.EvValue = ProcessService.Instance.GetEv(uiModel.SelectedTube);
             uiModel.DiValue = ProcessService.Instance.GetDi(uiModel.SelectedTube);
             uiModel.DoValue = ProcessService.Instance.GetDo(uiModel.SelectedTube);

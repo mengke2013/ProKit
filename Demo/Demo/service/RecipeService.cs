@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Threading;
-using Demo.model;
-using Rocky.Core.Opc.Ua;
-using Demo.com;
 using System.Net;
 using System.Net.Sockets;
+
 using log4net;
+
+using Rocky.Core.Opc.Ua;
+
+using Demo.model;
+using Demo.com;
 
 namespace Demo.service
 {
@@ -17,11 +18,11 @@ namespace Demo.service
     {
         public static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-        public delegate void OnSynRecipeComplete(Recipe recipe);
-        public delegate void OnSynStepComplete(RecipeStep step);
-        public delegate void OnDownloadRecipeComplete(Recipe recipe);
-        public delegate void OnDownloadStepComplete(RecipeStep step);
-        public delegate void OnCommitStepComplete(int stepIndex);
+        public delegate void OnSynRecipeComplete();
+        public delegate void OnSynStepComplete(byte stepIndex);
+        public delegate void OnDownloadRecipeComplete();
+        public delegate void OnDownloadStepComplete(byte stepIndex);
+        public delegate void OnCommitStepComplete(byte stepIndex);
         public delegate void OnBackupRecipeComplete();
         public delegate void OnConnectComplete();
 
@@ -39,7 +40,7 @@ namespace Demo.service
 
         private RecipeService()
         {
-           
+
             mSocketObj = new SocketObject();
             //mSocketObj.socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         }
@@ -56,50 +57,39 @@ namespace Demo.service
             }
         }
 
-        public Recipe LoadRecipe(byte tubeIndex)
+        public void LoadRecipe(byte tubeIndex)
         {
+            mTubeIndex = tubeIndex;
+
             if (System.IO.File.Exists(string.Format("recipe_tmp{0}.data", tubeIndex)))
             {
-                mTubeIndex = tubeIndex;
-                if (!ComNodeService.Instance.IsConnected())
+                mRecipe = new Recipe();
+                mRecipeTmpStore = new Demo.utilities.Properties(string.Format("recipe_tmp{0}.data", tubeIndex));
+                for (int i = 0; i < mRecipe.Steps.Length - 1; ++i)
                 {
-                    //return null;
-                    mRecipe = new Recipe();
-                    for (int i = 0; i < mRecipe.Steps.Length - 1; ++i)
+                    string strStepData = mRecipeTmpStore.get(String.Format("{0}", i + 1));
+                    if (strStepData != null)
                     {
-                        mRecipe.Steps[i] = new RecipeStep();
-                        mRecipe.Steps[i].StepIndex = i + 1;
-                    }
-                    return mRecipe;
-                }
-
-                if (mRecipe == null)
-                {
-                    mRecipe = new Recipe();
-                    mRecipeTmpStore = new Demo.utilities.Properties(string.Format("recipe_tmp{0}.data", tubeIndex));
-                    for (int i = 0; i < mRecipe.Steps.Length - 1; ++i)
-                    {
-                        string strStepData = mRecipeTmpStore.get(String.Format("{0}", i + 1));
                         byte[] stepBytes = new byte[328];
                         byte[] tBytes = Encoding.Default.GetBytes(strStepData);
                         Array.Copy(tBytes, 0, stepBytes, 0, tBytes.Length);
                         mRecipe.Steps[i] = DecryptStepData(stepBytes);
-                        mRecipe.Steps[i].StepIndex = i + 1;
                     }
+                    else
+                    {
+                        mRecipe.Steps[i] = new RecipeStep();
+                    }
+                    mRecipe.Steps[i].StepIndex = i + 1;
                 }
-
-                return mRecipe;
             }
             else
             {
-                //return null;
                 mRecipe = new Recipe();
                 for (int i = 0; i < mRecipe.Steps.Length - 1; ++i)
                 {
                     mRecipe.Steps[i] = new RecipeStep();
                     mRecipe.Steps[i].StepIndex = i + 1;
                 }
-                return mRecipe;
             }
         }
 
@@ -310,7 +300,7 @@ namespace Demo.service
 
             if (mSocketObj.synStepCallback != null)
             {
-                mSocketObj.synStepCallback(mRecipe.Steps[mSocketObj.stepIndex - 1]);
+                mSocketObj.synStepCallback(mSocketObj.stepIndex);
             }
 
 
@@ -334,7 +324,7 @@ namespace Demo.service
                 //mSocketObj.socket.EndConnect(so.cResult);
                 if (mSocketObj.synRecipeCallback != null)
                 {
-                    mSocketObj.synRecipeCallback(mRecipe);
+                    mSocketObj.synRecipeCallback();
                 }
                 if (mDisconnect)
                 {
@@ -403,7 +393,7 @@ namespace Demo.service
 
         private void connect(int tubeGroup)
         {
-            
+
             Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             int port = 2000;
             IPAddress ip = IPAddress.Parse(hosts[tubeGroup - 1]);
@@ -529,9 +519,9 @@ namespace Demo.service
             }
             if (mSocketObj.dldStepCallback != null)
             {
-                mSocketObj.dldStepCallback(mRecipe.Steps[mSocketObj.stepIndex - 1]);
+                mSocketObj.dldStepCallback(mSocketObj.stepIndex);
             }
-            
+
 
             if (mSocketObj.sendRecipe && mSocketObj.stepIndex < 63)
             {
@@ -558,7 +548,7 @@ namespace Demo.service
                 // mSocketObj.socket.EndConnect(mSocketObj.cResult);
                 if (mSocketObj.dldRecipeCallback != null)
                 {
-                    mSocketObj.dldRecipeCallback(mRecipe);
+                    mSocketObj.dldRecipeCallback();
                 }
                 if (mDisconnect)
                 {
@@ -880,6 +870,87 @@ namespace Demo.service
             recipeBytes[43] = (byte)step.AnalogDelay;
             recipeBytes[44] = (byte)step.MfcDelay;
 
+            recipeBytes[79] = (byte)step.Gas1Abort;
+            recipeBytes[85] = (byte)step.Gas2Abort;
+            recipeBytes[103] = (byte)step.Gas5Abort;
+            recipeBytes[109] = (byte)step.Gas6Abort;
+            recipeBytes[121] = (byte)step.Gas8Abort;
+            recipeBytes[127] = (byte)step.Ana1Abort;
+            recipeBytes[80] = (byte)step.Gas1Hold;
+            recipeBytes[86] = (byte)step.Gas2Hold;
+            recipeBytes[104] = (byte)step.Gas5Hold;
+            recipeBytes[110] = (byte)step.Gas6Hold;
+            recipeBytes[122] = (byte)step.Gas8Hold;
+            recipeBytes[128] = (byte)step.Ana1Hold;
+            recipeBytes[81] = (byte)step.Gas1Alarm;
+            recipeBytes[87] = (byte)step.Gas2Alarm;
+            recipeBytes[105] = (byte)step.Gas5Alarm;
+            recipeBytes[111] = (byte)step.Gas6Alarm;
+            recipeBytes[123] = (byte)step.Gas8Alarm;
+            recipeBytes[129] = (byte)step.Ana1Alarm;
+            recipeBytes[82] = (byte)step.Gas1Next;
+            recipeBytes[88] = (byte)step.Gas2Next;
+            recipeBytes[106] = (byte)step.Gas5Next;
+            recipeBytes[112] = (byte)step.Gas6Next;
+            recipeBytes[124] = (byte)step.Gas8Next;
+            recipeBytes[130] = (byte)step.Ana1Next;
+
+            if (step.TemperRegulInt)
+            {
+                recipeBytes[181] = (byte)step.Temper1Abort;
+                recipeBytes[197] = (byte)step.Temper2Abort;
+                recipeBytes[213] = (byte)step.Temper3Abort;
+                recipeBytes[229] = (byte)step.Temper4Abort;
+                recipeBytes[245] = (byte)step.Temper5Abort;
+                recipeBytes[261] = (byte)step.Temper6Abort;
+                recipeBytes[182] = (byte)step.Temper1Hold;
+                recipeBytes[198] = (byte)step.Temper2Hold;
+                recipeBytes[214] = (byte)step.Temper3Hold;
+                recipeBytes[230] = (byte)step.Temper4Hold;
+                recipeBytes[246] = (byte)step.Temper5Hold;
+                recipeBytes[262] = (byte)step.Temper6Hold;
+                recipeBytes[183] = (byte)step.Temper1Alarm;
+                recipeBytes[199] = (byte)step.Temper2Alarm;
+                recipeBytes[215] = (byte)step.Temper3Alarm;
+                recipeBytes[231] = (byte)step.Temper4Alarm;
+                recipeBytes[247] = (byte)step.Temper5Alarm;
+                recipeBytes[263] = (byte)step.Temper6Alarm;
+                recipeBytes[184] = (byte)step.Temper1Next;
+                recipeBytes[200] = (byte)step.Temper2Next;
+                recipeBytes[216] = (byte)step.Temper3Next;
+                recipeBytes[232] = (byte)step.Temper4Next;
+                recipeBytes[248] = (byte)step.Temper5Next;
+                recipeBytes[264] = (byte)step.Temper6Next;
+            }
+            else
+            {
+                recipeBytes[185] = (byte)step.Temper1Abort;
+                recipeBytes[201] = (byte)step.Temper2Abort;
+                recipeBytes[217] = (byte)step.Temper3Abort;
+                recipeBytes[233] = (byte)step.Temper4Abort;
+                recipeBytes[249] = (byte)step.Temper5Abort;
+                recipeBytes[265] = (byte)step.Temper6Abort;
+                recipeBytes[186] = (byte)step.Temper1Hold;
+                recipeBytes[202] = (byte)step.Temper2Hold;
+                recipeBytes[218] = (byte)step.Temper3Hold;
+                recipeBytes[234] = (byte)step.Temper4Hold;
+                recipeBytes[250] = (byte)step.Temper5Hold;
+                recipeBytes[266] = (byte)step.Temper6Hold;
+                recipeBytes[187] = (byte)step.Temper1Alarm;
+                recipeBytes[203] = (byte)step.Temper2Alarm;
+                recipeBytes[219] = (byte)step.Temper3Alarm;
+                recipeBytes[235] = (byte)step.Temper4Alarm;
+                recipeBytes[251] = (byte)step.Temper5Alarm;
+                recipeBytes[267] = (byte)step.Temper6Alarm;
+                recipeBytes[188] = (byte)step.Temper1Next;
+                recipeBytes[204] = (byte)step.Temper2Next;
+                recipeBytes[220] = (byte)step.Temper3Next;
+                recipeBytes[236] = (byte)step.Temper4Next;
+                recipeBytes[252] = (byte)step.Temper5Next;
+                recipeBytes[268] = (byte)step.Temper6Next;
+            }
+            
+
             cBytes = step.AlrmDigIns;
             Array.Copy(cBytes, 0, recipeBytes, 45, 32);
             return recipeBytes;
@@ -922,6 +993,86 @@ namespace Demo.service
             step.PowerAbort = recipeBytes[42];
             step.AnalogDelay = recipeBytes[43];
             step.MfcDelay = recipeBytes[44];
+
+            step.Gas1Abort = recipeBytes[79];
+            step.Gas2Abort = recipeBytes[85];
+            step.Gas5Abort = recipeBytes[103];
+            step.Gas6Abort = recipeBytes[109];
+            step.Gas8Abort = recipeBytes[121];
+            step.Ana1Abort = recipeBytes[127];
+            step.Gas1Hold = recipeBytes[80];
+            step.Gas2Hold = recipeBytes[86];
+            step.Gas5Hold = recipeBytes[104];
+            step.Gas6Hold = recipeBytes[110];
+            step.Gas8Hold = recipeBytes[122];
+            step.Ana1Hold = recipeBytes[128];
+            step.Gas1Alarm = recipeBytes[81];
+            step.Gas2Alarm = recipeBytes[87];
+            step.Gas5Alarm = recipeBytes[105];
+            step.Gas6Alarm = recipeBytes[111];
+            step.Gas8Alarm = recipeBytes[123];
+            step.Ana1Alarm = recipeBytes[129];
+            step.Gas1Next = recipeBytes[82];
+            step.Gas2Next = recipeBytes[88];
+            step.Gas5Next = recipeBytes[106];
+            step.Gas6Next = recipeBytes[112];
+            step.Gas8Next = recipeBytes[124];
+            step.Ana1Next = recipeBytes[130];
+
+            if (step.TemperRegulInt)
+            {
+                step.Temper1Abort = recipeBytes[181];
+                step.Temper2Abort = recipeBytes[197];
+                step.Temper3Abort = recipeBytes[213];
+                step.Temper4Abort = recipeBytes[229];
+                step.Temper5Abort = recipeBytes[245];
+                step.Temper6Abort = recipeBytes[261];
+                step.Temper1Hold = recipeBytes[182];
+                step.Temper2Hold = recipeBytes[198];
+                step.Temper3Hold = recipeBytes[214];
+                step.Temper4Hold = recipeBytes[230];
+                step.Temper5Hold = recipeBytes[246];
+                step.Temper6Hold = recipeBytes[262];
+                step.Temper1Alarm = recipeBytes[183];
+                step.Temper2Alarm = recipeBytes[199];
+                step.Temper3Alarm = recipeBytes[215];
+                step.Temper4Alarm = recipeBytes[231];
+                step.Temper5Alarm = recipeBytes[247];
+                step.Temper6Alarm = recipeBytes[263];
+                step.Temper1Next = recipeBytes[184];
+                step.Temper2Next = recipeBytes[200];
+                step.Temper3Next = recipeBytes[216];
+                step.Temper4Next = recipeBytes[232];
+                step.Temper5Next = recipeBytes[248];
+                step.Temper6Next = recipeBytes[264];
+            }
+            else
+            {
+                step.Temper1Abort = recipeBytes[185];
+                step.Temper2Abort = recipeBytes[201];
+                step.Temper3Abort = recipeBytes[217];
+                step.Temper4Abort = recipeBytes[233];
+                step.Temper5Abort = recipeBytes[249];
+                step.Temper6Abort = recipeBytes[265];
+                step.Temper1Hold = recipeBytes[186];
+                step.Temper2Hold = recipeBytes[203];
+                step.Temper3Hold = recipeBytes[218];
+                step.Temper4Hold = recipeBytes[234];
+                step.Temper5Hold = recipeBytes[250];
+                step.Temper6Hold = recipeBytes[266];
+                step.Temper1Alarm = recipeBytes[187];
+                step.Temper2Alarm = recipeBytes[204];
+                step.Temper3Alarm = recipeBytes[219];
+                step.Temper4Alarm = recipeBytes[235];
+                step.Temper5Alarm = recipeBytes[251];
+                step.Temper6Alarm = recipeBytes[267];
+                step.Temper1Next = recipeBytes[188];
+                step.Temper2Next = recipeBytes[205];
+                step.Temper3Next = recipeBytes[220];
+                step.Temper4Next = recipeBytes[236];
+                step.Temper5Next = recipeBytes[252];
+                step.Temper6Next = recipeBytes[268];
+            }
 
             byte[] alrmDigIns = new byte[32];
             Array.Copy(recipeBytes, 45, alrmDigIns, 0, 32);

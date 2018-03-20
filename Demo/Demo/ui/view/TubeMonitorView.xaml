@@ -4,11 +4,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Demo.ui.view"
-             xmlns:controls="clr-namespace:Demo.ui.controls"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="950">
 
-    <Grid>
+    <Grid Name="MainGrid">
         <Grid.RowDefinitions>
             <RowDefinition MaxHeight="5" />
             <RowDefinition />
@@ -93,7 +92,7 @@
                     <Border Margin="0,0,0,0"  Width="40" Height="30"  BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="2">
                         <TextBlock Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">H2</TextBlock>
                     </Border>
-                    <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="0,5,0,0" Text="{Binding  Path=Gas2Sp}" Visibility="{Binding Path=EditVisible}"></controls:ClickSelectTextBox>
+                    <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="0,5,0,0" Text="{Binding  Path=Gas2Sp}" Visibility="{Binding Path=EditVisible}"></local:ClickSelectTextBox>
                     <Label  Margin="0,5,0,0" Style="{Binding Path=TubePageStyle.LabelStyle}" Content="{Binding  Path=Gas2CurMeas}"></Label>
                 </StackPanel>
 
@@ -115,7 +114,7 @@
                     <Border Margin="0,0,0,0"  Width="40" Height="30"  BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="2">
                         <TextBlock Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">N2</TextBlock>
                     </Border>
-                    <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="0,5,0,0" Text="{Binding  Path=Gas1Sp}" Visibility="{Binding Path=EditVisible}"></controls:ClickSelectTextBox>
+                    <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="0,5,0,0" Text="{Binding  Path=Gas1Sp}" Visibility="{Binding Path=EditVisible}"></local:ClickSelectTextBox>
                     <Label Margin="0,5,0,0" Style="{Binding Path=TubePageStyle.LabelStyle}" Content="{Binding  Path=Gas1CurMeas}"></Label>
                 </StackPanel>
                 <Rectangle Margin="0,0,0,41" Grid.Row="1" Grid.Column="9" Grid.RowSpan="7" Grid.ColumnSpan="2"  Height="2" VerticalAlignment="Bottom"  Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
@@ -136,7 +135,7 @@
                     <Border Margin="0,0,0,0"  Width="40" Height="30"  BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="2">
                         <TextBlock Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">BCl3</TextBlock>
                     </Border>
-                    <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="0,5,0,0" Text="{Binding  Path=Gas6Sp}" Visibility="{Binding Path=EditVisible}"></controls:ClickSelectTextBox>
+                    <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="0,5,0,0" Text="{Binding  Path=Gas6Sp}" Visibility="{Binding Path=EditVisible}"></local:ClickSelectTextBox>
                     <Label Margin="0,5,0,0" Style="{Binding Path=TubePageStyle.LabelStyle}" Content="{Binding  Path=Gas6CurMeas}"></Label>
                 </StackPanel>
                 <StackPanel Grid.Row="2" Grid.Column="6" Grid.RowSpan="2" Grid.ColumnSpan="1">
@@ -165,7 +164,7 @@
                     <Border Margin="0,0,0,0"  Width="40" Height="30"  BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="2">
                         <TextBlock Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">PC8</TextBlock>
                     </Border>
-                    <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="0,5,0,0" Text="{Binding  Path=Gas8Sp}" Visibility="{Binding Path=EditVisible}"></controls:ClickSelectTextBox>
+                    <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="0,5,0,0" Text="{Binding  Path=Gas8Sp}" Visibility="{Binding Path=EditVisible}"></local:ClickSelectTextBox>
                     <Label Margin="0,5,0,0" Style="{Binding Path=TubePageStyle.LabelStyle}"  Content="{Binding  Path=Gas8CurMeas}"></Label>
                 </StackPanel>
                 <Image Margin="-50,-5,0,0" Width="30" Height="25" Grid.Row="3" Grid.Column="5" Grid.RowSpan="2" Grid.ColumnSpan="1" HorizontalAlignment="Left" VerticalAlignment="Top" Source="/Demo;component/images/singleValve.bmp" Opacity="0.8"></Image>
@@ -196,7 +195,7 @@
                     <Border Margin="0,0,0,0"  Width="40" Height="30"  BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="2">
                         <TextBlock Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">O2</TextBlock>
                     </Border>
-                    <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="0,5,0,0" Text="{Binding  Path=Gas5Sp}" Visibility="{Binding Path=EditVisible}"></controls:ClickSelectTextBox>
+                    <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="0,5,0,0" Text="{Binding  Path=Gas5Sp}" Visibility="{Binding Path=EditVisible}"></local:ClickSelectTextBox>
                     <Label Margin="0,5,0,0" Style="{Binding Path=TubePageStyle.LabelStyle}" Content="{Binding  Path=Gas5CurMeas}"></Label>
                 </StackPanel>
                 <Rectangle Margin="0,0,0,65" Grid.Row="1" Grid.Column="9" Grid.RowSpan="7" Grid.ColumnSpan="2"  Height="2" VerticalAlignment="Bottom"  Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
@@ -209,7 +208,7 @@
                 <StackPanel Grid.Row="6" Grid.Column="8" Grid.RowSpan="2" Grid.ColumnSpan="1">
                     <WrapPanel>
                         <Rectangle Margin="-10,-15,0,0"  Width="20" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="{Binding Path=Ev5Color}" StrokeThickness="2"></Rectangle>
-                        <local:DioSwitcher Margin="15,-25,0,0" Width="20" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Value="{Binding Path=Ev5}" Visibility="{Binding Path=EditVisible}"/>
+                        <local:DioSwitcher Margin="5,-10,0,0" Width="20" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Value="{Binding Path=Ev5}" Visibility="{Binding Path=EditVisible}"/>
                     </WrapPanel>
                     <Label Margin="-40,5,0,0" Width="80" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Background="White" BorderBrush="Black" BorderThickness="1">O2 Dillution</Label>
                 </StackPanel>
@@ -344,7 +343,7 @@
                         <Label Style="{Binding Path=TubePageStyle.LabelStyle}" Margin="5,2" Grid.Row="4" Grid.Column="6" Content="{Binding  Path=Temper6HeatPower}"></Label>
                         <Button Margin="0" Grid.Row="4" Grid.Column="7" Grid.ColumnSpan="2" Width="70" Height="30"  Content="PID" FontSize="14" FontWeight="Bold" Foreground="#FF646366"></Button>
                         <DockPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" >
-                            <controls:IntExtTemperSwitcher Margin="5,2"  Value="{Binding Path=TemperIntSp}" Visibility="{Binding Path=EditVisible}"/>
+                            <local:IntExtTemperSwitcher Margin="5,2"  Value="{Binding Path=TemperIntSp}" Visibility="{Binding Path=EditVisible}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1">
                             <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366" Visibility="{Binding Path=EditVisible}">Setpoint:</TextBlock>
@@ -359,7 +358,7 @@
                             <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Zone1</TextBlock>
                         </DockPanel>
                         <DockPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="1">
-                            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper1Sp}" Visibility="{Binding Path=EditVisible}"/>
+                            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper1Sp}" Visibility="{Binding Path=EditVisible}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="1">
                             <Label Style="{Binding Path=TubePageStyle.LabelStyle}" Margin="5,2" Content="{Binding  Path=Temper1ExtValue}"/>
@@ -371,7 +370,7 @@
                             <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Zone2</TextBlock>
                         </DockPanel>
                         <DockPanel Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="1">
-                            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper2Sp}" Visibility="{Binding Path=EditVisible}"/>
+                            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper2Sp}" Visibility="{Binding Path=EditVisible}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="1">
                             <Label Style="{Binding Path=TubePageStyle.LabelStyle}" Margin="5,2" Content="{Binding  Path=Temper2ExtValue}"/>
@@ -383,7 +382,7 @@
                             <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Zone3</TextBlock>
                         </DockPanel>
                         <DockPanel Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="1">
-                            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper3Sp}" Visibility="{Binding Path=EditVisible}"/>
+                            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper3Sp}" Visibility="{Binding Path=EditVisible}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="1">
                             <Label Style="{Binding Path=TubePageStyle.LabelStyle}" Margin="5,2" Content="{Binding  Path=Temper3ExtValue}"/>
@@ -395,7 +394,7 @@
                             <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Zone4</TextBlock>
                         </DockPanel>
                         <DockPanel Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="1">
-                            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper4Sp}" Visibility="{Binding Path=EditVisible}"/>
+                            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper4Sp}" Visibility="{Binding Path=EditVisible}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="1">
                             <Label Style="{Binding Path=TubePageStyle.LabelStyle}" Margin="5,2" Content="{Binding  Path=Temper4ExtValue}"/>
@@ -407,7 +406,7 @@
                             <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Zone5</TextBlock>
                         </DockPanel>
                         <DockPanel Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="1">
-                            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper5Sp}" Visibility="{Binding Path=EditVisible}"/>
+                            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper5Sp}" Visibility="{Binding Path=EditVisible}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="1">
                             <Label Style="{Binding Path=TubePageStyle.LabelStyle}" Margin="5,2" Content="{Binding  Path=Temper5ExtValue}"/>
@@ -419,7 +418,7 @@
                             <TextBlock Margin="5,2" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Zone6</TextBlock>
                         </DockPanel>
                         <DockPanel Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="1">
-                            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper6Sp}" Visibility="{Binding Path=EditVisible}"/>
+                            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Text="{Binding  Path=Temper6Sp}" Visibility="{Binding Path=EditVisible}"/>
                         </DockPanel>
                         <DockPanel Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="1">
                             <Label Style="{Binding Path=TubePageStyle.LabelStyle}" Margin="5,2" Content="{Binding  Path=Temper6ExtValue}"/>
@@ -451,12 +450,12 @@
                         </DockPanel>
 
                         <Label Margin="0,5,0,0" Style="{Binding Path=TubePageStyle.LabelStyle}" Grid.Row="1" Grid.Column="1" Content="{Binding  Path=PaddlePosAct}"></Label>
-                        <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Grid.Row="1" Grid.Column="2" Text="{Binding  Path=PaddlePosSp}" Visibility="{Binding Path=EditVisible}"/>
+                        <local:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Grid.Row="1" Grid.Column="2" Text="{Binding  Path=PaddlePosSp}" Visibility="{Binding Path=EditVisible}"/>
                         <DockPanel Margin="0,0,0,0" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1">
                             <TextBlock Margin="5,2" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Speed</TextBlock>
                         </DockPanel>
                         <Label Margin="0,5,0,0" Style="{Binding Path=TubePageStyle.LabelStyle}" Grid.Row="2" Grid.Column="1" Content="{Binding  Path=PaddleSpeedSp}"/>
-                        <controls:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Grid.Row="2" Grid.Column="2" Text="{Binding  Path=EditPaddleSpeedSp}" Visibility="{Binding Path=EditVisible}"/>
+                        <local:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Grid.Row="2" Grid.Column="2" Text="{Binding  Path=EditPaddleSpeedSp}" Visibility="{Binding Path=EditVisible}"/>
                         <WrapPanel Margin="0" Grid.Row="0" Grid.Column="8" HorizontalAlignment="left" VerticalAlignment="Center">
                             <local:DioSwitcher Margin="-20,0,0,0" Width="15" Height="15" HorizontalAlignment="left"  Value="{Binding Path=Do5}" Visibility="{Binding Path=EditVisible}"/>
                             <Rectangle Margin="0,0,5,0"  Width="5" Height="5" HorizontalAlignment="left" Stroke="#FF301313" Fill="{Binding Path=Do5Color}" StrokeThickness="2"></Rectangle>
@@ -498,6 +497,100 @@
                             </Rectangle.Fill>
                         </Rectangle>
                         <Border  Margin="1,-1" Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="6" Background="#FFD3C7C7"  BorderBrush="#FF301313" BorderThickness="1,1,1,1"></Border>
+
+                        <Grid Name="PaddleControl" Grid.Row="0" Grid.Column="1" Grid.RowSpan="3" Grid.ColumnSpan="8" Margin="{Binding Path=PaddleControlM}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="0.5*"/>
+                                <ColumnDefinition Width="1.5*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Rectangle Margin="5,0,-5,15" Grid.Column="0"  Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="6" VerticalAlignment="Bottom" Height="5" Stroke="#FF301313" Fill="#111111" StrokeThickness="1"></Rectangle>
+                            <Rectangle Margin="10,20" Grid.Column="0"  Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="1" Stroke="#FF301313" StrokeThickness="1">
+                                <Rectangle.Fill>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#333333" Offset="0"/>
+                                        <GradientStop Color="#666666" Offset="0.5"/>
+                                        <GradientStop Color="#333333" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                            <Rectangle Margin="10,20" Grid.Column="1"  Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="1" Stroke="#FF301313" StrokeThickness="1">
+                                <Rectangle.Fill>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#333333" Offset="0"/>
+                                        <GradientStop Color="#666666" Offset="0.5"/>
+                                        <GradientStop Color="#333333" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                            <Rectangle Margin="10,20" Grid.Column="2"  Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="1" Stroke="#FF301313" StrokeThickness="1">
+                                <Rectangle.Fill>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#333333" Offset="0"/>
+                                        <GradientStop Color="#666666" Offset="0.5"/>
+                                        <GradientStop Color="#333333" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                            <Rectangle Margin="10,20" Grid.Column="3"  Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="1" Stroke="#FF301313" StrokeThickness="1">
+                                <Rectangle.Fill>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#333333" Offset="0"/>
+                                        <GradientStop Color="#666666" Offset="0.5"/>
+                                        <GradientStop Color="#333333" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                            <Rectangle Margin="10,20" Grid.Column="4"  Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="1" Stroke="#FF301313" StrokeThickness="1">
+                                <Rectangle.Fill>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#333333" Offset="0"/>
+                                        <GradientStop Color="#666666" Offset="0.5"/>
+                                        <GradientStop Color="#333333" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                            <Rectangle Margin="10,20" Grid.Column="5"  Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="1" Stroke="#FF301313" StrokeThickness="1">
+                                <Rectangle.Fill>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#333333" Offset="0"/>
+                                        <GradientStop Color="#666666" Offset="0.5"/>
+                                        <GradientStop Color="#333333" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                            <Rectangle Margin="5,10,0,10" Grid.Column="6"  Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="1" Stroke="#FF301313" StrokeThickness="1">
+                                <Rectangle.Fill>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FFDDF5E0" Offset="0"/>
+                                        <GradientStop Color="White" Offset="0.5"/>
+                                        <GradientStop Color="#FFDCF9E0" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                            <Rectangle Margin="0,5,0,5" Grid.Column="7"  Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="1" Stroke="#FF301313" StrokeThickness="1">
+                                <Rectangle.Fill>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FFDDF5E0" Offset="0"/>
+                                        <GradientStop Color="White" Offset="0.5"/>
+                                        <GradientStop Color="#FFDCF9E0" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                            <Rectangle Margin="0,0, -8,0" Grid.Column="7"  Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="1" HorizontalAlignment="Right" Width="8" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="1"></Rectangle>
+                            <Rectangle Margin="0,-5, -2,-5" Grid.Column="7"  Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="1" HorizontalAlignment="Right" Width="5" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="1"></Rectangle>
+                        </Grid>
+
                         <Border  Margin="1,-1" Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="1"  BorderBrush="#FF301313" BorderThickness="1,0,0.5,0">
                             <Border.Background>
                                 <RadialGradientBrush>
@@ -549,33 +642,14 @@
                         <Border  Margin="0,-1" Grid.Column="7" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="2" BorderBrush="#FF301313" BorderThickness="0,1,1,1">
                             <Border.Background>
                                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                    <GradientStop Color="#FFD3C7C7" Offset="0"/>
-                                    <GradientStop Color="White" Offset="0.5"/>
-                                    <GradientStop Color="#FFD3C7C7" Offset="1"/>
+                                    <GradientStop Color="#88D3C7C7" Offset="0"/>
+                                    <GradientStop Color="#88FFFFFF" Offset="0.5"/>
+                                    <GradientStop Color="#88D3C7C7" Offset="1"/>
                                 </LinearGradientBrush>
                             </Border.Background>
                         </Border>
                         <Rectangle Margin="0,0,0,-3" Grid.Column="0"  Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="7" VerticalAlignment="Bottom" Height="5" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="1"></Rectangle>
-                        <Rectangle Margin="5,10,0,10" Grid.Column="7"  Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="1" Stroke="#FF301313" StrokeThickness="1">
-                            <Rectangle.Fill>
-                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                    <GradientStop Color="#FFDDF5E0" Offset="0"/>
-                                    <GradientStop Color="White" Offset="0.5"/>
-                                    <GradientStop Color="#FFDCF9E0" Offset="1"/>
-                                </LinearGradientBrush>
-                            </Rectangle.Fill>
-                        </Rectangle>
-                        <Rectangle Margin="0,5,0,5" Grid.Column="8"  Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="1" Stroke="#FF301313" StrokeThickness="1">
-                            <Rectangle.Fill>
-                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                    <GradientStop Color="#FFDDF5E0" Offset="0"/>
-                                    <GradientStop Color="White" Offset="0.5"/>
-                                    <GradientStop Color="#FFDCF9E0" Offset="1"/>
-                                </LinearGradientBrush>
-                            </Rectangle.Fill>
-                        </Rectangle>
-                        <Rectangle Margin="0,0, -8,0" Grid.Column="8"  Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="1" HorizontalAlignment="Right" Width="8" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="1"></Rectangle>
-                        <Rectangle Margin="0,-5, -2,-5" Grid.Column="8"  Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="1" HorizontalAlignment="Right" Width="5" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="1"></Rectangle>
+                       
                         <!--<Image Margin="25,0,0,0" Grid.Row="4" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="7" Source="/Demo;component/images/furnace.jpg"/>-->
                     </Grid>
                     
@@ -636,7 +710,7 @@
                         <Rectangle Margin="0,0,0,5" Width="10" VerticalAlignment="Top" Height="30" Stroke="#FF301313" Fill="#FFff7700" StrokeThickness="2"></Rectangle>
                         <TextBlock Margin="0,0,0,5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Tube Presure</TextBlock>
                         <Label Margin="0,5,0,0" Style="{Binding Path=TubePageStyle.LabelStyle}" Content="{Binding  Path=Ana1CurMeas}"></Label>
-                        <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=Ana1Sp}" Visibility="{Binding Path=EditVisible}"></controls:ClickSelectTextBox>
+                        <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=Ana1Sp}" Visibility="{Binding Path=EditVisible}"></local:ClickSelectTextBox>
                     </StackPanel>
                 </Grid>
                 <Grid Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="3" Grid.RowSpan="3">

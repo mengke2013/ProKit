@@ -812,7 +812,173 @@ namespace Demo.ui.model
             set
             {
                 mRamp = value;
-                Notify("Ramp");
+                Notify("Ramp1");
+                Notify("Ramp2");
+                Notify("Ramp3");
+                Notify("Ramp4");
+                Notify("Ramp5");
+                Notify("Ramp6");
+                Notify("Ramp7");
+                Notify("Ramp8");
+                Notify("Ramp9");
+                Notify("Ramp10");
+                Notify("Ramp11");
+                Notify("Ramp12");
+            }
+        }
+
+        public bool Ramp1
+        {
+            get
+            {
+                return GetBitValue(mRamp, 0);
+            }
+            set
+            {
+                mRamp = SetBitValue(mRamp, 0, value);
+                Notify("Ramp1");
+            }
+        }
+
+        public bool Ramp2
+        {
+            get
+            {
+                return GetBitValue(mRamp, 1);
+            }
+            set
+            {
+                mRamp = SetBitValue(mRamp, 1, value);
+                Notify("Ramp2");
+            }
+        }
+
+        public bool Ramp3
+        {
+            get
+            {
+                return GetBitValue(mRamp, 2);
+            }
+            set
+            {
+                mRamp = SetBitValue(mRamp, 2, value);
+                Notify("Ramp3");
+            }
+        }
+
+        public bool Ramp4
+        {
+            get
+            {
+                return GetBitValue(mRamp, 3);
+            }
+            set
+            {
+                mRamp = SetBitValue(mRamp, 3, value);
+                Notify("Ramp4");
+            }
+        }
+
+        public bool Ramp5
+        {
+            get
+            {
+                return GetBitValue(mRamp, 4);
+            }
+            set
+            {
+                mRamp = SetBitValue(mRamp, 4, value);
+                Notify("Ramp5");
+            }
+        }
+
+        public bool Ramp6
+        {
+            get
+            {
+                return GetBitValue(mRamp, 5);
+            }
+            set
+            {
+                mRamp = SetBitValue(mRamp, 5, value);
+                Notify("Ramp6");
+            }
+        }
+
+        public bool Ramp7
+        {
+            get
+            {
+                return GetBitValue(mRamp, 6);
+            }
+            set
+            {
+                mRamp = SetBitValue(mRamp, 6, value);
+                Notify("Ramp7");
+            }
+        }
+
+        public bool Ramp8
+        {
+            get
+            {
+                return GetBitValue(mRamp, 7);
+            }
+            set
+            {
+                mRamp = SetBitValue(mRamp, 7, value);
+                Notify("Ramp8");
+            }
+        }
+
+        public bool Ramp9
+        {
+            get
+            {
+                return GetBitValue(mRamp, 8);
+            }
+            set
+            {
+                mRamp = SetBitValue(mRamp, 8, value);
+                Notify("Ramp9");
+            }
+        }
+
+        public bool Ramp10
+        {
+            get
+            {
+                return GetBitValue(mRamp, 9);
+            }
+            set
+            {
+                mRamp = SetBitValue(mRamp, 9, value);
+                Notify("Ramp10");
+            }
+        }
+        public bool Ramp11
+        {
+            get
+            {
+                return GetBitValue(mRamp, 10);
+            }
+            set
+            {
+                mRamp = SetBitValue(mRamp, 10, value);
+                Notify("Ramp11");
+            }
+        }
+
+        public bool Ramp12
+        {
+            get
+            {
+                return GetBitValue(mRamp, 11);
+            }
+            set
+            {
+                mRamp = SetBitValue(mRamp, 11, value);
+                Notify("Ramp12");
             }
         }
 

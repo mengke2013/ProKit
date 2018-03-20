@@ -4,7 +4,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Demo.ui"
         xmlns:view="clr-namespace:Demo.ui.view"
-        xmlns:controls="clr-namespace:Demo.ui.controls"
         xmlns:Ua="clr-namespace:Rocky.Core.Opc.Ua;assembly=RockyCore" x:Class="Demo.ui.Home"
         mc:Ignorable="d"
         Title="Demo">
@@ -92,8 +91,8 @@
                 <!--<view:TubeControlBar x:Name="tubeControlBar" DockPanel.Dock="Top"/>-->
                 <Grid>
                     <view:TubeMonitorPage x:Name="tubeMonitorPage" />
-                    <local:TubeTrendPage x:Name="tubeTrendPage" Visibility="Hidden" />
-                    <local:TubeRecipePage x:Name="tubeRecipePage" Visibility="Hidden" />
+                    <view:TubeTrendPage x:Name="tubeTrendPage" Visibility="Hidden" />
+                    <view:TubeRecipePage x:Name="tubeRecipePage" Visibility="Hidden" />
                     <local:TubeSettingsPage x:Name="tubeSettingsPage" Visibility="Hidden" />
                     <local:TubeAlarmPage x:Name="tubeAlarmPage" Visibility="Hidden" />
                     <local:TubeEventsPage x:Name="tubeEventsPage" Visibility="Hidden" />

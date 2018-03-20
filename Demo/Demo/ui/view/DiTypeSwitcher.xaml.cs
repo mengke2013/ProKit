@@ -6,9 +6,9 @@ namespace Demo.ui.view
     /// <summary>
     /// Interaction logic for DioSwitcher.xaml
     /// </summary>
-    public partial class DioSwitcher : UserControl
+    public partial class DiTypeSwitcher : UserControl
     {
-        public DioSwitcher()
+        public DiTypeSwitcher()
         {
             InitializeComponent();
 
@@ -53,11 +53,11 @@ namespace Demo.ui.view
         /// </summary>
         public static readonly DependencyProperty ValueProperty =
             DependencyProperty.Register("Value", typeof(bool),
-                typeof(DioSwitcher), new FrameworkPropertyMetadata(default(bool), FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnSamplePropertyChanged));
+                typeof(DiTypeSwitcher), new FrameworkPropertyMetadata(default(bool), FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnSamplePropertyChanged));
 
         static void OnSamplePropertyChanged(DependencyObject obj, DependencyPropertyChangedEventArgs e)
         {
-            (obj as DioSwitcher).OnValuePropertyChanged(e);
+            (obj as DiTypeSwitcher).OnValuePropertyChanged(e);
         }
 
         #endregion

@@ -102,7 +102,8 @@ namespace Demo.ui
             //TubeWindow tubeWindow = new TubeWindow(2);
             //tubeWindow.Show();
             bdMainPanel.Height = this.ActualHeight - 130;
-            bdMainPanel.Width = this.ActualWidth - 190;
+            bdMainPanel.Width = this.ActualWidth -190;
+            this.UpdateLayout();
             
             mSelectedTube = tubeIndex;
             for (byte i = 0; i < tubeInfoItems.Length; ++i)
@@ -196,7 +197,7 @@ namespace Demo.ui
             bd1.Visibility = Visibility.Hidden;
         }
 
-        private void bdMainSettings_Click(object sender, RoutedEventArgs e)
+        /*private void bdMainSettings_Click(object sender, RoutedEventArgs e)
         {
             TubeSettingsDialog settingsDlg = new TubeSettingsDialog(mSelectedTube);
             settingsDlg.Height = this.ActualHeight / 3 * 2;
@@ -205,7 +206,7 @@ namespace Demo.ui
             settingsDlg.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             settingsDlg.VerticalAlignment = VerticalAlignment.Center;
             settingsDlg.ShowDialog();
-        } 
+        } */
 
         private void btnMonitorClick(object sender, RoutedEventArgs e)
         {

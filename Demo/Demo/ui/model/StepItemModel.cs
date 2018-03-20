@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Demo.ui.model
 {
-    public class StepListItemModel
+    public class StepItemModel
     {
         private int mStepIndex;
         private string mStepName;
@@ -15,7 +15,7 @@ namespace Demo.ui.model
         private int mRowIndex;
 
 
-        public StepListItemModel(byte stepIndex)
+        public StepItemModel(byte stepIndex)
         {
             mStepIndex = stepIndex;
         }

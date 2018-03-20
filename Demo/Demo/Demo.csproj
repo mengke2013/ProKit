@@ -116,8 +116,11 @@
     <Compile Include="service\TrendService.cs" />
     <Compile Include="ui\adapter\TubeAlarmPageAdapter.cs" />
     <Compile Include="ui\ComNodeWraper.cs" />
-    <Compile Include="ui\controls\ClickSelectTextBox.cs" />
-    <Compile Include="ui\controls\IntExtTemperSwitcher.xaml.cs">
+    <Compile Include="ui\view\ClickSelectTextBox.cs" />
+    <Compile Include="ui\view\DiTypeSwitcher.xaml.cs">
+      <DependentUpon>DiTypeSwitcher.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ui\view\IntExtTemperSwitcher.xaml.cs">
       <DependentUpon>IntExtTemperSwitcher.xaml</DependentUpon>
     </Compile>
     <Compile Include="ui\ITubePage.cs" />
@@ -126,10 +129,10 @@
     <Compile Include="ui\model\ProgressDlgModel.cs" />
     <Compile Include="ui\model\StepDetailModel.cs" />
     <Compile Include="ui\model\RecipeStepDetailItemModel.cs" />
-    <Compile Include="ui\model\StepListItemModel.cs" />
+    <Compile Include="ui\model\StepItemModel.cs" />
     <Compile Include="ui\model\TubeAlarmViewModel.cs" />
     <Compile Include="ui\model\TubeInfoItemModel.cs" />
-    <Compile Include="ui\model\TubeRecipePageModel.cs" />
+    <Compile Include="ui\model\StepItemListModel.cs" />
     <Compile Include="ui\model\TubeEventsPageModel.cs" />
     <Compile Include="ui\model\TubeRecipeViewModel.cs" />
     <Compile Include="ui\model\TubeSettingsViewModel.cs" />
@@ -183,9 +186,6 @@
     <Compile Include="ui\view\TubeRecipeView.xaml.cs">
       <DependentUpon>TubeRecipeView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ui\view\TubeSettingsDialog.xaml.cs">
-      <DependentUpon>TubeSettingsDialog.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ui\view\TubeAlarmView.xaml.cs">
       <DependentUpon>TubeAlarmView.xaml</DependentUpon>
     </Compile>
@@ -200,7 +200,11 @@
     </Compile>
     <Compile Include="utilities\BitUtility.cs" />
     <Compile Include="utilities\Properties.cs" />
-    <Page Include="ui\controls\IntExtTemperSwitcher.xaml">
+    <Page Include="ui\view\DiTypeSwitcher.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ui\view\IntExtTemperSwitcher.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -292,10 +296,6 @@
       <DependentUpon>TubeMonitorPage.xaml</DependentUpon>
     </Compile>
     <Page Include="ui\view\TubeRecipeView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ui\view\TubeSettingsDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -405,6 +405,34 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\submit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\temperature.png" />
+    <Resource Include="images\vacuum.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\gas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\download.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\backup.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\switch_off.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\switch_on.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\switch_off.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\switch_on.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

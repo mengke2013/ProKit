@@ -4,7 +4,6 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Demo.ui.view"
-             xmlns:controls="clr-namespace:Demo.ui.controls"
              mc:Ignorable="d" 
              d:DesignHeight="800" d:DesignWidth="600">
 
@@ -95,11 +94,11 @@
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Path=StepIndex}" FontSize="14" FontWeight="Bold" Foreground="#FF402FEA" />
             <TextBlock Margin="0,0,5,0" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Step Name:</TextBlock>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2" Grid.Row="0" Grid.Column="2" Text="{Binding Path=StepName}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2" Grid.Row="0" Grid.Column="2" Text="{Binding Path=StepName}"/>
             <TextBlock Margin="0,0,5,0" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Step Type:</TextBlock>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2" Grid.Row="0" Grid.Column="4" Text="{Binding Path=StepType}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2" Grid.Row="0" Grid.Column="4" Text="{Binding Path=StepType}"/>
             <TextBlock Margin="0,0,5,0" Grid.Row="0" Grid.Column="5" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Step Time:</TextBlock>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2" Grid.Row="0" Grid.Column="6" Text="{Binding Path=StepTime}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2" Grid.Row="0" Grid.Column="6" Text="{Binding Path=StepTime}"/>
 
             
             <Button Margin="0,0,0,0" Grid.Row="0" Grid.Column="12" Grid.ColumnSpan="2" Content="Commit" FontSize="14" FontWeight="Bold" Foreground="#FF646366" Click="Commit_Click"></Button>
@@ -141,52 +140,52 @@
             <TextBlock Margin="0,0,5,0" Grid.Row="1" Grid.Column="11" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" >Next</TextBlock>
 
             <TextBlock Margin="0,0,5,0" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">N2:</TextBlock>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Gas1Sp}" />
-            <Button  Margin="5,2" Grid.Row="2" Grid.Column="4" />
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Gas1Abort}"/>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Gas1Hold}"/>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Gas1Alarm}"/>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Gas1Next}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Gas1Sp}" />
+            <CheckBox  Margin="5,2" Grid.Row="2" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding Path=Ramp1}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Gas1Abort}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Gas1Hold}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Gas1Alarm}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Gas1Next}"/>
 
             <TextBlock Margin="0,0,5,0" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">H2:</TextBlock>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Gas2Sp}" />
-            <Button  Margin="5,2" Grid.Row="3" Grid.Column="4" />
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Gas2Abort}"/>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Gas2Hold}"/>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Gas2Alarm}"/>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Gas2Next}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Gas2Sp}" />
+            <CheckBox  Margin="5,2" Grid.Row="3" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding Path=Ramp2}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Gas2Abort}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Gas2Hold}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Gas2Alarm}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Gas2Next}"/>
 
             <TextBlock Margin="0,0,5,0" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">BCl3:</TextBlock>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Gas5Sp}" />
-            <Button  Margin="5,2" Grid.Row="4" Grid.Column="4" />
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Gas5Abort}"/>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Gas5Hold}"/>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Gas5Alarm}"/>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Gas5Next}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Gas5Sp}" />
+            <CheckBox  Margin="5,2" Grid.Row="4" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding Path=Ramp3}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Gas5Abort}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Gas5Hold}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Gas5Alarm}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Gas5Next}"/>
 
             <TextBlock Margin="0,0,5,0" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">O2:</TextBlock>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Gas6Sp}" />
-            <Button  Margin="5,2" Grid.Row="5" Grid.Column="4" />
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Gas6Abort}"/>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Gas6Hold}"/>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Gas6Alarm}"/>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Gas6Next}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Gas6Sp}" />
+            <CheckBox  Margin="5,2" Grid.Row="5" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding Path=Ramp4}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Gas6Abort}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Gas6Hold}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Gas6Alarm}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Gas6Next}"/>
 
             <TextBlock Margin="0,0,5,0" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">PC8:</TextBlock>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Gas8Sp}" />
-            <Button  Margin="5,2" Grid.Row="6" Grid.Column="4" />
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Gas8Abort}"/>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Gas8Hold}"/>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Gas8Alarm}"/>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Gas8Next}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Gas8Sp}" />
+            <CheckBox  Margin="5,2" Grid.Row="6" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding Path=Ramp5}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Gas8Abort}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Gas8Hold}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Gas8Alarm}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Gas8Next}"/>
 
             <TextBlock Margin="0,0,5,0" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">Vacuum:</TextBlock>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Ana1Sp}" />
-            <Button  Margin="5,2" Grid.Row="7" Grid.Column="4" />
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="7" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Ana1Abort}"/>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="7" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Ana1Hold}"/>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="7" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Ana1Alarm}"/>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="7" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Ana1Next}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Ana1Sp}" />
+            <CheckBox  Margin="5,2" Grid.Row="7" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding Path=Ramp6}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="7" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Ana1Abort}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="7" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Ana1Hold}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="7" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Ana1Alarm}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="7" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Ana1Next}"/>
         </Grid>
         <Grid Grid.Row="2" Grid.Column="16" Grid.RowSpan="8" Grid.ColumnSpan="14">
             <Grid.ColumnDefinitions>
@@ -224,53 +223,53 @@
             <TextBlock Margin="0,0,5,0" Grid.Row="1" Grid.Column="11" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" >Next</TextBlock>
 
             <TextBlock Margin="0,0,5,0" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">Zone1:</TextBlock>
-            <controls:IntExtTemperSwitcher Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Value="{Binding Path=TemperRegulInt}"></controls:IntExtTemperSwitcher>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Temper1Sp}" />
-            <Button  Margin="5,2" Grid.Row="2" Grid.Column="4" />
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Temper1Abort}"/>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Temper1Hold}"/>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Temper1Alarm}"/>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Temper1Next}"/>
+            <local:IntExtTemperSwitcher Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Value="{Binding Path=TemperRegulInt}"></local:IntExtTemperSwitcher>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Temper1Sp}" />
+            <CheckBox  Margin="5,2" Grid.Row="2" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding Path=Ramp7}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Temper1Abort}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Temper1Hold}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Temper1Alarm}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Temper1Next}"/>
 
             <TextBlock Margin="0,0,5,0" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">Zone2:</TextBlock>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Temper2Sp}" />
-            <Button  Margin="5,2" Grid.Row="3" Grid.Column="4" />
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Temper2Abort}"/>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Temper2Hold}"/>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Temper2Alarm}"/>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Temper2Next}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Temper2Sp}" />
+            <CheckBox  Margin="5,2" Grid.Row="3" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding Path=Ramp8}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Temper2Abort}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Temper2Hold}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Temper2Alarm}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Temper2Next}"/>
 
             <TextBlock Margin="0,0,5,0" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">Zone3:</TextBlock>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Temper3Sp}" />
-            <Button  Margin="5,2" Grid.Row="4" Grid.Column="4" />
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Temper3Abort}"/>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Temper3Hold}"/>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Temper3Alarm}"/>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Temper3Next}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Temper3Sp}" />
+            <CheckBox  Margin="5,2" Grid.Row="4" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding Path=Ramp9}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Temper3Abort}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Temper3Hold}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Temper3Alarm}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Temper3Next}"/>
 
             <TextBlock Margin="0,0,5,0" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">Zone4:</TextBlock>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Temper4Sp}" />
-            <Button  Margin="5,2" Grid.Row="5" Grid.Column="4" />
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Temper4Abort}"/>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Temper4Hold}"/>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Temper4Alarm}"/>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Temper4Next}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Temper4Sp}" />
+            <CheckBox  Margin="5,2" Grid.Row="5" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding Path=Ramp10}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Temper4Abort}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Temper4Hold}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Temper4Alarm}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Temper4Next}"/>
 
             <TextBlock Margin="0,0,5,0" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">Zone5:</TextBlock>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Temper5Sp}" />
-            <Button  Margin="5,2" Grid.Row="6" Grid.Column="4" />
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Temper5Abort}"/>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Temper5Hold}"/>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Temper5Alarm}"/>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Temper5Next}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Temper5Sp}" />
+            <CheckBox  Margin="5,2" Grid.Row="6" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding Path=Ramp11}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Temper5Abort}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Temper5Hold}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Temper5Alarm}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Temper5Next}"/>
 
             <TextBlock Margin="0,0,5,0" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">Zone6:</TextBlock>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Temper6Sp}" />
-            <Button  Margin="5,2" Grid.Row="7" Grid.Column="4" />
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="7" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Temper6Abort}"/>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="7" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Temper6Hold}"/>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="7" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Temper6Alarm}"/>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="7" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Temper6Next}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Temper6Sp}" />
+            <CheckBox  Margin="5,2" Grid.Row="7" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding Path=Ramp12}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="7" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Temper6Abort}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="7" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding Path=Temper6Hold}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="7" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Temper6Alarm}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="7" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Temper6Next}"/>
         </Grid>
         <Rectangle Margin="-15,0" Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="28" Height="1" Fill="#FFAAA5A5" />
         <Grid Grid.Row="11" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="14">
@@ -296,9 +295,9 @@
             </Grid.RowDefinitions>
             <TextBlock Margin="0,0,0,0" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="15" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Boat Loader</TextBlock>
             <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">Axis Position:</TextBlock>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=AxisPosSp}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=AxisPosSp}"/>
             <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="2" VerticalAlignment="Center">Axis Speed:</TextBlock>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="1" Grid.Column="8" Grid.ColumnSpan="2" Text="{Binding Path=AxisSpeedSp}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="1" Grid.Column="8" Grid.ColumnSpan="2" Text="{Binding Path=AxisSpeedSp}"/>
         </Grid>
         <Rectangle Margin="-15,0" Grid.Row="13" Grid.Column="1" Grid.ColumnSpan="28" Height="1" Fill="#FFAAA5A5" />
         <Grid Grid.Row="14" Grid.Column="1" Grid.RowSpan="3" Grid.ColumnSpan="28">
@@ -504,19 +503,19 @@
             </Grid.RowDefinitions>
             <TextBlock Margin="0,0,0,0" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="15" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Abort And Delay</TextBlock>
             <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center">Analog:</TextBlock>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}"  Margin="5,2" Grid.Row="1" Grid.Column="1" Text="{Binding Path=AnalogAbort}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}"  Margin="5,2" Grid.Row="1" Grid.Column="1" Text="{Binding Path=AnalogAbort}"/>
             <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center">Digital:</TextBlock>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}"  Margin="5,2" Grid.Row="1" Grid.Column="3" Text="{Binding Path=DigitalAbort}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}"  Margin="5,2" Grid.Row="1" Grid.Column="3" Text="{Binding Path=DigitalAbort}"/>
             <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="4" VerticalAlignment="Center">Temperature:</TextBlock>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}"  Margin="5,2" Grid.Row="1" Grid.Column="5" Text="{Binding Path=TemperAbort}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}"  Margin="5,2" Grid.Row="1" Grid.Column="5" Text="{Binding Path=TemperAbort}"/>
             <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="6" VerticalAlignment="Center">Manual:</TextBlock>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}"  Margin="5,2" Grid.Row="1" Grid.Column="7" Text="{Binding Path=ManualAbort}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}"  Margin="5,2" Grid.Row="1" Grid.Column="7" Text="{Binding Path=ManualAbort}"/>
             <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="8" VerticalAlignment="Center">Power:</TextBlock>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}"  Margin="5,2" Grid.Row="1" Grid.Column="9" Text="{Binding Path=PowerAbort}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}"  Margin="5,2" Grid.Row="1" Grid.Column="9" Text="{Binding Path=PowerAbort}"/>
             <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="10" VerticalAlignment="Center">MFC Delay:</TextBlock>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}"  Margin="5,2" Grid.Row="1" Grid.Column="11" Text="{Binding Path=MfcDelay}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}"  Margin="5,2" Grid.Row="1" Grid.Column="11" Text="{Binding Path=MfcDelay}"/>
             <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="12" VerticalAlignment="Center">Analog Delay:</TextBlock>
-            <controls:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}"  Margin="5,2" Grid.Row="1" Grid.Column="13" Text="{Binding Path=AnalogDelay}"/>
+            <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}"  Margin="5,2" Grid.Row="1" Grid.Column="13" Text="{Binding Path=AnalogDelay}"/>
         </Grid>
     </Grid>
 
