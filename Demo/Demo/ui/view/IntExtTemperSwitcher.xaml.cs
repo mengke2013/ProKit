@@ -12,8 +12,8 @@ namespace Demo.ui.view
         {
             InitializeComponent();
 
-            BtnInt.Content = Value ? "Int" : "Ext";
-            BtnExt.Content = Value ? "Int" : "Ext";
+            BtnInt.Content = Value ? "Internal" : "External";
+            BtnExt.Content = Value ? "Internal" : "External";
             BtnInt.Visibility = Value ? Visibility.Visible : Visibility.Hidden;
             BtnExt.Visibility = !Value ? Visibility.Visible : Visibility.Hidden;
         }
@@ -32,8 +32,8 @@ namespace Demo.ui.view
             //string SamplePropertyNewValue = (string)e.NewValue;
 
             //txtName.Text = SamplePropertyNewValue;
-            BtnInt.Content = Value ? "Int" : "Ext";
-            BtnExt.Content = Value ? "Int" : "Ext";
+            BtnInt.Content = Value ? "Internal" : "External";
+            BtnExt.Content = Value ? "Internal" : "External";
             BtnInt.Visibility = Value ? Visibility.Visible : Visibility.Hidden;
             BtnExt.Visibility = !Value ? Visibility.Visible : Visibility.Hidden;
         }

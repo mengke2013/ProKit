@@ -165,6 +165,7 @@ namespace Demo.ui
         }
         public object LabelHeight
         {
+            get { return mLabelHeightSetter.Value; }
             set
             {
                 if (mLabelHeightSetter == null || !mLabelHeightSetter.IsSealed)

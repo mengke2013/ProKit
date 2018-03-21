@@ -530,6 +530,36 @@ namespace Demo.ui.model
             get { return mDoColors[6]; }
         }
 
+        public string Di1Color
+        {
+            get { return mDiColors[0]; }
+        }
+        public string Di2Color
+        {
+            get { return mDiColors[1]; }
+        }
+        public string Di3Color
+        {
+            get { return mDiColors[2]; }
+        }
+        public string Di4Color
+        {
+            get { return mDiColors[3]; }
+        }
+        public string Di5Color
+        {
+            get { return mDiColors[4]; }
+        }
+        public string Di6Color
+        {
+            get { return mDiColors[5]; }
+        }
+
+        public string Di7Color
+        {
+            get { return mDiColors[6]; }
+        }
+
         public string Ev1Color
         {
             get { return mEvColors[0]; }

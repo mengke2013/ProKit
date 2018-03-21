@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="200">
     <Grid>
-        <Button Name="BtnExt" Background="Red" Click="Btn_Switch_Click" Content="{Binding Path=Value}"></Button>
-        <Button Name="BtnInt" Background="Green" Click="Btn_Switch_Click" Content="{Binding Path=Value}"></Button>
+        <Button Name="BtnExt" Background="yellow" Click="Btn_Switch_Click" Content="{Binding Path=Value}" FontSize="14" FontWeight="Bold" Foreground="#FF646366"></Button>
+        <Button Name="BtnInt" Background="yellow" Click="Btn_Switch_Click" Content="{Binding Path=Value}" FontSize="14" FontWeight="Bold" Foreground="#FF646366"></Button>
     </Grid>
 </UserControl>
