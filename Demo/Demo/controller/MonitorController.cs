@@ -1,4 +1,6 @@
-﻿using Demo.ui.view;
+﻿using System.Collections.Generic;
+
+using Demo.ui.view;
 using Demo.ui.model;
 using Demo.service;
 using Demo.model;
@@ -7,8 +9,13 @@ namespace Demo.controller
 {
     class MonitorController
     {
+        public delegate void OnCommitEditSetpointComplete();
 
         private TubeMonitorPage mPage;
+        ProcessService.OnCommitEditSetpointComplete mCommitChangeCompleteCallback;
+        List<History> mCommitItems;
+
+
         public MonitorController(TubeMonitorPage page)
         {
             mPage = page;
@@ -23,7 +30,6 @@ namespace Demo.controller
             uiModel.EditPaddleSpeedSp = uiModel.PaddleSpeedSp;
             uiModel.EvSp = ProcessService.Instance.GetEv(uiModel.SelectedTube);
             uiModel.DoSp = uiModel.DoValue;
-
         }
 
         public void UpdateMonitorModel()
@@ -93,11 +99,62 @@ namespace Demo.controller
             uiModel.DoValue = ProcessService.Instance.GetDo(uiModel.SelectedTube);
         }
 
+        public ProcessStatus GetStatus(byte tubeIndex)
+        {
+            return ProcessService.Instance.GetStatus(tubeIndex);
+        }
+
+        public string GetProcessName(byte tubeIndex)
+        {
+            return ProcessService.Instance.GetProcessName(tubeIndex);
+        }
+
+        public string GetProcessStatus(byte tubeIndex)
+        {
+            return ProcessService.Instance.GetProcessStatus(tubeIndex);
+        }
+
+        public int GetProcessTime(byte tubeIndex)
+        {
+            return ProcessService.Instance.GetProcessTime(tubeIndex);
+        }
+
+        public int GetStepNum(byte tubeIndex)
+        {
+            return ProcessService.Instance.GetStepNum(tubeIndex);
+        }
+
+        public int GetStepEscapedTime(byte tubeIndex)
+        {
+            return ProcessService.Instance.GetStepEscapedTime(tubeIndex);
+        }
+
+        public int GetProcessEscapedTime(byte tubeIndex)
+        {
+            return ProcessService.Instance.GetProcessTime(tubeIndex);
+        }
+
+        public int GetRemainingTime(byte tubeIndex)
+        {
+            return ProcessService.Instance.GetRemainingTime(tubeIndex);
+        }
+
         public void CommitChanges(byte tubeIndex, ProcessService.OnCommitEditSetpointComplete callback)
         {
             //add validation
-            ConvertEditProcessModel();
-            ProcessService.Instance.CommitChanges(tubeIndex, callback);
+            UpdateChangedItems();
+            if (mCommitItems.Count > 0)
+            {
+                //display the confirmation of changed item
+                ConvertEditProcessModel();
+                mCommitChangeCompleteCallback = callback;
+                ProcessService.Instance.CommitChanges(tubeIndex, OnCommitChangesComplete);
+            }
+            else
+            {
+                //display message: nothing is changed
+            }
+            
         }
 
         public void StartProcess(byte tubeIndex, ProcessService.OnStartProcessComplete callback)
@@ -130,52 +187,144 @@ namespace Demo.controller
             ProcessService.Instance.AbortProcess(tubeIndex, callback);
         }
 
-        public ProcessStatus GetStatus(byte tubeIndex)
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        private void OnCommitChangesComplete()
         {
-            //add validation
-            return ProcessService.Instance.GetStatus(tubeIndex);
+            //save history records
+            for (int i = 0; i < mCommitItems.Count; ++i)
+            {
+                mCommitItems[i].Time = new System.DateTime();
+            }
+            HistoryService.Instance.SaveHistoryItems(mCommitItems);
+            mCommitChangeCompleteCallback();
+            mCommitItems.Clear();
         }
 
-        public string GetProcessName(byte tubeIndex)
+        private void UpdateChangedItems()
         {
-            //add validation
-            return ProcessService.Instance.GetProcessName(tubeIndex);
-        }
-
-        public string GetProcessStatus(byte tubeIndex)
-        {
-            //add validation
-            return ProcessService.Instance.GetProcessStatus(tubeIndex);
-        }
-
-        public int GetProcessTime(byte tubeIndex)
-        {
-            //add validation
-            return ProcessService.Instance.GetProcessTime(tubeIndex);
-        }
-
-        public int GetStepNum(byte tubeIndex)
-        {
-            //add validation
-            return ProcessService.Instance.GetStepNum(tubeIndex);
-        }
-
-        public int GetStepEscapedTime(byte tubeIndex)
-        {
-            //add validation
-            return ProcessService.Instance.GetStepEscapedTime(tubeIndex);
-        }
-
-        public int GetProcessEscapedTime(byte tubeIndex)
-        {
-            //add validation
-            return ProcessService.Instance.GetProcessTime(tubeIndex);
-        }
-
-        public int GetRemainingTime(byte tubeIndex)
-        {
-            //add validation
-            return ProcessService.Instance.GetRemainingTime(tubeIndex);
+            mCommitItems.Clear();
+            TubeMonitorViewModel monitorPageModel = mPage.PageModel;
+            EditProcess process = ProcessService.Instance.GetEditProcess();
+            if (process.EditGas1Sp != monitorPageModel.Gas1Sp)
+            {
+                History history = new History("Gas1Sp_T"+ monitorPageModel.SelectedTube);
+                history.OldValue = process.EditGas1Sp;
+                history.NewValue = monitorPageModel.Gas1Sp;
+                mCommitItems.Add(history);
+            }
+            if (process.EditGas2Sp != monitorPageModel.Gas2Sp)
+            {
+                History history = new History("Gas2Sp_T" + monitorPageModel.SelectedTube);
+                history.OldValue = process.EditGas2Sp;
+                history.NewValue = monitorPageModel.Gas2Sp;
+                mCommitItems.Add(history);
+            }
+            if (process.EditGas5Sp != monitorPageModel.Gas5Sp)
+            {
+                History history = new History("Gas5Sp_T" + monitorPageModel.SelectedTube);
+                history.OldValue = process.EditGas5Sp;
+                history.NewValue = monitorPageModel.Gas5Sp;
+                mCommitItems.Add(history);
+            }
+            if (process.EditGas6Sp != monitorPageModel.Gas6Sp)
+            {
+                History history = new History("Gas6Sp_T" + monitorPageModel.SelectedTube);
+                history.OldValue = process.EditGas6Sp;
+                history.NewValue = monitorPageModel.Gas6Sp;
+                mCommitItems.Add(history);
+            }
+            if (process.EditGas8Sp != monitorPageModel.Gas8Sp)
+            {
+                History history = new History("Gas8Sp_T" + monitorPageModel.SelectedTube);
+                history.OldValue = process.EditGas8Sp;
+                history.NewValue = monitorPageModel.Gas8Sp;
+                mCommitItems.Add(history);
+            }
+            if (process.EditAna1Sp != monitorPageModel.Ana1Sp)
+            {
+                History history = new History("Ana1Sp_T" + monitorPageModel.SelectedTube);
+                history.OldValue = process.EditAna1Sp;
+                history.NewValue = monitorPageModel.Ana1Sp;
+                mCommitItems.Add(history);
+            }
+            if (process.EditTemperIntSp != monitorPageModel.TemperIntSp)
+            {
+                History history = new History("TemperInt_T" + monitorPageModel.SelectedTube);
+                history.OldValue = process.EditTemperIntSp;
+                history.NewValue = monitorPageModel.TemperIntSp;
+                mCommitItems.Add(history);
+            }
+            if (process.EditTemper1Sp != monitorPageModel.Temper1Sp)
+            {
+                History history = new History("Temper1_T" + monitorPageModel.SelectedTube);
+                history.OldValue = process.EditTemper1Sp;
+                history.NewValue = monitorPageModel.Temper1Sp;
+                mCommitItems.Add(history);
+            }
+            if (process.EditTemper2Sp != monitorPageModel.Temper2Sp)
+            {
+                History history = new History("Temper2_T" + monitorPageModel.SelectedTube);
+                history.OldValue = process.EditTemper2Sp;
+                history.NewValue = monitorPageModel.Temper2Sp;
+                mCommitItems.Add(history);
+            }
+            if (process.EditTemper3Sp != monitorPageModel.Temper3Sp)
+            {
+                History history = new History("Temper3_T" + monitorPageModel.SelectedTube);
+                history.OldValue = process.EditTemper3Sp;
+                history.NewValue = monitorPageModel.Temper3Sp;
+                mCommitItems.Add(history);
+            }
+            if (process.EditTemper4Sp != monitorPageModel.Temper4Sp)
+            {
+                History history = new History("Temper4_T" + monitorPageModel.SelectedTube);
+                history.OldValue = process.EditTemper4Sp;
+                history.NewValue = monitorPageModel.Temper4Sp;
+                mCommitItems.Add(history);
+            }
+            if (process.EditTemper5Sp != monitorPageModel.Temper5Sp)
+            {
+                History history = new History("Temper5_T" + monitorPageModel.SelectedTube);
+                history.OldValue = process.EditTemper5Sp;
+                history.NewValue = monitorPageModel.Temper5Sp;
+                mCommitItems.Add(history);
+            }
+            if (process.EditTemper6Sp != monitorPageModel.Temper6Sp)
+            {
+                History history = new History("Temper6_T" + monitorPageModel.SelectedTube);
+                history.OldValue = process.EditTemper6Sp;
+                history.NewValue = monitorPageModel.Temper6Sp;
+                mCommitItems.Add(history);
+            }
+            if (process.EditPaddlePosSp != monitorPageModel.PaddlePosSp)
+            {
+                History history = new History("PaddlePosition_T" + monitorPageModel.SelectedTube);
+                history.OldValue = process.EditPaddlePosSp;
+                history.NewValue = monitorPageModel.PaddlePosSp;
+                mCommitItems.Add(history);
+            }
+            if (process.EditPaddleSpeedSp != monitorPageModel.EditPaddleSpeedSp)
+            {
+                History history = new History("PaddleSpeed_T" + monitorPageModel.SelectedTube);
+                history.OldValue = process.EditPaddleSpeedSp;
+                history.NewValue = monitorPageModel.EditPaddleSpeedSp;
+                mCommitItems.Add(history);
+            }
+            if (process.EditEvSp != monitorPageModel.EvSp)
+            {
+                History history = new History("EV_T" + monitorPageModel.SelectedTube);
+                history.OldValue = process.EditEvSp;
+                history.NewValue = monitorPageModel.EvSp;
+                mCommitItems.Add(history);
+            }
+            if (process.EditDoSp != monitorPageModel.DoSp)
+            {
+                History history = new History("DO_T" + monitorPageModel.SelectedTube);
+                history.OldValue = process.EditDoSp;
+                history.NewValue = monitorPageModel.DoSp;
+                mCommitItems.Add(history);
+            }
         }
 
         private void ConvertEditProcessModel()

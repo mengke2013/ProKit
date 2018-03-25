@@ -103,11 +103,16 @@
     <Compile Include="controller\TubeInfoItemController.cs" />
     <Compile Include="model\Alarm.cs" />
     <Compile Include="model\EditProcess.cs" />
+    <Compile Include="model\User.cs" />
+    <Compile Include="model\History.cs" />
     <Compile Include="model\Process.cs" />
     <Compile Include="model\Recipe.cs" />
     <Compile Include="model\RecipeStep.cs" />
     <Compile Include="model\Settings.cs" />
     <Compile Include="model\Trend.cs" />
+    <Compile Include="service\UserService.cs" />
+    <Compile Include="service\HistoryService.cs" />
+    <Compile Include="service\DataService.cs" />
     <Compile Include="service\ComService.cs" />
     <Compile Include="service\ProcessService.cs" />
     <Compile Include="service\SettingsService.cs" />
@@ -117,6 +122,9 @@
     <Compile Include="ui\adapter\TubeAlarmPageAdapter.cs" />
     <Compile Include="ui\ComNodeWraper.cs" />
     <Compile Include="ui\view\ClickSelectTextBox.cs" />
+    <Compile Include="ui\view\DioSpSwitcher.xaml.cs">
+      <DependentUpon>DioSpSwitcher.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ui\view\DiTypeSwitcher.xaml.cs">
       <DependentUpon>DiTypeSwitcher.xaml</DependentUpon>
     </Compile>
@@ -200,6 +208,10 @@
     </Compile>
     <Compile Include="utilities\BitUtility.cs" />
     <Compile Include="utilities\Properties.cs" />
+    <Page Include="ui\view\DioSpSwitcher.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="ui\view\DiTypeSwitcher.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

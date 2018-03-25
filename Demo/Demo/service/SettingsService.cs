@@ -1,15 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Threading;
-using Demo.model;
-using Rocky.Core.Opc.Ua;
-using Demo.com;
 using System.Net;
 using System.Net.Sockets;
+
 using log4net;
+
+using Demo.model;
+using Demo.com;
 
 namespace Demo.service
 {
@@ -17,8 +15,8 @@ namespace Demo.service
     {
         public static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-        public delegate void OnSynSettingsComplete(Settings settings);
-        public delegate void OnDownloadSettingsComplete(Settings settings);
+        public delegate void OnSynSettingsComplete();
+        public delegate void OnDownloadSettingsComplete();
 
         public delegate void OnBackupSettingsComplete();
         public delegate void OnConnectComplete();
@@ -236,7 +234,7 @@ namespace Demo.service
 
             if (mSocketObj.synSettingsCallback != null)
             {
-                mSocketObj.synSettingsCallback(mSettings);
+                mSocketObj.synSettingsCallback();
             }
         }
 
@@ -343,7 +341,7 @@ namespace Demo.service
             }
             if (mSocketObj.dldSettingsCallback != null)
             {
-                mSocketObj.dldSettingsCallback(mSettings);
+                mSocketObj.dldSettingsCallback();
             }
 
         }

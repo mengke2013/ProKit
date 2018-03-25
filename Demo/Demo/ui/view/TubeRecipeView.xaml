@@ -337,26 +337,26 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
             <TextBlock Margin="0,0,0,0" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="15" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Electric Valve</TextBlock>
-            <local:DioSwitcher Margin="5,2" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Value="{Binding Path=Ev1}"/>
+            <local:DioSwitcher Margin="5,2" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Width="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight}" Value="{Binding Path=Ev1}"/>
             <TextBlock Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">EV1</TextBlock>
-            <local:DioSwitcher Margin="5,2" Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="2" Value="{Binding Path=Ev2}"/>
+            <local:DioSwitcher Margin="5,2" Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="2" Width="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight}" Value="{Binding Path=Ev2}"/>
             <TextBlock Grid.Row="1" Grid.Column="8" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">EV2</TextBlock>
-            <local:DioSwitcher Margin="5,2" Grid.Row="1" Grid.Column="12" Grid.ColumnSpan="2" Value="{Binding Path=Ev3}"/>
+            <local:DioSwitcher Margin="5,2" Grid.Row="1" Grid.Column="12" Grid.ColumnSpan="2" Width="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight}" Value="{Binding Path=Ev3}"/>
             <TextBlock Grid.Row="1" Grid.Column="14" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">EV3</TextBlock>
-            <local:DioSwitcher Margin="5,2" Grid.Row="1" Grid.Column="18" Grid.ColumnSpan="2" Value="{Binding Path=Ev4}"/>
+            <local:DioSwitcher Margin="5,2" Grid.Row="1" Grid.Column="18" Grid.ColumnSpan="2" Width="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight}" Value="{Binding Path=Ev4}"/>
             <TextBlock Grid.Row="1" Grid.Column="20" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">EV4</TextBlock>
-            <local:DioSwitcher Margin="5,2" Grid.Row="1" Grid.Column="24" Grid.ColumnSpan="2" Value="{Binding Path=Ev5}"/>
+            <local:DioSwitcher Margin="5,2" Grid.Row="1" Grid.Column="24" Grid.ColumnSpan="2" Width="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight}" Value="{Binding Path=Ev5}"/>
             <TextBlock Grid.Row="1" Grid.Column="26" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">EV5</TextBlock>
 
-            <local:DioSwitcher Margin="5,2" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Value="{Binding Path=Ev6}"/>
+            <local:DioSwitcher Margin="5,2" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Width="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight}" Value="{Binding Path=Ev6}"/>
             <TextBlock Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">EV6</TextBlock>
-            <local:DioSwitcher Margin="5,2" Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="2" Value="{Binding Path=Ev7}"/>
+            <local:DioSwitcher Margin="5,2" Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="2" Width="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight}" Value="{Binding Path=Ev7}"/>
             <TextBlock Grid.Row="2" Grid.Column="8" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">EV7</TextBlock>
-            <local:DioSwitcher Margin="5,2" Grid.Row="2" Grid.Column="12" Grid.ColumnSpan="2" Value="{Binding Path=Ev8}"/>
+            <local:DioSwitcher Margin="5,2" Grid.Row="2" Grid.Column="12" Grid.ColumnSpan="2" Width="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight}" Value="{Binding Path=Ev8}"/>
             <TextBlock Grid.Row="2" Grid.Column="14" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">EV8</TextBlock>
-            <local:DioSwitcher Margin="5,2" Grid.Row="2" Grid.Column="18" Grid.ColumnSpan="2" Value="{Binding Path=Ev9}"/>
+            <local:DioSwitcher Margin="5,2" Grid.Row="2" Grid.Column="18" Grid.ColumnSpan="2" Width="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight}" Value="{Binding Path=Ev9}"/>
             <TextBlock Grid.Row="2" Grid.Column="20" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">EV9</TextBlock>
-            <local:DioSwitcher Margin="5,2" Grid.Row="2" Grid.Column="24" Grid.ColumnSpan="2" Value="{Binding Path=Ev10}"/>
+            <local:DioSwitcher Margin="5,2" Grid.Row="2" Grid.Column="24" Grid.ColumnSpan="2" Width="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight}" Value="{Binding Path=Ev10}"/>
             <TextBlock Grid.Row="2" Grid.Column="26" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">EV10</TextBlock>
         </Grid>
         <Rectangle Margin="-15,0" Grid.Row="17" Grid.Column="1" Grid.ColumnSpan="28" Height="1" Fill="#FFAAA5A5" />
@@ -457,26 +457,26 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
             <TextBlock Margin="0,0,0,0" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="15" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Digital Output</TextBlock>
-            <local:DioSwitcher Margin="5,2" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Value="{Binding Path=DigOutput1}"/>
+            <local:DioSwitcher Margin="5,2" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Width="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight}" Value="{Binding Path=DigOutput1}"/>
             <TextBlock Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
-            <local:DioSwitcher Margin="5,2" Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="2" Value="{Binding Path=DigOutput2}"/>
+            <local:DioSwitcher Margin="5,2" Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="2" Width="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight}" Value="{Binding Path=DigOutput2}"/>
             <TextBlock Grid.Row="1" Grid.Column="8" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI2</TextBlock>
-            <local:DioSwitcher Margin="5,2" Grid.Row="1" Grid.Column="12" Grid.ColumnSpan="2" Value="{Binding Path=DigOutput3}"/>
+            <local:DioSwitcher Margin="5,2" Grid.Row="1" Grid.Column="12" Grid.ColumnSpan="2" Width="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight}" Value="{Binding Path=DigOutput3}"/>
             <TextBlock Grid.Row="1" Grid.Column="14" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI3</TextBlock>
-            <local:DioSwitcher Margin="5,2" Grid.Row="1" Grid.Column="18" Grid.ColumnSpan="2" Value="{Binding Path=DigOutput4}"/>
+            <local:DioSwitcher Margin="5,2" Grid.Row="1" Grid.Column="18" Grid.ColumnSpan="2" Width="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight}" Value="{Binding Path=DigOutput4}"/>
             <TextBlock Grid.Row="1" Grid.Column="20" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI4</TextBlock>
-            <local:DioSwitcher Margin="5,2" Grid.Row="1" Grid.Column="24" Grid.ColumnSpan="2" Value="{Binding Path=DigOutput5}"/>
+            <local:DioSwitcher Margin="5,2" Grid.Row="1" Grid.Column="24" Grid.ColumnSpan="2" Width="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight}" Value="{Binding Path=DigOutput5}"/>
             <TextBlock Grid.Row="1" Grid.Column="26" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI5</TextBlock>
 
-            <local:DioSwitcher Margin="5,2" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Value="{Binding Path=DigOutput6}"/>
+            <local:DioSwitcher Margin="5,2" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Width="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight}" Value="{Binding Path=DigOutput6}"/>
             <TextBlock Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI6</TextBlock>
-            <local:DioSwitcher Margin="5,2" Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="2" Value="{Binding Path=DigOutput7}"/>
+            <local:DioSwitcher Margin="5,2" Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="2" Width="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight}" Value="{Binding Path=DigOutput7}"/>
             <TextBlock Grid.Row="2" Grid.Column="8" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI7</TextBlock>
-            <local:DioSwitcher Margin="5,2" Grid.Row="2" Grid.Column="12" Grid.ColumnSpan="2" Value="{Binding Path=DigOutput8}"/>
+            <local:DioSwitcher Margin="5,2" Grid.Row="2" Grid.Column="12" Grid.ColumnSpan="2" Width="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight}" Value="{Binding Path=DigOutput8}"/>
             <TextBlock Grid.Row="2" Grid.Column="14" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI8</TextBlock>
-            <local:DioSwitcher Margin="5,2" Grid.Row="2" Grid.Column="18" Grid.ColumnSpan="2" Value="{Binding Path=DigOutput9}"/>
+            <local:DioSwitcher Margin="5,2" Grid.Row="2" Grid.Column="18" Grid.ColumnSpan="2" Width="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight}" Value="{Binding Path=DigOutput9}"/>
             <TextBlock Grid.Row="2" Grid.Column="20" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI9</TextBlock>
-            <local:DioSwitcher Margin="5,2" Grid.Row="2" Grid.Column="24" Grid.ColumnSpan="2" Value="{Binding Path=DigOutput10}"/>
+            <local:DioSwitcher Margin="5,2" Grid.Row="2" Grid.Column="24" Grid.ColumnSpan="2" Width="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight}" Value="{Binding Path=DigOutput10}"/>
             <TextBlock Grid.Row="2" Grid.Column="26" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI10</TextBlock>
         </Grid>
         <Rectangle Margin="-15,0" Grid.Row="25" Grid.Column="1" Grid.ColumnSpan="28" Height="1" Fill="#FFAAA5A5" />

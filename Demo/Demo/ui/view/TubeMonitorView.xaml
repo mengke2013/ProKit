@@ -67,7 +67,7 @@
                 <StackPanel Grid.Row="6" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="1">
                     <WrapPanel>
                         <Rectangle Margin="-10,-15,0,0"  Width="20" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="{Binding Path=Ev14Color}" StrokeThickness="2"></Rectangle>
-                        <local:DioSwitcher Margin="5,-10,0,0" Width="20" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Value="{Binding Path=Ev14}" Visibility="{Binding Path=EditVisible}"/>
+                        <local:DioSpSwitcher Margin="5,-10,0,0" Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" HorizontalAlignment="Left" VerticalAlignment="Top" Value="{Binding Path=Ev14}" Visibility="{Binding Path=EditVisible}"/>
                     </WrapPanel>
                     <Label Margin="-30,5,0,0" Width="60" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Background="White" BorderBrush="Black" BorderThickness="1">N2 High</Label>
 
@@ -83,7 +83,7 @@
                     <!--<Image Margin="-10,-15,35,0"  Width="30" Height="30" HorizontalAlignment="Right" VerticalAlignment="Top" Source="/Demo;component/images/gasValve1.bmp"></Image>-->
                     <WrapPanel>
                         <Rectangle Margin="-10,-15,0,0"  Width="20" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="{Binding Path=Ev2Color}" StrokeThickness="2"></Rectangle>
-                        <local:DioSwitcher Margin="5,-10,0,0" Width="20" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Value="{Binding Path=Ev2}" Visibility="{Binding Path=EditVisible}"/>
+                        <local:DioSpSwitcher Margin="5,-10,0,0" Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" HorizontalAlignment="Left" VerticalAlignment="Top" Value="{Binding Path=Ev2}" Visibility="{Binding Path=EditVisible}"/>
                     </WrapPanel>
                     <Label Margin="-20,5,0,0" Width="40" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Background="White" BorderBrush="Black" BorderThickness="1">H2</Label>
                 </StackPanel>
@@ -106,7 +106,7 @@
                 <StackPanel Grid.Row="6" Grid.Column="3" Grid.RowSpan="2" Grid.ColumnSpan="1">
                     <WrapPanel>
                         <Rectangle Margin="-10,-15,0,0"  Width="20" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="{Binding Path=Ev1Color}" StrokeThickness="2"></Rectangle>
-                        <local:DioSwitcher Margin="5,-10,0,0" Width="20" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Value="{Binding Path=Ev1}" Visibility="{Binding Path=EditVisible}" />
+                        <local:DioSpSwitcher Margin="5,-10,0,0" Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" HorizontalAlignment="Left" VerticalAlignment="Top" Value="{Binding Path=Ev1}" Visibility="{Binding Path=EditVisible}" />
                     </WrapPanel>
                     <Label Margin="-20,5,0,0" Width="40" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Background="White" BorderBrush="Black" BorderThickness="1">N2</Label>
                 </StackPanel>
@@ -127,7 +127,7 @@
                 <StackPanel Grid.Row="6" Grid.Column="6" Grid.RowSpan="2" Grid.ColumnSpan="1">
                     <WrapPanel>
                         <Rectangle Margin="-10,-15,0,0"  Width="20" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="{Binding Path=Ev6Color}" StrokeThickness="2"></Rectangle>
-                        <local:DioSwitcher Margin="5,-10,0,0" Width="20" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Value="{Binding Path=Ev6}" Visibility="{Binding Path=EditVisible}"/>
+                        <local:DioSpSwitcher Margin="5,-10,0,0" Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" HorizontalAlignment="Left" VerticalAlignment="Top" Value="{Binding Path=Ev6}" Visibility="{Binding Path=EditVisible}"/>
                     </WrapPanel>
                     <Label Margin="-20,5,0,0" Width="40" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Background="White" BorderBrush="Black" BorderThickness="1">BCl3</Label>
                 </StackPanel>
@@ -141,7 +141,7 @@
                 <StackPanel Grid.Row="2" Grid.Column="6" Grid.RowSpan="2" Grid.ColumnSpan="1">
                     <WrapPanel>
                         <Rectangle Margin="-10,-10,0,0"   Width="20" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="{Binding Path=Ev10Color}" StrokeThickness="2"></Rectangle>
-                        <local:DioSwitcher Margin="5,-5,0,0" Width="20" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Value="{Binding Path=Ev10}" Visibility="{Binding Path=EditVisible}"/>
+                        <local:DioSpSwitcher Margin="5,-5,0,0" Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" HorizontalAlignment="Left" VerticalAlignment="Top" Value="{Binding Path=Ev10}" Visibility="{Binding Path=EditVisible}"/>
                     </WrapPanel>
                     <Label Margin="-30,5,0,0" Width="60" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Background="White" BorderBrush="Black" BorderThickness="1">BCl3 Up</Label>
                 </StackPanel>
@@ -156,7 +156,7 @@
                 <StackPanel Grid.Row="6" Grid.Column="4" Grid.RowSpan="2" Grid.ColumnSpan="1">
                     <WrapPanel>
                         <Rectangle Margin="-10,-15,0,0"  Width="20" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="{Binding Path=Ev8Color}" StrokeThickness="2"></Rectangle>
-                        <local:DioSwitcher Margin="5,-10,0,0" Width="20" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Value="{Binding Path=Ev8}" Visibility="{Binding Path=EditVisible}"/>
+                        <local:DioSpSwitcher Margin="5,-10,0,0" Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" HorizontalAlignment="Left" VerticalAlignment="Top" Value="{Binding Path=Ev8}" Visibility="{Binding Path=EditVisible}"/>
                     </WrapPanel>
                     <Label Margin="-35,5,0,0" Width="70" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Background="White" BorderBrush="Black" BorderThickness="1">N2 Ballast</Label>
                 </StackPanel>
@@ -171,7 +171,7 @@
                 <StackPanel Grid.Row="3" Grid.Column="5" Grid.RowSpan="2" Grid.ColumnSpan="1">
                     <StackPanel>
                         <Rectangle Margin="-15,-5,0,0"   Width="30" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="{Binding Path=Ev11Color}" StrokeThickness="2"></Rectangle>
-                        <local:DioSwitcher Margin="-10,-45,0,0" Width="20" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Value="{Binding Path=Ev11}" Visibility="{Binding Path=EditVisible}"/>
+                        <local:DioSpSwitcher Margin="-10,-50,0,0" Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" HorizontalAlignment="Left" VerticalAlignment="Top" Value="{Binding Path=Ev11}" Visibility="{Binding Path=EditVisible}"/>
                     </StackPanel>
                     <Label Margin="-35,5,0,0" Width="70" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Background="White" BorderBrush="Black" BorderThickness="1">Purge BCl3</Label>
                 </StackPanel>
@@ -187,7 +187,7 @@
                 <StackPanel Grid.Row="6" Grid.Column="7" Grid.RowSpan="2" Grid.ColumnSpan="1">
                     <WrapPanel>
                         <Rectangle Margin="-10,-15,0,0"  Width="20" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="{Binding Path=Ev3Color}" StrokeThickness="2"></Rectangle>
-                        <local:DioSwitcher Margin="5,-10,0,0" Width="20" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Value="{Binding Path=Ev3}" Visibility="{Binding Path=EditVisible}"/>
+                        <local:DioSpSwitcher Margin="5,-10,0,0" Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" HorizontalAlignment="Left" VerticalAlignment="Top" Value="{Binding Path=Ev3}" Visibility="{Binding Path=EditVisible}"/>
                     </WrapPanel>
                     <Label Margin="-25,5,0,0" Width="50" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Background="White" BorderBrush="Black" BorderThickness="1">O2 Mix</Label>
                 </StackPanel>
@@ -208,7 +208,7 @@
                 <StackPanel Grid.Row="6" Grid.Column="8" Grid.RowSpan="2" Grid.ColumnSpan="1">
                     <WrapPanel>
                         <Rectangle Margin="-10,-15,0,0"  Width="20" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="{Binding Path=Ev5Color}" StrokeThickness="2"></Rectangle>
-                        <local:DioSwitcher Margin="5,-10,0,0" Width="20" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Value="{Binding Path=Ev5}" Visibility="{Binding Path=EditVisible}"/>
+                        <local:DioSpSwitcher Margin="5,-10,0,0" Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" HorizontalAlignment="Left" VerticalAlignment="Top" Value="{Binding Path=Ev5}" Visibility="{Binding Path=EditVisible}"/>
                     </WrapPanel>
                     <Label Margin="-40,5,0,0" Width="80" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Background="White" BorderBrush="Black" BorderThickness="1">O2 Dillution</Label>
                 </StackPanel>
@@ -315,14 +315,14 @@
                             <RowDefinition/>
                         </Grid.RowDefinitions>
                         <Rectangle Margin="20,0,0,0" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="8" Height="2" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
-                        <Border Margin="20,0" Grid.Row="4" Grid.Column="7" Grid.ColumnSpan="2" BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="2">
+                        <Border Margin="0,-3" Grid.Row="4" Grid.Column="7" Grid.ColumnSpan="2" BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="2">
                             <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                                 <Image Margin="0,0,5,0"  Width="20" Height="20"  Source="/Demo;component/images/power.png"/>
-                                <local:DioSwitcher Margin="0,0,0,0" Width="15" Height="15" HorizontalAlignment="Left"  Value="{Binding Path=Do3}" Visibility="{Binding Path=EditVisible}"/>
-                                <Rectangle Margin="2,0,5,0"  Width="5" Height="5"  Stroke="#FF301313" Fill="{Binding Path=Do3Color}" StrokeThickness="1"></Rectangle>
+                                <local:DioSpSwitcher Margin="0,0,0,0" Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" HorizontalAlignment="Left"  Value="{Binding Path=Do3}" Visibility="{Binding Path=EditVisible}"/>
+                                <Rectangle Margin="2,0,5,0"  Width="12" Height="12"  Stroke="#FF301313" Fill="{Binding Path=Do3Color}" StrokeThickness="1"></Rectangle>
                                 <TextBlock Margin="0,0,5,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">On</TextBlock>
-                                <local:DioSwitcher Margin="0,0,0,0" Width="15" Height="15" HorizontalAlignment="Left"  Value="{Binding Path=Do4}" Visibility="{Binding Path=EditVisible}"/>
-                                <Rectangle Margin="2,0,5,0"  Width="5" Height="5"  Stroke="#FF301313" Fill="{Binding Path=Do4Color}" StrokeThickness="1"></Rectangle>
+                                <local:DioSpSwitcher Margin="0,0,0,0" Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" HorizontalAlignment="Left"  Value="{Binding Path=Do4}" Visibility="{Binding Path=EditVisible}"/>
+                                <Rectangle Margin="2,0,5,0"  Width="12" Height="12"  Stroke="#FF301313" Fill="{Binding Path=Do4Color}" StrokeThickness="1"></Rectangle>
                                 <TextBlock Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Off</TextBlock>
                             </WrapPanel>
                         </Border>
@@ -358,7 +358,7 @@
                         <Label Style="{Binding Path=TubePageStyle.LabelStyle}" Margin="5,2" Grid.Row="3" Grid.Column="4" Content="{Binding  Path=Temper4HeatPower}"></Label>
                         <Label Style="{Binding Path=TubePageStyle.LabelStyle}" Margin="5,2" Grid.Row="3" Grid.Column="5" Content="{Binding  Path=Temper5HeatPower}"></Label>
                         <Label Style="{Binding Path=TubePageStyle.LabelStyle}" Margin="5,2" Grid.Row="3" Grid.Column="6" Content="{Binding  Path=Temper6HeatPower}"></Label>
-                        <Button Margin="0" Grid.Row="3" Grid.Column="7" Grid.ColumnSpan="2" Width="70" Height="30"  Content="PID" FontSize="14" FontWeight="Bold" Foreground="#FF646366"></Button>
+                        <Button Margin="0,0,0,5" Grid.Row="3" Grid.Column="7" Grid.ColumnSpan="2" Width="70"  Content="PID" FontSize="14" FontWeight="Bold" Foreground="#FF646366"></Button>
                        
                         <DockPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1">
                             <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366" Visibility="{Binding Path=EditVisible}">Setpoint:</TextBlock>
@@ -454,16 +454,16 @@
                         <Label Margin="0,5,0,0" Style="{Binding Path=TubePageStyle.LabelStyle}" Grid.Row="2" Grid.Column="1" Content="{Binding  Path=PaddleSpeedSp}"/>
                         <local:ClickSelectTextBox Margin="5,2" Style="{Binding Path=TubePageStyle.TextBoxStyle}" Grid.Row="2" Grid.Column="2" Text="{Binding  Path=EditPaddleSpeedSp}" Background="yellow" Visibility="{Binding Path=EditVisible}"/>
                         <WrapPanel Margin="0" Grid.Row="0" Grid.Column="8" HorizontalAlignment="left" VerticalAlignment="Center">
-                            <local:DioSwitcher Margin="-20,0,0,0" Width="15" Height="15" HorizontalAlignment="left"  Value="{Binding Path=Do5}" Visibility="{Binding Path=EditVisible}"/>
-                            <Rectangle Margin="0,0,5,0"  Width="5" Height="5" HorizontalAlignment="left" Stroke="#FF301313" Fill="{Binding Path=Do5Color}" StrokeThickness="2"></Rectangle>
+                            <local:DioSpSwitcher Margin="-35,5,0,0" Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" HorizontalAlignment="left"  Value="{Binding Path=Do5}" Visibility="{Binding Path=EditVisible}"/>
+                            <Rectangle Margin="0,0,5,0"  Width="12" Height="12" HorizontalAlignment="left" Stroke="#FF301313" Fill="{Binding Path=Do5Color}" StrokeThickness="2"></Rectangle>
                             <TextBlock Margin="0,0,0,0" HorizontalAlignment="left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Door</TextBlock>
                         </WrapPanel>
                         <WrapPanel Margin="0" Grid.Row="1" Grid.Column="8" HorizontalAlignment="left" VerticalAlignment="Center">
-                            <Rectangle Margin="0,0,5,0"  Width="5" Height="5" HorizontalAlignment="left" Stroke="#FF301313" Fill="{Binding Path=Di1Color}" StrokeThickness="2"></Rectangle>
+                            <Rectangle Margin="0,0,5,0"  Width="12" Height="12" HorizontalAlignment="left" Stroke="#FF301313" Fill="{Binding Path=Di1Color}" StrokeThickness="2"></Rectangle>
                             <TextBlock Margin="0,0,0,0" HorizontalAlignment="left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Open</TextBlock>
                         </WrapPanel>
                         <WrapPanel Margin="0" Grid.Row="2" Grid.Column="8" HorizontalAlignment="Left" VerticalAlignment="Center">
-                            <Rectangle Margin="0,0,5,0" Width="5" Height="5"  Stroke="#FF301313" Fill="{Binding Path=Di2Color}" StrokeThickness="2"></Rectangle>
+                            <Rectangle Margin="0,0,5,0" Width="12" Height="12"  Stroke="#FF301313" Fill="{Binding Path=Di2Color}" StrokeThickness="2"></Rectangle>
                             <TextBlock Margin="0,0,0,0" HorizontalAlignment="left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Close</TextBlock>
                         </WrapPanel>
                     </Grid>
@@ -718,10 +718,10 @@
                 </Grid>
                 <Grid Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="3" Grid.RowSpan="3">
                     <StackPanel>
-                        <Border Margin="0,-10,0,0" Width="80" Height="40"  VerticalAlignment="Top" BorderBrush="#FF301313" Background="#FFff7700" BorderThickness="2">
+                        <Border Margin="0,-10,0,0"  Height="40"  VerticalAlignment="Top" BorderBrush="#FF301313" Background="#FFff7700" BorderThickness="2">
                             <WrapPanel Margin="0,5" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <local:DioSwitcher Margin="-15,0,0,0" Width="15" Height="15" HorizontalAlignment="Left"  Value="{Binding Path=Do6}" Visibility="{Binding Path=EditVisible}"/>
-                                <Rectangle Margin="2,0,5,0"  Width="5" Height="5"  Stroke="#FF301313" Fill="{Binding Path=Do6Color}" StrokeThickness="1"></Rectangle>
+                                <local:DioSpSwitcher Margin="-15,0,0,0" Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" HorizontalAlignment="Left"  Value="{Binding Path=Do6}" Visibility="{Binding Path=EditVisible}"/>
+                                <Rectangle Margin="2,0,5,0"  Width="12" Height="12"  Stroke="#FF301313" Fill="{Binding Path=Do6Color}" StrokeThickness="1"></Rectangle>
                                 <TextBlock Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Gate</TextBlock>
                             </WrapPanel>
                         </Border>
@@ -740,10 +740,10 @@
                 <Grid Grid.Row="2" Grid.Column="11" Grid.ColumnSpan="1" Grid.RowSpan="3">
                     <StackPanel>
                         <Rectangle Margin="0,0,0,0" Width="60" Height="20" HorizontalAlignment="Center"  VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
-                        <Border Margin="0,0,0,0" Width="80" Height="40" HorizontalAlignment="Center" VerticalAlignment="Top" BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="2">
-                            <WrapPanel Margin="10,0,0,0"  HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <local:DioSwitcher Margin="-15,0,0,0" Width="15" Height="15" HorizontalAlignment="Left"  Value="{Binding Path=Do7}" Visibility="{Binding Path=EditVisible}"/>
-                                <Rectangle Margin="2,0,5,0"  Width="5" Height="5"  Stroke="#FF301313" Fill="{Binding Path=Do7Color}" StrokeThickness="2"></Rectangle>
+                        <Border Margin="-5,0" Height="40"  VerticalAlignment="Top" BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="2">
+                            <WrapPanel Margin="0,0,0,0"  HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <local:DioSpSwitcher Margin="-15,0,0,0" Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" HorizontalAlignment="Left"  Value="{Binding Path=Do7}" Visibility="{Binding Path=EditVisible}"/>
+                                <Rectangle Margin="2,0,5,0"  Width="12" Height="12"  Stroke="#FF301313" Fill="{Binding Path=Do7Color}" StrokeThickness="2"></Rectangle>
                                 <TextBlock Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Pump</TextBlock>
                             </WrapPanel>
                         </Border>
@@ -772,197 +772,94 @@
                 </Grid.RowDefinitions>
                 <TextBlock Margin="10,0,0,0" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="8" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Digital Input</TextBlock>
                 <WrapPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" >
-                    <Ellipse Margin="10,0" Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" StrokeThickness="1" Stroke="#FF000000">
+                    <!--<Ellipse Margin="10,0" Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" StrokeThickness="1" Stroke="#FF000000">
                         <Ellipse.Fill>
                             <RadialGradientBrush>
-                                <GradientStop Color="#AAEEEEEE" Offset="1"/>
+                                <GradientStop Color="#EEEEEEEE" Offset="0.9"/>
                                 <GradientStop Color="#AA000000" Offset="0.85"/>
-                                <GradientStop Color="{Binding Path=Di1Color}" Offset="0.5"/>
+                                <GradientStop Color="{Binding Path=Di1Color}" Offset="0.7"/>
                             </RadialGradientBrush>
                         </Ellipse.Fill>
-                    </Ellipse>
+                    </Ellipse>-->
+                    <Rectangle Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" Visibility="Hidden"/>
+                    <Rectangle Margin="10,0" Height="12" Width="12" Stroke="#FF301313" VerticalAlignment="Center" Fill="{Binding Path=Di1Color}" StrokeThickness="2"></Rectangle>
                     <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center">Digital Input 1</TextBlock>
                 </WrapPanel>
                 <WrapPanel Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2">
-                    <Ellipse Margin="10,0" Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" StrokeThickness="1" Stroke="#FF000000">
-                        <Ellipse.Fill>
-                            <RadialGradientBrush>
-                                <GradientStop Color="#AAEEEEEE" Offset="1"/>
-                                <GradientStop Color="#AA000000" Offset="0.85"/>
-                                <GradientStop Color="{Binding Path=Di1Color}" Offset="0.5"/>
-                            </RadialGradientBrush>
-                        </Ellipse.Fill>
-                    </Ellipse>
+                    <Rectangle Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" Visibility="Hidden"/>
+                    <Rectangle Margin="10,0" Height="12" Width="12" Stroke="#FF301313" VerticalAlignment="Center" Fill="{Binding Path=Di2Color}" StrokeThickness="2"></Rectangle>
                     <TextBlock HorizontalAlignment="left" VerticalAlignment="Center">Digital Input 2</TextBlock>
                 </WrapPanel>
                 <WrapPanel Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2">
-                    <Ellipse Margin="10,0" Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" StrokeThickness="1" Stroke="#FF000000">
-                        <Ellipse.Fill>
-                            <RadialGradientBrush>
-                                <GradientStop Color="#AAEEEEEE" Offset="1"/>
-                                <GradientStop Color="#AA000000" Offset="0.85"/>
-                                <GradientStop Color="{Binding Path=Di1Color}" Offset="0.5"/>
-                            </RadialGradientBrush>
-                        </Ellipse.Fill>
-                    </Ellipse>
+                    <Rectangle Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" Visibility="Hidden"/>
+                    <Rectangle Margin="10,0" Height="12" Width="12" Stroke="#FF301313" VerticalAlignment="Center" Fill="{Binding Path=Di3Color}" StrokeThickness="2"></Rectangle>
                     <TextBlock HorizontalAlignment="left" VerticalAlignment="Center">Digital Input 3</TextBlock>
                 </WrapPanel>
                 <WrapPanel Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="2">
-                    <Ellipse Margin="10,0" Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" StrokeThickness="1" Stroke="#FF000000">
-                        <Ellipse.Fill>
-                            <RadialGradientBrush>
-                                <GradientStop Color="#AAEEEEEE" Offset="1"/>
-                                <GradientStop Color="#AA000000" Offset="0.85"/>
-                                <GradientStop Color="{Binding Path=Di1Color}" Offset="0.5"/>
-                            </RadialGradientBrush>
-                        </Ellipse.Fill>
-                    </Ellipse>
+                    <Rectangle Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" Visibility="Hidden"/>
+                    <Rectangle Margin="10,0" Height="12" Width="12" Stroke="#FF301313" VerticalAlignment="Center" Fill="{Binding Path=Di4Color}" StrokeThickness="2"></Rectangle>
                     <TextBlock HorizontalAlignment="left" VerticalAlignment="Center">Digital Input 4</TextBlock>
                 </WrapPanel>
                 <WrapPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
-                    <Ellipse Margin="10,0" Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" StrokeThickness="1" Stroke="#FF000000">
-                        <Ellipse.Fill>
-                            <RadialGradientBrush>
-                                <GradientStop Color="#AAEEEEEE" Offset="1"/>
-                                <GradientStop Color="#AA000000" Offset="0.85"/>
-                                <GradientStop Color="{Binding Path=Di1Color}" Offset="0.5"/>
-                            </RadialGradientBrush>
-                        </Ellipse.Fill>
-                    </Ellipse>
+                    <Rectangle Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" Visibility="Hidden"/>
+                    <Rectangle Margin="10,0" Height="12" Width="12" Stroke="#FF301313" VerticalAlignment="Center" Fill="{Binding Path=Di5Color}" StrokeThickness="2"></Rectangle>
                     <TextBlock HorizontalAlignment="left" VerticalAlignment="Center">Digital Input 5</TextBlock>
                 </WrapPanel>
                 <WrapPanel Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2">
-                    <Ellipse Margin="10,0" Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" StrokeThickness="1" Stroke="#FF000000">
-                        <Ellipse.Fill>
-                            <RadialGradientBrush>
-                                <GradientStop Color="#AAEEEEEE" Offset="1"/>
-                                <GradientStop Color="#AA000000" Offset="0.85"/>
-                                <GradientStop Color="{Binding Path=Di1Color}" Offset="0.5"/>
-                            </RadialGradientBrush>
-                        </Ellipse.Fill>
-                    </Ellipse>
+                    <Rectangle Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" Visibility="Hidden"/>
+                    <Rectangle Margin="10,0" Height="12" Width="12" Stroke="#FF301313" VerticalAlignment="Center" Fill="{Binding Path=Di6Color}" StrokeThickness="2"></Rectangle>
                     <TextBlock HorizontalAlignment="left" VerticalAlignment="Center">Digital Input 6</TextBlock>
                 </WrapPanel>
                 <WrapPanel Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2">
-                    <Ellipse Margin="10,0" Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" StrokeThickness="1" Stroke="#FF000000">
-                        <Ellipse.Fill>
-                            <RadialGradientBrush>
-                                <GradientStop Color="#AAEEEEEE" Offset="1"/>
-                                <GradientStop Color="#AA000000" Offset="0.85"/>
-                                <GradientStop Color="{Binding Path=Di1Color}" Offset="0.5"/>
-                            </RadialGradientBrush>
-                        </Ellipse.Fill>
-                    </Ellipse>
+                    <Rectangle Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" Visibility="Hidden"/>
+                    <Rectangle Margin="10,0" Height="12" Width="12" Stroke="#FF301313" VerticalAlignment="Center" Fill="{Binding Path=Di7Color}" StrokeThickness="2"></Rectangle>
                     <TextBlock HorizontalAlignment="left" VerticalAlignment="Center">Digital Input 7</TextBlock>
                 </WrapPanel>
                 <WrapPanel Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="2">
-                    <Ellipse Margin="10,0" Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" StrokeThickness="1" Stroke="#FF000000">
-                        <Ellipse.Fill>
-                            <RadialGradientBrush>
-                                <GradientStop Color="#AAEEEEEE" Offset="1"/>
-                                <GradientStop Color="#AA000000" Offset="0.85"/>
-                                <GradientStop Color="{Binding Path=Di1Color}" Offset="0.5"/>
-                            </RadialGradientBrush>
-                        </Ellipse.Fill>
-                    </Ellipse>
+                    <Rectangle Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" Visibility="Hidden"/>
+                    <Rectangle Margin="10,0" Height="12" Width="12" Stroke="#FF301313" VerticalAlignment="Center" Fill="{Binding Path=Di8Color}" StrokeThickness="2"></Rectangle>
                     <TextBlock HorizontalAlignment="left" VerticalAlignment="Center">Digital Input 8</TextBlock>
                 </WrapPanel>
 
                 <TextBlock Margin="10,0,0,0" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="8" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Digital Output</TextBlock>
                 <WrapPanel Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2">
-                    <Ellipse Margin="10,0" Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" StrokeThickness="1" Stroke="#FF000000">
-                        <Ellipse.Fill>
-                            <RadialGradientBrush>
-                                <GradientStop Color="#AAEEEEEE" Offset="1"/>
-                                <GradientStop Color="#AA000000" Offset="0.85"/>
-                                <GradientStop Color="{Binding Path=Di1Color}" Offset="0.5"/>
-                            </RadialGradientBrush>
-                        </Ellipse.Fill>
-                    </Ellipse>
+                    <local:DioSpSwitcher Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" Value="{Binding Path=Do1}" Visibility="{Binding Path=EditVisible}"/>
+                    <Rectangle Margin="10,0" Height="12" Width="12" Stroke="#FF301313" VerticalAlignment="Center" Fill="{Binding Path=Do1Color}" StrokeThickness="2"></Rectangle>
                     <TextBlock HorizontalAlignment="left" VerticalAlignment="Center">Digital Output 1</TextBlock>
                 </WrapPanel>
                 <WrapPanel Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2">
-                    <Ellipse Margin="10,0" Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" StrokeThickness="1" Stroke="#FF000000">
-                        <Ellipse.Fill>
-                            <RadialGradientBrush>
-                                <GradientStop Color="#AAEEEEEE" Offset="1"/>
-                                <GradientStop Color="#AA000000" Offset="0.85"/>
-                                <GradientStop Color="{Binding Path=Di1Color}" Offset="0.5"/>
-                            </RadialGradientBrush>
-                        </Ellipse.Fill>
-                    </Ellipse>
+                    <local:DioSpSwitcher Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" Value="{Binding Path=Do2}" Visibility="{Binding Path=EditVisible}"/>
+                    <Rectangle Margin="10,0" Height="12" Width="12" Stroke="#FF301313" VerticalAlignment="Center" Fill="{Binding Path=Do2Color}" StrokeThickness="2"></Rectangle>
                     <TextBlock HorizontalAlignment="left" VerticalAlignment="Center">Digital Output 2</TextBlock>
                 </WrapPanel>
                 <WrapPanel Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="2">
-                    <Ellipse Margin="10,0" Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" StrokeThickness="1" Stroke="#FF000000">
-                        <Ellipse.Fill>
-                            <RadialGradientBrush>
-                                <GradientStop Color="#AAEEEEEE" Offset="1"/>
-                                <GradientStop Color="#AA000000" Offset="0.85"/>
-                                <GradientStop Color="{Binding Path=Di1Color}" Offset="0.5"/>
-                            </RadialGradientBrush>
-                        </Ellipse.Fill>
-                    </Ellipse>
+                    <local:DioSpSwitcher Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" Value="{Binding Path=Do3}" Visibility="{Binding Path=EditVisible}"/>
+                    <Rectangle Margin="10,0" Height="12" Width="12" Stroke="#FF301313" VerticalAlignment="Center" Fill="{Binding Path=Do3Color}" StrokeThickness="2"></Rectangle>
                     <TextBlock HorizontalAlignment="left" VerticalAlignment="Center">Digital Output 3</TextBlock>
                 </WrapPanel>
                 <WrapPanel Grid.Row="4" Grid.Column="6" Grid.ColumnSpan="2">
-                    <Ellipse Margin="10,0" Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" StrokeThickness="1" Stroke="#FF000000">
-                        <Ellipse.Fill>
-                            <RadialGradientBrush>
-                                <GradientStop Color="#AAEEEEEE" Offset="1"/>
-                                <GradientStop Color="#AA000000" Offset="0.85"/>
-                                <GradientStop Color="{Binding Path=Di1Color}" Offset="0.5"/>
-                            </RadialGradientBrush>
-                        </Ellipse.Fill>
-                    </Ellipse>
+                    <local:DioSpSwitcher Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" Value="{Binding Path=Do4}" Visibility="{Binding Path=EditVisible}"/>
+                    <Rectangle Margin="10,0" Height="12" Width="12" Stroke="#FF301313" VerticalAlignment="Center" Fill="{Binding Path=Do4Color}" StrokeThickness="2"></Rectangle>
                     <TextBlock HorizontalAlignment="left" VerticalAlignment="Center">Digital Output 4</TextBlock>
                 </WrapPanel>
                 <WrapPanel Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2">
-                    <Ellipse Margin="10,0" Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" StrokeThickness="1" Stroke="#FF000000">
-                        <Ellipse.Fill>
-                            <RadialGradientBrush>
-                                <GradientStop Color="#AAEEEEEE" Offset="1"/>
-                                <GradientStop Color="#AA000000" Offset="0.85"/>
-                                <GradientStop Color="{Binding Path=Di1Color}" Offset="0.5"/>
-                            </RadialGradientBrush>
-                        </Ellipse.Fill>
-                    </Ellipse>
+                    <local:DioSpSwitcher Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" Value="{Binding Path=Do5}" Visibility="{Binding Path=EditVisible}"/>
+                    <Rectangle Margin="10,0" Height="12" Width="12" Stroke="#FF301313" VerticalAlignment="Center" Fill="{Binding Path=Do5Color}" StrokeThickness="2"></Rectangle>
                     <TextBlock HorizontalAlignment="left" VerticalAlignment="Center">Digital Output 5</TextBlock>
                 </WrapPanel>
                 <WrapPanel Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2">
-                    <Ellipse Margin="10,0" Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" StrokeThickness="1" Stroke="#FF000000">
-                        <Ellipse.Fill>
-                            <RadialGradientBrush>
-                                <GradientStop Color="#AAEEEEEE" Offset="1"/>
-                                <GradientStop Color="#AA000000" Offset="0.85"/>
-                                <GradientStop Color="{Binding Path=Di1Color}" Offset="0.5"/>
-                            </RadialGradientBrush>
-                        </Ellipse.Fill>
-                    </Ellipse>
+                    <local:DioSpSwitcher Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" Value="{Binding Path=Do6}" Visibility="{Binding Path=EditVisible}"/>
+                    <Rectangle Margin="10,0" Height="12" Width="12" Stroke="#FF301313" VerticalAlignment="Center" Fill="{Binding Path=Do6Color}" StrokeThickness="2"></Rectangle>
                     <TextBlock HorizontalAlignment="left" VerticalAlignment="Center">Digital Output 6</TextBlock>
                 </WrapPanel>
                 <WrapPanel Grid.Row="5" Grid.Column="4" Grid.ColumnSpan="2">
-                    <Ellipse Margin="10,0" Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" StrokeThickness="1" Stroke="#FF000000">
-                        <Ellipse.Fill>
-                            <RadialGradientBrush>
-                                <GradientStop Color="#AAEEEEEE" Offset="1"/>
-                                <GradientStop Color="#AA000000" Offset="0.85"/>
-                                <GradientStop Color="{Binding Path=Di1Color}" Offset="0.5"/>
-                            </RadialGradientBrush>
-                        </Ellipse.Fill>
-                    </Ellipse>
+                    <local:DioSpSwitcher Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" Value="{Binding Path=Do7}" Visibility="{Binding Path=EditVisible}"/>
+                    <Rectangle Margin="10,0" Height="12" Width="12" Stroke="#FF301313" VerticalAlignment="Center" Fill="{Binding Path=Do7Color}" StrokeThickness="2"></Rectangle>
                     <TextBlock HorizontalAlignment="left" VerticalAlignment="Center">Digital Output 7</TextBlock>
                 </WrapPanel>
                 <WrapPanel Grid.Row="5" Grid.Column="6" Grid.ColumnSpan="2">
-                    <Ellipse Margin="10,0" Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" StrokeThickness="1" Stroke="#FF000000">
-                        <Ellipse.Fill>
-                            <RadialGradientBrush>
-                                <GradientStop Color="#AAEEEEEE" Offset="1"/>
-                                <GradientStop Color="#AA000000" Offset="0.85"/>
-                                <GradientStop Color="{Binding Path=Di1Color}" Offset="0.5"/>
-                            </RadialGradientBrush>
-                        </Ellipse.Fill>
-                    </Ellipse>
+                    <local:DioSpSwitcher Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" Value="{Binding Path=Do8}" Visibility="{Binding Path=EditVisible}"/>
+                    <Rectangle Margin="10,0" Height="12" Width="12" Stroke="#FF301313" VerticalAlignment="Center" Fill="{Binding Path=Do8Color}" StrokeThickness="2"></Rectangle>
                     <TextBlock HorizontalAlignment="left" VerticalAlignment="Center">Digital Output 8</TextBlock>
                 </WrapPanel>
             </Grid>

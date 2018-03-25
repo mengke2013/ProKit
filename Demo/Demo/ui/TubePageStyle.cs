@@ -129,6 +129,7 @@ namespace Demo.ui
         }
         public object TextBoxHeight
         {
+            get { return mTextBoxHeightSetter.Value; }
             set
             {
                 if (mTextBoxHeightSetter == null || !mTextBoxHeightSetter.IsSealed)

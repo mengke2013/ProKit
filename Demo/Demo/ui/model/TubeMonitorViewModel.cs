@@ -150,6 +150,7 @@ namespace Demo.ui.model
                 Notify("Do5");
                 Notify("Do6");
                 Notify("Do7");
+                Notify("Do8");
             }
         }
 
@@ -262,9 +263,24 @@ namespace Demo.ui.model
             set
             {
                 mDoSp = BitUtility.SetBitValue(mDoSp, 6, value);
-                Notify("Do6");
+                Notify("Do7");
             }
         }
+
+        public bool Do8
+        {
+            get
+            {
+                return BitUtility.GetBitValue(mDoSp, 7);
+            }
+            set
+            {
+                mDoSp = BitUtility.SetBitValue(mDoSp, 7, value);
+                Notify("Do8");
+            }
+        }
+
+
 
         public int EvSp
         {
@@ -530,6 +546,11 @@ namespace Demo.ui.model
             get { return mDoColors[6]; }
         }
 
+        public string Do8Color
+        {
+            get { return mDoColors[7]; }
+        }
+
         public string Di1Color
         {
             get { return mDiColors[0]; }
@@ -558,6 +579,11 @@ namespace Demo.ui.model
         public string Di7Color
         {
             get { return mDiColors[6]; }
+        }
+
+        public string Di8Color
+        {
+            get { return mDiColors[8]; }
         }
 
         public string Ev1Color

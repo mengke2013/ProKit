@@ -1,31 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using log4net;
-using Demo.ui.model;
-using Demo.ui.view;
-using Demo.com;
-using Rocky.Core.Opc.Ua;
-using Demo.com.entity;
 using System.Windows.Threading;
 using System.Threading;
-using System.Net;
-using System.Net.Sockets;
-using Demo.model;
+
+using log4net;
+
+using Demo.ui.model;
 using Demo.controller;
 
-namespace Demo.ui
+namespace Demo.ui.view
 {
     /// <summary>
     /// Interaction logic for TubeRecipePage.xaml
@@ -50,7 +33,7 @@ namespace Demo.ui
 
             mTubePageStyle = new TubePageStyle();
             mSettingsModel = new TubeSettingsViewModel();
-            mController = new SettingsController();
+            mController = new SettingsController(this);
         }
 
         public void LoadPage(byte selectedTube)
@@ -81,6 +64,11 @@ namespace Demo.ui
         {
             Visibility = Visibility.Hidden;
             //            ClearValue(EffectProperty);
+        }
+
+        public TubeSettingsViewModel SettingsModel
+        {
+            get { return mSettingsModel; }
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
@@ -342,8 +330,7 @@ namespace Demo.ui
         {
             if (MessageBox.Show("Would you want to Write configuration to device?", "Confirm", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
-                Settings settings = mController.GetSettings(mSelectedTube);
-                mController.ConvertSettingsModel(settings, mSettingsModel);
+                mController.ConvertSettingsModel(mSelectedTube);
 
                 bool startDownload = mController.CommitSettings(mSelectedTube, OnDownSettingsComplete);
                 if (startDownload)
@@ -355,19 +342,19 @@ namespace Demo.ui
             }
         }
 
-        private void OnSynSettingsComplete(Settings settings)
+        private void OnSynSettingsComplete()
         {
             this.Dispatcher.BeginInvoke(DispatcherPriority.Normal, (ThreadStart)delegate ()
             {
                 mProgressDlg.Hide();
                 //StepItems[0].Item_Click(null, null);
                 //MessageBox.Show("OnSynSettingsComplete");
-                mController.ConvertSettingsPageModel(mSettingsModel, settings);
+                mController.ConvertSettingsPageModel(mSelectedTube);
                 //LoadStep(1);
             });
         }
 
-        private void OnDownSettingsComplete(Settings settings)
+        private void OnDownSettingsComplete()
         {
             this.Dispatcher.BeginInvoke(DispatcherPriority.Normal, (ThreadStart)delegate ()
             {

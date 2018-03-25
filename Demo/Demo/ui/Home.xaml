@@ -93,9 +93,9 @@
                     <view:TubeMonitorPage x:Name="tubeMonitorPage" />
                     <view:TubeTrendPage x:Name="tubeTrendPage" Visibility="Hidden" />
                     <view:TubeRecipePage x:Name="tubeRecipePage" Visibility="Hidden" />
-                    <local:TubeSettingsPage x:Name="tubeSettingsPage" Visibility="Hidden" />
-                    <local:TubeAlarmPage x:Name="tubeAlarmPage" Visibility="Hidden" />
-                    <local:TubeEventsPage x:Name="tubeEventsPage" Visibility="Hidden" />
+                    <view:TubeSettingsPage x:Name="tubeSettingsPage" Visibility="Hidden" />
+                    <view:TubeAlarmPage x:Name="tubeAlarmPage" Visibility="Hidden" />
+                    <view:TubeEventsPage x:Name="tubeEventsPage" Visibility="Hidden" />
                 </Grid>
             </DockPanel>
         </Border>

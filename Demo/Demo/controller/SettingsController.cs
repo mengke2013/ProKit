@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Demo.ui.view;
 using Demo.ui.model;
 using Demo.model;
 using Demo.service;
@@ -12,6 +8,13 @@ namespace Demo.controller
 {
     public class SettingsController
     {
+        TubeSettingsPage mPage;
+
+        public SettingsController(TubeSettingsPage page)
+        {
+            mPage = page;
+        }
+
         public Settings LoadSettings(byte tubeIndex)
         {
             //add validation
@@ -55,8 +58,10 @@ namespace Demo.controller
         }
 
 
-        public void ConvertSettingsPageModel(TubeSettingsViewModel settingsPage, Settings settings)
+        public void ConvertSettingsPageModel(byte tubeIndex)
         {
+            Settings settings = SettingsService.Instance.GetSettings();
+            TubeSettingsViewModel settingsPage = mPage.SettingsModel;
             settingsPage.Gas1MaxValue = settings.Gas1MaxValue;
             settingsPage.Gas2MaxValue = settings.Gas2MaxValue;
             settingsPage.Gas5MaxValue = settings.Gas5MaxValue;
@@ -131,8 +136,10 @@ namespace Demo.controller
             settingsPage.Di = settings.Di;
         }
 
-        public void ConvertSettingsModel(Settings settings, TubeSettingsViewModel settingsPage)
+        public void ConvertSettingsModel(byte tubeIndex)
         {
+            Settings settings = SettingsService.Instance.GetSettings();
+            TubeSettingsViewModel settingsPage = mPage.SettingsModel;
             settings.Gas1MaxValue = settingsPage.Gas1MaxValue;
             settings.Gas2MaxValue = settingsPage.Gas2MaxValue;
             settings.Gas5MaxValue = settingsPage.Gas5MaxValue;
