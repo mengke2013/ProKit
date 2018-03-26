@@ -43,8 +43,8 @@ namespace Demo.ui.view
 
             Visibility = Visibility.Visible;
 
-            // mTubePageStyle.TextBoxWidth = this.ActualWidth / 15;
-            mTubePageStyle.TextBoxHeight = this.ActualHeight / 25;
+            mTubePageStyle.TextBoxWidth = this.ActualWidth / 25;
+            mTubePageStyle.TextBoxHeight = this.ActualHeight / 35;
 
             mSettingsModel.TubePageStyle = mTubePageStyle;
             SettingsView.DataContext = mSettingsModel;

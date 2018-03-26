@@ -28,26 +28,23 @@
                     <WrapPanel Margin="5,8,5,2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="3" Grid.ColumnSpan="2">
                         <Button Margin="5,0,5,0" Click="Load_Click">
                             <StackPanel Width="40" Height="40">
-                                <Image Source="/Demo;component/images/down.png" Width="25" Height="25"></Image>
+                                <Image Source="/Demo;component/images/load.png"></Image>
                                 <TextBlock>Load</TextBlock>
                             </StackPanel>
                         </Button>
                         <Button Margin="0,0,5,0" Click="Save_Click">
                             <StackPanel Width="40" Height="40">
-                                <Image Source="/Demo;component/images/up.png" Width="25" Height="25"></Image>
-                                <TextBlock>Save</TextBlock>
+                                <Image Source="/Demo;component/images/backup.png" ></Image>
                             </StackPanel>
                         </Button>
                         <Button Margin="0,0,5,0" Click="Read_Click">
                             <StackPanel Width="40" Height="40">
-                                <Image Source="/Demo;component/images/up.png" Width="25" Height="25"></Image>
-                                <TextBlock>Read</TextBlock>
+                                <Image Source="/Demo;component/images/refresh.png"></Image>
                             </StackPanel>
                         </Button>
                         <Button Click="Write_Click">
                             <StackPanel Width="40" Height="40">
-                                <Image Source="/Demo;component/images/up.png" Width="25" Height="25"></Image>
-                                <TextBlock>Write</TextBlock>
+                                <Image Source="/Demo;component/images/download.png"></Image>
                             </StackPanel>
                         </Button>
                     </WrapPanel>
