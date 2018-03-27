@@ -81,9 +81,26 @@ namespace Demo.model
 
         private int mDi;
 
+        private string mGas1Name;
+        private string mGas2Name;
+        private string mGas5Name;
+        private string mGas6Name;
+        private string mGas8Name;
+        private string mAna1Name;
+        private string mAna3Name;
+        private string mAna4Name;
+        private string mAna5Name;
+        private string mAna6Name;
+
+        private string[] mEvNames;
+        private string[] mDiNames;
+        private string[] mDoNames;
+
         public Settings()
         {
-            
+            mEvNames = new string[32];
+            mDiNames = new string[32];
+            mDoNames = new string[16];
         }
 
         public short Gas1MaxValue
@@ -468,6 +485,81 @@ namespace Demo.model
         {
             get { return mDi; }
             set { mDi = value; }
+        }
+
+        public string Gas1Name
+        {
+            get { return mGas1Name; }
+            set { mGas1Name = value; }
+        }
+
+        public string Gas2Name
+        {
+            get { return mGas2Name; }
+            set { mGas2Name = value; }
+        }
+
+        public string Gas5Name
+        {
+            get { return mGas5Name; }
+            set { mGas5Name = value; }
+        }
+
+        public string Gas6Name
+        {
+            get { return mGas6Name; }
+            set { mGas6Name = value; }
+        }
+
+        public string Gas8Name
+        {
+            get { return mGas8Name; }
+            set { mGas8Name = value; }
+        }
+
+        public string Ana1Name
+        {
+            get { return mAna1Name; }
+            set { mAna1Name = value; }
+        }
+
+        public string Ana3Name
+        {
+            get { return mAna3Name; }
+            set { mAna3Name = value; }
+        }
+
+        public string Ana4Name
+        {
+            get { return mAna4Name; }
+            set { mAna4Name = value; }
+        }
+
+        public string Ana5Name
+        {
+            get { return mAna5Name; }
+            set { mAna5Name = value; }
+        }
+
+        public string Ana6Name
+        {
+            get { return mAna6Name; }
+            set { mAna6Name = value; }
+        }
+
+        public string[] EvNames
+        {
+            get { return mEvNames; }
+        }
+
+        public string[] DiNames
+        {
+            get { return mDiNames; }
+        }
+
+        public string[] DoNames
+        {
+            get { return mDoNames; }
         }
     }
 }

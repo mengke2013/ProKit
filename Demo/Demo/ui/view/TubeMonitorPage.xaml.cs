@@ -181,7 +181,7 @@ namespace Demo.ui.view
         public void UnloadPage(byte selectedTube)
         {
             Visibility = Visibility.Hidden;
-            //            ClearValue(EffectProperty);
+                        //ClearValue(EffectProperty);
 
             mHoldingUpdate = true;
         }

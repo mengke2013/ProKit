@@ -252,6 +252,7 @@ namespace Demo.ui
             {
                 if (tubePageIndexes[mSelectedTube - 1] != i + 1)
                 {
+                    TubeTabHeaders[i].ClearValue(EffectProperty);
                     tubePages[i].UnloadPage((byte)(i+1));
                 }
             }

@@ -106,6 +106,14 @@ namespace Demo.ui.model
         private byte[] mAlrmDigIns;
         private DiSelectorModel[] mDiSelectorModels;
 
+        private string mGas1Name;
+        private string mGas2Name;
+        private string mGas5Name;
+        private string mGas6Name;
+        private string mGas8Name;
+        private string mAna1Name;
+        private string[] mEvNames;
+
         public TubeRecipeViewModel(byte stepIndex)
         {
             mStepIndex = stepIndex;
@@ -118,6 +126,8 @@ namespace Demo.ui.model
                 mDiSelectorModels[i] = new DiSelectorModel();
             }
             mDigOutput = 0;
+
+            mEvNames = new string[24];
         }
 
         public int StepIndex
@@ -1433,6 +1443,306 @@ namespace Demo.ui.model
                     Notify("AlrmDigIns");
                 }
                 
+            }
+        }
+
+        public string Gas1Name
+        {
+            get { return mGas1Name; }
+            set
+            {
+                mGas1Name = value;
+                Notify("Gas1Name");
+            }
+        }
+
+        public string Gas2Name
+        {
+            get { return mGas2Name; }
+            set
+            {
+                mGas2Name = value;
+                Notify("Gas2Name");
+            }
+        }
+
+        public string Gas5Name
+        {
+            get { return mGas5Name; }
+            set
+            {
+                mGas5Name = value;
+                Notify("Gas5Name");
+            }
+        }
+
+        public string Gas6Name
+        {
+            get { return mGas6Name; }
+            set
+            {
+                mGas6Name = value;
+                Notify("Gas6Name");
+            }
+        }
+
+        public string Gas8Name
+        {
+            get { return mGas8Name; }
+            set
+            {
+                mGas8Name = value;
+                Notify("Gas8Name");
+            }
+        }
+
+        public string Ana1Name
+        {
+            get { return mAna1Name; }
+            set
+            {
+                mAna1Name = value;
+                Notify("Ana1Name");
+            }
+        }
+
+        public string EvName1
+        {
+            get { return mEvNames[0]; }
+            set
+            {
+                mEvNames[0] = value;
+                Notify("EvName1");
+            }
+        }
+
+        public string EvName2
+        {
+            get { return mEvNames[1]; }
+            set
+            {
+                mEvNames[1] = value;
+                Notify("EvName2");
+            }
+        }
+
+        public string EvName3
+        {
+            get { return mEvNames[2]; }
+            set
+            {
+                mEvNames[2] = value;
+                Notify("EvName3");
+            }
+        }
+
+        public string EvName4
+        {
+            get { return mEvNames[3]; }
+            set
+            {
+                mEvNames[3] = value;
+                Notify("EvName4");
+            }
+        }
+
+        public string EvName5
+        {
+            get { return mEvNames[4]; }
+            set
+            {
+                mEvNames[4] = value;
+                Notify("EvName5");
+            }
+        }
+
+        public string EvName6
+        {
+            get { return mEvNames[5]; }
+            set
+            {
+                mEvNames[5] = value;
+                Notify("EvName6");
+            }
+        }
+
+        public string EvName7
+        {
+            get { return mEvNames[6]; }
+            set
+            {
+                mEvNames[6] = value;
+                Notify("EvName7");
+            }
+        }
+
+        public string EvName8
+        {
+            get { return mEvNames[7]; }
+            set
+            {
+                mEvNames[7] = value;
+                Notify("EvName8");
+            }
+        }
+
+        public string EvName9
+        {
+            get { return mEvNames[8]; }
+            set
+            {
+                mEvNames[8] = value;
+                Notify("EvName9");
+            }
+        }
+
+        public string EvName10
+        {
+            get { return mEvNames[9]; }
+            set
+            {
+                mEvNames[9] = value;
+                Notify("EvName10");
+            }
+        }
+
+        public string EvName11
+        {
+            get { return mEvNames[10]; }
+            set
+            {
+                mEvNames[10] = value;
+                Notify("EvName11");
+            }
+        }
+
+        public string EvName12
+        {
+            get { return mEvNames[11]; }
+            set
+            {
+                mEvNames[11] = value;
+                Notify("EvName12");
+            }
+        }
+
+        public string EvName13
+        {
+            get { return mEvNames[12]; }
+            set
+            {
+                mEvNames[12] = value;
+                Notify("EvName13");
+            }
+        }
+
+        public string EvName14
+        {
+            get { return mEvNames[13]; }
+            set
+            {
+                mEvNames[13] = value;
+                Notify("EvName14");
+            }
+        }
+
+        public string EvName15
+        {
+            get { return mEvNames[14]; }
+            set
+            {
+                mEvNames[14] = value;
+                Notify("EvName15");
+            }
+        }
+
+        public string EvName16
+        {
+            get { return mEvNames[15]; }
+            set
+            {
+                mEvNames[15] = value;
+                Notify("EvName16");
+            }
+        }
+
+        public string EvName17
+        {
+            get { return mEvNames[16]; }
+            set
+            {
+                mEvNames[16] = value;
+                Notify("EvName17");
+            }
+        }
+
+        public string EvName18
+        {
+            get { return mEvNames[17]; }
+            set
+            {
+                mEvNames[17] = value;
+                Notify("EvName18");
+            }
+        }
+
+        public string EvName19
+        {
+            get { return mEvNames[18]; }
+            set
+            {
+                mEvNames[18] = value;
+                Notify("EvName19");
+            }
+        }
+
+        public string EvName20
+        {
+            get { return mEvNames[19]; }
+            set
+            {
+                mEvNames[19] = value;
+                Notify("EvName20");
+            }
+        }
+
+        public string EvName21
+        {
+            get { return mEvNames[20]; }
+            set
+            {
+                mEvNames[20] = value;
+                Notify("EvName21");
+            }
+        }
+
+        public string EvName22
+        {
+            get { return mEvNames[21]; }
+            set
+            {
+                mEvNames[21] = value;
+                Notify("EvName22");
+            }
+        }
+
+        public string EvName23
+        {
+            get { return mEvNames[22]; }
+            set
+            {
+                mEvNames[22] = value;
+                Notify("EvName23");
+            }
+        }
+
+        public string EvName24
+        {
+            get { return mEvNames[23]; }
+            set
+            {
+                mEvNames[23] = value;
+                Notify("EvName24");
             }
         }
 

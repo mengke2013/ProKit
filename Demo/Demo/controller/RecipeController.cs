@@ -18,6 +18,8 @@ namespace Demo.controller
         {
             //add validation
             RecipeService.Instance.LoadRecipe(tubeIndex);
+            SettingsService.Instance.LoadSettings(tubeIndex);
+            UpdateRecipeLabel();
         }
 
         public bool SynRecipe(byte tubeIndex, RecipeService.OnSynRecipeComplete rCallback, RecipeService.OnSynStepComplete sCallback)
@@ -252,6 +254,42 @@ namespace Demo.controller
             step.Temper4Next = viewModel.Temper4Next;
             step.Temper5Next = viewModel.Temper5Next;
             step.Temper6Next = viewModel.Temper6Next;
+        }
+
+        private void UpdateRecipeLabel()
+        {
+            TubeRecipeViewModel viewModel = mPage.ViewModel;
+            Settings settings = SettingsService.Instance.GetSettings();
+            viewModel.Gas1Name = settings.Gas1Name ;
+            viewModel.Gas2Name = settings.Gas2Name;
+            viewModel.Gas5Name = settings.Gas5Name;
+            viewModel.Gas6Name = settings.Gas6Name;
+            viewModel.Gas8Name = settings.Gas8Name;
+            viewModel.Ana1Name = settings.Ana1Name;
+            viewModel.EvName1 = settings.EvNames[0];
+            viewModel.EvName2 = settings.EvNames[1];
+            viewModel.EvName3 = settings.EvNames[2];
+            viewModel.EvName4 = settings.EvNames[3];
+            viewModel.EvName5 = settings.EvNames[4];
+            viewModel.EvName6 = settings.EvNames[5];
+            viewModel.EvName7 = settings.EvNames[6];
+            viewModel.EvName8 = settings.EvNames[7];
+            viewModel.EvName9 = settings.EvNames[8];
+            viewModel.EvName10 = settings.EvNames[9];
+            viewModel.EvName11 = settings.EvNames[10];
+            viewModel.EvName12 = settings.EvNames[11];
+            viewModel.EvName13 = settings.EvNames[12];
+            viewModel.EvName14 = settings.EvNames[13];
+            viewModel.EvName15 = settings.EvNames[14];
+            viewModel.EvName16 = settings.EvNames[15];
+            viewModel.EvName17 = settings.EvNames[16];
+            viewModel.EvName18 = settings.EvNames[17];
+            viewModel.EvName19 = settings.EvNames[18];
+            viewModel.EvName20 = settings.EvNames[19];
+            viewModel.EvName21 = settings.EvNames[20];
+            viewModel.EvName22 = settings.EvNames[21];
+            viewModel.EvName23 = settings.EvNames[22];
+            viewModel.EvName24 = settings.EvNames[23];
         }
     }
 }

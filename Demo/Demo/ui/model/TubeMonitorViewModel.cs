@@ -82,6 +82,8 @@ namespace Demo.ui.model
         private int mDoSp;
         private int mDoValue;
 
+        private string mGas1Name;
+
         private int mProcessRemainingTime;
 
         private TubePageStyle mTubePageStyle;
@@ -1212,6 +1214,16 @@ namespace Demo.ui.model
             {
                 mFurnaceHeight = value;
                 //Notify("FurnaceHeight");
+            }
+        }
+
+        public string Gas1Name
+        {
+            get { return mGas1Name; }
+            set
+            {
+                mGas1Name = value;
+                Notify("Gas1Name");
             }
         }
 
