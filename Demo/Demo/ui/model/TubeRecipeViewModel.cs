@@ -113,6 +113,8 @@ namespace Demo.ui.model
         private string mGas8Name;
         private string mAna1Name;
         private string[] mEvNames;
+        private string[] mDoNames;
+        private string[] mDiNames;
 
         public TubeRecipeViewModel(byte stepIndex)
         {
@@ -128,6 +130,9 @@ namespace Demo.ui.model
             mDigOutput = 0;
 
             mEvNames = new string[24];
+            mDoNames = new string[16];
+            mDiNames = new string[16];
+
         }
 
         public int StepIndex
@@ -1012,6 +1017,12 @@ namespace Demo.ui.model
                 Notify("DigOutput8");
                 Notify("DigOutput9");
                 Notify("DigOutput10");
+                Notify("DigOutput11");
+                Notify("DigOutput12");
+                Notify("DigOutput13");
+                Notify("DigOutput14");
+                Notify("DigOutput15");
+                Notify("DigOutput16");
             }
         }
 
@@ -1142,6 +1153,84 @@ namespace Demo.ui.model
             {
                 mDigOutput = SetBitValue(mDigOutput, 9, value);
                 Notify("DigOutput10");
+            }
+        }
+
+        public bool DigOutput11
+        {
+            get
+            {
+                return GetBitValue(mDigOutput, 10);
+            }
+            set
+            {
+                mDigOutput = SetBitValue(mDigOutput, 10, value);
+                Notify("DigOutput11");
+            }
+        }
+
+        public bool DigOutput12
+        {
+            get
+            {
+                return GetBitValue(mDigOutput, 11);
+            }
+            set
+            {
+                mDigOutput = SetBitValue(mDigOutput, 11, value);
+                Notify("DigOutput12");
+            }
+        }
+
+        public bool DigOutput13
+        {
+            get
+            {
+                return GetBitValue(mDigOutput, 12);
+            }
+            set
+            {
+                mDigOutput = SetBitValue(mDigOutput, 12, value);
+                Notify("DigOutput13");
+            }
+        }
+
+        public bool DigOutput14
+        {
+            get
+            {
+                return GetBitValue(mDigOutput, 13);
+            }
+            set
+            {
+                mDigOutput = SetBitValue(mDigOutput, 13, value);
+                Notify("DigOutput14");
+            }
+        }
+
+        public bool DigOutput15
+        {
+            get
+            {
+                return GetBitValue(mDigOutput, 14);
+            }
+            set
+            {
+                mDigOutput = SetBitValue(mDigOutput, 14, value);
+                Notify("DigOutput15");
+            }
+        }
+
+        public bool DigOutput16
+        {
+            get
+            {
+                return GetBitValue(mDigOutput, 15);
+            }
+            set
+            {
+                mDigOutput = SetBitValue(mDigOutput, 15, value);
+                Notify("DigOutput16");
             }
         }
 
@@ -1423,9 +1512,9 @@ namespace Demo.ui.model
         {
             get
             {
-                for (byte i = 0; i < mAlrmDigIns.Length; ++i)
+                //for (byte i = 0; i < mAlrmDigIns.Length; ++i)
                 {
-                    mAlrmDigIns[i] = mDiSelectorModels[i].DiTypeId;
+                    //mAlrmDigIns[i] = mDiSelectorModels[i].DiTypeId;
                 }
                 return mAlrmDigIns;
             }
@@ -1435,9 +1524,9 @@ namespace Demo.ui.model
                 {
                     mAlrmDigIns = value;
 
-                    for (byte i = 0; i < mAlrmDigIns.Length; ++i)
+                    //for (byte i = 0; i < mAlrmDigIns.Length; ++i)
                     {
-                        mDiSelectorModels[i].DiTypeId = mAlrmDigIns[i];
+                        //mDiSelectorModels[i].DiTypeId = mAlrmDigIns[i];
                     }
 
                     Notify("AlrmDigIns");
@@ -1746,6 +1835,175 @@ namespace Demo.ui.model
             }
         }
 
+        public string DoName1
+        {
+            get { return mDoNames[0]; }
+            set
+            {
+                mDoNames[0] = value;
+                Notify("DoName1");
+            }
+        }
+
+        public string DoName2
+        {
+            get { return mDoNames[1]; }
+            set
+            {
+                mDoNames[1] = value;
+                Notify("DoName2");
+            }
+        }
+
+        public string DoName3
+        {
+            get { return mDoNames[2]; }
+            set
+            {
+                mDoNames[2] = value;
+                Notify("DoName3");
+            }
+        }
+
+        public string DoName4
+        {
+            get { return mDoNames[3]; }
+            set
+            {
+                mDoNames[3] = value;
+                Notify("DoName4");
+            }
+        }
+
+        public string DoName5
+        {
+            get { return mDoNames[4]; }
+            set
+            {
+                mDoNames[4] = value;
+                Notify("DoName5");
+            }
+        }
+
+        public string DoName6
+        {
+            get { return mDoNames[5]; }
+            set
+            {
+                mDoNames[5] = value;
+                Notify("DoName6");
+            }
+        }
+
+        public string DoName7
+        {
+            get { return mDoNames[6]; }
+            set
+            {
+                mDoNames[6] = value;
+                Notify("DoName7");
+            }
+        }
+
+        public string DoName8
+        {
+            get { return mDoNames[7]; }
+            set
+            {
+                mDoNames[7] = value;
+                Notify("DoName8");
+            }
+        }
+
+        public string DoName9
+        {
+            get { return mDoNames[8]; }
+            set
+            {
+                mDoNames[8] = value;
+                Notify("DoName9");
+            }
+        }
+
+        public string DoName10
+        {
+            get { return mDoNames[9]; }
+            set
+            {
+                mDoNames[9] = value;
+                Notify("DoName10");
+            }
+        }
+
+        public string DoName11
+        {
+            get { return mDoNames[10]; }
+            set
+            {
+                mDoNames[10] = value;
+                Notify("DoName11");
+            }
+        }
+
+        public string DoName12
+        {
+            get { return mDoNames[11]; }
+            set
+            {
+                mDoNames[11] = value;
+                Notify("DoName12");
+            }
+        }
+
+        public string DoName13
+        {
+            get { return mDoNames[12]; }
+            set
+            {
+                mDoNames[12] = value;
+                Notify("DoName13");
+            }
+        }
+
+        public string DoName14
+        {
+            get { return mDoNames[13]; }
+            set
+            {
+                mDoNames[13] = value;
+                Notify("DoName14");
+            }
+        }
+
+        public string DoName15
+        {
+            get { return mDoNames[14]; }
+            set
+            {
+                mDoNames[14] = value;
+                Notify("DoName15");
+            }
+        }
+
+        public string DoName16
+        {
+            get { return mDoNames[15]; }
+            set
+            {
+                mDoNames[15] = value;
+                Notify("DoName16");
+            }
+        }
+
+        public string[] DiNames
+        {
+            get { return mDiNames; }
+            set
+            {
+                mDiNames = value;
+                Notify("DiNames");
+            }
+        }
 
         public bool UpdateView
         {

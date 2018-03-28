@@ -328,7 +328,7 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
             <TextBlock Margin="0,0,0,0" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="15" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Electric Valve</TextBlock>
-            <local:DioSwitcher Margin="5,2" Grid.Row="1" Grid.Column="0" Width="28" Height="28" Value="{Binding Path=Ev1}"/>
+            <local:DioSwitcher Margin="0,0" Grid.Row="1" Grid.Column="0" Width="28" Height="28" Value="{Binding Path=Ev1}"/>
             <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=EvName1}"></TextBlock>
             <local:DioSwitcher Margin="5,2" Grid.Row="1" Grid.Column="2" Width="28" Height="28" Value="{Binding Path=Ev2}"/>
             <TextBlock Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=EvName2}"></TextBlock>
@@ -382,33 +382,21 @@
         <Rectangle Margin="-15,0" Grid.Row="18" Grid.Column="1" Grid.ColumnSpan="28" Height="1" Fill="#FFAAA5A5" />
         <Grid Grid.Row="19" Grid.Column="1" Grid.RowSpan="3" Grid.ColumnSpan="28">
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40"/>
                 <ColumnDefinition />
+                <ColumnDefinition Width="40"/>
                 <ColumnDefinition />
+                <ColumnDefinition Width="40"/>
                 <ColumnDefinition />
+                <ColumnDefinition Width="40"/>
                 <ColumnDefinition />
+                <ColumnDefinition Width="40"/>
                 <ColumnDefinition />
+                <ColumnDefinition Width="40"/>
                 <ColumnDefinition />
+                <ColumnDefinition Width="40"/>
                 <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
+                <ColumnDefinition Width="40"/>
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
@@ -417,27 +405,39 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
             <TextBlock Margin="0,0,0,0" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="15" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Digital Input</TextBlock>
-            <local:DiSelector Margin="5,2" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" DataContext="{Binding Path=DiSelectorModels[0]}"/>
-            <TextBlock Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
-            <local:DiSelector Margin="5,2" Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="2" DataContext="{Binding Path=DiSelectorModels[1]}"/>
-            <TextBlock Grid.Row="1" Grid.Column="8" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI2</TextBlock>
-            <local:DiSelector Margin="5,2" Grid.Row="1" Grid.Column="12" Grid.ColumnSpan="2" DataContext="{Binding Path=DiSelectorModels[2]}"/>
-            <TextBlock Grid.Row="1" Grid.Column="14" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI3</TextBlock>
-            <local:DiSelector Margin="5,2" Grid.Row="1" Grid.Column="18" Grid.ColumnSpan="2" DataContext="{Binding Path=DiSelectorModels[3]}"/>
-            <TextBlock Grid.Row="1" Grid.Column="20" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI4</TextBlock>
-            <local:DiSelector Margin="5,2" Grid.Row="1" Grid.Column="24" Grid.ColumnSpan="2" DataContext="{Binding Path=DiSelectorModels[4]}"/>
-            <TextBlock Grid.Row="1" Grid.Column="26" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI5</TextBlock>
-           
-            <local:DiSelector Margin="5,2" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" DataContext="{Binding Path=DiSelectorModels[5]}"/>
-            <TextBlock Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI6</TextBlock>
-            <local:DiSelector Margin="5,2" Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="2" DataContext="{Binding Path=DiSelectorModels[6]}"/>
-            <TextBlock Grid.Row="2" Grid.Column="8" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI7</TextBlock>
-            <local:DiSelector Margin="5,2" Grid.Row="2" Grid.Column="12" Grid.ColumnSpan="2" DataContext="{Binding Path=DiSelectorModels[7]}"/>
-            <TextBlock Grid.Row="2" Grid.Column="14" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI8</TextBlock>
-            <local:DiSelector Margin="5,2" Grid.Row="2" Grid.Column="18" Grid.ColumnSpan="2" DataContext="{Binding Path=DiSelectorModels[8]}"/>
-            <TextBlock Grid.Row="2" Grid.Column="20" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI9</TextBlock>
-            <local:DiSelector Margin="5,2" Grid.Row="2" Grid.Column="24" Grid.ColumnSpan="2" DataContext="{Binding Path=DiSelectorModels[9]}"/>
-            <TextBlock Grid.Row="2" Grid.Column="26" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">DI10</TextBlock>
+            <!--<local:DiSelector Margin="5,2" Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="2" DataContext="{Binding Path=DiSelectorModels[1]}"/>-->
+            <local:DiTypeSelector Margin="5,2" Grid.Row="1" Grid.Column="0" Width="28" Height="28" Value="{Binding Path=AlrmDigIns[0]}"/>
+            <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=DiNames[0]}"></TextBlock>
+            <local:DiTypeSelector Margin="5,2" Grid.Row="1" Grid.Column="2" Width="28" Height="28" Value="{Binding Path=AlrmDigIns[1]}"/>
+            <TextBlock Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=DiNames[1]}"></TextBlock>
+            <local:DiTypeSelector Margin="5,2" Grid.Row="1" Grid.Column="4" Width="28" Height="28" Value="{Binding Path=AlrmDigIns[2]}"/>
+            <TextBlock Grid.Row="1" Grid.Column="5" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=DiNames[2]}"></TextBlock>
+            <local:DiTypeSelector Margin="5,2" Grid.Row="1" Grid.Column="6" Width="28" Height="28" Value="{Binding Path=AlrmDigIns[3]}"/>
+            <TextBlock Grid.Row="1" Grid.Column="7" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=DiNames[3]}"></TextBlock>
+            <local:DiTypeSelector Margin="5,2" Grid.Row="1" Grid.Column="8"  Width="28" Height="28" Value="{Binding Path=AlrmDigIns[4]}"/>
+            <TextBlock Grid.Row="1" Grid.Column="9" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=DiNames[4]}"></TextBlock>
+            <local:DiTypeSelector Margin="5,2" Grid.Row="1" Grid.Column="10"  Width="28" Height="28" Value="{Binding Path=AlrmDigIns[5]}"/>
+            <TextBlock Grid.Row="1" Grid.Column="11" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=DiNames[5]}"></TextBlock>
+            <local:DiTypeSelector Margin="5,2" Grid.Row="1" Grid.Column="12"  Width="28" Height="28" Value="{Binding Path=AlrmDigIns[6]}"/>
+            <TextBlock Grid.Row="1" Grid.Column="13" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=DiNames[6]}"></TextBlock>
+            <local:DiTypeSelector Margin="5,2" Grid.Row="1" Grid.Column="14"  Width="28" Height="28" Value="{Binding Path=AlrmDigIns[7]}"/>
+            <TextBlock Grid.Row="1" Grid.Column="15" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=DiNames[7]}"></TextBlock>
+            <local:DiTypeSelector Margin="5,2" Grid.Row="2" Grid.Column="0" Width="28" Height="28" Value="{Binding Path=AlrmDigIns[8]}"/>
+            <TextBlock Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=DiNames[8]}"></TextBlock>
+            <local:DiTypeSelector Margin="5,2" Grid.Row="2" Grid.Column="2" Width="28" Height="28" Value="{Binding Path=AlrmDigIns[9]}"/>
+            <TextBlock Grid.Row="2" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=DiNames[9]}"></TextBlock>
+            <local:DiTypeSelector Margin="5,2" Grid.Row="2" Grid.Column="4" Width="28" Height="28" Value="{Binding Path=AlrmDigIns[10]}"/>
+            <TextBlock Grid.Row="2" Grid.Column="5" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=DiNames[10]}"></TextBlock>
+            <local:DiTypeSelector Margin="5,2" Grid.Row="2" Grid.Column="6" Width="28" Height="28" Value="{Binding Path=AlrmDigIns[11]}"/>
+            <TextBlock Grid.Row="2" Grid.Column="7" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=DiNames[11]}"></TextBlock>
+            <local:DiTypeSelector Margin="5,2" Grid.Row="2" Grid.Column="8"  Width="28" Height="28" Value="{Binding Path=AlrmDigIns[12]}"/>
+            <TextBlock Grid.Row="2" Grid.Column="9" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=DiNames[12]}"></TextBlock>
+            <local:DiTypeSelector Margin="5,2" Grid.Row="2" Grid.Column="10"  Width="28" Height="28" Value="{Binding Path=AlrmDigIns[13]}"/>
+            <TextBlock Grid.Row="2" Grid.Column="11" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=DiNames[13]}"></TextBlock>
+            <local:DiTypeSelector Margin="5,2" Grid.Row="2" Grid.Column="12"  Width="28" Height="28" Value="{Binding Path=AlrmDigIns[14]}"/>
+            <TextBlock Grid.Row="2" Grid.Column="13" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=DiNames[14]}"></TextBlock>
+            <local:DiTypeSelector Margin="5,2" Grid.Row="2" Grid.Column="14"  Width="28" Height="28" Value="{Binding Path=AlrmDigIns[15]}"/>
+            <TextBlock Grid.Row="2" Grid.Column="15" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=DiNames[15]}"></TextBlock>
         </Grid>
         <Rectangle Margin="-15,0" Grid.Row="22" Grid.Column="1" Grid.ColumnSpan="28" Height="1" Fill="#FFAAA5A5" />
         <Grid Grid.Row="23" Grid.Column="1" Grid.RowSpan="3" Grid.ColumnSpan="28">
@@ -466,38 +466,38 @@
             </Grid.RowDefinitions>
             <TextBlock Margin="0,0,0,0" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="15" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Digital Output</TextBlock>
             <local:DioSwitcher Margin="5,2" Grid.Row="1" Grid.Column="0" Width="28" Height="28" Value="{Binding Path=DigOutput1}"/>
-            <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
+            <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=DoName1}"></TextBlock>
             <!--<local:DioSwitcher Margin="5,2" Grid.Row="1" Grid.Column="2" Width="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight}" Value="{Binding Path=DigOutput2}"/>-->
             <local:DioSwitcher Margin="5,2" Grid.Row="1" Grid.Column="2" Width="28" Height="28" Value="{Binding Path=DigOutput2}"/>
-            <TextBlock Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center">DI2</TextBlock>
+            <TextBlock Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=DoName2}"></TextBlock>
             <local:DioSwitcher Margin="5,2" Grid.Row="1" Grid.Column="4" Width="28" Height="28" Value="{Binding Path=DigOutput3}"/>
-            <TextBlock Grid.Row="1" Grid.Column="5" HorizontalAlignment="Left" VerticalAlignment="Center">DI3</TextBlock>
+            <TextBlock Grid.Row="1" Grid.Column="5" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=DoName3}"></TextBlock>
             <local:DioSwitcher Margin="5,2" Grid.Row="1" Grid.Column="6" Width="28" Height="28" Value="{Binding Path=DigOutput4}"/>
-            <TextBlock Grid.Row="1" Grid.Column="7" HorizontalAlignment="Left" VerticalAlignment="Center">DI4</TextBlock>
+            <TextBlock Grid.Row="1" Grid.Column="7" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=DoName4}"></TextBlock>
             <local:DioSwitcher Margin="5,2" Grid.Row="1" Grid.Column="8" Width="28" Height="28" Value="{Binding Path=DigOutput5}"/>
-            <TextBlock Grid.Row="1" Grid.Column="9" HorizontalAlignment="Left" VerticalAlignment="Center">DI5</TextBlock>
-            <local:DioSwitcher Margin="5,2" Grid.Row="1" Grid.Column="10" Width="28" Height="28" Value="{Binding Path=DigOutput5}"/>
-            <TextBlock Grid.Row="1" Grid.Column="11" HorizontalAlignment="Left" VerticalAlignment="Center">DI6</TextBlock>
-            <local:DioSwitcher Margin="5,2" Grid.Row="1" Grid.Column="12" Width="28" Height="28" Value="{Binding Path=DigOutput5}"/>
-            <TextBlock Grid.Row="1" Grid.Column="13" HorizontalAlignment="Left" VerticalAlignment="Center">DI7</TextBlock>
-            <local:DioSwitcher Margin="5,2" Grid.Row="1" Grid.Column="14" Width="28" Height="28" Value="{Binding Path=DigOutput5}"/>
-            <TextBlock Grid.Row="1" Grid.Column="15" HorizontalAlignment="Left" VerticalAlignment="Center">DI8</TextBlock>
-            <local:DioSwitcher Margin="5,2" Grid.Row="2" Grid.Column="0" Width="28" Height="28" Value="{Binding Path=DigOutput1}"/>
-            <TextBlock Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">DI1</TextBlock>
-            <local:DioSwitcher Margin="5,2" Grid.Row="2" Grid.Column="2" Width="28" Height="28" Value="{Binding Path=DigOutput2}"/>
-            <TextBlock Grid.Row="2" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center">DI2</TextBlock>
-            <local:DioSwitcher Margin="5,2" Grid.Row="2" Grid.Column="4" Width="28" Height="28" Value="{Binding Path=DigOutput3}"/>
-            <TextBlock Grid.Row="2" Grid.Column="5" HorizontalAlignment="Left" VerticalAlignment="Center">DI3</TextBlock>
-            <local:DioSwitcher Margin="5,2" Grid.Row="2" Grid.Column="6" Width="28" Height="28" Value="{Binding Path=DigOutput4}"/>
-            <TextBlock Grid.Row="2" Grid.Column="7" HorizontalAlignment="Left" VerticalAlignment="Center">DI4</TextBlock>
-            <local:DioSwitcher Margin="5,2" Grid.Row="2" Grid.Column="8" Width="28" Height="28" Value="{Binding Path=DigOutput5}"/>
-            <TextBlock Grid.Row="2" Grid.Column="9" HorizontalAlignment="Left" VerticalAlignment="Center">DI5</TextBlock>
-            <local:DioSwitcher Margin="5,2" Grid.Row="2" Grid.Column="10" Width="28" Height="28" Value="{Binding Path=DigOutput5}"/>
-            <TextBlock Grid.Row="2" Grid.Column="11" HorizontalAlignment="Left" VerticalAlignment="Center">DI6</TextBlock>
-            <local:DioSwitcher Margin="5,2" Grid.Row="2" Grid.Column="12" Width="28" Height="28" Value="{Binding Path=DigOutput5}"/>
-            <TextBlock Grid.Row="2" Grid.Column="13" HorizontalAlignment="Left" VerticalAlignment="Center">DI7</TextBlock>
-            <local:DioSwitcher Margin="5,2" Grid.Row="2" Grid.Column="14" Width="28" Height="28" Value="{Binding Path=DigOutput5}"/>
-            <TextBlock Grid.Row="2" Grid.Column="15" HorizontalAlignment="Left" VerticalAlignment="Center">DI8</TextBlock>
+            <TextBlock Grid.Row="1" Grid.Column="9" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=DoName5}"></TextBlock>
+            <local:DioSwitcher Margin="5,2" Grid.Row="1" Grid.Column="10" Width="28" Height="28" Value="{Binding Path=DigOutput6}"/>
+            <TextBlock Grid.Row="1" Grid.Column="11" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=DoName6}"></TextBlock>
+            <local:DioSwitcher Margin="5,2" Grid.Row="1" Grid.Column="12" Width="28" Height="28" Value="{Binding Path=DigOutput7}"/>
+            <TextBlock Grid.Row="1" Grid.Column="13" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=DoName7}"></TextBlock>
+            <local:DioSwitcher Margin="5,2" Grid.Row="1" Grid.Column="14" Width="28" Height="28" Value="{Binding Path=DigOutput8}"/>
+            <TextBlock Grid.Row="1" Grid.Column="15" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=DoName8}"></TextBlock>
+            <local:DioSwitcher Margin="5,2" Grid.Row="2" Grid.Column="0" Width="28" Height="28" Value="{Binding Path=DigOutput9}"/>
+            <TextBlock Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=DoName9}"></TextBlock>
+            <local:DioSwitcher Margin="5,2" Grid.Row="2" Grid.Column="2" Width="28" Height="28" Value="{Binding Path=DigOutput10}"/>
+            <TextBlock Grid.Row="2" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=DoName10}"></TextBlock>
+            <local:DioSwitcher Margin="5,2" Grid.Row="2" Grid.Column="4" Width="28" Height="28" Value="{Binding Path=DigOutput11}"/>
+            <TextBlock Grid.Row="2" Grid.Column="5" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=DoName11}"></TextBlock>
+            <local:DioSwitcher Margin="5,2" Grid.Row="2" Grid.Column="6" Width="28" Height="28" Value="{Binding Path=DigOutput12}"/>
+            <TextBlock Grid.Row="2" Grid.Column="7" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=DoName12}"></TextBlock>
+            <local:DioSwitcher Margin="5,2" Grid.Row="2" Grid.Column="8" Width="28" Height="28" Value="{Binding Path=DigOutput13}"/>
+            <TextBlock Grid.Row="2" Grid.Column="9" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=DoName3}"></TextBlock>
+            <local:DioSwitcher Margin="5,2" Grid.Row="2" Grid.Column="10" Width="28" Height="28" Value="{Binding Path=DigOutput14}"/>
+            <TextBlock Grid.Row="2" Grid.Column="11" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=DoName14}"></TextBlock>
+            <local:DioSwitcher Margin="5,2" Grid.Row="2" Grid.Column="12" Width="28" Height="28" Value="{Binding Path=DigOutput15}"/>
+            <TextBlock Grid.Row="2" Grid.Column="13" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=DoName15}"></TextBlock>
+            <local:DioSwitcher Margin="5,2" Grid.Row="2" Grid.Column="14" Width="28" Height="28" Value="{Binding Path=DigOutput16}"/>
+            <TextBlock Grid.Row="2" Grid.Column="15" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=DoName16}"></TextBlock>
 
         </Grid>
         <Rectangle Margin="-15,0" Grid.Row="26" Grid.Column="1" Grid.ColumnSpan="28" Height="1" Fill="#FFAAA5A5" />

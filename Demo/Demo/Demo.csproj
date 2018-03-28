@@ -125,6 +125,9 @@
     <Compile Include="ui\view\DioSpSwitcher.xaml.cs">
       <DependentUpon>DioSpSwitcher.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ui\view\DiTypeSelector.xaml.cs">
+      <DependentUpon>DiTypeSelector.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ui\view\DiTypeSwitcher.xaml.cs">
       <DependentUpon>DiTypeSwitcher.xaml</DependentUpon>
     </Compile>
@@ -209,6 +212,10 @@
     <Compile Include="utilities\BitUtility.cs" />
     <Compile Include="utilities\Properties.cs" />
     <Page Include="ui\view\DioSpSwitcher.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ui\view\DiTypeSelector.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

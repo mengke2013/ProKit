@@ -2,6 +2,7 @@
 using Demo.ui.view;
 using Demo.model;
 using Demo.service;
+using System;
 
 namespace Demo.controller
 {
@@ -290,6 +291,26 @@ namespace Demo.controller
             viewModel.EvName22 = settings.EvNames[21];
             viewModel.EvName23 = settings.EvNames[22];
             viewModel.EvName24 = settings.EvNames[23];
+            viewModel.DoName1 = settings.DoNames[0];
+            viewModel.DoName2 = settings.DoNames[1];
+            viewModel.DoName3 = settings.DoNames[2];
+            viewModel.DoName4 = settings.DoNames[3];
+            viewModel.DoName5 = settings.DoNames[4];
+            viewModel.DoName6 = settings.DoNames[5];
+            viewModel.DoName7 = settings.DoNames[6];
+            viewModel.DoName8 = settings.DoNames[7];
+            viewModel.DoName9 = settings.DoNames[8];
+            viewModel.DoName10 = settings.DoNames[9];
+            viewModel.DoName11 = settings.DoNames[10];
+            viewModel.DoName12 = settings.DoNames[11];
+            viewModel.DoName13 = settings.DoNames[12];
+            viewModel.DoName14 = settings.DoNames[13];
+            viewModel.DoName15 = settings.DoNames[14];
+            viewModel.DoName16 = settings.DoNames[15];
+
+            string[] diNames = new string[16];
+            Array.Copy(settings.DiNames, 0, diNames, 0, 16);
+            viewModel.DiNames = diNames;
         }
     }
 }

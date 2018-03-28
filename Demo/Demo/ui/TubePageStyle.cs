@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +10,7 @@ using System.Windows.Media;
 
 namespace Demo.ui
 {
-    public class TubePageStyle
+    public class TubePageStyle : INotifyPropertyChanged
     {
         private Style mStyleTextBox;
         private Style mStyleLabel;
@@ -17,6 +18,8 @@ namespace Demo.ui
         private Setter mTextBoxHeightSetter;
         private Setter mLabelWidthSetter;
         private Setter mLabelHeightSetter;
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public TubePageStyle()
         {
@@ -129,7 +132,7 @@ namespace Demo.ui
         }
         public object TextBoxHeight
         {
-            get { return mTextBoxHeightSetter.Value; }
+            get { return mTextBoxHeightSetter==null?0:mTextBoxHeightSetter.Value; }
             set
             {
                 if (mTextBoxHeightSetter == null || !mTextBoxHeightSetter.IsSealed)
@@ -142,6 +145,7 @@ namespace Demo.ui
                         Value = value
                     };
                     mStyleTextBox.Setters.Add(mTextBoxHeightSetter);
+                    Notify("TextBoxHeight");
                 }
             }
             //set { if (!mTextBoxHeightSetter.IsSealed) mTextBoxHeightSetter.Value = value; }
@@ -166,7 +170,7 @@ namespace Demo.ui
         }
         public object LabelHeight
         {
-            get { return mLabelHeightSetter.Value; }
+            get { return mLabelHeightSetter==null?50: mLabelHeightSetter.Value; }
             set
             {
                 if (mLabelHeightSetter == null || !mLabelHeightSetter.IsSealed)
@@ -191,6 +195,15 @@ namespace Demo.ui
         public Style LabelStyle
         {
             get { return mStyleLabel; }
+        }
+
+        void Notify(string propName)
+        {
+
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propName));
+            }
         }
     }
 
