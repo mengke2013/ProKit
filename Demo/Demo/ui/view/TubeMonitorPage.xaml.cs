@@ -164,10 +164,8 @@ namespace Demo.ui.view
             MonitorView.MainGrid.ActualWidth, MonitorView.MainGrid.ActualHeight);
             MonitorView.MainGrid.Clip = visibleArea;
 
-
+            mController.LoadMonitorData(selectedTube);
             mTubeMonitorPageModel.TubePageStyle = mTubePageStyle;
-
-
             DataContext = mTubeMonitorPageModel;
             mTubeMonitorPageModel.EditVisible = mManual ? Visibility.Visible : Visibility.Hidden;
             if (mManual)

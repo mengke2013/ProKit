@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Demo.ui.view"
              mc:Ignorable="d" 
-             d:DesignHeight="900" d:DesignWidth="950">
+             d:DesignHeight="900" d:DesignWidth="1200">
 
     <Grid Name="MainGrid">
         <Grid.RowDefinitions>
@@ -69,7 +69,7 @@
                         <Rectangle Margin="-10,-15,0,0"  Width="20" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="{Binding Path=Ev14Color}" StrokeThickness="2"></Rectangle>
                         <local:DioSpSwitcher Margin="5,-10,0,0" Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" HorizontalAlignment="Left" VerticalAlignment="Top" Value="{Binding Path=Ev14}" Visibility="{Binding Path=EditVisible}"/>
                     </WrapPanel>
-                    <Label Margin="-30,5,0,0" Width="60" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Background="White" BorderBrush="Black" BorderThickness="1">N2 High</Label>
+                    <Label Margin="-30,5,0,0" Width="60" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Background="White" BorderBrush="Black" BorderThickness="1" Content="{Binding Path=EvNames[13]}"></Label>
 
                 </StackPanel>
                 <Rectangle Margin="0,0,-10,17" Grid.Row="1" Grid.Column="9" Grid.RowSpan="7" Grid.ColumnSpan="2"  Height="2" VerticalAlignment="Bottom"  Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
@@ -85,12 +85,12 @@
                         <Rectangle Margin="-10,-15,0,0"  Width="20" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="{Binding Path=Ev2Color}" StrokeThickness="2"></Rectangle>
                         <local:DioSpSwitcher Margin="5,-10,0,0" Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" HorizontalAlignment="Left" VerticalAlignment="Top" Value="{Binding Path=Ev2}" Visibility="{Binding Path=EditVisible}"/>
                     </WrapPanel>
-                    <Label Margin="-20,5,0,0" Width="40" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Background="White" BorderBrush="Black" BorderThickness="1">H2</Label>
+                    <Label Margin="-20,5,0,0" Width="40" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Background="White" BorderBrush="Black" BorderThickness="1" Content="{Binding Path=EvNames[1]}"></Label>
                 </StackPanel>
 
                 <StackPanel Grid.Row="3" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="2" VerticalAlignment="Center">
                     <Border Margin="0,0,0,0"  Width="40" Height="30"  BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="2">
-                        <TextBlock Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">H2</TextBlock>
+                        <TextBlock Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366" Text="{Binding Path=Gas2Name}"></TextBlock>
                     </Border>
                     <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="0,5,0,0" Text="{Binding  Path=Gas2Sp}" Background="yellow" Visibility="{Binding Path=EditVisible}"></local:ClickSelectTextBox>
                     <Label  Margin="0,5,0,0" Style="{Binding Path=TubePageStyle.LabelStyle}" Content="{Binding  Path=Gas2CurMeas}"></Label>
@@ -108,11 +108,11 @@
                         <Rectangle Margin="-10,-15,0,0"  Width="20" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="{Binding Path=Ev1Color}" StrokeThickness="2"></Rectangle>
                         <local:DioSpSwitcher Margin="5,-10,0,0" Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" HorizontalAlignment="Left" VerticalAlignment="Top" Value="{Binding Path=Ev1}" Visibility="{Binding Path=EditVisible}" />
                     </WrapPanel>
-                    <Label Margin="-20,5,0,0" Width="40" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Background="White" BorderBrush="Black" BorderThickness="1">N2</Label>
+                    <Label Margin="-20,5,0,0" Width="40" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Background="White" BorderBrush="Black" BorderThickness="1" Content="{Binding Path=EvNames[0]}"></Label>
                 </StackPanel>
                 <StackPanel Grid.Row="3" Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="2" VerticalAlignment="Center">
                     <Border Margin="0,0,0,0"  Width="40" Height="30"  BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="2">
-                        <TextBlock Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">N2</TextBlock>
+                        <TextBlock Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366" Text="{Binding Path=Gas1Name}"></TextBlock>
                     </Border>
                     <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="0,5,0,0" Text="{Binding  Path=Gas1Sp}" Background="yellow" Visibility="{Binding Path=EditVisible}"></local:ClickSelectTextBox>
                     <Label Margin="0,5,0,0" Style="{Binding Path=TubePageStyle.LabelStyle}" Content="{Binding  Path=Gas1CurMeas}"></Label>
@@ -129,11 +129,11 @@
                         <Rectangle Margin="-10,-15,0,0"  Width="20" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="{Binding Path=Ev6Color}" StrokeThickness="2"></Rectangle>
                         <local:DioSpSwitcher Margin="5,-10,0,0" Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" HorizontalAlignment="Left" VerticalAlignment="Top" Value="{Binding Path=Ev6}" Visibility="{Binding Path=EditVisible}"/>
                     </WrapPanel>
-                    <Label Margin="-20,5,0,0" Width="40" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Background="White" BorderBrush="Black" BorderThickness="1">BCl3</Label>
+                    <Label Margin="-20,5,0,0" Width="40" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Background="White" BorderBrush="Black" BorderThickness="1" Content="{Binding Path=EvNames[5]}"></Label>
                 </StackPanel>
                 <StackPanel Grid.Row="3" Grid.Column="5" Grid.RowSpan="2" Grid.ColumnSpan="2" VerticalAlignment="Center">
                     <Border Margin="0,0,0,0"  Width="40" Height="30"  BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="2">
-                        <TextBlock Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">BCl3</TextBlock>
+                        <TextBlock Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366" Text="{Binding Path=Gas6Name}"></TextBlock>
                     </Border>
                     <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="0,5,0,0" Text="{Binding  Path=Gas6Sp}" Background="yellow" Visibility="{Binding Path=EditVisible}"></local:ClickSelectTextBox>
                     <Label Margin="0,5,0,0" Style="{Binding Path=TubePageStyle.LabelStyle}" Content="{Binding  Path=Gas6CurMeas}"></Label>
@@ -143,7 +143,7 @@
                         <Rectangle Margin="-10,-10,0,0"   Width="20" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="{Binding Path=Ev10Color}" StrokeThickness="2"></Rectangle>
                         <local:DioSpSwitcher Margin="5,-5,0,0" Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" HorizontalAlignment="Left" VerticalAlignment="Top" Value="{Binding Path=Ev10}" Visibility="{Binding Path=EditVisible}"/>
                     </WrapPanel>
-                    <Label Margin="-30,5,0,0" Width="60" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Background="White" BorderBrush="Black" BorderThickness="1">BCl3 Up</Label>
+                    <Label Margin="-30,5,0,0" Width="60" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Background="White" BorderBrush="Black" BorderThickness="1" Content="{Binding Path=EvNames[9]}"></Label>
                 </StackPanel>
                 <Rectangle Margin="0,0,0,53" Grid.Row="1" Grid.Column="9" Grid.RowSpan="7" Grid.ColumnSpan="2"  Height="2" VerticalAlignment="Bottom"  Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
 
@@ -158,11 +158,11 @@
                         <Rectangle Margin="-10,-15,0,0"  Width="20" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="{Binding Path=Ev8Color}" StrokeThickness="2"></Rectangle>
                         <local:DioSpSwitcher Margin="5,-10,0,0" Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" HorizontalAlignment="Left" VerticalAlignment="Top" Value="{Binding Path=Ev8}" Visibility="{Binding Path=EditVisible}"/>
                     </WrapPanel>
-                    <Label Margin="-35,5,0,0" Width="70" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Background="White" BorderBrush="Black" BorderThickness="1">N2 Ballast</Label>
+                    <Label Margin="-35,5,0,0" Width="70" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Background="White" BorderBrush="Black" BorderThickness="1" Content="{Binding Path=EvNames[7]}"></Label>
                 </StackPanel>
                 <StackPanel Grid.Row="3" Grid.Column="3" Grid.RowSpan="2" Grid.ColumnSpan="2" VerticalAlignment="Center">
                     <Border Margin="0,0,0,0"  Width="40" Height="30"  BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="2">
-                        <TextBlock Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">PC8</TextBlock>
+                        <TextBlock Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366" Text="{Binding Path=Gas8Name}"></TextBlock>
                     </Border>
                     <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="0,5,0,0" Text="{Binding  Path=Gas8Sp}" Background="yellow" Visibility="{Binding Path=EditVisible}"></local:ClickSelectTextBox>
                     <Label Margin="0,5,0,0" Style="{Binding Path=TubePageStyle.LabelStyle}"  Content="{Binding  Path=Gas8CurMeas}"></Label>
@@ -173,7 +173,7 @@
                         <Rectangle Margin="-15,-5,0,0"   Width="30" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="{Binding Path=Ev11Color}" StrokeThickness="2"></Rectangle>
                         <local:DioSpSwitcher Margin="-10,-50,0,0" Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" HorizontalAlignment="Left" VerticalAlignment="Top" Value="{Binding Path=Ev11}" Visibility="{Binding Path=EditVisible}"/>
                     </StackPanel>
-                    <Label Margin="-35,5,0,0" Width="70" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Background="White" BorderBrush="Black" BorderThickness="1">Purge BCl3</Label>
+                    <Label Margin="-35,5,0,0" Width="70" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Background="White" BorderBrush="Black" BorderThickness="1" Content="{Binding Path=EvNames[10]}"></Label>
                 </StackPanel>
                 <Rectangle Margin="0,0,0,5" Grid.Row="1" Grid.Column="9" Grid.RowSpan="7" Grid.ColumnSpan="2"  Height="2" VerticalAlignment="Bottom" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
                 <Rectangle Margin="0,5,0,0" Grid.Row="7" Grid.Column="10" Grid.RowSpan="2" Grid.ColumnSpan="1" Height="5" Width="2" VerticalAlignment="Bottom"  HorizontalAlignment="Right" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
@@ -189,11 +189,11 @@
                         <Rectangle Margin="-10,-15,0,0"  Width="20" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="{Binding Path=Ev3Color}" StrokeThickness="2"></Rectangle>
                         <local:DioSpSwitcher Margin="5,-10,0,0" Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" HorizontalAlignment="Left" VerticalAlignment="Top" Value="{Binding Path=Ev3}" Visibility="{Binding Path=EditVisible}"/>
                     </WrapPanel>
-                    <Label Margin="-25,5,0,0" Width="50" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Background="White" BorderBrush="Black" BorderThickness="1">O2 Mix</Label>
+                    <Label Margin="-25,5,0,0" Width="50" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Background="White" BorderBrush="Black" BorderThickness="1" Content="{Binding Path=EvNames[2]}"></Label>
                 </StackPanel>
                 <StackPanel Grid.Row="3" Grid.Column="6" Grid.RowSpan="2" Grid.ColumnSpan="2" VerticalAlignment="Center">
                     <Border Margin="0,0,0,0"  Width="40" Height="30"  BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="2">
-                        <TextBlock Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">O2</TextBlock>
+                        <TextBlock Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366" Text="{Binding Path=Gas5Name}"></TextBlock>
                     </Border>
                     <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="0,5,0,0" Text="{Binding  Path=Gas5Sp}" Background="yellow" Visibility="{Binding Path=EditVisible}"></local:ClickSelectTextBox>
                     <Label Margin="0,5,0,0" Style="{Binding Path=TubePageStyle.LabelStyle}" Content="{Binding  Path=Gas5CurMeas}"></Label>
@@ -210,7 +210,7 @@
                         <Rectangle Margin="-10,-15,0,0"  Width="20" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="#FF301313" Fill="{Binding Path=Ev5Color}" StrokeThickness="2"></Rectangle>
                         <local:DioSpSwitcher Margin="5,-10,0,0" Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" HorizontalAlignment="Left" VerticalAlignment="Top" Value="{Binding Path=Ev5}" Visibility="{Binding Path=EditVisible}"/>
                     </WrapPanel>
-                    <Label Margin="-40,5,0,0" Width="80" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Background="White" BorderBrush="Black" BorderThickness="1">O2 Dillution</Label>
+                    <Label Margin="-40,5,0,0" Width="80" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Background="White" BorderBrush="Black" BorderThickness="1" Content="{Binding Path=EvNames[4]}"></Label>
                 </StackPanel>
                 <Border Margin="3,0,3,0" Height="10" Grid.Row="5" Grid.Column="7" Grid.ColumnSpan="1" Grid.RowSpan="2"  VerticalAlignment="Top" BorderBrush="#FF301313" Background="{Binding Path=Pipe5Color}" BorderThickness="0,2,0,2"></Border>
                 <Border Margin="0,0,-10,77" Grid.Row="1" Grid.Column="9" Grid.RowSpan="7" Grid.ColumnSpan="2"  Height="2" VerticalAlignment="Bottom"  BorderBrush="#FF301313" Background="#FFD3C7C7" BorderThickness="0,2,2,2"></Border>
@@ -711,7 +711,7 @@
                     <Rectangle Margin="0,0,0,0" Width="2" Height="35" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
                     <StackPanel>
                         <Rectangle Margin="0,0,0,5" Width="10" VerticalAlignment="Top" Height="30" Stroke="#FF301313" Fill="#FFff7700" StrokeThickness="2"></Rectangle>
-                        <TextBlock Margin="0,0,0,5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Tube Presure</TextBlock>
+                        <TextBlock Margin="0,0,0,5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366" Text="{Binding Path=Ana1Name}"></TextBlock>
                         <Label Margin="0,5,0,5" Style="{Binding Path=TubePageStyle.LabelStyle}" Content="{Binding  Path=Ana1CurMeas}"></Label>
                         <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Text="{Binding  Path=Ana1Sp}" Background="yellow" Visibility="{Binding Path=EditVisible}"></local:ClickSelectTextBox>
                     </StackPanel>
@@ -722,7 +722,7 @@
                             <WrapPanel Margin="0,5" HorizontalAlignment="Center" VerticalAlignment="Center">
                                 <local:DioSpSwitcher Margin="-15,0,0,0" Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" HorizontalAlignment="Left"  Value="{Binding Path=Do6}" Visibility="{Binding Path=EditVisible}"/>
                                 <Rectangle Margin="2,0,5,0"  Width="12" Height="12"  Stroke="#FF301313" Fill="{Binding Path=Do6Color}" StrokeThickness="1"></Rectangle>
-                                <TextBlock Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Gate</TextBlock>
+                                <TextBlock Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366" Text="{Binding Path=Ana4Name}">Gate</TextBlock>
                             </WrapPanel>
                         </Border>
                         <Label Margin="0,5,0,0" Style="{Binding Path=TubePageStyle.LabelStyle}" Content="{Binding  Path=Ana4CurMeas}"></Label>
@@ -733,7 +733,7 @@
                     <Rectangle Margin="0,0,0,0" Width="2" Height="35" VerticalAlignment="Top"  Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
                     <StackPanel>
                         <Rectangle Margin="0,0,0,5" Width="10" VerticalAlignment="Top" Height="30" Stroke="#FF301313" Fill="#FFff7700" StrokeThickness="2"></Rectangle>
-                        <TextBlock Margin="0,0,0,5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Ballast Presure</TextBlock>
+                        <TextBlock Margin="0,0,0,5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366" Text="{Binding Path=Ana3Name}"></TextBlock>
                         <Label Margin="0,5,0,0" Style="{Binding Path=TubePageStyle.LabelStyle}" Content="{Binding  Path=Ana3CurMeas}"></Label>
                     </StackPanel>
                 </Grid>
@@ -751,7 +751,7 @@
                 </Grid>
                 <Rectangle Margin="0,6,0,0" Grid.Row="2" Grid.Column="12" Width="10" Height="10" HorizontalAlignment="Right" VerticalAlignment="Top" Stroke="#FF301313" Fill="#FFD3C7C7" StrokeThickness="2"></Rectangle>
             </Grid>
-            <Grid Margin="50,0,50,0" Grid.Row="4" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="1">
+            <Grid Margin="50,0,50,0" Grid.Row="4" Grid.Column="1" Grid.RowSpan="4" Grid.ColumnSpan="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
                     <ColumnDefinition />
@@ -763,6 +763,14 @@
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
                     <RowDefinition />
                     <RowDefinition />
                     <RowDefinition />
@@ -783,81 +791,161 @@
                     </Ellipse>-->
                     <Rectangle Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" Visibility="Hidden"/>
                     <Rectangle Margin="10,0" Height="12" Width="12" Stroke="#FF301313" VerticalAlignment="Center" Fill="{Binding Path=Di1Color}" StrokeThickness="2"></Rectangle>
-                    <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center">Digital Input 1</TextBlock>
+                    <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=DiNames[0]}"></TextBlock>
                 </WrapPanel>
                 <WrapPanel Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2">
                     <Rectangle Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" Visibility="Hidden"/>
                     <Rectangle Margin="10,0" Height="12" Width="12" Stroke="#FF301313" VerticalAlignment="Center" Fill="{Binding Path=Di2Color}" StrokeThickness="2"></Rectangle>
-                    <TextBlock HorizontalAlignment="left" VerticalAlignment="Center">Digital Input 2</TextBlock>
+                    <TextBlock HorizontalAlignment="left" VerticalAlignment="Center" Text="{Binding Path=DiNames[1]}"></TextBlock>
                 </WrapPanel>
                 <WrapPanel Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2">
                     <Rectangle Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" Visibility="Hidden"/>
                     <Rectangle Margin="10,0" Height="12" Width="12" Stroke="#FF301313" VerticalAlignment="Center" Fill="{Binding Path=Di3Color}" StrokeThickness="2"></Rectangle>
-                    <TextBlock HorizontalAlignment="left" VerticalAlignment="Center">Digital Input 3</TextBlock>
+                    <TextBlock HorizontalAlignment="left" VerticalAlignment="Center" Text="{Binding Path=DiNames[2]}"></TextBlock>
                 </WrapPanel>
                 <WrapPanel Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="2">
                     <Rectangle Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" Visibility="Hidden"/>
                     <Rectangle Margin="10,0" Height="12" Width="12" Stroke="#FF301313" VerticalAlignment="Center" Fill="{Binding Path=Di4Color}" StrokeThickness="2"></Rectangle>
-                    <TextBlock HorizontalAlignment="left" VerticalAlignment="Center">Digital Input 4</TextBlock>
+                    <TextBlock HorizontalAlignment="left" VerticalAlignment="Center" Text="{Binding Path=DiNames[3]}"></TextBlock>
                 </WrapPanel>
                 <WrapPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
                     <Rectangle Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" Visibility="Hidden"/>
                     <Rectangle Margin="10,0" Height="12" Width="12" Stroke="#FF301313" VerticalAlignment="Center" Fill="{Binding Path=Di5Color}" StrokeThickness="2"></Rectangle>
-                    <TextBlock HorizontalAlignment="left" VerticalAlignment="Center">Digital Input 5</TextBlock>
+                    <TextBlock HorizontalAlignment="left" VerticalAlignment="Center" Text="{Binding Path=DiNames[4]}"></TextBlock>
                 </WrapPanel>
                 <WrapPanel Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2">
                     <Rectangle Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" Visibility="Hidden"/>
                     <Rectangle Margin="10,0" Height="12" Width="12" Stroke="#FF301313" VerticalAlignment="Center" Fill="{Binding Path=Di6Color}" StrokeThickness="2"></Rectangle>
-                    <TextBlock HorizontalAlignment="left" VerticalAlignment="Center">Digital Input 6</TextBlock>
+                    <TextBlock HorizontalAlignment="left" VerticalAlignment="Center" Text="{Binding Path=DiNames[5]}"></TextBlock>
                 </WrapPanel>
                 <WrapPanel Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2">
                     <Rectangle Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" Visibility="Hidden"/>
                     <Rectangle Margin="10,0" Height="12" Width="12" Stroke="#FF301313" VerticalAlignment="Center" Fill="{Binding Path=Di7Color}" StrokeThickness="2"></Rectangle>
-                    <TextBlock HorizontalAlignment="left" VerticalAlignment="Center">Digital Input 7</TextBlock>
+                    <TextBlock HorizontalAlignment="left" VerticalAlignment="Center" Text="{Binding Path=DiNames[6]}"></TextBlock>
                 </WrapPanel>
                 <WrapPanel Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="2">
                     <Rectangle Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" Visibility="Hidden"/>
                     <Rectangle Margin="10,0" Height="12" Width="12" Stroke="#FF301313" VerticalAlignment="Center" Fill="{Binding Path=Di8Color}" StrokeThickness="2"></Rectangle>
-                    <TextBlock HorizontalAlignment="left" VerticalAlignment="Center">Digital Input 8</TextBlock>
+                    <TextBlock HorizontalAlignment="left" VerticalAlignment="Center" Text="{Binding Path=DiNames[7]}"></TextBlock>
+                </WrapPanel>
+                <WrapPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" >
+                    <Rectangle Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" Visibility="Hidden"/>
+                    <Rectangle Margin="10,0" Height="12" Width="12" Stroke="#FF301313" VerticalAlignment="Center" Fill="{Binding Path=Di9Color}" StrokeThickness="2"></Rectangle>
+                    <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=DiNames[8]}"></TextBlock>
+                </WrapPanel>
+                <WrapPanel Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2">
+                    <Rectangle Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" Visibility="Hidden"/>
+                    <Rectangle Margin="10,0" Height="12" Width="12" Stroke="#FF301313" VerticalAlignment="Center" Fill="{Binding Path=Di10Color}" StrokeThickness="2"></Rectangle>
+                    <TextBlock HorizontalAlignment="left" VerticalAlignment="Center" Text="{Binding Path=DiNames[9]}"></TextBlock>
+                </WrapPanel>
+                <WrapPanel Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="2">
+                    <Rectangle Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" Visibility="Hidden"/>
+                    <Rectangle Margin="10,0" Height="12" Width="12" Stroke="#FF301313" VerticalAlignment="Center" Fill="{Binding Path=Di11Color}" StrokeThickness="2"></Rectangle>
+                    <TextBlock HorizontalAlignment="left" VerticalAlignment="Center" Text="{Binding Path=DiNames[10]}"></TextBlock>
+                </WrapPanel>
+                <WrapPanel Grid.Row="3" Grid.Column="6" Grid.ColumnSpan="2">
+                    <Rectangle Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" Visibility="Hidden"/>
+                    <Rectangle Margin="10,0" Height="12" Width="12" Stroke="#FF301313" VerticalAlignment="Center" Fill="{Binding Path=Di12Color}" StrokeThickness="2"></Rectangle>
+                    <TextBlock HorizontalAlignment="left" VerticalAlignment="Center" Text="{Binding Path=DiNames[11]}"></TextBlock>
+                </WrapPanel>
+                <WrapPanel Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2">
+                    <Rectangle Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" Visibility="Hidden"/>
+                    <Rectangle Margin="10,0" Height="12" Width="12" Stroke="#FF301313" VerticalAlignment="Center" Fill="{Binding Path=Di13Color}" StrokeThickness="2"></Rectangle>
+                    <TextBlock HorizontalAlignment="left" VerticalAlignment="Center" Text="{Binding Path=DiNames[12]}"></TextBlock>
+                </WrapPanel>
+                <WrapPanel Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2">
+                    <Rectangle Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" Visibility="Hidden"/>
+                    <Rectangle Margin="10,0" Height="12" Width="12" Stroke="#FF301313" VerticalAlignment="Center" Fill="{Binding Path=Di14Color}" StrokeThickness="2"></Rectangle>
+                    <TextBlock HorizontalAlignment="left" VerticalAlignment="Center" Text="{Binding Path=DiNames[13]}"></TextBlock>
+                </WrapPanel>
+                <WrapPanel Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="2">
+                    <Rectangle Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" Visibility="Hidden"/>
+                    <Rectangle Margin="10,0" Height="12" Width="12" Stroke="#FF301313" VerticalAlignment="Center" Fill="{Binding Path=Di15Color}" StrokeThickness="2"></Rectangle>
+                    <TextBlock HorizontalAlignment="left" VerticalAlignment="Center" Text="{Binding Path=DiNames[14]}"></TextBlock>
+                </WrapPanel>
+                <WrapPanel Grid.Row="4" Grid.Column="6" Grid.ColumnSpan="2">
+                    <Rectangle Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" Visibility="Hidden"/>
+                    <Rectangle Margin="10,0" Height="12" Width="12" Stroke="#FF301313" VerticalAlignment="Center" Fill="{Binding Path=Di16Color}" StrokeThickness="2"></Rectangle>
+                    <TextBlock HorizontalAlignment="left" VerticalAlignment="Center" Text="{Binding Path=DiNames[15]}"></TextBlock>
+                </WrapPanel>
+                <WrapPanel Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2">
+                    <Rectangle Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" Visibility="Hidden"/>
+                    <Rectangle Margin="10,0" Height="12" Width="12" Stroke="#FF301313" VerticalAlignment="Center" Fill="{Binding Path=Di17Color}" StrokeThickness="2"></Rectangle>
+                    <TextBlock HorizontalAlignment="left" VerticalAlignment="Center" Text="{Binding Path=DiNames[16]}"></TextBlock>
+                </WrapPanel>
+                <WrapPanel Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2">
+                    <Rectangle Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" Visibility="Hidden"/>
+                    <Rectangle Margin="10,0" Height="12" Width="12" Stroke="#FF301313" VerticalAlignment="Center" Fill="{Binding Path=Di18Color}" StrokeThickness="2"></Rectangle>
+                    <TextBlock HorizontalAlignment="left" VerticalAlignment="Center" Text="{Binding Path=DiNames[17]}"></TextBlock>
+                </WrapPanel>
+                <WrapPanel Grid.Row="5" Grid.Column="4" Grid.ColumnSpan="2">
+                    <Rectangle Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" Visibility="Hidden"/>
+                    <Rectangle Margin="10,0" Height="12" Width="12" Stroke="#FF301313" VerticalAlignment="Center" Fill="{Binding Path=Di19Color}" StrokeThickness="2"></Rectangle>
+                    <TextBlock HorizontalAlignment="left" VerticalAlignment="Center" Text="{Binding Path=DiNames[18]}"></TextBlock>
+                </WrapPanel>
+                <WrapPanel Grid.Row="5" Grid.Column="6" Grid.ColumnSpan="2">
+                    <Rectangle Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" Visibility="Hidden"/>
+                    <Rectangle Margin="10,0" Height="12" Width="12" Stroke="#FF301313" VerticalAlignment="Center" Fill="{Binding Path=Di20Color}" StrokeThickness="2"></Rectangle>
+                    <TextBlock HorizontalAlignment="left" VerticalAlignment="Center" Text="{Binding Path=DiNames[19]}"></TextBlock>
+                </WrapPanel>
+                <WrapPanel Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2">
+                    <Rectangle Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" Visibility="Hidden"/>
+                    <Rectangle Margin="10,0" Height="12" Width="12" Stroke="#FF301313" VerticalAlignment="Center" Fill="{Binding Path=Di21Color}" StrokeThickness="2"></Rectangle>
+                    <TextBlock HorizontalAlignment="left" VerticalAlignment="Center" Text="{Binding Path=DiNames[20]}"></TextBlock>
+                </WrapPanel>
+                <WrapPanel Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2">
+                    <Rectangle Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" Visibility="Hidden"/>
+                    <Rectangle Margin="10,0" Height="12" Width="12" Stroke="#FF301313" VerticalAlignment="Center" Fill="{Binding Path=Di22Color}" StrokeThickness="2"></Rectangle>
+                    <TextBlock HorizontalAlignment="left" VerticalAlignment="Center" Text="{Binding Path=DiNames[21]}"></TextBlock>
+                </WrapPanel>
+                <WrapPanel Grid.Row="6" Grid.Column="4" Grid.ColumnSpan="2">
+                    <Rectangle Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" Visibility="Hidden"/>
+                    <Rectangle Margin="10,0" Height="12" Width="12" Stroke="#FF301313" VerticalAlignment="Center" Fill="{Binding Path=Di23Color}" StrokeThickness="2"></Rectangle>
+                    <TextBlock HorizontalAlignment="left" VerticalAlignment="Center" Text="{Binding Path=DiNames[22]}"></TextBlock>
+                </WrapPanel>
+                <WrapPanel Grid.Row="6" Grid.Column="6" Grid.ColumnSpan="2">
+                    <Rectangle Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" Visibility="Hidden"/>
+                    <Rectangle Margin="10,0" Height="12" Width="12" Stroke="#FF301313" VerticalAlignment="Center" Fill="{Binding Path=Di24Color}" StrokeThickness="2"></Rectangle>
+                    <TextBlock HorizontalAlignment="left" VerticalAlignment="Center" Text="{Binding Path=DiNames[21]}"></TextBlock>
                 </WrapPanel>
 
-                <TextBlock Margin="10,0,0,0" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="8" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Digital Output</TextBlock>
-                <WrapPanel Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2">
+                <TextBlock Margin="10,0,0,0" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="8" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Digital Output</TextBlock>
+                <WrapPanel Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2">
                     <local:DioSpSwitcher Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" Value="{Binding Path=Do1}" Visibility="{Binding Path=EditVisible}"/>
                     <Rectangle Margin="10,0" Height="12" Width="12" Stroke="#FF301313" VerticalAlignment="Center" Fill="{Binding Path=Do1Color}" StrokeThickness="2"></Rectangle>
                     <TextBlock HorizontalAlignment="left" VerticalAlignment="Center">Digital Output 1</TextBlock>
                 </WrapPanel>
-                <WrapPanel Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2">
+                <WrapPanel Grid.Row="8" Grid.Column="2" Grid.ColumnSpan="2">
                     <local:DioSpSwitcher Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" Value="{Binding Path=Do2}" Visibility="{Binding Path=EditVisible}"/>
                     <Rectangle Margin="10,0" Height="12" Width="12" Stroke="#FF301313" VerticalAlignment="Center" Fill="{Binding Path=Do2Color}" StrokeThickness="2"></Rectangle>
                     <TextBlock HorizontalAlignment="left" VerticalAlignment="Center">Digital Output 2</TextBlock>
                 </WrapPanel>
-                <WrapPanel Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="2">
+                <WrapPanel Grid.Row="8" Grid.Column="4" Grid.ColumnSpan="2">
                     <local:DioSpSwitcher Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" Value="{Binding Path=Do3}" Visibility="{Binding Path=EditVisible}"/>
                     <Rectangle Margin="10,0" Height="12" Width="12" Stroke="#FF301313" VerticalAlignment="Center" Fill="{Binding Path=Do3Color}" StrokeThickness="2"></Rectangle>
                     <TextBlock HorizontalAlignment="left" VerticalAlignment="Center">Digital Output 3</TextBlock>
                 </WrapPanel>
-                <WrapPanel Grid.Row="4" Grid.Column="6" Grid.ColumnSpan="2">
+                <WrapPanel Grid.Row="8" Grid.Column="6" Grid.ColumnSpan="2">
                     <local:DioSpSwitcher Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" Value="{Binding Path=Do4}" Visibility="{Binding Path=EditVisible}"/>
                     <Rectangle Margin="10,0" Height="12" Width="12" Stroke="#FF301313" VerticalAlignment="Center" Fill="{Binding Path=Do4Color}" StrokeThickness="2"></Rectangle>
                     <TextBlock HorizontalAlignment="left" VerticalAlignment="Center">Digital Output 4</TextBlock>
                 </WrapPanel>
-                <WrapPanel Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2">
+                <WrapPanel Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2">
                     <local:DioSpSwitcher Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" Value="{Binding Path=Do5}" Visibility="{Binding Path=EditVisible}"/>
                     <Rectangle Margin="10,0" Height="12" Width="12" Stroke="#FF301313" VerticalAlignment="Center" Fill="{Binding Path=Do5Color}" StrokeThickness="2"></Rectangle>
                     <TextBlock HorizontalAlignment="left" VerticalAlignment="Center">Digital Output 5</TextBlock>
                 </WrapPanel>
-                <WrapPanel Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2">
+                <WrapPanel Grid.Row="9" Grid.Column="2" Grid.ColumnSpan="2">
                     <local:DioSpSwitcher Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" Value="{Binding Path=Do6}" Visibility="{Binding Path=EditVisible}"/>
                     <Rectangle Margin="10,0" Height="12" Width="12" Stroke="#FF301313" VerticalAlignment="Center" Fill="{Binding Path=Do6Color}" StrokeThickness="2"></Rectangle>
                     <TextBlock HorizontalAlignment="left" VerticalAlignment="Center">Digital Output 6</TextBlock>
                 </WrapPanel>
-                <WrapPanel Grid.Row="5" Grid.Column="4" Grid.ColumnSpan="2">
+                <WrapPanel Grid.Row="9" Grid.Column="4" Grid.ColumnSpan="2">
                     <local:DioSpSwitcher Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" Value="{Binding Path=Do7}" Visibility="{Binding Path=EditVisible}"/>
                     <Rectangle Margin="10,0" Height="12" Width="12" Stroke="#FF301313" VerticalAlignment="Center" Fill="{Binding Path=Do7Color}" StrokeThickness="2"></Rectangle>
                     <TextBlock HorizontalAlignment="left" VerticalAlignment="Center">Digital Output 7</TextBlock>
                 </WrapPanel>
-                <WrapPanel Grid.Row="5" Grid.Column="6" Grid.ColumnSpan="2">
+                <WrapPanel Grid.Row="9" Grid.Column="6" Grid.ColumnSpan="2">
                     <local:DioSpSwitcher Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" Value="{Binding Path=Do8}" Visibility="{Binding Path=EditVisible}"/>
                     <Rectangle Margin="10,0" Height="12" Width="12" Stroke="#FF301313" VerticalAlignment="Center" Fill="{Binding Path=Do8Color}" StrokeThickness="2"></Rectangle>
                     <TextBlock HorizontalAlignment="left" VerticalAlignment="Center">Digital Output 8</TextBlock>

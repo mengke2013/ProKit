@@ -129,9 +129,9 @@ namespace Demo.ui.model
             }
             mDigOutput = 0;
 
-            mEvNames = new string[24];
+            mEvNames = new string[16];
             mDoNames = new string[16];
-            mDiNames = new string[16];
+            mDiNames = new string[24];
 
         }
 

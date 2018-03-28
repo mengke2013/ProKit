@@ -58,16 +58,16 @@
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
-            <RowDefinition />
             <RowDefinition MaxHeight="10"/>
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
-            <RowDefinition MaxHeight="10"/>
-            <RowDefinition />
-            <RowDefinition />
             <RowDefinition />
             <RowDefinition MaxHeight="10"/>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition MaxHeight="10"/>
+            <RowDefinition />
             <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
@@ -223,7 +223,7 @@
             <TextBlock Margin="0,0,5,0" Grid.Row="1" Grid.Column="9" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" >Alarm</TextBlock>
             <TextBlock Margin="0,0,5,0" Grid.Row="1" Grid.Column="11" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" >Next</TextBlock>
 
-            <TextBlock Margin="0,0,5,0" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">Zone1:</TextBlock>
+            <TextBlock Margin="0,0,5,0" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">Zone1</TextBlock>
             <local:IntExtTemperSwitcher Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Value="{Binding Path=TemperRegulInt}"></local:IntExtTemperSwitcher>
             <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Temper1Sp}" />
             <CheckBox  Margin="5,2" Grid.Row="2" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding Path=Ramp7}"/>
@@ -232,7 +232,7 @@
             <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Temper1Alarm}"/>
             <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="2" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Temper1Next}"/>
 
-            <TextBlock Margin="0,0,5,0" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">Zone2:</TextBlock>
+            <TextBlock Margin="0,0,5,0" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">Zone2</TextBlock>
             <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Temper2Sp}" />
             <CheckBox  Margin="5,2" Grid.Row="3" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding Path=Ramp8}"/>
             <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Temper2Abort}"/>
@@ -240,7 +240,7 @@
             <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Temper2Alarm}"/>
             <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="3" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Temper2Next}"/>
 
-            <TextBlock Margin="0,0,5,0" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">Zone3:</TextBlock>
+            <TextBlock Margin="0,0,5,0" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">Zone3</TextBlock>
             <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Temper3Sp}" />
             <CheckBox  Margin="5,2" Grid.Row="4" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding Path=Ramp9}"/>
             <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Temper3Abort}"/>
@@ -248,7 +248,7 @@
             <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Temper3Alarm}"/>
             <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="4" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Temper3Next}"/>
 
-            <TextBlock Margin="0,0,5,0" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">Zone4:</TextBlock>
+            <TextBlock Margin="0,0,5,0" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">Zone4</TextBlock>
             <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Temper4Sp}" />
             <CheckBox  Margin="5,2" Grid.Row="5" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding Path=Ramp10}"/>
             <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Temper4Abort}"/>
@@ -256,7 +256,7 @@
             <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Temper4Alarm}"/>
             <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="5" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Temper4Next}"/>
 
-            <TextBlock Margin="0,0,5,0" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">Zone5:</TextBlock>
+            <TextBlock Margin="0,0,5,0" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">Zone5</TextBlock>
             <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Temper5Sp}" />
             <CheckBox  Margin="5,2" Grid.Row="6" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding Path=Ramp11}"/>
             <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Temper5Abort}"/>
@@ -264,7 +264,7 @@
             <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="9" Grid.ColumnSpan="2" Text="{Binding Path=Temper5Alarm}"/>
             <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="6" Grid.Column="11" Grid.ColumnSpan="2" Text="{Binding Path=Temper5Next}"/>
 
-            <TextBlock Margin="0,0,5,0" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">Zone6:</TextBlock>
+            <TextBlock Margin="0,0,5,0" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">Zone6</TextBlock>
             <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="5,2" Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Path=Temper6Sp}" />
             <CheckBox  Margin="5,2" Grid.Row="7" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding Path=Ramp12}"/>
             <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="7" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding Path=Temper6Abort}"/>
@@ -302,7 +302,7 @@
             <local:ClickSelectTextBox Style="{Binding Path=TubePageStyle.TextBoxStyle}" Margin="2,2" Grid.Row="1" Grid.Column="8" Grid.ColumnSpan="2" Text="{Binding Path=AxisSpeedSp}"/>
         </Grid>
         <Rectangle Margin="-15,0" Grid.Row="13" Grid.Column="1" Grid.ColumnSpan="28" Height="1" Fill="#FFAAA5A5" />
-        <Grid Grid.Row="14" Grid.Column="1" Grid.RowSpan="4" Grid.ColumnSpan="28">
+        <Grid Grid.Row="14" Grid.Column="1" Grid.RowSpan="3" Grid.ColumnSpan="28">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="40"/>
                 <ColumnDefinition />
@@ -322,7 +322,6 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition />
                 <RowDefinition />
                 <RowDefinition />
                 <RowDefinition />
@@ -360,27 +359,11 @@
             <TextBlock Grid.Row="2" Grid.Column="13" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=EvName15}"></TextBlock>
             <local:DioSwitcher Margin="5,2" Grid.Row="2" Grid.Column="14" Width="28" Height="28" Value="{Binding Path=Ev16}"/>
             <TextBlock Grid.Row="2" Grid.Column="15" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=EvName16}"></TextBlock>
-            <local:DioSwitcher Margin="5,2" Grid.Row="3" Grid.Column="0" Width="28" Height="28" Value="{Binding Path=Ev17}"/>
-            <TextBlock Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=EvName17}"></TextBlock>
-            <local:DioSwitcher Margin="5,2" Grid.Row="3" Grid.Column="2" Width="28" Height="28" Value="{Binding Path=Ev18}"/>
-            <TextBlock Grid.Row="3" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=EvName18}"></TextBlock>
-            <local:DioSwitcher Margin="5,2" Grid.Row="3" Grid.Column="4" Width="28" Height="28" Value="{Binding Path=Ev19}"/>
-            <TextBlock Grid.Row="3" Grid.Column="5" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=EvName19}"></TextBlock>
-            <local:DioSwitcher Margin="5,2" Grid.Row="3" Grid.Column="6" Width="28" Height="28" Value="{Binding Path=Ev20}"/>
-            <TextBlock Grid.Row="3" Grid.Column="7" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=EvName20}"></TextBlock>
-            <local:DioSwitcher Margin="5,2" Grid.Row="3" Grid.Column="8" Width="28" Height="28" Value="{Binding Path=Ev21}"/>
-            <TextBlock Grid.Row="3" Grid.Column="9" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=EvName21}"></TextBlock>
-            <local:DioSwitcher Margin="5,2" Grid.Row="3" Grid.Column="10" Width="28" Height="28" Value="{Binding Path=Ev22}"/>
-            <TextBlock Grid.Row="3" Grid.Column="11" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=EvName22}"></TextBlock>
-            <local:DioSwitcher Margin="5,2" Grid.Row="3" Grid.Column="12" Width="28" Height="28" Value="{Binding Path=Ev23}"/>
-            <TextBlock Grid.Row="3" Grid.Column="13" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=EvName23}"></TextBlock>
-            <local:DioSwitcher Margin="5,2" Grid.Row="3" Grid.Column="14" Width="28" Height="28" Value="{Binding Path=Ev24}"/>
-            <TextBlock Grid.Row="3" Grid.Column="15" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=EvName24}"></TextBlock>
-
+            
             
         </Grid>
-        <Rectangle Margin="-15,0" Grid.Row="18" Grid.Column="1" Grid.ColumnSpan="28" Height="1" Fill="#FFAAA5A5" />
-        <Grid Grid.Row="19" Grid.Column="1" Grid.RowSpan="3" Grid.ColumnSpan="28">
+        <Rectangle Margin="-15,0" Grid.Row="17" Grid.Column="1" Grid.ColumnSpan="28" Height="1" Fill="#FFAAA5A5" />
+        <Grid Grid.Row="18" Grid.Column="1" Grid.RowSpan="4" Grid.ColumnSpan="28">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="40"/>
                 <ColumnDefinition />
@@ -400,6 +383,7 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
+                <RowDefinition />
                 <RowDefinition />
                 <RowDefinition />
                 <RowDefinition />
@@ -438,9 +422,25 @@
             <TextBlock Grid.Row="2" Grid.Column="13" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=DiNames[14]}"></TextBlock>
             <local:DiTypeSelector Margin="5,2" Grid.Row="2" Grid.Column="14"  Width="28" Height="28" Value="{Binding Path=AlrmDigIns[15]}"/>
             <TextBlock Grid.Row="2" Grid.Column="15" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=DiNames[15]}"></TextBlock>
+            <local:DiTypeSelector Margin="5,2" Grid.Row="3" Grid.Column="0" Width="28" Height="28" Value="{Binding Path=AlrmDigIns[16]}"/>
+            <TextBlock Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=DiNames[16]}"></TextBlock>
+            <local:DiTypeSelector Margin="5,2" Grid.Row="3" Grid.Column="2" Width="28" Height="28" Value="{Binding Path=AlrmDigIns[17]}"/>
+            <TextBlock Grid.Row="3" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=DiNames[17]}"></TextBlock>
+            <local:DiTypeSelector Margin="5,2" Grid.Row="3" Grid.Column="4" Width="28" Height="28" Value="{Binding Path=AlrmDigIns[18]}"/>
+            <TextBlock Grid.Row="3" Grid.Column="5" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=DiNames[18]}"></TextBlock>
+            <local:DiTypeSelector Margin="5,2" Grid.Row="3" Grid.Column="6" Width="28" Height="28" Value="{Binding Path=AlrmDigIns[19]}"/>
+            <TextBlock Grid.Row="3" Grid.Column="7" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=DiNames[19]}"></TextBlock>
+            <local:DiTypeSelector Margin="5,2" Grid.Row="3" Grid.Column="8"  Width="28" Height="28" Value="{Binding Path=AlrmDigIns[20]}"/>
+            <TextBlock Grid.Row="3" Grid.Column="9" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=DiNames[20]}"></TextBlock>
+            <local:DiTypeSelector Margin="5,2" Grid.Row="3" Grid.Column="10"  Width="28" Height="28" Value="{Binding Path=AlrmDigIns[21]}"/>
+            <TextBlock Grid.Row="3" Grid.Column="11" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=DiNames[21]}"></TextBlock>
+            <local:DiTypeSelector Margin="5,2" Grid.Row="3" Grid.Column="12"  Width="28" Height="28" Value="{Binding Path=AlrmDigIns[22]}"/>
+            <TextBlock Grid.Row="3" Grid.Column="13" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=DiNames[22]}"></TextBlock>
+            <local:DiTypeSelector Margin="5,2" Grid.Row="3" Grid.Column="14"  Width="28" Height="28" Value="{Binding Path=AlrmDigIns[23]}"/>
+            <TextBlock Grid.Row="3" Grid.Column="15" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=DiNames[23]}"></TextBlock>
         </Grid>
         <Rectangle Margin="-15,0" Grid.Row="22" Grid.Column="1" Grid.ColumnSpan="28" Height="1" Fill="#FFAAA5A5" />
-        <Grid Grid.Row="23" Grid.Column="1" Grid.RowSpan="3" Grid.ColumnSpan="28">
+        <Grid Grid.Row="23" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="28">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="40"/>
                 <ColumnDefinition />
@@ -462,7 +462,6 @@
             <Grid.RowDefinitions>
                 <RowDefinition />
                 <RowDefinition />
-                <RowDefinition />
             </Grid.RowDefinitions>
             <TextBlock Margin="0,0,0,0" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="15" FontSize="14" FontWeight="Bold" Foreground="#FF646366">Digital Output</TextBlock>
             <local:DioSwitcher Margin="5,2" Grid.Row="1" Grid.Column="0" Width="28" Height="28" Value="{Binding Path=DigOutput1}"/>
@@ -482,26 +481,9 @@
             <TextBlock Grid.Row="1" Grid.Column="13" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=DoName7}"></TextBlock>
             <local:DioSwitcher Margin="5,2" Grid.Row="1" Grid.Column="14" Width="28" Height="28" Value="{Binding Path=DigOutput8}"/>
             <TextBlock Grid.Row="1" Grid.Column="15" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=DoName8}"></TextBlock>
-            <local:DioSwitcher Margin="5,2" Grid.Row="2" Grid.Column="0" Width="28" Height="28" Value="{Binding Path=DigOutput9}"/>
-            <TextBlock Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=DoName9}"></TextBlock>
-            <local:DioSwitcher Margin="5,2" Grid.Row="2" Grid.Column="2" Width="28" Height="28" Value="{Binding Path=DigOutput10}"/>
-            <TextBlock Grid.Row="2" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=DoName10}"></TextBlock>
-            <local:DioSwitcher Margin="5,2" Grid.Row="2" Grid.Column="4" Width="28" Height="28" Value="{Binding Path=DigOutput11}"/>
-            <TextBlock Grid.Row="2" Grid.Column="5" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=DoName11}"></TextBlock>
-            <local:DioSwitcher Margin="5,2" Grid.Row="2" Grid.Column="6" Width="28" Height="28" Value="{Binding Path=DigOutput12}"/>
-            <TextBlock Grid.Row="2" Grid.Column="7" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=DoName12}"></TextBlock>
-            <local:DioSwitcher Margin="5,2" Grid.Row="2" Grid.Column="8" Width="28" Height="28" Value="{Binding Path=DigOutput13}"/>
-            <TextBlock Grid.Row="2" Grid.Column="9" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=DoName3}"></TextBlock>
-            <local:DioSwitcher Margin="5,2" Grid.Row="2" Grid.Column="10" Width="28" Height="28" Value="{Binding Path=DigOutput14}"/>
-            <TextBlock Grid.Row="2" Grid.Column="11" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=DoName14}"></TextBlock>
-            <local:DioSwitcher Margin="5,2" Grid.Row="2" Grid.Column="12" Width="28" Height="28" Value="{Binding Path=DigOutput15}"/>
-            <TextBlock Grid.Row="2" Grid.Column="13" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=DoName15}"></TextBlock>
-            <local:DioSwitcher Margin="5,2" Grid.Row="2" Grid.Column="14" Width="28" Height="28" Value="{Binding Path=DigOutput16}"/>
-            <TextBlock Grid.Row="2" Grid.Column="15" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=DoName16}"></TextBlock>
-
         </Grid>
-        <Rectangle Margin="-15,0" Grid.Row="26" Grid.Column="1" Grid.ColumnSpan="28" Height="1" Fill="#FFAAA5A5" />
-        <Grid Grid.Row="27" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="28">
+        <Rectangle Margin="-15,0" Grid.Row="25" Grid.Column="1" Grid.ColumnSpan="28" Height="1" Fill="#FFAAA5A5" />
+        <Grid Grid.Row="26" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="28">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />

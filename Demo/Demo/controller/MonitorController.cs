@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 using Demo.ui.view;
 using Demo.ui.model;
@@ -21,6 +22,12 @@ namespace Demo.controller
             mPage = page;
         }
 
+        public void LoadMonitorData(byte tubeIndex)
+        {
+            SettingsService.Instance.LoadSettings(tubeIndex);
+            UpdateLabels();
+        }
+
         public void LoadMonitorSetpoints()
         {
             TubeMonitorViewModel uiModel = mPage.PageModel;
@@ -37,10 +44,10 @@ namespace Demo.controller
             TubeMonitorViewModel uiModel = mPage.PageModel;
             uiModel.ProcessStatus = ProcessService.Instance.GetProcessStatus(uiModel.SelectedTube);
             uiModel.ProcessName = ProcessService.Instance.GetProcessName(uiModel.SelectedTube);
-            uiModel.StepName = ProcessService.Instance.GetStepName(uiModel.SelectedTube); 
-            uiModel.StepTime = ProcessService.Instance.GetStepEscapedTime(uiModel.SelectedTube); 
+            uiModel.StepName = ProcessService.Instance.GetStepName(uiModel.SelectedTube);
+            uiModel.StepTime = ProcessService.Instance.GetStepEscapedTime(uiModel.SelectedTube);
             //uiModel.Gas1Sp = ProcessService.Instance.GetGas1Sp(uiModel.SelectedTube).ToString();
-            uiModel.Gas1CurMeas = ProcessService.Instance.GetGas1Sp(uiModel.SelectedTube) +"/"+ProcessService.Instance.GetGas1Value(uiModel.SelectedTube);
+            uiModel.Gas1CurMeas = ProcessService.Instance.GetGas1Sp(uiModel.SelectedTube) + "/" + ProcessService.Instance.GetGas1Value(uiModel.SelectedTube);
             uiModel.Gas2CurMeas = ProcessService.Instance.GetGas2Sp(uiModel.SelectedTube) + "/" + ProcessService.Instance.GetGas2Value(uiModel.SelectedTube);
             uiModel.Gas5CurMeas = ProcessService.Instance.GetGas5Sp(uiModel.SelectedTube) + "/" + ProcessService.Instance.GetGas5Value(uiModel.SelectedTube);
             uiModel.Gas6CurMeas = ProcessService.Instance.GetGas6Sp(uiModel.SelectedTube) + "/" + ProcessService.Instance.GetGas6Value(uiModel.SelectedTube);
@@ -93,7 +100,7 @@ namespace Demo.controller
 
             uiModel.PaddleSpeedSp = ProcessService.Instance.GetPaddleSpeedSp(uiModel.SelectedTube);
             uiModel.PaddlePosAct = ProcessService.Instance.GetPaddlePosSp(uiModel.SelectedTube) + "/" + ProcessService.Instance.GetPaddlePosAct(uiModel.SelectedTube);
-            uiModel.PaddlePosActI = ProcessService.Instance.GetPaddlePosAct(uiModel.SelectedTube); 
+            uiModel.PaddlePosActI = ProcessService.Instance.GetPaddlePosAct(uiModel.SelectedTube);
             uiModel.EvValue = ProcessService.Instance.GetEv(uiModel.SelectedTube);
             uiModel.DiValue = ProcessService.Instance.GetDi(uiModel.SelectedTube);
             uiModel.DoValue = ProcessService.Instance.GetDo(uiModel.SelectedTube);
@@ -154,7 +161,7 @@ namespace Demo.controller
             {
                 //display message: nothing is changed
             }
-            
+
         }
 
         public void StartProcess(byte tubeIndex, ProcessService.OnStartProcessComplete callback)
@@ -208,7 +215,7 @@ namespace Demo.controller
             EditProcess process = ProcessService.Instance.GetEditProcess();
             if (process.EditGas1Sp != monitorPageModel.Gas1Sp)
             {
-                History history = new History("Gas1Sp_T"+ monitorPageModel.SelectedTube);
+                History history = new History("Gas1Sp_T" + monitorPageModel.SelectedTube);
                 history.OldValue = process.EditGas1Sp;
                 history.NewValue = monitorPageModel.Gas1Sp;
                 mCommitItems.Add(history);
@@ -348,6 +355,32 @@ namespace Demo.controller
             process.EditPaddleSpeedSp = monitorPageModel.EditPaddleSpeedSp;
             process.EditEvSp = monitorPageModel.EvSp;
             process.EditDoSp = monitorPageModel.DoSp;
+        }
+
+        private void UpdateLabels()
+        {
+            TubeMonitorViewModel viewModel = mPage.PageModel;
+            Settings settings = SettingsService.Instance.GetSettings();
+            viewModel.Gas1Name = settings.Gas1Name;
+            viewModel.Gas2Name = settings.Gas2Name;
+            viewModel.Gas5Name = settings.Gas5Name;
+            viewModel.Gas6Name = settings.Gas6Name;
+            viewModel.Gas8Name = settings.Gas8Name;
+            viewModel.Ana1Name = settings.Ana1Name;
+            viewModel.Ana3Name = settings.Ana3Name;
+            viewModel.Ana4Name = settings.Ana4Name;
+
+            string[] evNames = new string[32];
+            Array.Copy(settings.EvNames, 0, evNames, 0, 32);
+            viewModel.EvNames = evNames;
+
+            string[] diNames = new string[32];
+            Array.Copy(settings.DiNames, 0, diNames, 0, 32);
+            viewModel.DiNames = diNames;
+
+            string[] doNames = new string[16];
+            Array.Copy(settings.DoNames, 0, doNames, 0, 16);
+            viewModel.DoNames = doNames;
         }
     }
 }

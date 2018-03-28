@@ -83,6 +83,16 @@ namespace Demo.ui.model
         private int mDoValue;
 
         private string mGas1Name;
+        private string mGas2Name;
+        private string mGas5Name;
+        private string mGas6Name;
+        private string mGas8Name;
+        private string mAna1Name;
+        private string mAna3Name;
+        private string mAna4Name;
+        private string[] mEvNames;
+        private string[] mDiNames;
+        private string[] mDoNames;
 
         private int mProcessRemainingTime;
 
@@ -115,6 +125,10 @@ namespace Demo.ui.model
             {
                 mDoColors[i] = "#FFD3C7C7";
             }
+
+            mEvNames = new string[32];
+            mDiNames = new string[32];
+            mDoNames = new string[32];
         }
 
         public int DiValue
@@ -585,7 +599,82 @@ namespace Demo.ui.model
 
         public string Di8Color
         {
+            get { return mDiColors[7]; }
+        }
+
+        public string Di9Color
+        {
             get { return mDiColors[8]; }
+        }
+        public string Di10Color
+        {
+            get { return mDiColors[9]; }
+        }
+        public string Di11Color
+        {
+            get { return mDiColors[10]; }
+        }
+        public string Di12Color
+        {
+            get { return mDiColors[11]; }
+        }
+        public string Di13Color
+        {
+            get { return mDiColors[12]; }
+        }
+        public string Di14Color
+        {
+            get { return mDiColors[13]; }
+        }
+
+        public string Di15Color
+        {
+            get { return mDiColors[14]; }
+        }
+
+        public string Di16Color
+        {
+            get { return mDiColors[15]; }
+        }
+
+        public string Di17Color
+        {
+            get { return mDiColors[16]; }
+        }
+
+        public string Di18Color
+        {
+            get { return mDiColors[17]; }
+        }
+
+        public string Di19Color
+        {
+            get { return mDiColors[18]; }
+        }
+
+        public string Di20Color
+        {
+            get { return mDiColors[19]; }
+        }
+
+        public string Di21Color
+        {
+            get { return mDiColors[20]; }
+        }
+
+        public string Di22Color
+        {
+            get { return mDiColors[20]; }
+        }
+
+        public string Di23Color
+        {
+            get { return mDiColors[22]; }
+        }
+
+        public string Di24Color
+        {
+            get { return mDiColors[23]; }
         }
 
         public string Ev1Color
@@ -1224,6 +1313,106 @@ namespace Demo.ui.model
             {
                 mGas1Name = value;
                 Notify("Gas1Name");
+            }
+        }
+
+        public string Gas2Name
+        {
+            get { return mGas2Name; }
+            set
+            {
+                mGas2Name = value;
+                Notify("Gas2Name");
+            }
+        }
+
+        public string Gas5Name
+        {
+            get { return mGas5Name; }
+            set
+            {
+                mGas5Name = value;
+                Notify("Gas5Name");
+            }
+        }
+
+        public string Gas6Name
+        {
+            get { return mGas6Name; }
+            set
+            {
+                mGas6Name = value;
+                Notify("Gas6Name");
+            }
+        }
+
+        public string Gas8Name
+        {
+            get { return mGas8Name; }
+            set
+            {
+                mGas8Name = value;
+                Notify("Gas8Name");
+            }
+        }
+
+        public string Ana1Name
+        {
+            get { return mAna1Name; }
+            set
+            {
+                mAna1Name = value;
+                Notify("Ana1Name");
+            }
+        }
+
+        public string Ana3Name
+        {
+            get { return mAna3Name; }
+            set
+            {
+                mAna3Name = value;
+                Notify("Ana3Name");
+            }
+        }
+
+        public string Ana4Name
+        {
+            get { return mAna4Name; }
+            set
+            {
+                mAna4Name = value;
+                Notify("Ana4Name");
+            }
+        }
+
+        public string[] EvNames
+        {
+            get { return mEvNames; }
+            set
+            {
+                mEvNames = value;
+                Notify("EvNames");
+            }
+        }
+
+        public string[] DiNames
+        {
+            get { return mDiNames; }
+            set
+            {
+                mDiNames = value;
+                Notify("DiNames");
+            }
+        }
+
+        public string[] DoNames
+        {
+            get { return mDoNames; }
+            set
+            {
+                mDoNames = value;
+                Notify("DoNames");
             }
         }
 
