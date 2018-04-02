@@ -30,20 +30,13 @@
                         <RowDefinition />
                     </Grid.RowDefinitions>
                     <WrapPanel Margin="5,8,5,2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="3" Grid.ColumnSpan="2">
-                        <Button Margin="5,0,5,0" >
+                        <Button Click="AcknowledgeButton_Click">
                             <StackPanel Width="40" Height="40">
-                                <Image Source="/Demo;component/images/down.png" Width="25" Height="25"></Image>
-                                <TextBlock>Detail</TextBlock>
-                            </StackPanel>
-                        </Button>
-                        <Button >
-                            <StackPanel Width="40" Height="40">
-                                <Image Source="/Demo;component/images/up.png" Width="25" Height="25"></Image>
-                                <TextBlock>Acknowledge</TextBlock>
+                                <Image Source="/Demo;component/images/submit.png"></Image>
                             </StackPanel>
                         </Button>
                     </WrapPanel>
-                    <TextBlock Margin="15,0,15,3" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="16" Foreground="#FF236EC9" FontWeight="Bold" Text="{Binding Path=ProcessName}"></TextBlock>
+                    <TextBlock Margin="15,0,15,3" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="16" Foreground="#FF236EC9" FontWeight="Bold" Text="Alarm"></TextBlock>
                 </Grid>
             </DockPanel>
         </Grid>
@@ -61,8 +54,8 @@
             <Rectangle Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Margin="30,0,30,2" Height="1" Fill="#FFAAA5A5" />
 
 
-            <Grid Name="gridRecipePanel" Margin="5,0" Grid.Row="1" Grid.Column="1">
-                <local:TubeAlarmView x:Name="SettingsView" Grid.Row="1" Grid.Column="1" />
+            <Grid Margin="5,0" Grid.Row="1" Grid.Column="1">
+                <local:TubeAlarmView x:Name="AlarmView" Grid.Row="1" Grid.Column="1" />
 
             </Grid>
         </Grid>

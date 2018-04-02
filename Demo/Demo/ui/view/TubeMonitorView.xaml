@@ -359,7 +359,7 @@
                         <Label Style="{Binding Path=TubePageStyle.LabelStyle}" Margin="5,2" Grid.Row="3" Grid.Column="5" Content="{Binding  Path=Temper5HeatPower}"></Label>
                         <Label Style="{Binding Path=TubePageStyle.LabelStyle}" Margin="5,2" Grid.Row="3" Grid.Column="6" Content="{Binding  Path=Temper6HeatPower}"></Label>
                         <Button Margin="0,0,0,5" Grid.Row="3" Grid.Column="7" Grid.ColumnSpan="2" Width="70"  Content="PID" FontSize="14" FontWeight="Bold" Foreground="#FF646366"></Button>
-                       
+
                         <DockPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1">
                             <TextBlock Margin="5,2" DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#FF646366" Visibility="{Binding Path=EditVisible}">Setpoint:</TextBlock>
                         </DockPanel>
@@ -833,7 +833,7 @@
                     <Rectangle Margin="10,0" Height="12" Width="12" Stroke="#FF301313" VerticalAlignment="Center" Fill="{Binding Path=Di9Color}" StrokeThickness="2"></Rectangle>
                     <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=DiNames[8]}"></TextBlock>
                 </WrapPanel>
-                <WrapPanel Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2">
+                <WrapPanel  Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="3">
                     <Rectangle Height="{Binding Path=TubePageStyle.LabelHeight}" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}" Visibility="Hidden"/>
                     <Rectangle Margin="10,0" Height="12" Width="12" Stroke="#FF301313" VerticalAlignment="Center" Fill="{Binding Path=Di10Color}" StrokeThickness="2"></Rectangle>
                     <TextBlock HorizontalAlignment="left" VerticalAlignment="Center" Text="{Binding Path=DiNames[9]}"></TextBlock>

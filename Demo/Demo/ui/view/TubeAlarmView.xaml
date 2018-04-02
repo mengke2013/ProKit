@@ -6,7 +6,44 @@
              xmlns:local="clr-namespace:Demo.ui.view"
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="1000">
+    <UserControl.Resources>
+        <Style x:Key="MyDataGridCellStyle" TargetType="{x:Type DataGridCell}">
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type DataGridCell}">
+                        <Grid Background="{TemplateBinding Background}">
+                            <ContentPresenter Margin="10,0" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="Background" Value="LightBlue"/>
+                    <Setter Property="Foreground" Value="Black"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
     <Grid>
-       
+        <DataGrid x:Name="dataGrid" ItemsSource="{Binding}" Margin="20" AutoGenerateColumns="False" RowHeight="32">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Width="80" Binding="{Binding ID}" CellStyle="{StaticResource MyDataGridCellStyle}" />
+                <DataGridTextColumn x:Name="DescriptionColumn" Header="Description" Binding="{Binding Description}" CellStyle="{StaticResource MyDataGridCellStyle}" />
+            </DataGrid.Columns>
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="Height" Value="40"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    <Setter Property="FontSize" Value="14"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                    <Setter Property="Foreground" Value="#FF646366"/>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+
+
+        </DataGrid>
     </Grid>
+    
 </UserControl>

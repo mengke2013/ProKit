@@ -3,6 +3,8 @@ using System.Windows.Controls;
 
 using log4net;
 
+using Demo.controller;
+
 namespace Demo.ui.view
 {
     /// <summary>
@@ -14,10 +16,19 @@ namespace Demo.ui.view
 
         public event Home.ClickHandler CloseClick;
         private byte mSelectedTube;
+        private AlarmController mAlarmController;
 
         public TubeAlarmPage()
         {
             InitializeComponent();
+
+            mAlarmController = new AlarmController(this);
+        }
+
+        public void AcknowledgeButton_Click(object sender, RoutedEventArgs e)
+        {
+            mAlarmController.AcknowledgeAlarms(mSelectedTube);
+
         }
 
         public void LoadPage(byte selectedTube)
@@ -26,6 +37,9 @@ namespace Demo.ui.view
             mSelectedTube = selectedTube;
 
             Visibility = Visibility.Visible;
+
+            AlarmView.DescriptionColumn.Width = AlarmView.dataGrid.ActualWidth - 88;
+            mAlarmController.UpdateAlarmItems(selectedTube);
         }
 
         public void UnloadPage(byte selectedTube)

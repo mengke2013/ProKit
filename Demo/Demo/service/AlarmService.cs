@@ -10,6 +10,7 @@ using Demo.com;
 using System.Net;
 using System.Net.Sockets;
 using log4net;
+using Demo.repository;
 
 namespace Demo.service
 {
@@ -21,11 +22,14 @@ namespace Demo.service
 
         private List<Alarm>[] mAlarms;
         private byte mTubeIndex;
+        private IAlarmRepository mAlarmRepository;
 
         Object mLock = new Object();
 
         private AlarmService()
         {
+            mAlarmRepository = new AlarmRepository();
+
             mTubeIndex = 0;
 
             mAlarms = new List<Alarm>[6];
@@ -54,7 +58,8 @@ namespace Demo.service
                 mTubeIndex = tubeIndex;
             }
 
-            return mAlarms[mTubeIndex-1];
+            //return mAlarms[mTubeIndex-1];
+            return mAlarmRepository.ListAlarms(tubeIndex);
         }
 
         public void StartPullAlarmService()

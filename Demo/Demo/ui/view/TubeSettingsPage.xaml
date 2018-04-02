@@ -48,7 +48,7 @@
                             </StackPanel>
                         </Button>
                     </WrapPanel>
-                    <TextBlock Margin="15,0,15,3" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="16" Foreground="#FF236EC9" FontWeight="Bold" Text="{Binding Path=ProcessName}"></TextBlock>
+                    <TextBlock Margin="15,0,15,3" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="16" Foreground="#FF236EC9" FontWeight="Bold" Text="Configuration"></TextBlock>
                 </Grid>
             </DockPanel>
         </Grid>

@@ -13,15 +13,35 @@ namespace Demo.ui.model
 
         private byte mTubeIndex;
 
+        private int mID;
+        private string mDescription;
+
         public TubeAlarmItemModel()
         {
-            
+        }
+
+        public TubeAlarmItemModel(int id, string description)
+        {
+            this.mID = id;
+            this.mDescription = description;
         }
 
         public byte TubeIndex
         {
             get { return mTubeIndex; }
             set { mTubeIndex = value; }
+        }
+
+        public int ID
+        {
+            get { return mID; }
+            set { mID = value; }
+        }
+
+        public string Description
+        {
+            get { return mDescription; }
+            set { mDescription = value; }
         }
 
         void Notify(string propName)

@@ -110,6 +110,7 @@
     <Compile Include="model\RecipeStep.cs" />
     <Compile Include="model\Settings.cs" />
     <Compile Include="model\Trend.cs" />
+    <Compile Include="repository\AlarmRepository.cs" />
     <Compile Include="service\UserService.cs" />
     <Compile Include="service\HistoryService.cs" />
     <Compile Include="service\DataService.cs" />
