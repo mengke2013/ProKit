@@ -1,6 +1,7 @@
 ﻿using Demo.ui.view;
 using Demo.service;
 using Demo.ui.model;
+using Demo.model;
 
 namespace Demo.controller
 {
@@ -11,6 +12,12 @@ namespace Demo.controller
         public TubeInfoItemController(TubeInfoItem page)
         {
             mPage = page;
+        }
+
+        public void LoadTubeInfoItemData(byte tubeIndex)
+        {
+            SettingsService.Instance.LoadSettings(tubeIndex);
+            UpdateLabels();
         }
 
         public ProcessStatus GetStatus(byte tubeIndex)
@@ -89,8 +96,22 @@ namespace Demo.controller
             TubeInfoItemModel uiModel = mPage.ItemMode;
             uiModel.ProcessName = ProcessService.Instance.GetProcessName(uiModel.TubeIndex);
             uiModel.ProcessStatus = ProcessService.Instance.GetProcessStatus(uiModel.TubeIndex);
-            uiModel.Alarm = AlarmService.Instance.GetAlarms(uiModel.TubeIndex).Count > 0;
+            uiModel.Alarm = AlarmService.Instance.HasAlarm(uiModel.TubeIndex);
             uiModel.Locked = ProcessService.Instance.IsTubeLocked(uiModel.TubeIndex);
+        }
+
+        private void UpdateLabels()
+        {
+            TubeInfoItemModel viewModel = mPage.ItemMode;
+            Settings settings = SettingsService.Instance.GetSettings();
+            viewModel.Gas1Name = settings.Gas1Name;
+            viewModel.Gas2Name = settings.Gas2Name;
+            viewModel.Gas5Name = settings.Gas5Name;
+            viewModel.Gas6Name = settings.Gas6Name;
+            viewModel.Gas8Name = settings.Gas8Name;
+            viewModel.Ana1Name = settings.Ana1Name;
+            viewModel.Ana3Name = settings.Ana3Name;
+            viewModel.Ana4Name = settings.Ana4Name;
         }
     }
 }

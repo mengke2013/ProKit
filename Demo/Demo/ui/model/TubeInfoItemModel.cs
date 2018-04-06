@@ -45,6 +45,15 @@ namespace Demo.ui.model
         private string[] mEvColors;
         private string[] mPipeColors;
 
+        private string mGas1Name;
+        private string mGas2Name;
+        private string mGas5Name;
+        private string mGas6Name;
+        private string mGas8Name;
+        private string mAna1Name;
+        private string mAna3Name;
+        private string mAna4Name;
+
         private bool mAlarm;
         private bool mLocked;
 
@@ -533,6 +542,86 @@ namespace Demo.ui.model
         public Visibility ViewVisibleV
         {
             get { return mViewVisible?Visibility.Visible:Visibility.Hidden; }
+        }
+
+        public string Gas1Name
+        {
+            get { return mGas1Name; }
+            set
+            {
+                mGas1Name = value;
+                Notify("Gas1Name");
+            }
+        }
+
+        public string Gas2Name
+        {
+            get { return mGas2Name; }
+            set
+            {
+                mGas2Name = value;
+                Notify("Gas2Name");
+            }
+        }
+
+        public string Gas5Name
+        {
+            get { return mGas5Name; }
+            set
+            {
+                mGas5Name = value;
+                Notify("Gas5Name");
+            }
+        }
+
+        public string Gas6Name
+        {
+            get { return mGas6Name; }
+            set
+            {
+                mGas6Name = value;
+                Notify("Gas6Name");
+            }
+        }
+
+        public string Gas8Name
+        {
+            get { return mGas8Name; }
+            set
+            {
+                mGas8Name = value;
+                Notify("Gas8Name");
+            }
+        }
+
+        public string Ana1Name
+        {
+            get { return mAna1Name; }
+            set
+            {
+                mAna1Name = value;
+                Notify("Ana1Name");
+            }
+        }
+
+        public string Ana3Name
+        {
+            get { return mAna3Name; }
+            set
+            {
+                mAna3Name = value;
+                Notify("Ana3Name");
+            }
+        }
+
+        public string Ana4Name
+        {
+            get { return mAna4Name; }
+            set
+            {
+                mAna4Name = value;
+                Notify("Ana4Name");
+            }
         }
 
         void Notify(string propName)

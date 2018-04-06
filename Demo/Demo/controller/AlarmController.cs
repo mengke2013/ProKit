@@ -20,11 +20,9 @@ namespace Demo.controller
         {
             List<TubeAlarmItemModel> alarmItemModels = new List<TubeAlarmItemModel>();
             List<Alarm> alarms = AlarmService.Instance.LoadAlarms(selectedTube);
-            Random r = new Random();
-            int v = r.Next(0, alarms.Count);
-            for (int i = 0; i < v; ++i)
+            for (int i = 0; i < alarms.Count; ++i)
             {
-                alarmItemModels.Add(new TubeAlarmItemModel(i+1, "test" + (i+1)));
+                alarmItemModels.Add(new TubeAlarmItemModel(alarms[i].ID, alarms[i].ErrorCode, alarms[i].Description));
             }
             
             mPage.AlarmView.dataGrid.DataContext = alarmItemModels;
@@ -32,7 +30,7 @@ namespace Demo.controller
 
         public void AcknowledgeAlarms(byte selectedTube)
         {
-
+            AlarmService.Instance.AcknowledgeAlarms(selectedTube);
         }
     }
 }

@@ -14,15 +14,17 @@ namespace Demo.ui.model
         private byte mTubeIndex;
 
         private int mID;
+        private string mErrorCode;
         private string mDescription;
 
         public TubeAlarmItemModel()
         {
         }
 
-        public TubeAlarmItemModel(int id, string description)
+        public TubeAlarmItemModel(int id, string errorCode, string description)
         {
             this.mID = id;
+            this.mErrorCode = errorCode;
             this.mDescription = description;
         }
 
@@ -36,6 +38,12 @@ namespace Demo.ui.model
         {
             get { return mID; }
             set { mID = value; }
+        }
+
+        public string ErrorCode
+        {
+            get { return mErrorCode; }
+            set { mErrorCode = value; }
         }
 
         public string Description

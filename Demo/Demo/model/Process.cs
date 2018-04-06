@@ -31,6 +31,14 @@ namespace Demo.model
         private int mGas6CurMeas;
         private int mGas7CurMeas;
         private int mGas8CurMeas;
+        private byte mGas1Alarm;
+        private byte mGas2Alarm;
+        private byte mGas3Alarm;
+        private byte mGas4Alarm;
+        private byte mGas5Alarm;
+        private byte mGas6Alarm;
+        private byte mGas7Alarm;
+        private byte mGas8Alarm;
         private int mAna1Sp;
         private int mAna2Sp;
         private int mAna3Sp;
@@ -47,6 +55,14 @@ namespace Demo.model
         private int mAna6CurMeas;
         private int mAna7CurMeas;
         private int mAna8CurMeas;
+        private byte mAna1Alarm;
+        private byte mAna2Alarm;
+        private byte mAna3Alarm;
+        private byte mAna4Alarm;
+        private byte mAna5Alarm;
+        private byte mAna6Alarm;
+        private byte mAna7Alarm;
+        private byte mAna8Alarm;
         private bool mTemperInt;
         private int mTemper1Sp;
         private int mTemper2Sp;
@@ -80,12 +96,30 @@ namespace Demo.model
         private int mTemper6HeatPower;
         private int mTemper7HeatPower;
         private int mTemper8HeatPower;
+        private byte mTemper1IntAlarm;
+        private byte mTemper2IntAlarm;
+        private byte mTemper3IntAlarm;
+        private byte mTemper4IntAlarm;
+        private byte mTemper5IntAlarm;
+        private byte mTemper6IntAlarm;
+        private byte mTemper7IntAlarm;
+        private byte mTemper8IntAlarm;
+        private byte mTemper1ExtAlarm;
+        private byte mTemper2ExtAlarm;
+        private byte mTemper3ExtAlarm;
+        private byte mTemper4ExtAlarm;
+        private byte mTemper5ExtAlarm;
+        private byte mTemper6ExtAlarm;
+        private byte mTemper7ExtAlarm;
+        private byte mTemper8ExtAlarm;
         private int mPaddlePosAct;
         private int mPaddlePosSp;
         private int mPaddleSpeedSp;
         private int mEv;
         private int mDi;
         private int mDo;
+        private int mAlarmDi;
+        private int mAlarm;
 
         private int mStatus;
 
@@ -216,6 +250,54 @@ namespace Demo.model
             set { mGas8CurMeas = value; }
         }
 
+        public byte Gas1Alarm
+        {
+            get { return mGas1Alarm; }
+            set { mGas1Alarm = value; }
+        }
+
+        public byte Gas2Alarm
+        {
+            get { return mGas2Alarm; }
+            set { mGas2Alarm = value; }
+        }
+
+        public byte Gas3Alarm
+        {
+            get { return mGas3Alarm; }
+            set { mGas3Alarm = value; }
+        }
+
+        public byte Gas4Alarm
+        {
+            get { return mGas4Alarm; }
+            set { mGas4Alarm = value; }
+        }
+
+        public byte Gas5Alarm
+        {
+            get { return mGas5Alarm; }
+            set { mGas5Alarm = value; }
+        }
+
+        public byte Gas6Alarm
+        {
+            get { return mGas6Alarm; }
+            set { mGas6Alarm = value; }
+        }
+
+        public byte Gas7Alarm
+        {
+            get { return mGas7Alarm; }
+            set { mGas7Alarm = value; }
+        }
+
+        public byte Gas8Alarm
+        {
+            get { return mGas8Alarm; }
+            set { mGas8Alarm = value; }
+        }
+
         public int Ana1Sp
         {
             get { return mAna1Sp; }
@@ -296,6 +378,54 @@ namespace Demo.model
         {
             get { return mAna8CurMeas; }
             set { mAna8CurMeas = value; }
+        }
+
+        public byte Ana1Alarm
+        {
+            get { return mAna1Alarm; }
+            set { mAna1Alarm = value; }
+        }
+
+        public byte Ana2Alarm
+        {
+            get { return mAna2Alarm; }
+            set { mAna2Alarm = value; }
+        }
+
+        public byte Ana3Alarm
+        {
+            get { return mAna3Alarm; }
+            set { mAna3Alarm = value; }
+        }
+
+        public byte Ana4Alarm
+        {
+            get { return mAna4Alarm; }
+            set { mAna4Alarm = value; }
+        }
+
+        public byte Ana5Alarm
+        {
+            get { return mAna5Alarm; }
+            set { mAna5Alarm = value; }
+        }
+
+        public byte Ana6Alarm
+        {
+            get { return mAna6Alarm; }
+            set { mAna6Alarm = value; }
+        }
+
+        public byte Ana7Alarm
+        {
+            get { return mAna7Alarm; }
+            set { mAna7Alarm = value; }
+        }
+
+        public byte Ana8Alarm
+        {
+            get { return mAna8Alarm; }
+            set { mAna8Alarm = value; }
         }
 
         public bool TemperInt
@@ -468,6 +598,102 @@ namespace Demo.model
             set { mTemper8HeatPower = value; }
         }
 
+        public byte Temper1IntAlarm
+        {
+            get { return mTemper1IntAlarm; }
+            set { mTemper1IntAlarm = value; }
+        }
+
+        public byte Temper2IntAlarm
+        {
+            get { return mTemper2IntAlarm; }
+            set { mTemper2IntAlarm = value; }
+        }
+
+        public byte Temper3IntAlarm
+        {
+            get { return mTemper3IntAlarm; }
+            set { mTemper3IntAlarm = value; }
+        }
+
+        public byte Temper4IntAlarm
+        {
+            get { return mTemper4IntAlarm; }
+            set { mTemper4IntAlarm = value; }
+        }
+
+        public byte Temper5IntAlarm
+        {
+            get { return mTemper5IntAlarm; }
+            set { mTemper5IntAlarm = value; }
+        }
+
+        public byte Temper6IntAlarm
+        {
+            get { return mTemper6IntAlarm; }
+            set { mTemper6IntAlarm = value; }
+        }
+
+        public byte Temper7IntAlarm
+        {
+            get { return mTemper7IntAlarm; }
+            set { mTemper7IntAlarm = value; }
+        }
+
+        public byte Temper8IntAlarm
+        {
+            get { return mTemper8IntAlarm; }
+            set { mTemper8IntAlarm = value; }
+        }
+
+        public byte Temper1ExtAlarm
+        {
+            get { return mTemper1ExtAlarm; }
+            set { mTemper1ExtAlarm = value; }
+        }
+
+        public byte Temper2ExtAlarm
+        {
+            get { return mTemper2ExtAlarm; }
+            set { mTemper2ExtAlarm = value; }
+        }
+
+        public byte Temper3ExtAlarm
+        {
+            get { return mTemper3ExtAlarm; }
+            set { mTemper3ExtAlarm = value; }
+        }
+
+        public byte Temper4ExtAlarm
+        {
+            get { return mTemper4ExtAlarm; }
+            set { mTemper4ExtAlarm = value; }
+        }
+
+        public byte Temper5ExtAlarm
+        {
+            get { return mTemper5ExtAlarm; }
+            set { mTemper5ExtAlarm = value; }
+        }
+
+        public byte Temper6ExtAlarm
+        {
+            get { return mTemper6ExtAlarm; }
+            set { mTemper6ExtAlarm = value; }
+        }
+
+        public byte Temper7ExtAlarm
+        {
+            get { return mTemper7ExtAlarm; }
+            set { mTemper7ExtAlarm = value; }
+        }
+
+        public byte Temper8ExtAlarm
+        {
+            get { return mTemper8ExtAlarm; }
+            set { mTemper8ExtAlarm = value; }
+        }
+
         public int PaddlePosAct
         {
             get { return mPaddlePosAct; }
@@ -500,6 +726,18 @@ namespace Demo.model
         {
             get { return mDo; }
             set { mDo = value; }
+        }
+
+        public int AlarmDi
+        {
+            get { return mAlarmDi; }
+            set { mAlarmDi = value; }
+        }
+
+        public int Alarm
+        {
+            get { return mAlarm; }
+            set { mAlarm = value; }
         }
     }
 }

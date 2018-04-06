@@ -10,6 +10,7 @@ using log4net;
 
 using Rocky.Core.Opc.Ua;
 using Demo.com;
+using System.Collections;
 
 namespace Demo.service
 {
@@ -454,6 +455,120 @@ namespace Demo.service
         public int GetDo(byte tubeIndex)
         {
             return mProcesses[tubeIndex - 1].Do;
+        }
+
+        public List<string> GetAlarms(byte tubeIndex)
+        {
+            List<string> alarmCodes = new List<string>();
+            Random r = new Random();
+            int v = r.Next(0, 32);
+            mProcesses[tubeIndex - 1].Alarm = v;
+            var arr = new BitArray(BitConverter.GetBytes(mProcesses[tubeIndex-1].Alarm));
+            for (int i = 0; i < 32; ++i)
+            {
+                if (arr[i])
+                {
+                    alarmCodes.Add(i<9?"000"+(i+1):"00"+(i+1));
+                }
+            }
+            arr = new BitArray(BitConverter.GetBytes(mProcesses[tubeIndex - 1].AlarmDi));
+            for (int i = 0; i < 32; ++i)
+            {
+                if (arr[i])
+                {
+                    alarmCodes.Add("00" + (i + 33));
+                }
+            }
+            if (mProcesses[tubeIndex - 1].Gas1Alarm != 0)
+            {
+                alarmCodes.Add("0" + (100 + mProcesses[tubeIndex - 1].Gas1Alarm));
+            }
+            if (mProcesses[tubeIndex - 1].Gas2Alarm != 0)
+            {
+                alarmCodes.Add("0" + (110 + mProcesses[tubeIndex - 1].Gas2Alarm));
+            }
+            if (mProcesses[tubeIndex - 1].Gas5Alarm != 0)
+            {
+                alarmCodes.Add("0" + (150 + mProcesses[tubeIndex - 1].Gas5Alarm));
+            }
+            if (mProcesses[tubeIndex - 1].Gas6Alarm != 0)
+            {
+                alarmCodes.Add("0" + (160 + mProcesses[tubeIndex - 1].Gas6Alarm));
+            }
+            if (mProcesses[tubeIndex - 1].Gas8Alarm != 0)
+            {
+                alarmCodes.Add("0" + (180 + mProcesses[tubeIndex - 1].Gas8Alarm));
+            }
+            if (mProcesses[tubeIndex - 1].Ana1Alarm != 0)
+            {
+                alarmCodes.Add("0" + (210 + mProcesses[tubeIndex - 1].Ana1Alarm));
+            }
+            if (mProcesses[tubeIndex - 1].Ana3Alarm != 0)
+            {
+                alarmCodes.Add("0" + (230 + mProcesses[tubeIndex - 1].Ana3Alarm));
+            }
+            if (mProcesses[tubeIndex - 1].Ana4Alarm != 0)
+            {
+                alarmCodes.Add("0" + (240 + mProcesses[tubeIndex - 1].Ana4Alarm));
+            }
+            if (mProcesses[tubeIndex - 1].Ana5Alarm != 0)
+            {
+                alarmCodes.Add("0" + (250 + mProcesses[tubeIndex - 1].Ana5Alarm));
+            }
+            if (mProcesses[tubeIndex - 1].Ana6Alarm != 0)
+            {
+                alarmCodes.Add("0" + (260 + mProcesses[tubeIndex - 1].Ana6Alarm));
+            }
+            if (mProcesses[tubeIndex - 1].Temper1IntAlarm != 0)
+            {
+                alarmCodes.Add("0" + (310 + mProcesses[tubeIndex - 1].Temper1IntAlarm));
+            }
+            if (mProcesses[tubeIndex - 1].Temper2IntAlarm != 0)
+            {
+                alarmCodes.Add("0" + (320 + mProcesses[tubeIndex - 1].Temper2IntAlarm));
+            }
+            if (mProcesses[tubeIndex - 1].Temper3IntAlarm != 0)
+            {
+                alarmCodes.Add("0" + (330 + mProcesses[tubeIndex - 1].Temper3IntAlarm));
+            }
+            if (mProcesses[tubeIndex - 1].Temper4IntAlarm != 0)
+            {
+                alarmCodes.Add("0" + (340 + mProcesses[tubeIndex - 1].Temper4IntAlarm));
+            }
+            if (mProcesses[tubeIndex - 1].Temper5IntAlarm != 0)
+            {
+                alarmCodes.Add("0" + (350 + mProcesses[tubeIndex - 1].Temper5IntAlarm));
+            }
+            if (mProcesses[tubeIndex - 1].Temper6IntAlarm != 0)
+            {
+                alarmCodes.Add("0" + (360 + mProcesses[tubeIndex - 1].Temper6IntAlarm));
+            }
+            if (mProcesses[tubeIndex - 1].Temper1ExtAlarm != 0)
+            {
+                alarmCodes.Add("0" + (410 + mProcesses[tubeIndex - 1].Temper1ExtAlarm));
+            }
+            if (mProcesses[tubeIndex - 1].Temper2ExtAlarm != 0)
+            {
+                alarmCodes.Add("0" + (420 + mProcesses[tubeIndex - 1].Temper2ExtAlarm));
+            }
+            if (mProcesses[tubeIndex - 1].Temper3ExtAlarm != 0)
+            {
+                alarmCodes.Add("0" + (430 + mProcesses[tubeIndex - 1].Temper3ExtAlarm));
+            }
+            if (mProcesses[tubeIndex - 1].Temper4ExtAlarm != 0)
+            {
+                alarmCodes.Add("0" + (440 + mProcesses[tubeIndex - 1].Temper4ExtAlarm));
+            }
+            if (mProcesses[tubeIndex - 1].Temper5ExtAlarm != 0)
+            {
+                alarmCodes.Add("0" + (450 + mProcesses[tubeIndex - 1].Temper5ExtAlarm));
+            }
+            if (mProcesses[tubeIndex - 1].Temper6ExtAlarm != 0)
+            {
+                alarmCodes.Add("0" + (460 + mProcesses[tubeIndex - 1].Temper6ExtAlarm));
+            }
+
+            return alarmCodes;
         }
 
         public bool IsTubeLocked(byte tubeIndex)
@@ -911,6 +1026,40 @@ namespace Demo.service
                     //mProcesses[index].TemperInt = BitConverter.ToBoolean(processBytes, 300 * i + 266);
                     short iTemperInt = BitConverter.ToInt16(processBytes, 300 * i + 266);
                     mProcesses[index].TemperInt = (iTemperInt == 1);
+                    mProcesses[index].Alarm = BitConverter.ToInt32(processBytes, 300 * i + 225);
+                    mProcesses[index].AlarmDi = BitConverter.ToInt32(processBytes, 300 * i + 268);
+                    mProcesses[index].Gas1Alarm = processBytes[300 * i + 73];
+                    mProcesses[index].Gas2Alarm = processBytes[300 * i + 74];
+                    mProcesses[index].Gas3Alarm = processBytes[300 * i + 75];
+                    mProcesses[index].Gas4Alarm = processBytes[300 * i + 76];
+                    mProcesses[index].Gas5Alarm = processBytes[300 * i + 77];
+                    mProcesses[index].Gas6Alarm = processBytes[300 * i + 78];
+                    mProcesses[index].Gas7Alarm = processBytes[300 * i + 79];
+                    mProcesses[index].Gas8Alarm = processBytes[300 * i + 80];
+                    mProcesses[index].Ana1Alarm = processBytes[300 * i + 113];
+                    mProcesses[index].Ana2Alarm = processBytes[300 * i + 114];
+                    mProcesses[index].Ana3Alarm = processBytes[300 * i + 115];
+                    mProcesses[index].Ana4Alarm = processBytes[300 * i + 116];
+                    mProcesses[index].Ana5Alarm = processBytes[300 * i + 117];
+                    mProcesses[index].Ana6Alarm = processBytes[300 * i + 118];
+                    mProcesses[index].Ana7Alarm = processBytes[300 * i + 119];
+                    mProcesses[index].Ana8Alarm = processBytes[300 * i + 120];
+                    mProcesses[index].Temper1IntAlarm = processBytes[300 * i + 185];
+                    mProcesses[index].Temper2IntAlarm = processBytes[300 * i + 186];
+                    mProcesses[index].Temper3IntAlarm = processBytes[300 * i + 187];
+                    mProcesses[index].Temper4IntAlarm = processBytes[300 * i + 188];
+                    mProcesses[index].Temper5IntAlarm = processBytes[300 * i + 189];
+                    mProcesses[index].Temper6IntAlarm = processBytes[300 * i + 190];
+                    mProcesses[index].Temper7IntAlarm = processBytes[300 * i + 191];
+                    mProcesses[index].Temper8IntAlarm = processBytes[300 * i + 192];
+                    mProcesses[index].Temper1ExtAlarm = processBytes[300 * i + 193];
+                    mProcesses[index].Temper2ExtAlarm = processBytes[300 * i + 194];
+                    mProcesses[index].Temper3ExtAlarm = processBytes[300 * i + 195];
+                    mProcesses[index].Temper4ExtAlarm = processBytes[300 * i + 196];
+                    mProcesses[index].Temper5ExtAlarm = processBytes[300 * i + 197];
+                    mProcesses[index].Temper6ExtAlarm = processBytes[300 * i + 198];
+                    mProcesses[index].Temper7ExtAlarm = processBytes[300 * i + 199];
+                    mProcesses[index].Temper8ExtAlarm = processBytes[300 * i + 200];
 
                     mProcesses[index].Status = (sbyte)processBytes[300 * i + 229];
                     mProcesses[index].ProcessRemainingTime = BitConverter.ToInt32(processBytes, 300 * i + 230);

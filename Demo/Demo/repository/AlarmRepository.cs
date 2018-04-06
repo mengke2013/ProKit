@@ -4,6 +4,7 @@ using System.Linq;
 using System.Data;
 using Demo.model;
 using MySql.Data.MySqlClient;
+using System.Data.SqlClient;
 
 namespace Demo.repository
 {
@@ -27,24 +28,18 @@ namespace Demo.repository
             {
 
                 connection.Open();
+                MySqlDataReader myReader = null;
                 MySqlCommand cmd = connection.CreateCommand();
-                cmd.CommandText = string.Format("select ID, EVENT_TYPE, EVENT_DESC, EVENT_TIME from event where TUBE_NUM = {0} order by EVENT_TIME desc limit 20", selectedTube);
-                MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
-
-                DataSet ds = new DataSet();
-                adap.Fill(ds);
-                //this.clothesListView.DataContext = ds.Tables[0].DefaultView;
+                cmd.CommandText = string.Format("select ID, ErrorCode from alarm where TubeIndex = {0} And Type = 0 order by StartTime desc limit 20", selectedTube);
+                myReader = cmd.ExecuteReader();
                 alarmLst = new List<Alarm>();
-                foreach (DataRow r in ds.Tables[0].Rows)
+                while (myReader.Read())
                 {
-                    string t = r["ID"].ToString();
-                    string d = r["EVENT_DESC"].ToString();
                     Alarm alarm = new Alarm();
-
+                    alarm.ID = myReader.GetInt32("ID");
+                    alarm.ErrorCode = (string)myReader["ErrorCode"];
                     alarmLst.Add(alarm);
                 }
-           
- 
             }
             catch (Exception)
             {
@@ -61,30 +56,103 @@ namespace Demo.repository
             return alarmLst;
         }
 
-        public bool CreateAlarm(Alarm alarmToCreate)
+        public Alarm FindAlarm(int tubeIndex, string errorCode)
         {
+            Alarm alarm = null;
+            MySqlConnection connection;
+            connection = new MySqlConnection(myConnectionString);
             try
             {
 
-                return true;
+                connection.Open();
+                MySqlDataReader myReader = null;
+                MySqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = string.Format("select ID, Type, StartTime, EndTime from alarm where TubeIndex = {0} And ErrorCode = {1} AND Type = 0", tubeIndex, errorCode);
+                myReader = cmd.ExecuteReader();
+                while (myReader.Read())
+                {
+                    alarm = new Alarm();
+                    alarm.ID = myReader.GetInt32("ID");
+                    alarm.Type = (int)myReader["Type"];                   
+                }
+
+
             }
-            catch
+            catch (Exception)
             {
-                return false;
+                throw;
             }
+            finally
+            {
+                if (connection.State == System.Data.ConnectionState.Open)
+                {
+                    connection.Close();
+
+                }
+            }
+            return alarm;
         }
 
-        public bool UpdateAlarm(Alarm alarmToUpdate)
+        public bool CreateAlarm(Alarm alarmToCreate)
         {
+            bool result = false;
+            MySqlConnection connection;
+            connection = new MySqlConnection(myConnectionString);
             try
             {
+                connection.Open();
+                MySqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = "INSERT INTO alarm(TubeIndex,ErrorCode) VALUES(?,?)";
+                //cmd.Prepare();
 
-                return true;
+                cmd.Parameters.Add("TubeIndex", MySqlDbType.Int32).Value = alarmToCreate.TubeIndex;
+                cmd.Parameters.Add("ErrorCode", MySqlDbType.VarChar).Value = alarmToCreate.ErrorCode;
+                cmd.ExecuteNonQuery(); // HERE I GOT AN EXCEPTION IN THIS LINE
+                result = true;
             }
-            catch
+            catch(Exception e)
             {
-                return false;
+                result = false;
             }
+            finally
+            {
+                if (connection.State == System.Data.ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+            return result;
+        }
+
+        public bool UpdateAlarm(int tubeIndex)
+        {
+            bool result = false;
+            MySqlConnection connection;
+            connection = new MySqlConnection(myConnectionString);
+            try
+            {
+                connection.Open();
+                MySqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = "UPDATE alarm SET Type = @Type WHERE TubeIndex = @TubeIndex";
+                //cmd.Prepare();
+
+                cmd.Parameters.Add("@Type", MySqlDbType.Int32).Value = 1;
+                cmd.Parameters.Add("@TubeIndex", MySqlDbType.Int32).Value = tubeIndex;
+                cmd.ExecuteNonQuery(); // HERE I GOT AN EXCEPTION IN THIS LINE
+                result = true;
+            }
+            catch (Exception e)
+            {
+                result = false;
+            }
+            finally
+            {
+                if (connection.State == System.Data.ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+            return result;
         }
 
     }
@@ -93,8 +161,10 @@ namespace Demo.repository
     {
         bool CreateAlarm(Alarm alarmToCreate);
 
-        bool UpdateAlarm(Alarm alarmToUpdate);
+        bool UpdateAlarm(int tubeIndex);
 
         List<Alarm> ListAlarms(byte selectedTube);
+
+        Alarm FindAlarm(int tubeIndex, string errorCode);
     }
 }

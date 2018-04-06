@@ -65,6 +65,8 @@ namespace Demo.ui.view
         {
             mItemMode.ViewVisible = value;
             mHoldingUpdate = !value;
+
+            mController.LoadTubeInfoItemData(mItemMode.TubeIndex);
         }
 
         public void StartUpdateUIServer()

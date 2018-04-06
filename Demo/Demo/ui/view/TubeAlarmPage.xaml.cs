@@ -28,7 +28,8 @@ namespace Demo.ui.view
         public void AcknowledgeButton_Click(object sender, RoutedEventArgs e)
         {
             mAlarmController.AcknowledgeAlarms(mSelectedTube);
-
+            MessageBox.Show("Acknowledge alarm finished");
+            LoadPage(mSelectedTube);
         }
 
         public void LoadPage(byte selectedTube)
@@ -38,7 +39,7 @@ namespace Demo.ui.view
 
             Visibility = Visibility.Visible;
 
-            AlarmView.DescriptionColumn.Width = AlarmView.dataGrid.ActualWidth - 88;
+            AlarmView.DescriptionColumn.Width = AlarmView.dataGrid.ActualWidth - 148;
             mAlarmController.UpdateAlarmItems(selectedTube);
         }
 

@@ -29,7 +29,8 @@
     <Grid>
         <DataGrid x:Name="dataGrid" ItemsSource="{Binding}" Margin="20" AutoGenerateColumns="False" RowHeight="32">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Width="80" Binding="{Binding ID}" CellStyle="{StaticResource MyDataGridCellStyle}" />
+                <DataGridTextColumn Header="ID" Width="60" Binding="{Binding ID}" CellStyle="{StaticResource MyDataGridCellStyle}" />
+                <DataGridTextColumn Header="Code" Width="80" Binding="{Binding ErrorCode}" CellStyle="{StaticResource MyDataGridCellStyle}" />
                 <DataGridTextColumn x:Name="DescriptionColumn" Header="Description" Binding="{Binding Description}" CellStyle="{StaticResource MyDataGridCellStyle}" />
             </DataGrid.Columns>
             <DataGrid.ColumnHeaderStyle>
