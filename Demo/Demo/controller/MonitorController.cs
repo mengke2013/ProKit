@@ -20,6 +20,7 @@ namespace Demo.controller
         public MonitorController(TubeMonitorPage page)
         {
             mPage = page;
+            mCommitItems = new List<History>();
         }
 
         public void LoadMonitorData(byte tubeIndex)

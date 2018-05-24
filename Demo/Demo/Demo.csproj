@@ -103,6 +103,11 @@
     <Compile Include="controller\TubeInfoItemController.cs" />
     <Compile Include="model\Alarm.cs" />
     <Compile Include="model\EditProcess.cs" />
+    <Compile Include="model\Gas.cs" />
+    <Compile Include="model\Paddle.cs" />
+    <Compile Include="model\Dioev.cs" />
+    <Compile Include="model\Vacuum.cs" />
+    <Compile Include="model\Temperature.cs" />
     <Compile Include="model\User.cs" />
     <Compile Include="model\History.cs" />
     <Compile Include="model\Process.cs" />
@@ -110,6 +115,11 @@
     <Compile Include="model\RecipeStep.cs" />
     <Compile Include="model\Settings.cs" />
     <Compile Include="model\Trend.cs" />
+    <Compile Include="repository\MfcRepository.cs" />
+    <Compile Include="repository\PaddleRepository.cs" />
+    <Compile Include="repository\DioevRepository.cs" />
+    <Compile Include="repository\VacuumRepository.cs" />
+    <Compile Include="repository\TemperRepository.cs" />
     <Compile Include="repository\AlarmRepository.cs" />
     <Compile Include="service\UserService.cs" />
     <Compile Include="service\HistoryService.cs" />

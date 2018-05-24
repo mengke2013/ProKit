@@ -69,7 +69,7 @@
                         </Button>
                         <Button Name="btnCommit" Margin="0,0,0,0" Visibility="Hidden" Click="CommitButton_Click">
                             <StackPanel Width="40" Height="40">
-                                <Image Source="/Demo;component/images/submit.png"></Image>
+                                <Image Source="/Demo;component/images/download.png"></Image>
                                 <TextBlock>Commit</TextBlock>
                             </StackPanel>
                         </Button>

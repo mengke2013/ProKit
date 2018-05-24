@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Threading;
-using Demo.model;
-using Rocky.Core.Opc.Ua;
-using Demo.com;
-using System.Net;
-using System.Net.Sockets;
+
 using log4net;
+
+using Demo.model;
+using Demo.repository;
 
 namespace Demo.service
 {
@@ -20,13 +15,30 @@ namespace Demo.service
         private static DataService instance;
 
         private byte mTubeIndex;
+        private ITemperRepository mTemperRepository;
+        private IMfcRepository mMfcRepository;
+        private IVacuumRepository mVacuumRepository;
+        private IPaddleRepository mPaddleRepository;
+        private IDioevRepository mDioevRepository;
+
+        private Paddle[] prePaddles;
 
         Object mLock = new Object();
 
         private DataService()
         {
             mTubeIndex = 0;
-  
+            mTemperRepository = new TemperRepository();
+            mMfcRepository = new MfcRepository();
+            mVacuumRepository = new VacuumRepository();
+            mPaddleRepository = new PaddleRepository();
+            mDioevRepository = new DioevRepository();
+
+            prePaddles = new Paddle[6];
+            for (int i = 0; i < 6; ++i)
+            {
+                prePaddles[i] = new Paddle();
+            }
         }
 
         public static DataService Instance
@@ -57,7 +69,35 @@ namespace Demo.service
         {
             for (int i = 0; i < 6; ++i)
             {
+                Temperature t = new Temperature();
+                t.TubeIndex = i + 1;
+                mTemperRepository.CreateTemperature(t);
+                Gas g = new Gas();
+                g.TubeIndex = i + 1;
+                mMfcRepository.CreateGas(g);
+                Vacuum v = new Vacuum();
+                v.TubeIndex = i + 1;
+                mVacuumRepository.CreateVacuum(v);
+                Dioev d = new Dioev();
+                d.TubeIndex = i + 1;
+                mDioevRepository.CreateDioev(d);
 
+                Paddle curPaddle = ProcessService.Instance.GetPaddle(i+1);
+                if (prePaddles[i] == null)
+                {
+                    curPaddle.TubeIndex = i + 1;
+                    mPaddleRepository.CreatePaddle(curPaddle);
+                    prePaddles[i] = curPaddle;
+                }
+                else
+                {
+                    if (prePaddles[i].PaddlePosAct != curPaddle.PaddlePosAct || prePaddles[i].PaddlePosSp != curPaddle.PaddlePosSp || prePaddles[i].PaddleSpeedSp != curPaddle.PaddleSpeedSp)
+                    {
+                        curPaddle.TubeIndex = i + 1;
+                        mPaddleRepository.CreatePaddle(curPaddle);
+                        prePaddles[i] = curPaddle;
+                    }
+                }
             }
             Thread.Sleep(1000);
             PullData();

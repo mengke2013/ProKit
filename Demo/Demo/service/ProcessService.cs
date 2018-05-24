@@ -457,6 +457,17 @@ namespace Demo.service
             return mProcesses[tubeIndex - 1].Do;
         }
 
+        public Paddle GetPaddle(int tubeIndex)
+        {
+            Paddle paddle = new Paddle();
+
+            paddle.PaddlePosSp = mProcesses[tubeIndex - 1].PaddlePosSp;
+            paddle.PaddlePosAct = mProcesses[tubeIndex - 1].PaddlePosAct;
+            paddle.PaddleSpeedSp = mProcesses[tubeIndex - 1].PaddleSpeedSp;
+
+            return paddle;
+        }
+
         public List<string> GetAlarms(byte tubeIndex)
         {
             List<string> alarmCodes = new List<string>();

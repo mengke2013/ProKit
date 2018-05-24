@@ -26,7 +26,7 @@ namespace Demo.com
         private SocketObject mSocket4;
         private OnConnectEnd mEndCallBack;
 
-        private string[] hosts = { "192.168.1.64", "192.168.1.64" };
+        private string[] hosts = { "192.168.1.63", "192.168.1.64" };
 
         public static SocketClient Instance
         {

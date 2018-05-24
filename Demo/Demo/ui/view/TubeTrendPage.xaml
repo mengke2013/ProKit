@@ -37,7 +37,6 @@
                     <Grid.RowDefinitions>
                         <RowDefinition />
                     </Grid.RowDefinitions>
-                    <TextBlock Margin="10,0,0,5" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Bottom"  Text="{Binding Path=PlotType}" FontSize="16" Foreground="#FF236EC9" FontWeight="Bold"></TextBlock>
                     <WrapPanel Margin="5,8,5,2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="3" Grid.ColumnSpan="2">
                         <Button Margin="5,0,5,0" Click="Temper_Click">
                             <StackPanel Width="40" Height="40">
@@ -55,7 +54,8 @@
                             </StackPanel>
                         </Button>
                     </WrapPanel>
-                    <TextBlock Margin="15,0,15,3" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="16" Foreground="#FF236EC9" FontWeight="Bold" Text="{Binding Path=ProcessName}"></TextBlock>
+                    <TextBlock Margin="15,0,15,3" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="16" Foreground="#FF236EC9" FontWeight="Bold" Text="Trend -"></TextBlock>
+                    <TextBlock Margin="72,0,15,3" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Bottom"  Text="{Binding Path=PlotType}" FontSize="16" Foreground="#FF236EC9" FontWeight="Bold"></TextBlock>
                 </Grid>
             </DockPanel>
         </Grid>

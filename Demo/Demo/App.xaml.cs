@@ -58,6 +58,7 @@ namespace Demo
             SocketClient.Instance.StartTcpService(new SocketClient.OnConnectEnd(OnConnectEnd));
             TrendService.Instance.StartPullTrendDataService();
             AlarmService.Instance.StartPullAlarmService();
+            DataService.Instance.StartPullDataService();
         }
 
         private void OnConnectEnd()
